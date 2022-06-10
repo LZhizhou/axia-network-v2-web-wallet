@@ -31,10 +31,10 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop, Model } from 'vue-property-decorator'
-import { Utils, Big } from '@avalabs/avalanche-wallet-sdk'
+import { Utils, Big } from '@avalabs/axia-wallet-sdk'
 //@ts-ignore
 import { BigNumInput } from '@avalabs/vue_components'
-import { BN } from 'avalanche'
+import { BN } from 'axia'
 import { priceDict } from '../../store/types'
 
 @Component({

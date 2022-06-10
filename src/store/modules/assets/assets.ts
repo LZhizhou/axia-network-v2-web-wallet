@@ -24,11 +24,11 @@ import {
     UTXO as AVMUTXO,
     UTXO,
     NFTMintOutput,
-} from 'avalanche/dist/apis/avm'
-import { UnixNow } from 'avalanche/dist/utils'
-import { BN } from 'avalanche'
-import { UTXOSet as PlatformUTXOSet } from 'avalanche/dist/apis/platformvm/utxos'
-import { PlatformVMConstants, StakeableLockOut } from 'avalanche/dist/apis/platformvm'
+} from 'axia/dist/apis/avm'
+import { UnixNow } from 'axia/dist/utils'
+import { BN } from 'axia'
+import { UTXOSet as PlatformUTXOSet } from 'axia/dist/apis/platformvm/utxos'
+import { PlatformVMConstants, StakeableLockOut } from 'axia/dist/apis/platformvm'
 import axios from 'axios'
 import Erc20Token from '@/js/Erc20Token'
 import { AvaNetwork } from '@/js/AvaNetwork'

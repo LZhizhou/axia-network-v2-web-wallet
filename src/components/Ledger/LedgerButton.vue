@@ -23,7 +23,7 @@ import TransportWebHID from '@ledgerhq/hw-transport-webhid'
 // @ts-ignore
 import Eth from '@ledgerhq/hw-app-eth'
 // @ts-ignore
-import AppAvax from '@obsidiansystems/hw-app-avalanche'
+import AppAvax from '@obsidiansystems/hw-app-axia'
 import Spinner from '@/components/misc/Spinner.vue'
 import LedgerBlock from '@/components/modals/LedgerBlock.vue'
 import { LedgerWallet, MIN_EVM_SUPPORT_V } from '@/js/wallets/LedgerWallet'
@@ -128,7 +128,7 @@ export default class LedgerButton extends Vue {
 
     async waitForConfig(app: AppAvax) {
         // Config is found immediately if the device is connected and the app is open.
-        // If no config was found that means user has not opened the Avalanche app.
+        // If no config was found that means user has not opened the Axia app.
         setTimeout(() => {
             if (this.config) return
             this.$store.commit('Ledger/setIsUpgradeRequired', true)

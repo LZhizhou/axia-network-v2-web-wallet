@@ -1,11 +1,11 @@
 import Big from 'big.js'
 
-import { Buffer, BN } from 'avalanche'
+import { Buffer, BN } from 'axia'
 import AvaAsset from '@/js/AvaAsset'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { ITransaction } from '@/components/wallet/transfer/types'
 import { AllKeyFileTypes, AllKeyFileDecryptedTypes } from '@/js/IKeystore'
-import { UTXO } from 'avalanche/dist/apis/avm'
+import { UTXO } from 'axia/dist/apis/avm'
 import { LedgerWallet } from '@/js/wallets/LedgerWallet'
 import { SingletonWallet } from '@/js/wallets/SingletonWallet'
 import { UTXO as TxUTXO } from './modules/history/types'
@@ -24,7 +24,7 @@ export interface RootState {
 export interface ILedgerAppConfig {
     version: string
     commit: string
-    name: 'Avalanche'
+    name: 'Axia'
 }
 
 export interface priceDict {

@@ -5,12 +5,12 @@ import { NetworkState } from '@/store/modules/network/types'
 import { ava, avm, bintools, cChain, infoApi, pChain } from '@/AVA'
 import { AvaNetwork } from '@/js/AvaNetwork'
 import { explorer_api } from '@/explorer_api'
-import { BN } from 'avalanche'
-import { getPreferredHRP } from 'avalanche/dist/utils'
+import { BN } from 'axia'
+import { getPreferredHRP } from 'axia/dist/utils'
 import router from '@/router'
 import { web3 } from '@/evm'
 import { setSocketNetwork } from '../../../providers'
-import { Network } from '@avalabs/avalanche-wallet-sdk'
+import { Network } from '@avalabs/axia-wallet-sdk'
 const network_module: Module<NetworkState, RootState> = {
     namespaced: true,
     state: {

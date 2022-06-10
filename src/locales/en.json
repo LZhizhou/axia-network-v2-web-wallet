@@ -5,15 +5,15 @@
     "address": "Address",
     "add_pk": "Add Private Key",
     "home": {
-        "desc": "Avalanche Wallet is a simple, secure, non-custodial wallet for storing Avalanche assets.",
+        "desc": "Axia Wallet is a simple, secure, non-custodial wallet for storing Axia assets.",
         "access": {
             "title": "Welcome Back!",
-            "desc": "Access your existing Avalanche wallet here.",
+            "desc": "Access your existing Axia wallet here.",
             "submit": "Access Wallet"
         },
         "create": {
-            "title": "New to Avalanche Wallet?",
-            "desc": "Create a new wallet to send, receive and swap Avalanche assets.",
+            "title": "New to Axia Wallet?",
+            "desc": "Create a new wallet to send, receive and swap Axia assets.",
             "submit": "Create New Wallet"
         }
     },
@@ -78,18 +78,18 @@
         }
     },
     "create": {
-        "generate": "Generate a new key phrase to setup your Avalanche Wallet.",
+        "generate": "Generate a new key phrase to setup your Axia Wallet.",
         "but_have": "Already have a wallet?",
         "submit": "Generate Key Phrase",
         "cancel": "Cancel",
         "mnemonic_title": "This is your key phrase.",
-        "mnemonic_desc": "Use these 24 words in sequential order to recover your Avalanche Wallet",
+        "mnemonic_desc": "Use these 24 words in sequential order to recover your Axia Wallet",
         "attention": "Attention!",
-        "warning": "Store this key phrase in a secure location. Anyone with this key phrase can access your Avalanche Wallet. There is no way to recover lost key phrases.",
+        "warning": "Store this key phrase in a secure location. Anyone with this key phrase can access your Axia Wallet. There is no way to recover lost key phrases.",
         "confirm": "I wrote down my key phrase in a secure location.",
         "regenerate": "Regenerate",
         "success_title": "Congratulations!",
-        "success_desc": "It's time to access your Avalanche Wallet.",
+        "success_desc": "It's time to access your Axia Wallet.",
         "success_submit": "Access Wallet",
         "verify": "Verify",
         "verifytitle": "Verify Mnemonic",
@@ -98,7 +98,7 @@
         "error_word": "The mnemonic phrase you entered for word not match the actual phrase."
     },
     "top": {
-        "title1": "Derived Avalanche Wallet Address",
+        "title1": "Derived Axia Wallet Address",
         "title2": "Balance",
         "title3": "Subnet",
         "title4": "Network",
@@ -106,7 +106,7 @@
         "nftempty": "You have not collected any non fungible tokens.",
         "locked": "Locked",
         "info2": "I bought coins in the Token Sale. Where are my AVAX?",
-        "info2_desc": "This wallet is connected to the Avalanche Everest test network. Your purchase will appear in the wallet after the Avalanche Mainnet launch.",
+        "info2_desc": "This wallet is connected to the Axia Everest test network. Your purchase will appear in the wallet after the Axia Mainnet launch.",
         "hover1": "View Address QR Code",
         "hover2": "Paper Wallet",
         "hover3": "Copy",
@@ -121,7 +121,7 @@
             "collectibles": "Collectibles"
         },
         "address": {
-            "derived": "Derived Avalanche Wallet Address",
+            "derived": "Derived Axia Wallet Address",
             "title_x": "Derived Wallet Address",
             "title_p": "Derived Platform Wallet Address",
             "title_c": "Derived EVM Wallet Address",
@@ -363,12 +363,12 @@
         "warning_2": "You must have at least {0} AVAX on the P chain to become a delegator.",
         "validate_card": {
             "title": "Validate",
-            "desc": "You have an Avalanche node that you want to stake with.",
+            "desc": "You have an Axia node that you want to stake with.",
             "submit": "Add Validator"
         },
         "delegate_card": {
             "title": "Delegate",
-            "desc": "You do not own an Avalanche node, but you want to stake using another node.",
+            "desc": "You do not own an Axia node, but you want to stake using another node.",
             "submit": "Add Delegator"
         },
         "transfer_card": {
@@ -653,7 +653,7 @@
         "loading": "Loading transaction history..",
         "warn_loading": "This list might be incomplete and out of order.",
         "error_api": "Explorer API Not Found",
-        "error_api_desc": "You must provide an Avalanche Explorer API for this network to view transaction history.",
+        "error_api_desc": "You must provide an Axia Explorer API for this network to view transaction history.",
         "start": "Stake Start Date",
         "end": "Stake End Date",
         "date_reward": "Reward Date",
@@ -709,7 +709,7 @@
             "done": "Done",
             "upgrade": "Upgrade",
             "title": "Trouble Connecting?",
-            "desc": "We're having trouble connecting to your device. Please make sure you have the Avalanche app open and upgraded to the latest version."
+            "desc": "We're having trouble connecting to your device. Please make sure you have the Axia app open and upgraded to the latest version."
         },
         "hd": {
             "future_warn_title": "DO NOT USE THE ADDRESSES BELOW",

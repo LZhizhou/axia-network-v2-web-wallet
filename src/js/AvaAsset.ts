@@ -1,5 +1,5 @@
 // Manages BigNumber and Ava conversion and arithmetic
-import { BN } from 'avalanche'
+import { BN } from 'axia'
 import Big from 'big.js'
 
 class AvaAsset {

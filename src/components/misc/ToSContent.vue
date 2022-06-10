@@ -10,7 +10,7 @@
         <h2 style="padding-left: 5pt; text-indent: 0pt; text-align: justify">AGREEMENT TO TERMS</h2>
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
             These Terms of Use constitute a legally binding agreement made between you, whether
-            personally or on behalf of an entity (“you”) and Avalanche (BVI) Inc. (&quot;
+            personally or on behalf of an entity (“you”) and Axia (BVI) Inc. (&quot;
             <b>Company</b>
             &quot;, “
             <b>we</b>
@@ -993,7 +993,7 @@
             regarding use of the Site, please contact us at:
         </p>
         <p style="text-indent: 0pt; text-align: left"><br /></p>
-        <p style="padding-left: 5pt; text-indent: 0pt; text-align: left">Avalanche (BVI) Inc.</p>
+        <p style="padding-left: 5pt; text-indent: 0pt; text-align: left">Axia (BVI) Inc.</p>
         <p style="padding-left: 5pt; text-indent: 0pt; text-align: left">
             Floor 4, Banco Popular Building
             <br />

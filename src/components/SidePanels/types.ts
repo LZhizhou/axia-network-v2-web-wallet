@@ -1,4 +1,4 @@
-import { BN } from 'avalanche'
+import { BN } from 'axia'
 export interface TransactionValueDict {
     [address: string]: number
 }

@@ -1,9 +1,9 @@
 /*
 The base wallet class used for common functionality
 */
-import { BN } from 'avalanche'
-import { UTXOSet as AVMUTXOSet } from 'avalanche/dist/apis/avm'
-import { UTXOSet as PlatformUTXOSet } from 'avalanche/dist/apis/platformvm'
+import { BN } from 'axia'
+import { UTXOSet as AVMUTXOSet } from 'axia/dist/apis/avm'
+import { UTXOSet as PlatformUTXOSet } from 'axia/dist/apis/platformvm'
 import {
     ExportChainsC,
     ExportChainsP,
@@ -12,15 +12,12 @@ import {
     UtxoHelper,
     TxHelper,
     GasHelper,
-} from '@avalabs/avalanche-wallet-sdk'
+} from '@avalabs/axia-wallet-sdk'
 import { ava, avm, bintools, cChain, pChain } from '@/AVA'
-import { UTXOSet as EVMUTXOSet } from 'avalanche/dist/apis/evm/utxos'
-import { Tx as EVMTx, UnsignedTx as EVMUnsignedTx } from 'avalanche/dist/apis/evm/tx'
-import {
-    Tx as PlatformTx,
-    UnsignedTx as PlatformUnsignedTx,
-} from 'avalanche/dist/apis/platformvm/tx'
-import { Tx as AVMTx, UnsignedTx as AVMUnsignedTx } from 'avalanche/dist/apis/avm/tx'
+import { UTXOSet as EVMUTXOSet } from 'axia/dist/apis/evm/utxos'
+import { Tx as EVMTx, UnsignedTx as EVMUnsignedTx } from 'axia/dist/apis/evm/tx'
+import { Tx as PlatformTx, UnsignedTx as PlatformUnsignedTx } from 'axia/dist/apis/platformvm/tx'
+import { Tx as AVMTx, UnsignedTx as AVMUnsignedTx } from 'axia/dist/apis/avm/tx'
 import { AvmImportChainType, WalletType } from '@/js/wallets/types'
 var uniqid = require('uniqid')
 

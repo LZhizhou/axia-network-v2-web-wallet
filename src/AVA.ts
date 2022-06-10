@@ -1,9 +1,9 @@
-import { KeyChain as AVMKeyChain, AVMAPI } from 'avalanche/dist/apis/avm'
-import { InfoAPI } from 'avalanche/dist/apis/info'
-import Avalanche from 'avalanche'
+import { KeyChain as AVMKeyChain, AVMAPI } from 'axia/dist/apis/avm'
+import { InfoAPI } from 'axia/dist/apis/info'
+import Axia from 'axia'
 //@ts-ignore
-import BinTools from 'avalanche/dist/utils/bintools'
-import { EVMAPI } from 'avalanche/dist/apis/evm'
+import BinTools from 'axia/dist/utils/bintools'
+import { EVMAPI } from 'axia/dist/apis/evm'
 
 // Connect to TestNet by default
 // Doesn't really matter how we initialize, it will get changed by the network module later
@@ -13,7 +13,7 @@ let protocol: string = 'https'
 let network_id: number = 2
 let chain_id: string = 'X'
 let bintools: BinTools = BinTools.getInstance()
-let ava: Avalanche = new Avalanche(ip, port, protocol, network_id, chain_id)
+let ava: Axia = new Axia(ip, port, protocol, network_id, chain_id)
 
 let avm: AVMAPI = ava.XChain()
 let cChain: EVMAPI = ava.CChain()

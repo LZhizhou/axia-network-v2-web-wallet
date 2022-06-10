@@ -1,6 +1,6 @@
 import { ava, avm, bintools, cChain, pChain } from '@/AVA'
 import { ITransaction } from '@/components/wallet/transfer/types'
-import { BN, Buffer } from 'avalanche'
+import { BN, Buffer } from 'axia'
 import {
     AssetAmountDestination,
     BaseTx,
@@ -13,13 +13,13 @@ import {
     UTXOSet,
     UTXOSet as AVMUTXOSet,
     AVMConstants,
-} from 'avalanche/dist/apis/avm'
+} from 'axia/dist/apis/avm'
 
-import { PayloadBase } from 'avalanche/dist/utils'
-import { OutputOwners } from 'avalanche/dist/common'
-import { PlatformVMConstants } from 'avalanche/dist/apis/platformvm'
+import { PayloadBase } from 'axia/dist/utils'
+import { OutputOwners } from 'axia/dist/common'
+import { PlatformVMConstants } from 'axia/dist/apis/platformvm'
 
-import { UnsignedTx as EVMUnsignedTx, EVMConstants } from 'avalanche/dist/apis/evm'
+import { UnsignedTx as EVMUnsignedTx, EVMConstants } from 'axia/dist/apis/evm'
 
 import { web3 } from '@/evm'
 import ERC721Token from '@/js/ERC721Token'
@@ -137,7 +137,7 @@ export async function buildUnsignedTransaction(
         let outsNft = rawTx.getOuts()
         let insNft = rawTx.getIns()
 
-        // TODO: This is a hackish way of doing this, need methods in avalanche.js
+        // TODO: This is a hackish way of doing this, need methods in axia.js
         //@ts-ignore
         rawTx.outs = outsNft.concat(outs)
         //@ts-ignore

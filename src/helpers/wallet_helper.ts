@@ -1,12 +1,9 @@
 import { ava, avm, bintools, cChain, pChain } from '@/AVA'
-import {
-    UTXOSet as PlatformUTXOSet,
-    UTXO as PlatformUTXO,
-} from 'avalanche/dist/apis/platformvm/utxos'
-import { UTXO as AVMUTXO } from 'avalanche/dist/apis/avm/utxos'
+import { UTXOSet as PlatformUTXOSet, UTXO as PlatformUTXO } from 'axia/dist/apis/platformvm/utxos'
+import { UTXO as AVMUTXO } from 'axia/dist/apis/avm/utxos'
 import { WalletType } from '@/js/wallets/types'
 
-import { BN, Buffer } from 'avalanche'
+import { BN, Buffer } from 'axia'
 import {
     buildCreateNftFamilyTx,
     buildEvmTransferErc20Tx,
@@ -14,7 +11,7 @@ import {
     buildEvmTransferNativeTx,
     buildMintNftTx,
 } from '@/js/TxHelper'
-import { PayloadBase } from 'avalanche/dist/utils'
+import { PayloadBase } from 'axia/dist/utils'
 import { ITransaction } from '@/components/wallet/transfer/types'
 
 import { web3 } from '@/evm'

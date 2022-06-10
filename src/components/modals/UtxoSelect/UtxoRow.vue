@@ -18,11 +18,11 @@ import {
     PlatformVMConstants,
     AmountOutput,
     StakeableLockOut,
-} from 'avalanche/dist/apis/platformvm'
+} from 'axia/dist/apis/platformvm'
 import { bnToBig } from '@/helpers/helper'
 import Big from 'big.js'
-import { UnixNow } from 'avalanche/dist/utils'
-import { BN } from 'avalanche'
+import { UnixNow } from 'axia/dist/utils'
+import { BN } from 'axia'
 
 @Component
 export default class UtxoRow extends Vue {

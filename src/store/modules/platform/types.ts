@@ -4,7 +4,7 @@ import {
     ValidatorPendingRaw,
     ValidatorRaw,
 } from '@/components/misc/ValidatorList/types'
-import { BN } from 'avalanche'
+import { BN } from 'axia'
 
 export interface PlatformState {
     validators: ValidatorRaw[]

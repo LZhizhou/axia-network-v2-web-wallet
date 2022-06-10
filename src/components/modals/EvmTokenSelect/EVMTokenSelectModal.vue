@@ -6,7 +6,7 @@
                     <img src="/img/avax_icon_circle.png" class="col_img" />
                     <div class="col_name">
                         <p>AVAX</p>
-                        <p>Avalanche</p>
+                        <p>Axia</p>
                     </div>
                     <p class="col_bal">{{ avaxBalance.toLocaleString() }}</p>
                 </div>
