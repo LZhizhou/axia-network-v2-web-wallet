@@ -18,7 +18,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
-import { NFTTransferOutput, UTXO } from 'axia/dist/apis/avm'
+import { NFTTransferOutput, UTXO } from '@zee-ava/avajs/dist/apis/avm'
 import NftPayloadView from '@/components/misc/NftPayloadView/NftPayloadView.vue'
 import { getPayloadFromUTXO } from '@/helpers/helper'
 import { bintools } from '@/AVA'

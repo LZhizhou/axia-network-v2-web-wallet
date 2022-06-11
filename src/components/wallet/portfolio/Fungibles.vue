@@ -96,9 +96,9 @@ export default class Fungibles extends Vue {
             let idB = b.id
 
             // AVA always on top
-            if (idA === this.avaxToken.id) {
+            if (idA === this.axcToken.id) {
                 return -1
-            } else if (idB === this.avaxToken.id) {
+            } else if (idB === this.axcToken.id) {
                 return 1
             }
 
@@ -119,7 +119,7 @@ export default class Fungibles extends Vue {
         return balance
     }
 
-    get avaxToken(): AvaAsset {
+    get axcToken(): AvaAsset {
         return this.$store.getters['Assets/AssetAVA']
     }
 

@@ -25,7 +25,7 @@
                             <p class="desc">
                                 {{ $t('earn.validate.amount.desc') }}
                             </p>
-                            <AvaxInput v-model="stakeAmt" :max="maxAmt" class="amt_in"></AvaxInput>
+                            <AxcInput v-model="stakeAmt" :max="maxAmt" class="amt_in"></AxcInput>
                         </div>
                         <div style="margin: 30px 0">
                             <h4>{{ $t('earn.validate.fee.label') }}</h4>
@@ -221,24 +221,24 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 //@ts-ignore
-import AvaxInput from '@/components/misc/AvaxInput.vue'
-import { BN } from 'axia'
+import AxcInput from '@/components/misc/AxcInput.vue'
+import { BN } from '@zee-ava/avajs'
 import Big from 'big.js'
 //@ts-ignore
-import { QrInput } from '@avalabs/vue_components'
+import { QrInput } from '@zee-ava/vue_components'
 import { bintools, pChain } from '@/AVA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import ConfirmPage from '@/components/wallet/earn/Validate/ConfirmPage.vue'
 import moment from 'moment'
 import { bnToBig, calculateStakingReward } from '@/helpers/helper'
-import { ONEAVAX } from 'axia/dist/utils'
+import { ONEAXC } from '@zee-ava/avajs/dist/utils'
 import Tooltip from '@/components/misc/Tooltip.vue'
 import CurrencySelect from '@/components/misc/CurrencySelect/CurrencySelect.vue'
 import Spinner from '@/components/misc/Spinner.vue'
 import DateForm from '@/components/wallet/earn/DateForm.vue'
 import UtxoSelectForm from '@/components/wallet/earn/UtxoSelectForm.vue'
 import Expandable from '@/components/misc/Expandable.vue'
-import { AmountOutput, UTXO } from 'axia/dist/apis/platformvm'
+import { AmountOutput, UTXO } from '@zee-ava/avajs/dist/apis/platformvm'
 import { WalletType } from '@/js/wallets/types'
 
 const MIN_MS = 60000
@@ -252,7 +252,7 @@ const MAX_STAKE_DURATION = DAY_MS * 365
     name: 'add_validator',
     components: {
         Tooltip,
-        AvaxInput,
+        AxcInput,
         QrInput,
         ConfirmPage,
         CurrencySelect,
@@ -422,11 +422,11 @@ export default class AddValidator extends Vue {
 
     get maxDelegationUsdText() {
         let big = bnToBig(this.maxDelegationAmt, 9)
-        let res = big.times(this.avaxPrice)
+        let res = big.times(this.axcPrice)
         return res.toLocaleString(2)
     }
 
-    get avaxPrice(): Big {
+    get axcPrice(): Big {
         return Big(this.$store.state.prices.usd)
     }
 
@@ -443,7 +443,7 @@ export default class AddValidator extends Vue {
     }
 
     get estimatedRewardUSD() {
-        return this.estimatedReward.times(this.avaxPrice)
+        return this.estimatedReward.times(this.axcPrice)
     }
 
     updateFormData() {

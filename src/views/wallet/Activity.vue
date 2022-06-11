@@ -1,7 +1,7 @@
 <template>
     <div class="activity_page">
         <ExportCsvModal ref="csv_modal"></ExportCsvModal>
-        <ExportAvaxCsvModal ref="avax_csv_modal"></ExportAvaxCsvModal>
+        <ExportAxcCsvModal ref="axc_csv_modal"></ExportAxcCsvModal>
         <div class="explorer_warning" v-if="!hasExplorer">
             <div class="warning_body">
                 <h1>{{ $t('activity.no_explorer.title') }}</h1>
@@ -24,7 +24,7 @@
                         </v-btn>
                         <v-btn
                             x-small
-                            @click="openAvaxCsvModal"
+                            @click="openAxcCsvModal"
                             class="button_secondary"
                             depressed
                             :disabled="!showList"
@@ -101,7 +101,7 @@ type ModeKeyType = 'all' | 'transfer' | 'swap' | 'stake'
 import VirtualList from 'vue-virtual-scroll-list'
 import { AvaNetwork } from '@/js/AvaNetwork'
 import ExportCsvModal from '@/components/modals/ExportCsvModal.vue'
-import ExportAvaxCsvModal from '@/components/modals/ExportAvaxCsvModal.vue'
+import ExportAxcCsvModal from '@/components/modals/ExportAxcCsvModal.vue'
 
 const PAGE_LIMIT = 100
 
@@ -111,7 +111,7 @@ const MONTH_MIN = 8
 @Component({
     name: 'activity',
     components: {
-        ExportAvaxCsvModal,
+        ExportAxcCsvModal,
         ExportCsvModal,
         Spinner,
         TxRow,
@@ -139,15 +139,15 @@ export default class Activity extends Vue {
 
     $refs!: {
         csv_modal: ExportCsvModal
-        avax_csv_modal: ExportAvaxCsvModal
+        axc_csv_modal: ExportAxcCsvModal
     }
 
     openCsvModal() {
         this.$refs.csv_modal.open()
     }
 
-    openAvaxCsvModal() {
-        this.$refs.avax_csv_modal.open()
+    openAxcCsvModal() {
+        this.$refs.axc_csv_modal.open()
     }
 
     get showList(): boolean {

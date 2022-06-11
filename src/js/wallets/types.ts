@@ -7,23 +7,23 @@ import {
     Tx as AVMTx,
     UnsignedTx as AVMUnsignedTx,
     UnsignedTx,
-} from 'axia/dist/apis/avm'
+} from '@zee-ava/avajs/dist/apis/avm'
 
 import {
     UTXOSet as PlatformUTXOSet,
     UnsignedTx as PlatformUnsignedTx,
     UTXO as PlatformUTXO,
     Tx as PlatformTx,
-} from 'axia/dist/apis/platformvm'
+} from '@zee-ava/avajs/dist/apis/platformvm'
 import {
     KeyChain as EVMKeyChain,
     UnsignedTx as EVMUnsignedTx,
     Tx as EVMTx,
-} from 'axia/dist/apis/evm'
+} from '@zee-ava/avajs/dist/apis/evm'
 
 import { ITransaction } from '@/components/wallet/transfer/types'
-import { BN, Buffer } from 'axia'
-import { PayloadBase } from 'axia/dist/utils'
+import { BN, Buffer } from '@zee-ava/avajs'
+import { PayloadBase } from '@zee-ava/avajs/dist/utils'
 import { ChainIdType } from '@/constants'
 import Erc20Token from '@/js/Erc20Token'
 
@@ -31,8 +31,8 @@ import { Transaction } from '@ethereumjs/tx'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { LedgerWallet } from '@/js/wallets/LedgerWallet'
 import { SingletonWallet } from '@/js/wallets/SingletonWallet'
-import { ExportChainsC, ExportChainsP, ExportChainsX } from '@avalabs/axia-wallet-sdk'
-import { UTXOSet as EVMUTXOSet } from 'axia/dist/apis/evm/utxos'
+import { ExportChainsC, ExportChainsP, ExportChainsX } from '@zee-ava/axia-wallet-sdk'
+import { UTXOSet as EVMUTXOSet } from '@zee-ava/avajs/dist/apis/evm/utxos'
 
 export interface IIndexKeyCache {
     [index: number]: AVMKeyPair

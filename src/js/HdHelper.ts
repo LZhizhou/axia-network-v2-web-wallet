@@ -2,17 +2,17 @@ import {
     KeyChain as AVMKeyChain,
     KeyPair as AVMKeyPair,
     UTXOSet as AVMUTXOSet,
-} from 'axia/dist/apis/avm'
+} from '@zee-ava/avajs/dist/apis/avm'
 
-import { UTXOSet as PlatformUTXOSet } from 'axia/dist/apis/platformvm'
-import { getPreferredHRP } from 'axia/dist/utils'
+import { UTXOSet as PlatformUTXOSet } from '@zee-ava/avajs/dist/apis/platformvm'
+import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
 import { ava, avm, bintools, cChain, pChain } from '@/AVA'
 import HDKey from 'hdkey'
-import { Buffer } from 'axia'
+import { Buffer } from '@zee-ava/avajs'
 import {
     KeyChain as PlatformVMKeyChain,
     KeyPair as PlatformVMKeyPair,
-} from 'axia/dist/apis/platformvm'
+} from '@zee-ava/avajs/dist/apis/platformvm'
 import store from '@/store'
 
 import { getAddressChains } from '@/explorer_api'
@@ -423,7 +423,7 @@ class HdHelper {
 
         // No need for PlatformKeypair because addressToString uses chainID to decode
         let keypair = new AVMKeyPair(hrp, chainId)
-        let addrBuf = keypair.addressFromPublicKey(pkBuff)
+        let addrBuf = AVMKeyPair.addressFromPublicKey(pkBuff)
         let addr = bintools.addressToString(hrp, chainId, addrBuf)
 
         this.addressCache[index] = addr

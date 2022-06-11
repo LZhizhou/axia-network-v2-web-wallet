@@ -1,7 +1,7 @@
 import { Module } from 'vuex'
 import { RootState } from '@/store/types'
 
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 import { pChain } from '@/AVA'
 
 import {
@@ -19,7 +19,7 @@ import {
     DelegatorRaw,
     ValidatorRaw,
 } from '@/components/misc/ValidatorList/types'
-import { ONEAVAX } from 'axia/dist/utils'
+import { ONEAXC } from '@zee-ava/avajs/dist/utils'
 
 const MINUTE_MS = 60000
 const HOUR_MS = MINUTE_MS * 60
@@ -134,7 +134,7 @@ const platform_module: Module<PlatformState, RootState> = {
                 let delegatedStake = delegatedAmt.add(delegatedPendingAmt)
                 let validatorStake = new BN(v.stakeAmount)
                 // Calculate remaining stake
-                let absMaxStake = ONEAVAX.mul(new BN(3000000))
+                let absMaxStake = ONEAXC.mul(new BN(3000000))
                 let relativeMaxStake = validatorStake.mul(new BN(5))
                 let stakeLimit = BN.min(absMaxStake, relativeMaxStake)
 

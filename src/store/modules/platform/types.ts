@@ -4,7 +4,7 @@ import {
     ValidatorPendingRaw,
     ValidatorRaw,
 } from '@/components/misc/ValidatorList/types'
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 
 export interface PlatformState {
     validators: ValidatorRaw[]

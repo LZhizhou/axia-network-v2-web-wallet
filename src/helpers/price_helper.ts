@@ -1,14 +1,15 @@
 const axios = require('axios')
 
-const COIN_ID = 'axia-2'
-const COINGECKO_URL = 'https://api.coingecko.com/api/v3/simple/price?ids=axia-2&vs_currencies=usd'
+const COIN_ID = 'avalanche-2'
+const COINGECKO_URL =
+    'https://api.coingecko.com/api/v3/simple/price?ids=avalanche-2&vs_currencies=usd'
 
 const coingeckoApi = axios.create({
     baseURL: 'https://api.coingecko.com/api/v3',
     timeout: 10000,
 })
 
-export async function getAvaxPriceUSD(): Promise<number> {
+export async function getAxcPriceUSD(): Promise<number> {
     let res = await axios.get(COINGECKO_URL)
     return res.data['axia-2']['usd']
 }

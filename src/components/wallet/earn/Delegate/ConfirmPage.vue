@@ -25,7 +25,7 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { BN } from 'axia/dist'
+import { BN } from '@zee-ava/avajs/dist'
 import Big from 'big.js'
 
 @Component

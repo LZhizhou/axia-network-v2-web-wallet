@@ -80,8 +80,8 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { ITransactionData, UTXO } from '@/store/modules/history/types'
 import { TransactionValueDict } from '@/components/SidePanels/types'
-import { PayloadBase, PayloadTypes } from 'axia/dist/utils'
-import { BN, Buffer } from 'axia'
+import { PayloadBase, PayloadTypes } from '@zee-ava/avajs/dist/utils'
+import { BN, Buffer } from '@zee-ava/avajs'
 import { WalletType } from '@/js/wallets/types'
 
 import { avm, pChain } from '@/AVA'
@@ -187,7 +187,7 @@ export default class BaseTx extends Vue {
             case 'add_delegator':
                 return !isInput && utxo.stake
             case 'operation':
-                // if no payload it is avax
+                // if no payload it is axc
                 // check if it is from wallet
                 if (!utxo.payload && !isIncludes) return false
                 return true

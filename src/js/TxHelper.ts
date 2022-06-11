@@ -1,6 +1,6 @@
 import { ava, avm, bintools, cChain, pChain } from '@/AVA'
 import { ITransaction } from '@/components/wallet/transfer/types'
-import { BN, Buffer } from 'axia'
+import { BN, Buffer } from '@zee-ava/avajs'
 import {
     AssetAmountDestination,
     BaseTx,
@@ -13,13 +13,13 @@ import {
     UTXOSet,
     UTXOSet as AVMUTXOSet,
     AVMConstants,
-} from 'axia/dist/apis/avm'
+} from '@zee-ava/avajs/dist/apis/avm'
 
-import { PayloadBase } from 'axia/dist/utils'
-import { OutputOwners } from 'axia/dist/common'
-import { PlatformVMConstants } from 'axia/dist/apis/platformvm'
+import { PayloadBase } from '@zee-ava/avajs/dist/utils'
+import { OutputOwners } from '@zee-ava/avajs/dist/common'
+import { PlatformVMConstants } from '@zee-ava/avajs/dist/apis/platformvm'
 
-import { UnsignedTx as EVMUnsignedTx, EVMConstants } from 'axia/dist/apis/evm'
+import { UnsignedTx as EVMUnsignedTx, EVMConstants } from '@zee-ava/avajs/dist/apis/evm'
 
 import { web3 } from '@/evm'
 import ERC721Token from '@/js/ERC721Token'
@@ -46,7 +46,7 @@ export async function buildUnsignedTransaction(
 
     // TODO: use internal asset ID
     // This does not update on network change, causing issues
-    const AVAX_ID_BUF = await avm.getAVAXAssetID()
+    const AVAX_ID_BUF = await avm.getAXCAssetID()
     const AVAX_ID_STR = AVAX_ID_BUF.toString('hex')
     const TO_BUF = bintools.stringToAddress(addr)
 

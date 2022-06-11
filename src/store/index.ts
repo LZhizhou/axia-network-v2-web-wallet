@@ -35,10 +35,10 @@ import {
 } from '@/js/Keystore'
 import { LedgerWallet } from '@/js/wallets/LedgerWallet'
 import { SingletonWallet } from '@/js/wallets/SingletonWallet'
-import { Buffer } from 'axia'
+import { Buffer } from '@zee-ava/avajs'
 import { privateToAddress } from 'ethereumjs-util'
 import { updateFilterAddresses } from '../providers'
-import { getAvaxPriceUSD } from '@/helpers/price_helper'
+import { getAxcPriceUSD } from '@/helpers/price_helper'
 
 export default new Vuex.Store({
     modules: {
@@ -353,8 +353,8 @@ export default new Vuex.Store({
             }
         },
 
-        async updateAvaxPrice(store) {
-            let usd = await getAvaxPriceUSD()
+        async updateAxcPrice(store) {
+            let usd = await getAxcPriceUSD()
             store.state.prices = {
                 usd,
             }

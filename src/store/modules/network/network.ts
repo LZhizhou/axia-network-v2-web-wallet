@@ -5,12 +5,12 @@ import { NetworkState } from '@/store/modules/network/types'
 import { ava, avm, bintools, cChain, infoApi, pChain } from '@/AVA'
 import { AvaNetwork } from '@/js/AvaNetwork'
 import { explorer_api } from '@/explorer_api'
-import { BN } from 'axia'
-import { getPreferredHRP } from 'axia/dist/utils'
+import { BN } from '@zee-ava/avajs'
+import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
 import router from '@/router'
 import { web3 } from '@/evm'
 import { setSocketNetwork } from '../../../providers'
-import { Network } from '@avalabs/axia-wallet-sdk'
+import { Network } from '@zee-ava/axia-wallet-sdk'
 const network_module: Module<NetworkState, RootState> = {
     namespaced: true,
     state: {
@@ -124,9 +124,9 @@ const network_module: Module<NetworkState, RootState> = {
             cChain.refreshBlockchainID(chainIdC)
             cChain.setBlockchainAlias('C')
 
-            avm.getAVAXAssetID(true)
-            pChain.getAVAXAssetID(true)
-            cChain.getAVAXAssetID(true)
+            avm.getAXCAssetID(true)
+            pChain.getAXCAssetID(true)
+            cChain.getAXCAssetID(true)
 
             state.selectedNetwork = net
             dispatch('saveSelectedNetwork')

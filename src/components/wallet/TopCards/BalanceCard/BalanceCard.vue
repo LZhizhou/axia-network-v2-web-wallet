@@ -41,7 +41,7 @@
                     <p class="balance_usd" style="background-color: transparent">
                         <b>1 AVAX</b>
                         =
-                        <b>${{ avaxPriceText }}</b>
+                        <b>${{ axcPriceText }}</b>
                         USD
                     </p>
                 </div>
@@ -69,25 +69,25 @@
                 <div class="alt_breakdown" v-else>
                     <div>
                         <label>{{ $t('top.balance.available') }} (X)</label>
-                        <p>{{ avmUnlocked | cleanAvaxBN }} AVAX</p>
+                        <p>{{ avmUnlocked | cleanAxcBN }} AVAX</p>
                         <label>{{ $t('top.balance.available') }} (P)</label>
-                        <p>{{ platformUnlocked | cleanAvaxBN }} AVAX</p>
+                        <p>{{ platformUnlocked | cleanAxcBN }} AVAX</p>
                         <label>{{ $t('top.balance.available') }} (C)</label>
-                        <p>{{ evmUnlocked | cleanAvaxBN }} AVAX</p>
+                        <p>{{ evmUnlocked | cleanAxcBN }} AVAX</p>
                     </div>
                     <div v-if="hasLocked">
                         <label>{{ $t('top.balance.locked') }} (X)</label>
-                        <p>{{ avmLocked | cleanAvaxBN }} AVAX</p>
+                        <p>{{ avmLocked | cleanAxcBN }} AVAX</p>
                         <label>{{ $t('top.balance.locked') }} (P)</label>
-                        <p>{{ platformLocked | cleanAvaxBN }} AVAX</p>
+                        <p>{{ platformLocked | cleanAxcBN }} AVAX</p>
                         <label>{{ $t('top.balance.locked_stake') }} (P)</label>
-                        <p>{{ platformLockedStakeable | cleanAvaxBN }} AVAX</p>
+                        <p>{{ platformLockedStakeable | cleanAxcBN }} AVAX</p>
                     </div>
                     <div v-if="hasMultisig">
                         <label>Multisig (X)</label>
-                        <p>{{ avmMultisig | cleanAvaxBN }} AVAX</p>
+                        <p>{{ avmMultisig | cleanAxcBN }} AVAX</p>
                         <label>Multisig (P)</label>
-                        <p>{{ platformMultisig | cleanAvaxBN }} AVAX</p>
+                        <p>{{ platformMultisig | cleanAxcBN }} AVAX</p>
                     </div>
                     <div>
                         <label>{{ $t('top.balance.stake') }}</label>
@@ -109,8 +109,8 @@ import NftCol from './NftCol.vue'
 import Tooltip from '@/components/misc/Tooltip.vue'
 
 import Big from 'big.js'
-import { BN } from 'axia/dist'
-import { ONEAVAX } from 'axia/dist/utils'
+import { BN } from '@zee-ava/avajs/dist'
+import { ONEAXC } from '@zee-ava/avajs/dist/utils'
 import { bnToBig } from '@/helpers/helper'
 import { priceDict } from '@/store/types'
 import { WalletType } from '@/js/wallets/types'
@@ -124,8 +124,8 @@ import UtxosBreakdownModal from '@/components/modals/UtxosBreakdown/UtxosBreakdo
         Tooltip,
     },
     filters: {
-        cleanAvaxBN(val: BN) {
-            let big = Big(val.toString()).div(Big(ONEAVAX.toString()))
+        cleanAxcBN(val: BN) {
+            let big = Big(val.toString()).div(Big(ONEAXC.toString()))
             return big.toLocaleString()
         },
     },
@@ -189,7 +189,7 @@ export default class BalanceCard extends Vue {
         return Big(0)
     }
 
-    get avaxPriceText() {
+    get axcPriceText() {
         return this.priceDict.usd
     }
 

@@ -1,5 +1,5 @@
 import { AvaNetwork } from '@/js/AvaNetwork'
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 
 export interface NetworkState {
     networks: AvaNetwork[]

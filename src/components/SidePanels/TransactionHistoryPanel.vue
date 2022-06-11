@@ -87,7 +87,7 @@ export default class TransactionHistoryPanel extends Vue {
 
     get explorerUrl(): string {
         let addr = this.$store.state.address.split('-')[1]
-        return `https://explorer.avax.network/address/${addr}`
+        return `https://explorer.axc.network/address/${addr}`
     }
 }
 </script>

@@ -13,7 +13,7 @@
 </template>
 <script>
 import Big from 'big.js'
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 
 export default {
     data() {

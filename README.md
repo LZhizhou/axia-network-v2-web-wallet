@@ -107,11 +107,11 @@ By default, there are two network options to connect to: `Mainnet` and `Fuji`.
 
 ##### Mainnet
 
--   Axia API: `https://api.avax.network:443`
--   Explorer API: `https://explorerapi.avax.network`
+-   Axia API: `https://api.axc.network:443`
+-   Explorer API: `https://explorerapi.axc.network`
 
 ##### Fuji (Testnet)
 
--   Axia API: `https://api.avax-test.network:443`
--   Explorer API: `https://explorerapi.avax-test.network`
+-   Axia API: `https://api.axc-test.network:443`
+-   Explorer API: `https://explorerapi.axc-test.network`
 

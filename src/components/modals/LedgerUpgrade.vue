@@ -20,7 +20,7 @@
                     instructions can be found
                     <a
                         target="_blank"
-                        href="https://docs.avax.network/build/tutorials/platform/setup-your-ledger-nano-s-with-axia"
+                        href="https://docs.axc.network/build/tutorials/platform/setup-your-ledger-nano-s-with-axia"
                     >
                         here
                     </a>

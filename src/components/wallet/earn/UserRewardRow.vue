@@ -32,7 +32,7 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { DelegatorRaw, ValidatorRaw } from '../../misc/ValidatorList/types'
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 import Big from 'big.js'
 
 @Component

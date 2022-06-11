@@ -3,36 +3,43 @@ import { ITransaction } from '@/components/wallet/transfer/types'
 import { digestMessage } from '@/helpers/helper'
 import { WalletNameType } from '@/js/wallets/types'
 
-import { Buffer as BufferAxia, BN } from 'axia'
+import { Buffer as BufferAxia, BN } from '@zee-ava/avajs'
 import {
     KeyPair as AVMKeyPair,
     KeyChain as AVMKeyChain,
     UTXOSet as AVMUTXOSet,
     UTXO,
     UnsignedTx,
-} from 'axia/dist/apis/avm'
+} from '@zee-ava/avajs/dist/apis/avm'
 import {
     KeyPair as PlatformKeyPair,
     KeyChain as PlatformKeyChain,
     UTXOSet as PlatformUTXOSet,
     UTXOSet,
-} from 'axia/dist/apis/platformvm'
-import { KeyChain, KeyChain as EVMKeyChain, UTXOSet as EVMUTXOSet } from 'axia/dist/apis/evm'
-import { PayloadBase } from 'axia/dist/utils'
+} from '@zee-ava/avajs/dist/apis/platformvm'
+import {
+    KeyChain,
+    KeyChain as EVMKeyChain,
+    UTXOSet as EVMUTXOSet,
+} from '@zee-ava/avajs/dist/apis/evm'
+import { PayloadBase } from '@zee-ava/avajs/dist/utils'
 import { buildUnsignedTransaction } from '../TxHelper'
 import { AvaWalletCore, UnsafeWallet } from './types'
-import { UTXO as PlatformUTXO } from 'axia/dist/apis/platformvm/utxos'
+import { UTXO as PlatformUTXO } from '@zee-ava/avajs/dist/apis/platformvm/utxos'
 import { privateToAddress } from 'ethereumjs-util'
-import { Tx as AVMTx, UnsignedTx as AVMUnsignedTx } from 'axia/dist/apis/avm/tx'
-import { Tx as PlatformTx, UnsignedTx as PlatformUnsignedTx } from 'axia/dist/apis/platformvm/tx'
-import { Tx as EvmTx, UnsignedTx as EVMUnsignedTx } from 'axia/dist/apis/evm/tx'
+import { Tx as AVMTx, UnsignedTx as AVMUnsignedTx } from '@zee-ava/avajs/dist/apis/avm/tx'
+import {
+    Tx as PlatformTx,
+    UnsignedTx as PlatformUnsignedTx,
+} from '@zee-ava/avajs/dist/apis/platformvm/tx'
+import { Tx as EvmTx, UnsignedTx as EVMUnsignedTx } from '@zee-ava/avajs/dist/apis/evm/tx'
 import Erc20Token from '@/js/Erc20Token'
 import { WalletCore } from '@/js/wallets/WalletCore'
 import { WalletHelper } from '@/helpers/wallet_helper'
 import { avmGetAllUTXOs, platformGetAllUTXOs } from '@/helpers/utxo_helper'
-import { UTXO as AVMUTXO } from 'axia/dist/apis/avm/utxos'
+import { UTXO as AVMUTXO } from '@zee-ava/avajs/dist/apis/avm/utxos'
 import { Transaction } from '@ethereumjs/tx'
-import { ExportChainsC, ExportChainsP, ExportChainsX } from '@avalabs/axia-wallet-sdk'
+import { ExportChainsC, ExportChainsP, ExportChainsX } from '@zee-ava/axia-wallet-sdk'
 
 class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet {
     keyChain: AVMKeyChain

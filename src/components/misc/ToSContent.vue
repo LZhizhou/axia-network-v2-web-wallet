@@ -19,7 +19,7 @@
             ”, or “
             <b>our</b>
             ”), concerning your access to and use of the
-            <span class="s1">https://wallet.avax.network/</span>
+            <span class="s1">https://wallet.axc.network/</span>
             website and related features and services, including but not limited to the AVAX wallet
             functionality, as well as any other media form, media channel, mobile website or mobile
             application related, linked, or otherwise connected thereto, (collectively, the “Site”).
@@ -733,7 +733,7 @@
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
             You may opt out of the binding arbitration described in this section by sending us
             written notice of your desire to do so by email at
-            <a href="mailto:support@avax.network" class="a" target="_blank">support@avax.network</a>
+            <a href="mailto:support@axc.network" class="a" target="_blank">support@axc.network</a>
             (such notice, an “Arbitration Opt-out Notice”) within thirty (30) days following the
             date you first agree to these Terms of Use, or within thirty (30) days of the date we
             modify this Dispute Resolution section as indicated in the “Last updated” date above or
@@ -1001,7 +1001,7 @@
             <br />
             British Virgin Islands
             <br />
-            <a href="mailto:support@avax.network" target="_blank">support@avax.network</a>
+            <a href="mailto:support@axc.network" target="_blank">support@axc.network</a>
         </p>
     </div>
 </template>

@@ -59,7 +59,7 @@
                             <span>{{ txFee.toLocaleString(9) }} AVAX</span>
                         </p>
                         <p>
-                            {{ $t('transfer.total_avax') }}
+                            {{ $t('transfer.total_axc') }}
                             <span>{{ totalUSD.toLocaleString(2) }} USD</span>
                         </p>
                     </div>
@@ -141,12 +141,12 @@ import Big from 'big.js'
 import NftList from '@/components/wallet/transfer/NftList.vue'
 
 //@ts-ignore
-import { QrInput } from '@avalabs/vue_components'
+import { QrInput } from '@zee-ava/vue_components'
 import { ava, avm, isValidAddress } from '../../AVA'
 import FaucetLink from '@/components/misc/FaucetLink.vue'
 import { ITransaction } from '@/components/wallet/transfer/types'
-import { UTXO } from 'axia/dist/apis/avm'
-import { Buffer, BN } from 'axia'
+import { UTXO } from '@zee-ava/avajs/dist/apis/avm'
+import { Buffer, BN } from '@zee-ava/avajs'
 import TxSummary from '@/components/wallet/transfer/TxSummary.vue'
 import { priceDict, IssueBatchTxInput } from '@/store/types'
 import { WalletType } from '@/js/wallets/types'
@@ -419,19 +419,19 @@ export default class Transfer extends Vue {
 
         return res
     }
-    get avaxTxSize() {
+    get axcTxSize() {
         let res = new BN(0)
         for (var i = 0; i < this.orders.length; i++) {
             let order = this.orders[i]
             if (!order.asset) continue
-            if (order.amount && order.asset.id === this.avaxAsset.id) {
+            if (order.amount && order.asset.id === this.axcAsset.id) {
                 res = res.add(this.orders[i].amount)
             }
         }
 
         return res
     }
-    get avaxAsset(): AvaAsset {
+    get axcAsset(): AvaAsset {
         return this.$store.getters['Assets/AssetAVA']
     }
 
@@ -445,7 +445,7 @@ export default class Transfer extends Vue {
     }
 
     get totalUSD(): Big {
-        let totalAsset = this.avaxTxSize.add(avm.getTxFee())
+        let totalAsset = this.axcTxSize.add(avm.getTxFee())
         let bigAmt = bnToBig(totalAsset, 9)
         let usdPrice = this.priceDict.usd
         let usdBig = bigAmt.times(usdPrice)

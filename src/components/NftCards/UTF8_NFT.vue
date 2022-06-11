@@ -14,9 +14,9 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop, Ref, Watch } from 'vue-property-decorator'
-import { PayloadBase } from 'axia/dist/utils'
+import { PayloadBase } from '@zee-ava/avajs/dist/utils'
 import BaseNftCard from '@/components/NftCards/BaseNftCard.vue'
-import { UTXO } from 'axia/dist/apis/avm'
+import { UTXO } from '@zee-ava/avajs/dist/apis/avm'
 
 @Component({
     components: {

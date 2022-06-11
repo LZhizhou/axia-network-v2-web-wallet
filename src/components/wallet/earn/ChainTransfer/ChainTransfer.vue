@@ -119,9 +119,9 @@
 import 'reflect-metadata'
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import Dropdown from '@/components/misc/Dropdown.vue'
-import AvaxInput from '@/components/misc/AvaxInput.vue'
+import AxcInput from '@/components/misc/AxcInput.vue'
 import AvaAsset from '@/js/AvaAsset'
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 import { avm, cChain, pChain } from '@/AVA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import Spinner from '@/components/misc/Spinner.vue'
@@ -140,7 +140,7 @@ import {
     GasHelper,
     Utils,
     Big,
-} from '@avalabs/axia-wallet-sdk'
+} from '@zee-ava/axia-wallet-sdk'
 
 const IMPORT_DELAY = 5000 // in ms
 const BALANCE_DELAY = 2000 // in ms
@@ -150,7 +150,7 @@ const BALANCE_DELAY = 2000 // in ms
     components: {
         Spinner,
         Dropdown,
-        AvaxInput,
+        AxcInput,
         ChainCard,
         ChainSwapForm,
         TxStateCard,
@@ -217,7 +217,7 @@ export default class ChainTransfer extends Vue {
 
     get evmUnlocked(): BN {
         let balRaw = this.wallet.ethBalance
-        return Utils.avaxCtoX(balRaw)
+        return Utils.axcCtoX(balRaw)
     }
 
     get balanceBN(): BN {
@@ -235,7 +235,7 @@ export default class ChainTransfer extends Vue {
     }
 
     get formAmtText() {
-        return Utils.bnToAvaxX(this.formAmt)
+        return Utils.bnToAxcX(this.formAmt)
     }
 
     get fee(): Big {
@@ -248,9 +248,9 @@ export default class ChainTransfer extends Vue {
 
     getFee(chain: ChainIdType, isExport: boolean): Big {
         if (chain === 'X') {
-            return Utils.bnToBigAvaxX(avm.getTxFee())
+            return Utils.bnToBigAxcX(avm.getTxFee())
         } else if (chain === 'P') {
-            return Utils.bnToBigAvaxX(pChain.getTxFee())
+            return Utils.bnToBigAxcX(pChain.getTxFee())
         } else {
             const fee = isExport
                 ? GasHelper.estimateExportGasFeeFromMockTx(
@@ -262,7 +262,7 @@ export default class ChainTransfer extends Vue {
                 : GasHelper.estimateImportGasFeeFromMockTx(1, 1)
 
             const totFeeWei = this.baseFee.mul(new BN(fee))
-            return Utils.bnToBigAvaxC(totFeeWei)
+            return Utils.bnToBigAxcC(totFeeWei)
         }
     }
 

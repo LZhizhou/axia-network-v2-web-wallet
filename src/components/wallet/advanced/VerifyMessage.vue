@@ -32,12 +32,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { KeyPair } from 'axia/dist/apis/avm'
+import { KeyPair } from '@zee-ava/avajs/dist/apis/avm'
 import { ava, bintools } from '@/AVA'
 import createHash from 'create-hash'
-import { getPreferredHRP } from 'axia/dist/utils'
+import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
 import { avm } from '@/AVA'
-import { Buffer } from 'axia'
+import { Buffer } from '@zee-ava/avajs'
 import { digestMessage } from '@/helpers/helper'
 
 @Component
@@ -55,6 +55,7 @@ export default class VerifyMessage extends Vue {
         try {
             this.verify()
         } catch (e) {
+            //@ts-ignore
             this.error = e
         }
     }
@@ -70,7 +71,7 @@ export default class VerifyMessage extends Vue {
         let signedBuff = bintools.cb58Decode(this.signature)
 
         let pubKey = keypair.recover(digestBuff, signedBuff)
-        let addressBuff = keypair.addressFromPublicKey(pubKey)
+        let addressBuff = KeyPair.addressFromPublicKey(pubKey)
         this.addressX = bintools.addressToString(hrp, 'X', addressBuff)
         this.addressP = bintools.addressToString(hrp, 'P', addressBuff)
     }

@@ -40,7 +40,7 @@ import {
 import UserRewardRow from '@/components/wallet/earn/UserRewardRow.vue'
 import { bnToBig } from '@/helpers/helper'
 import Big from 'big.js'
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 
 @Component({
     components: {

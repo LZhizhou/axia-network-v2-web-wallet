@@ -88,14 +88,14 @@ export interface CsvRowStakingData {
     rewardDate: moment.Moment
     isInputOwner: boolean
     isRewardOwner: boolean
-    rewardAmtAvax: Big
+    rewardAmtAxc: Big
     rewardAmtUsd?: Big
-    avaxPrice?: number
+    axcPrice?: number
     nodeID: string
 }
 
 // CSV AVAX Transaction Row
-export interface CsvRowAvaxTransferData {
+export interface CsvRowAxcTransferData {
     txId: string
     date: Date
     from?: string[]

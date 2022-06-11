@@ -5,12 +5,18 @@ import {
     KeyPair as AVMKeyPair,
     NFTTransferOutput,
     UTXO,
-} from 'axia/dist/apis/avm'
+} from '@zee-ava/avajs/dist/apis/avm'
 
-import { Defaults, getPreferredHRP, ONEAVAX, PayloadBase, PayloadTypes } from 'axia/dist/utils'
+import {
+    Defaults,
+    getPreferredHRP,
+    ONEAXC,
+    PayloadBase,
+    PayloadTypes,
+} from '@zee-ava/avajs/dist/utils'
 import Big from 'big.js'
 
-import { Buffer, BN } from 'axia'
+import { Buffer, BN } from '@zee-ava/avajs'
 import createHash from 'create-hash'
 
 function bnToBig(val: BN, denomination = 0): Big {
@@ -42,9 +48,9 @@ function calculateStakingReward(amount: BN, duration: number, currentSupply: BN)
     let maxStakingDuration: BN = defPlatformVals.maxStakingDuration
     let remainingSupply = maxSupply.sub(currentSupply)
 
-    let amtBig = Big(amount.div(ONEAVAX).toString())
-    let currentSupplyBig = Big(currentSupply.div(ONEAVAX).toString())
-    let remainingSupplyBig = Big(remainingSupply.div(ONEAVAX).toString())
+    let amtBig = Big(amount.div(ONEAXC).toString())
+    let currentSupplyBig = Big(currentSupply.div(ONEAXC).toString())
+    let remainingSupplyBig = Big(remainingSupply.div(ONEAXC).toString())
     let portionOfExistingSupplyBig = amtBig.div(currentSupplyBig)
 
     let portionOfStakingDuration = duration / maxStakingDuration.toNumber()

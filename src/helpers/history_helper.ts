@@ -5,8 +5,8 @@
 
 import { ITransactionData, UTXO } from '@/store/modules/history/types'
 import { WalletType } from '@/js/wallets/types'
-import { BN } from 'axia'
-import { AVMConstants } from 'axia/dist/apis/avm'
+import { BN } from '@zee-ava/avajs'
+import { AVMConstants } from '@zee-ava/avajs/dist/apis/avm'
 
 // Summary item returned for each transaction
 export interface BaseTxSummary {

@@ -2,7 +2,7 @@ import Sockette from 'sockette'
 import { WalletType } from '@/js/wallets/types'
 import store from '@/store'
 import { AvaNetwork } from '@/js/AvaNetwork'
-import { PubSub } from 'axia'
+import { PubSub } from '@zee-ava/avajs'
 
 const FILTER_ADDRESS_SIZE = 1000
 

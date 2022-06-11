@@ -1,9 +1,9 @@
 /*
 The base wallet class used for common functionality
 */
-import { BN } from 'axia'
-import { UTXOSet as AVMUTXOSet } from 'axia/dist/apis/avm'
-import { UTXOSet as PlatformUTXOSet } from 'axia/dist/apis/platformvm'
+import { BN, Buffer } from '@zee-ava/avajs'
+import { UTXOSet as AVMUTXOSet } from '@zee-ava/avajs/dist/apis/avm'
+import { UTXOSet as PlatformUTXOSet } from '@zee-ava/avajs/dist/apis/platformvm'
 import {
     ExportChainsC,
     ExportChainsP,
@@ -12,12 +12,15 @@ import {
     UtxoHelper,
     TxHelper,
     GasHelper,
-} from '@avalabs/axia-wallet-sdk'
+} from '@zee-ava/axia-wallet-sdk'
 import { ava, avm, bintools, cChain, pChain } from '@/AVA'
-import { UTXOSet as EVMUTXOSet } from 'axia/dist/apis/evm/utxos'
-import { Tx as EVMTx, UnsignedTx as EVMUnsignedTx } from 'axia/dist/apis/evm/tx'
-import { Tx as PlatformTx, UnsignedTx as PlatformUnsignedTx } from 'axia/dist/apis/platformvm/tx'
-import { Tx as AVMTx, UnsignedTx as AVMUnsignedTx } from 'axia/dist/apis/avm/tx'
+import { UTXOSet as EVMUTXOSet } from '@zee-ava/avajs/dist/apis/evm/utxos'
+import { Tx as EVMTx, UnsignedTx as EVMUnsignedTx } from '@zee-ava/avajs/dist/apis/evm/tx'
+import {
+    Tx as PlatformTx,
+    UnsignedTx as PlatformUnsignedTx,
+} from '@zee-ava/avajs/dist/apis/platformvm/tx'
+import { Tx as AVMTx, UnsignedTx as AVMUnsignedTx } from '@zee-ava/avajs/dist/apis/avm/tx'
 import { AvmImportChainType, WalletType } from '@/js/wallets/types'
 var uniqid = require('uniqid')
 
@@ -262,7 +265,7 @@ abstract class WalletCore {
         let hrp = ava.getHRP()
         let utxoAddrs = utxoSet
             .getAddresses()
-            .map((addr) => bintools.addressToString(hrp, 'P', addr))
+            .map((addr: Buffer) => bintools.addressToString(hrp, 'P', addr))
 
         let fromAddrs = utxoAddrs
         let ownerAddrs = utxoAddrs
@@ -294,7 +297,7 @@ abstract class WalletCore {
         let hrp = ava.getHRP()
         let utxoAddrs = utxoSet
             .getAddresses()
-            .map((addr) => bintools.addressToString(hrp, 'X', addr))
+            .map((addr: Buffer) => bintools.addressToString(hrp, 'X', addr))
 
         let fromAddrs = utxoAddrs
         let ownerAddrs = utxoAddrs

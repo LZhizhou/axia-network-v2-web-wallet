@@ -32,7 +32,7 @@ import { SingletonWallet } from '@/js/wallets/SingletonWallet'
 import { AccessWalletMultipleInput } from '@/store/types'
 import { keyToKeypair } from '@/helpers/helper'
 import * as bip39 from 'bip39'
-import { Buffer as AjsBuffer } from 'axia'
+import { Buffer as AjsBuffer } from '@zee-ava/avajs'
 
 const cryptoHelpers = new Crypto()
 

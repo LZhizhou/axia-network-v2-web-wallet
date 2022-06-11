@@ -33,12 +33,12 @@
         <div v-if="!isConfirm">
             <label>{{ $t('earn.transfer.amount') }}</label>
 
-            <AvaxInput
+            <AxcInput
                 :max="maxAmt"
                 v-model="amt"
                 @change="onAmtChange"
                 :balance="balance"
-            ></AvaxInput>
+            ></AxcInput>
         </div>
         <div class="confirmation_val" v-else>
             <label>{{ $t('earn.transfer.amount') }}</label>
@@ -48,8 +48,8 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
-import AvaxInput from '@/components/misc/AvaxInput.vue'
-import { BN } from 'axia'
+import AxcInput from '@/components/misc/AxcInput.vue'
+import { BN } from '@zee-ava/avajs'
 import Big from 'big.js'
 import { bnToBig } from '@/helpers/helper'
 import { ChainIdType } from '@/constants'
@@ -68,7 +68,7 @@ const chainNames = {
 
 @Component({
     components: {
-        AvaxInput,
+        AxcInput,
     },
 })
 export default class Form extends Vue {

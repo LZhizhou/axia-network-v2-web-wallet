@@ -1,5 +1,5 @@
 import { ChainIdType } from '@/constants'
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 
 export enum TxState {
     failed = -1,

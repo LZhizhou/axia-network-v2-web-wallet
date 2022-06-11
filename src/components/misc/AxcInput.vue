@@ -1,5 +1,5 @@
 <template>
-    <div class="avax_input">
+    <div class="axc_input">
         <div class="col1 hover_border">
             <button class="max_but" @click="maxOut" v-if="max">MAX</button>
             <BigNumInput
@@ -31,10 +31,10 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop, Model } from 'vue-property-decorator'
-import { Utils, Big } from '@avalabs/axia-wallet-sdk'
+import { Utils, Big } from '@zee-ava/axia-wallet-sdk'
 //@ts-ignore
-import { BigNumInput } from '@avalabs/vue_components'
-import { BN } from 'axia'
+import { BigNumInput } from '@zee-ava/vue_components'
+import { BN } from '@zee-ava/avajs'
 import { priceDict } from '../../store/types'
 
 @Component({
@@ -42,7 +42,7 @@ import { priceDict } from '../../store/types'
         BigNumInput,
     },
 })
-export default class AvaxInput extends Vue {
+export default class AxcInput extends Vue {
     @Model('change', { type: Object }) readonly amount!: BN
 
     @Prop({
@@ -78,7 +78,7 @@ export default class AvaxInput extends Vue {
 <style scoped lang="scss">
 @use '../../main';
 
-.avax_input {
+.axc_input {
     display: grid;
     grid-template-columns: 1fr max-content;
     grid-gap: 0px 10px;

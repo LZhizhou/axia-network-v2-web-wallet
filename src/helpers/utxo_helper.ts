@@ -1,7 +1,7 @@
-import { UTXOSet as AVMUTXOSet } from 'axia/dist/apis/avm/utxos'
-import { UTXOSet as PlatformUTXOSet } from 'axia/dist/apis/platformvm/utxos'
+import { UTXOSet as AVMUTXOSet } from '@zee-ava/avajs/dist/apis/avm/utxos'
+import { UTXOSet as PlatformUTXOSet } from '@zee-ava/avajs/dist/apis/platformvm/utxos'
 import { avm, cChain, pChain } from '@/AVA'
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 
 export async function getStakeForAddresses(addrs: string[]): Promise<BN> {
     if (addrs.length <= 256) {

@@ -15,7 +15,7 @@
                         :placeholder="placeholder"
                         :disabled="disabled"
                     ></big-num-input>
-                    <p class="usd_val" :active="isAvax">${{ amountUSD.toLocaleString(2) }}</p>
+                    <p class="usd_val" :active="isAxc">${{ amountUSD.toLocaleString(2) }}</p>
                 </div>
             </div>
             <BalanceDropdown
@@ -36,13 +36,13 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop, Emit, Watch } from 'vue-property-decorator'
 
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 // import Big from 'big.js';
 import Dropdown from '@/components/misc/Dropdown.vue'
 // import BigNumInput from "@/components/misc/BigNumInput";
 
 // @ts-ignore
-import { BigNumInput } from '@avalabs/vue_components'
+import { BigNumInput } from '@zee-ava/vue_components'
 import AvaAsset from '@/js/AvaAsset'
 import { ICurrencyInputDropdownValue } from '@/components/wallet/transfer/types'
 import { IWalletAssetsDict, IWalletBalanceDict, priceDict } from '@/store/types'
@@ -142,8 +142,8 @@ export default class CurrencyInputDropdown extends Vue {
         }
     }
 
-    get isAvax(): boolean {
-        if (this.asset_now.id === this.avaxAsset?.id) return true
+    get isAxc(): boolean {
+        if (this.asset_now.id === this.axcAsset?.id) return true
         return false
     }
 
@@ -176,21 +176,21 @@ export default class CurrencyInputDropdown extends Vue {
         return this.$store.getters['Assets/walletAssetsDict']
     }
 
-    get avaxAsset(): AvaAsset | null {
+    get axcAsset(): AvaAsset | null {
         return this.$store.getters['Assets/AssetAVA']
     }
 
     get max_amount(): null | BN {
         if (!this.asset_now) return null
-        if (!this.avaxAsset) return null
+        if (!this.axcAsset) return null
 
         let assetId = this.asset_now.id
         let balance = this.walletAssetsDict[assetId]
 
-        let avaxId = this.avaxAsset.id
+        let axcId = this.axcAsset.id
 
         // Max amount is BALANCE - FEE for AVAX
-        if (assetId === avaxId) {
+        if (assetId === axcId) {
             let fee = avm.getTxFee()
             // console.log(fee);
             if (fee.gte(balance.amount)) {

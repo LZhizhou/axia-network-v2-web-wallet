@@ -303,7 +303,7 @@
                 "date": "Başlangıç tarihi gelecekte olmalıdır ve bitiş tarihi de başlangıç tarihinden sonra olmalıdır.",
                 "amount": "Stake miktarı en az {0} AVAX olmalıdır",
                 "id": "Geçersiz Düğüm Kimliği.",
-                "fee": "Delegasyon ücretiniz en az {0} Avax olmalıdır",
+                "fee": "Delegasyon ücretiniz en az {0} Axc olmalıdır",
                 "address": "Geçersiz adres. Ödül adresi geçerli bir P zinciri adresi olmalıdır."
             }
         },

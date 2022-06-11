@@ -3,12 +3,12 @@
         <div class="token_select_body">
             <div class="list">
                 <div class="token_row" @click="select('native')">
-                    <img src="/img/avax_icon_circle.png" class="col_img" />
+                    <img src="/img/axc_icon_circle.png" class="col_img" />
                     <div class="col_name">
                         <p>AVAX</p>
                         <p>Axia</p>
                     </div>
-                    <p class="col_bal">{{ avaxBalance.toLocaleString() }}</p>
+                    <p class="col_bal">{{ axcBalance.toLocaleString() }}</p>
                 </div>
                 <div v-for="t in tokens" :key="t.data.address" class="token_row" @click="select(t)">
                     <img v-if="t.data.logoURI" :src="t.data.logoURI" class="col_img" />
@@ -80,7 +80,7 @@ export default class EVMTokenSelectModal extends Vue {
     //     else return this.selected.data.symbol
     // }
 
-    get avaxBalance(): Big {
+    get axcBalance(): Big {
         let w: WalletType | null = this.$store.state.activeWallet
         if (!w) return Big(0)
         let balBN = w.ethBalance

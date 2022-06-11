@@ -33,9 +33,9 @@
 <script lang="ts">
 import { Component, Model, Prop, Vue, Watch } from 'vue-property-decorator'
 import Spinner from '@/components/misc/Spinner.vue'
-import { UTXO } from 'axia/dist/apis/platformvm'
+import { UTXO } from '@zee-ava/avajs/dist/apis/platformvm'
 import { ChainIdType } from '@/constants'
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 import AvaAsset from '@/js/AvaAsset'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { WalletType } from '@/js/wallets/types'

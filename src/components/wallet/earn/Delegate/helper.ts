@@ -1,8 +1,8 @@
 import { ValidatorListFilter } from '@/components/wallet/earn/Delegate/types'
 import { ValidatorListItem } from '@/store/modules/platform/types'
 import { DAY_MS } from '@/constants'
-import { ONEAVAX } from 'axia/dist/utils'
-import { BN } from 'axia'
+import { ONEAXC } from '@zee-ava/avajs/dist/utils'
+import { BN } from '@zee-ava/avajs'
 
 function filterValidatorList(
     list: ValidatorListItem[],
@@ -14,7 +14,7 @@ function filterValidatorList(
     let minDurationMs = filter.minDuration * DAY_MS
     let res = list.filter((val: ValidatorListItem) => {
         // Filter by remaining stake amount
-        let minSpace = ONEAVAX.mul(new BN(filter.availableSpace))
+        let minSpace = ONEAXC.mul(new BN(filter.availableSpace))
         if (val.remainingStake.lt(minSpace)) {
             return false
         }

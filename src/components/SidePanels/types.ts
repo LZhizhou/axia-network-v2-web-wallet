@@ -1,4 +1,4 @@
-import { BN } from 'axia'
+import { BN } from '@zee-ava/avajs'
 export interface TransactionValueDict {
     [address: string]: number
 }

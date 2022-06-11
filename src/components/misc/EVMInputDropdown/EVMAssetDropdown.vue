@@ -42,7 +42,7 @@ export default class EVMAssetDropdown extends Vue {
         this.$refs.select_modal.open()
     }
 
-    get avaxBalance(): Big {
+    get axcBalance(): Big {
         let w: WalletType | null = this.$store.state.activeWallet
         if (!w) return Big(0)
         let balBN = w.ethBalance

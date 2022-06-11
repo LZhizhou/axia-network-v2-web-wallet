@@ -26,12 +26,12 @@
                         <!--                        <p class="desc">-->
                         <!--                            {{ $t('earn.delegate.form.amount.desc2', [remainingAmtText]) }}-->
                         <!--                        </p>-->
-                        <AvaxInput
+                        <AxcInput
                             v-model="stakeAmt"
                             :max="maxAmt"
                             class="amt_in"
                             :balance="utxosBalanceBig"
-                        ></AvaxInput>
+                        ></AxcInput>
                     </div>
                     <div class="reward_in" style="margin: 30px 0" :type="rewardDestination">
                         <h4>{{ $t('earn.delegate.form.reward.label') }}</h4>
@@ -198,9 +198,9 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 
-import AvaxInput from '@/components/misc/AvaxInput.vue'
+import AxcInput from '@/components/misc/AxcInput.vue'
 //@ts-ignore
-import { QrInput } from '@avalabs/vue_components'
+import { QrInput } from '@zee-ava/vue_components'
 import ValidatorsList from '@/components/misc/ValidatorList/ValidatorsList.vue'
 import { ValidatorRaw } from '@/components/misc/ValidatorList/types'
 import StakingCalculator from '@/components/wallet/earn/StakingCalculator.vue'
@@ -208,12 +208,17 @@ import ConfirmPage from '@/components/wallet/earn/Delegate/ConfirmPage.vue'
 import Big from 'big.js'
 import moment from 'moment'
 
-import { BN } from 'axia'
-import { AmountOutput, PlatformVMConstants, UTXO, UTXOSet } from 'axia/dist/apis/platformvm'
+import { BN } from '@zee-ava/avajs'
+import {
+    AmountOutput,
+    PlatformVMConstants,
+    UTXO,
+    UTXOSet,
+} from '@zee-ava/avajs/dist/apis/platformvm'
 import { ava, avm, bintools, infoApi, pChain } from '@/AVA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { bnToBig, calculateStakingReward } from '@/helpers/helper'
-import { Defaults, ONEAVAX } from 'axia/dist/utils'
+import { Defaults, ONEAXC } from '@zee-ava/avajs/dist/utils'
 import { ValidatorListItem } from '@/store/modules/platform/types'
 import NodeSelection from '@/components/wallet/earn/Delegate/NodeSelection.vue'
 import CurrencySelect from '@/components/misc/CurrencySelect/CurrencySelect.vue'
@@ -237,7 +242,7 @@ const DAY_MS = HOUR_MS * 24
         Spinner,
         CurrencySelect,
         NodeSelection,
-        AvaxInput,
+        AxcInput,
         ValidatorsList,
         StakingCalculator,
         QrInput,
@@ -385,10 +390,10 @@ export default class AddDelegator extends Vue {
     }
 
     get estimatedRewardUSD() {
-        return this.estimatedReward.times(this.avaxPrice)
+        return this.estimatedReward.times(this.axcPrice)
     }
 
-    get avaxPrice(): Big {
+    get axcPrice(): Big {
         return Big(this.$store.state.prices.usd)
     }
 
@@ -538,7 +543,7 @@ export default class AddDelegator extends Vue {
     }
 
     get totalFeeUsdBig() {
-        return this.totalFeeBig.times(this.avaxPrice)
+        return this.totalFeeBig.times(this.axcPrice)
     }
 
     get txFee(): BN {
