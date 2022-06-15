@@ -1,7 +1,7 @@
 <template>
     <div class="staking_tx">
         <template v-if="isRewarded">
-            <div class="data_row" v-if="!isDelegatorReward">
+            <div class="data_row" v-if="!isNominatorReward">
                 <p class="rewarded">
                     <span><fa icon="check-square"></fa></span>
                     {{ $t('transactions.rewarded') }}
@@ -16,7 +16,7 @@
                 </p>
             </div>
             <div class="data_row reward_row">
-                <p>AVAX Price at reward date</p>
+                <p>AXC Price at reward date</p>
                 <p v-if="rewardDateAxcPrice">{{ rewardDateAxcPrice.toFixed(2) }} USD</p>
                 <p v-else>Unknown</p>
             </div>
@@ -26,9 +26,9 @@
                 <p v-else>-</p>
             </div>
             <div class="data_row">
-                <p v-if="!isDelegatorReward">{{ $t('transactions.reward_amount') }}</p>
+                <p v-if="!isNominatorReward">{{ $t('transactions.reward_amount') }}</p>
                 <p v-else>{{ $t('transactions.fee_amount') }}</p>
-                <p class="amt">{{ rewardAmtText.toLocaleString() }} AVAX</p>
+                <p class="amt">{{ rewardAmtText.toLocaleString() }} AXC</p>
             </div>
         </template>
         <template v-else-if="!isRewarded && !!rewardTime">
@@ -72,14 +72,14 @@
                 </div>
                 <div class="data_row reward_row">
                     <p>{{ $t('transactions.reward_pending') }}</p>
-                    <p class="amt">{{ rewardText }} AVAX</p>
+                    <p class="amt">{{ rewardText }} AXC</p>
                 </div>
             </template>
         </div>
 
-        <div class="data_row" v-if="!isDelegatorReward">
+        <div class="data_row" v-if="!isNominatorReward">
             <p>{{ actionText }}</p>
-            <p class="amt">{{ amtText }} AVAX</p>
+            <p class="amt">{{ amtText }} AXC</p>
         </div>
     </div>
 </template>
@@ -117,7 +117,7 @@ export default class StakingTx extends Vue {
         return this.transaction.type === 'add_validator'
     }
 
-    get isDelegatorReward() {
+    get isNominatorReward() {
         if (this.isValidator) return false
 
         // If its a delegation, and the wallet does not own any of the inputs
@@ -141,7 +141,7 @@ export default class StakingTx extends Vue {
         if (this.isValidator) {
             return 'Add Validator'
         } else {
-            return 'Add Delegator'
+            return 'Add Nominator'
         }
     }
 
@@ -250,10 +250,10 @@ export default class StakingTx extends Vue {
             if (this.isValidator) {
                 return v.potentialReward
             } else {
-                let delegators = v.delegators
-                if (!delegators) return null
-                for (var i = 0; i < delegators.length; i++) {
-                    let d = delegators[i]
+                let nominators = v.nominators
+                if (!nominators) return null
+                for (var i = 0; i < nominators.length; i++) {
+                    let d = nominators[i]
                     if (d.txID === this.transaction.id) {
                         return d.potentialReward
                     }

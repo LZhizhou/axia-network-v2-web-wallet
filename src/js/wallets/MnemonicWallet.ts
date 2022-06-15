@@ -32,7 +32,7 @@ import { getPreferredHRP, PayloadBase } from '@zee-ava/avajs/dist/utils'
 
 import * as bip39 from 'bip39'
 import { BN, Buffer as BufferAxia } from '@zee-ava/avajs'
-import { ava, avm, bintools, cChain, pChain } from '@/AVA'
+import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
 import { AvmExportChainType, AvmImportChainType, IAvaHdWallet } from '@/js/wallets/types'
 import HDKey from 'hdkey'
 import { ITransaction } from '@/components/wallet/transfer/types'
@@ -52,7 +52,7 @@ import { ExportChainsC, ExportChainsP } from '@zee-ava/axia-wallet-sdk'
 // m / purpose' / coin_type' / account' / change / address_index
 
 const AVA_TOKEN_INDEX: string = '9000'
-export const AVA_ACCOUNT_PATH: string = `m/44'/${AVA_TOKEN_INDEX}'/0'` // Change and index left out
+export const AXIA_ACCOUNT_PATH: string = `m/44'/${AVA_TOKEN_INDEX}'/0'` // Change and index left out
 export const ETH_ACCOUNT_PATH: string = `m/44'/60'/0'`
 export const LEDGER_ETH_ACCOUNT_PATH = ETH_ACCOUNT_PATH + '/0/0'
 
@@ -80,7 +80,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         super.onnetworkchange()
 
         // Update EVM values
-        this.ethKeyChain = new EVMKeyChain(ava.getHRP(), 'C')
+        this.ethKeyChain = new EVMKeyChain(axia.getHRP(), 'C')
         let cKeypair = this.ethKeyChain.importKey(this.ethKeyBech)
         this.ethBalance = new BN(0)
     }
@@ -89,7 +89,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
     constructor(mnemonic: string) {
         let seed: globalThis.Buffer = bip39.mnemonicToSeedSync(mnemonic)
         let masterHdKey: HDKey = HDKey.fromMasterSeed(seed)
-        let accountHdKey = masterHdKey.derive(AVA_ACCOUNT_PATH)
+        let accountHdKey = masterHdKey.derive(AXIA_ACCOUNT_PATH)
         let ethAccountKey = masterHdKey.derive(ETH_ACCOUNT_PATH + '/0/0')
 
         super(accountHdKey, ethAccountKey, false)
@@ -103,7 +103,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         let cPrivKey = `PrivateKey-` + bintools.cb58Encode(BufferAxia.from(ethPrivateKey))
         this.ethKeyBech = cPrivKey
 
-        let cKeyChain = new KeyChain(ava.getHRP(), 'C')
+        let cKeyChain = new KeyChain(axia.getHRP(), 'C')
         this.ethKeyChain = cKeyChain
 
         let cKeypair = cKeyChain.importKey(cPrivKey)
@@ -198,7 +198,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         )
     }
 
-    // Delegates AVAX to the given node ID
+    // Delegates AXC to the given node ID
     async delegate(
         nodeID: string,
         amt: BN,
@@ -223,14 +223,14 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         return await WalletHelper.issueBatchTx(this, orders, addr, memo)
     }
 
-    // returns a keychain that has all the derived private/public keys for X chain
+    // returns a keychain that has all the derived private/public keys for AssetChain
     getKeyChain(): AVMKeyChain {
         let internal = this.internalHelper.getAllDerivedKeys() as AVMKeyPair[]
         let external = this.externalHelper.getAllDerivedKeys() as AVMKeyPair[]
 
         let allKeys = internal.concat(external)
         let keychain: AVMKeyChain = new AVMKeyChain(
-            getPreferredHRP(ava.getNetworkID()),
+            getPreferredHRP(axia.getNetworkID()),
             this.chainId
         )
 

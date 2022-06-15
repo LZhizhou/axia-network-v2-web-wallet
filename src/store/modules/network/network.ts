@@ -2,8 +2,8 @@ import { Module } from 'vuex'
 import { RootState } from '@/store/types'
 import { NetworkState } from '@/store/modules/network/types'
 
-import { ava, avm, bintools, cChain, infoApi, pChain } from '@/AVA'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { axia, avm, bintools, appChain, infoApi, coreChain } from '@/AXIA'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 import { explorer_api } from '@/explorer_api'
 import { BN } from '@zee-ava/avajs'
 import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
@@ -21,7 +21,7 @@ const network_module: Module<NetworkState, RootState> = {
         txFee: new BN(0),
     },
     mutations: {
-        addNetwork(state, net: AvaNetwork) {
+        addNetwork(state, net: AxiaNetwork) {
             state.networks.push(net)
         },
     },
@@ -31,7 +31,7 @@ const network_module: Module<NetworkState, RootState> = {
         },
     },
     actions: {
-        addCustomNetwork({ state, dispatch }, net: AvaNetwork) {
+        addCustomNetwork({ state, dispatch }, net: AxiaNetwork) {
             // Check if network alerady exists
             let networks = state.networksCustom
             // Do not add if there is a network already with the same url
@@ -45,7 +45,7 @@ const network_module: Module<NetworkState, RootState> = {
             dispatch('save')
         },
 
-        async removeCustomNetwork({ state, dispatch }, net: AvaNetwork) {
+        async removeCustomNetwork({ state, dispatch }, net: AxiaNetwork) {
             let index = state.networksCustom.indexOf(net)
             state.networksCustom.splice(index, 1)
             await dispatch('save')
@@ -58,8 +58,8 @@ const network_module: Module<NetworkState, RootState> = {
             let data = localStorage.getItem('network_selected')
             if (!data) return false
             try {
-                // let net: AvaNetwork = JSON.parse(data);
-                let nets: AvaNetwork[] = getters.allNetworks
+                // let net: AxiaNetwork = JSON.parse(data);
+                let nets: AxiaNetwork[] = getters.allNetworks
 
                 for (var i = 0; i < nets.length; i++) {
                     let net = nets[i]
@@ -84,10 +84,10 @@ const network_module: Module<NetworkState, RootState> = {
             let data = localStorage.getItem('networks')
 
             if (data) {
-                let networks: AvaNetwork[] = JSON.parse(data)
+                let networks: AxiaNetwork[] = JSON.parse(data)
 
                 networks.forEach((n) => {
-                    let newCustom = new AvaNetwork(
+                    let newCustom = new AxiaNetwork(
                         n.name,
                         n.url,
                         //@ts-ignore
@@ -100,14 +100,14 @@ const network_module: Module<NetworkState, RootState> = {
                 })
             }
         },
-        async setNetwork({ state, dispatch, commit, rootState }, net: AvaNetwork) {
+        async setNetwork({ state, dispatch, commit, rootState }, net: AxiaNetwork) {
             state.status = 'connecting'
 
             // Chose if the network should use credentials
             await net.updateCredentials()
-            ava.setRequestConfig('withCredentials', net.withCredentials)
-            ava.setAddress(net.ip, net.port, net.protocol)
-            ava.setNetworkID(net.networkId)
+            axia.setRequestConfig('withCredentials', net.withCredentials)
+            axia.setAddress(net.ip, net.port, net.protocol)
+            axia.setNetworkID(net.networkId)
 
             // Reset transaction history
             commit('History/clear', null, { root: true })
@@ -119,14 +119,14 @@ const network_module: Module<NetworkState, RootState> = {
 
             avm.refreshBlockchainID(chainIdX)
             avm.setBlockchainAlias('X')
-            pChain.refreshBlockchainID(chainIdP)
-            pChain.setBlockchainAlias('P')
-            cChain.refreshBlockchainID(chainIdC)
-            cChain.setBlockchainAlias('C')
+            coreChain.refreshBlockchainID(chainIdP)
+            coreChain.setBlockchainAlias('P')
+            appChain.refreshBlockchainID(chainIdC)
+            appChain.setBlockchainAlias('C')
 
             avm.getAXCAssetID(true)
-            pChain.getAXCAssetID(true)
-            cChain.getAXCAssetID(true)
+            coreChain.getAXCAssetID(true)
+            appChain.getAXCAssetID(true)
 
             state.selectedNetwork = net
             dispatch('saveSelectedNetwork')
@@ -142,7 +142,7 @@ const network_module: Module<NetworkState, RootState> = {
             setSocketNetwork(net)
 
             commit('Assets/removeAllAssets', null, { root: true })
-            await dispatch('Assets/updateAvaAsset', null, { root: true })
+            await dispatch('Assets/updateAxiaAsset', null, { root: true })
 
             // If authenticated
             if (rootState.isAuth) {
@@ -177,7 +177,7 @@ const network_module: Module<NetworkState, RootState> = {
         },
 
         async init({ state, commit, dispatch }) {
-            let mainnet = new AvaNetwork(
+            let mainnet = new AxiaNetwork(
                 'Mainnet',
                 'https://api.avax.network:443',
                 1,
@@ -186,10 +186,10 @@ const network_module: Module<NetworkState, RootState> = {
                 true
             )
 
-            let fuji = new AvaNetwork(
+            let fuji = new AxiaNetwork(
                 'Fuji',
-                'https://api.avax-test.network:443',
-                5,
+                'http://18.222.205.99:9650',
+                5678,
                 'https://explorerapi.avax-test.network',
                 'https://explorer.avax-test.network',
                 true

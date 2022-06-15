@@ -3,7 +3,7 @@
         <td class="id">{{ validator.nodeID }}</td>
         <td class="amount">{{ amtText }}</td>
         <td class="amount">{{ remainingAmtText }}</td>
-        <td style="text-align: center">{{ numDelegators }}</td>
+        <td style="text-align: center">{{ numNominators }}</td>
         <td>{{ remainingTimeText }}</td>
         <!--        <td>{{ uptimeText }}</td>-->
         <td>{{ feeText }}%</td>
@@ -15,8 +15,8 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { ava, pChain } from '@/AVA'
-import { DelegatorRaw, ValidatorRaw } from '@/components/misc/ValidatorList/types'
+import { axia, coreChain } from '@/AXIA'
+import { NominatorRaw, ValidatorRaw } from '@/components/misc/ValidatorList/types'
 import moment from 'moment'
 import Big from 'big.js'
 import { BN } from '@zee-ava/avajs'
@@ -64,17 +64,17 @@ export default class ValidatorsList extends Vue {
     }
 
     // TODO :HEAVY
-    // get delegators(): DelegatorRaw[]{
+    // get nominators(): NominatorRaw[]{
     //     return [];
-    // let map = this.$store.getters["Platform/nodeDelegatorMap"];
+    // let map = this.$store.getters["Platform/nodeNominatorMap"];
     // return map[this.validator.nodeID];
     // }
 
     // TODO :HEAVY
-    get numDelegators() {
-        return this.validator.numDelegators
-        // if(!this.delegators) return 0;
-        // return this.delegators.length;
+    get numNominators() {
+        return this.validator.numNominators
+        // if(!this.nominators) return 0;
+        // return this.nominators.length;
     }
 
     // TODO :HEAVY

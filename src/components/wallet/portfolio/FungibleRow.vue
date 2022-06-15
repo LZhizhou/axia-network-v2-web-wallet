@@ -31,7 +31,7 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
-import AvaAsset from '../../../js/AvaAsset'
+import AxiaAsset from '../../../js/AxiaAsset'
 import Hexagon from '@/components/misc/Hexagon.vue'
 import { BN } from '@zee-ava/avajs'
 import { bnToBig } from '../../../helpers/helper'
@@ -46,7 +46,7 @@ import Big from 'big.js'
     },
 })
 export default class FungibleRow extends Vue {
-    @Prop() asset!: AvaAsset
+    @Prop() asset!: AxiaAsset
 
     get iconUrl(): string | null {
         if (!this.asset) return null
@@ -83,8 +83,8 @@ export default class FungibleRow extends Vue {
         return `/wallet/transfer?asset=${this.asset.id}&chain=X`
     }
 
-    get axcToken(): AvaAsset {
-        return this.$store.getters['Assets/AssetAVA']
+    get axcToken(): AxiaAsset {
+        return this.$store.getters['Assets/AssetAXIA']
     }
 
     get isAxcToken(): boolean {
@@ -100,7 +100,7 @@ export default class FungibleRow extends Vue {
     get name(): string {
         let name = this.asset.name
         // TODO: Remove this hack after network change
-        if (name === 'AVA') return 'AVAX'
+        if (name === 'AXIA') return 'AXC'
         return name
     }
 
@@ -108,7 +108,7 @@ export default class FungibleRow extends Vue {
         let sym = this.asset.symbol
 
         // TODO: Remove this hack after network change
-        if (sym === 'AVA') return 'AVAX'
+        if (sym === 'AXIA') return 'AXC'
         return sym
     }
 

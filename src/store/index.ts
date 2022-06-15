@@ -24,7 +24,7 @@ Vue.use(Vuex)
 
 import router from '@/router'
 
-import { avm, bintools } from '@/AVA'
+import { avm, bintools } from '@/AXIA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 
 import {
@@ -138,7 +138,7 @@ export default new Vuex.Store({
         async onAccess(store) {
             store.state.isAuth = true
 
-            store.dispatch('Assets/updateAvaAsset')
+            store.dispatch('Assets/updateAxiaAsset')
             store.dispatch('Platform/update')
             router.push('/wallet')
             store.dispatch('Assets/updateUTXOs')
@@ -259,7 +259,7 @@ export default new Vuex.Store({
         async activateWallet({ state, dispatch, commit }, wallet: MnemonicWallet | LedgerWallet) {
             state.activeWallet = wallet
 
-            dispatch('Assets/updateAvaAsset')
+            dispatch('Assets/updateAxiaAsset')
             commit('updateActiveAddress')
             dispatch('History/updateTransactionHistory')
             updateFilterAddresses()

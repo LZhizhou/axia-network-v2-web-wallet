@@ -8,7 +8,7 @@
         "desc": "Axia Cüzdan, dijital varlıklarınızı saklamaya yönelik basit, güvenli, gözetimsiz bir cüzdandır.",
         "access": {
             "title": "Tekrar Hoşgeldiniz!",
-            "desc": "Mevcut AVAX cüzdanınızı buradan açabilirsiniz.",
+            "desc": "Mevcut AXC cüzdanınızı buradan açabilirsiniz.",
             "submit": "Cüzdanı Aç"
         },
         "create": {
@@ -96,8 +96,8 @@
         "nftcol": "NFT'ler",
         "nftempty": "Hiç NFT sahibi değilsiniz.",
         "locked": "Kilitli",
-        "info2": "Token satışından AVAX aldım. Almış olduğum AVAX'lar nerede?",
-        "info2_desc": "Bu cüzdan Axia Everest test ağına bağlandı. Satın almış olduğunuz AVAX'lar Axia Ana Ağı hayata geçince cüzdanınızda görünebilir olacak.",
+        "info2": "Token satışından AXC aldım. Almış olduğum AXC'lar nerede?",
+        "info2_desc": "Bu cüzdan Axia Everest test ağına bağlandı. Satın almış olduğunuz AXC'lar Axia Ana Ağı hayata geçince cüzdanınızda görünebilir olacak.",
         "hover1": "Adresin QR Kodunu Görüntüle",
         "hover2": "Yazdır",
         "hover3": "Kopyala",
@@ -119,7 +119,7 @@
     "transfer": {
         "title": "Gönder",
         "no_cash": "İşlem yapabilmek için cüzdanınızda varlığa sahip olmalısınız.",
-        "faucet": "AVAX musluğunu kontrol ettiniz mi?",
+        "faucet": "AXC musluğunu kontrol ettiniz mi?",
         "to": "Gönderilecek Cüzdan Adresi",
         "fees": "Gönderim Ücreti",
         "fee_tx": "İşlem Masrafı",
@@ -190,13 +190,13 @@
     },
     "earn": {
         "title": "Kazan",
-        "desc": "Var olan coinleriniz stake yaparak daha fazla AVAX kazanabilirsiniz.",
+        "desc": "Var olan coinleriniz stake yaparak daha fazla AXC kazanabilirsiniz.",
         "subtitle1": "Doğrula",
         "subtitle2": "Devret",
         "subtitle3": "Çapraz Zincir Transferi",
         "subtitle4": "Tahmini Ödüller",
-        "warning_1": "Doğrulayıcı olabilmeniz için P zincirinde en az {0} AVAX'ınızın olması gerekir.",
-        "warning_2": "Devredici olabilmeniz için P zincirinde en az {0} AVAX'ınızın olması gerekir.",
+        "warning_1": "Doğrulayıcı olabilmeniz için P zincirinde en az {0} AXC'ınızın olması gerekir.",
+        "warning_2": "Devredici olabilmeniz için P zincirinde en az {0} AXC'ınızın olması gerekir.",
         "validate_card": {
             "title": "Doğrula",
             "desc": "Stake yapmak istediğiniz bir Axia düğümünüz var.",
@@ -209,7 +209,7 @@
         },
         "transfer_card": {
             "title": "Çapraz Zincir Transferi",
-            "desc": "Staking, P zincirinde AVAX gerektirir. X ve P arasında coin transferi yap.",
+            "desc": "Staking, P zincirinde AXC gerektirir. X ve P arasında coin transferi yap.",
             "submit": "Transfer"
         },
         "rewards_card": {
@@ -260,7 +260,7 @@
             },
             "amount": {
                 "label": "Stake Miktarı",
-                "desc": "Stake için kilitlenecek AVAX miktarı."
+                "desc": "Stake için kilitlenecek AXC miktarı."
             },
             "fee": {
                 "label": "Devretme Masrafı",
@@ -301,7 +301,7 @@
             "errs": {
                 "duration_warn": "UYARI: Delegatörleri kabul etmek için validasyon sürenizin en az 14 günü olmalıdır.",
                 "date": "Başlangıç tarihi gelecekte olmalıdır ve bitiş tarihi de başlangıç tarihinden sonra olmalıdır.",
-                "amount": "Stake miktarı en az {0} AVAX olmalıdır",
+                "amount": "Stake miktarı en az {0} AXC olmalıdır",
                 "id": "Geçersiz Düğüm Kimliği.",
                 "fee": "Delegasyon ücretiniz en az {0} Axc olmalıdır",
                 "address": "Geçersiz adres. Ödül adresi geçerli bir P zinciri adresi olmalıdır."
@@ -352,8 +352,8 @@
                 },
                 "amount": {
                     "label": "Stake Miktarı",
-                    "desc": "Stake için kilitlenecek AVAX miktarı.",
-                    "desc2": "Bu düğüme yönelik uygun devretme miktarı {0} AVAX'tır"
+                    "desc": "Stake için kilitlenecek AXC miktarı.",
+                    "desc2": "Bu düğüme yönelik uygun devretme miktarı {0} AXC'tır"
                 },
                 "reward": {
                     "label": "Ödül Adresi",
@@ -378,7 +378,7 @@
                 "max_dur": "Maksimum stake süresi 1 yıldır.",
                 "no_node": "Bir doğrulayıcı belirtmelisiniz.",
                 "val_end": "Devretme bitiş tarihi, doğrulayıcının bitiş tarihinden daha uzun olamaz.",
-                "amt": "Devretme miktarı en az {0} AVAX olmalıdır."
+                "amt": "Devretme miktarı en az {0} AXC olmalıdır."
             },
             "summary": {
                 "duration": "Stake Süresi",
@@ -422,7 +422,7 @@
         "loading": "İşlem geçmişi yükleniyor..",
         "warn_loading": "Bu liste eksik ve bozuk olabilir.",
         "error_api": "Explorer API Bulunamadı",
-        "error_api_desc": "Bu ağın işlem geçmişini görüntülemek için bir AVA Explorer API sağlamalısınız."
+        "error_api_desc": "Bu ağın işlem geçmişini görüntülemek için bir AXIA Explorer API sağlamalısınız."
     },
     "modal": {
         "qr": {

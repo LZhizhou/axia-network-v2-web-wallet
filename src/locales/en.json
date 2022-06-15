@@ -5,14 +5,14 @@
     "address": "Address",
     "add_pk": "Add Private Key",
     "home": {
-        "desc": "Axia Wallet is a simple, secure, non-custodial wallet for storing Axia assets.",
+        "desc": "Axwallet is a simple, secure, non-custodial wallet for storing Axia assets.",
         "access": {
             "title": "Welcome Back!",
-            "desc": "Access your existing Axia wallet here.",
+            "desc": "Access your existing Axwallet here.",
             "submit": "Access Wallet"
         },
         "create": {
-            "title": "New to Axia Wallet?",
+            "title": "New to Axwallet?",
             "desc": "Create a new wallet to send, receive and swap Axia assets.",
             "submit": "Create New Wallet"
         }
@@ -78,18 +78,18 @@
         }
     },
     "create": {
-        "generate": "Generate a new key phrase to setup your Axia Wallet.",
+        "generate": "Generate a new key phrase to setup your Axwallet.",
         "but_have": "Already have a wallet?",
         "submit": "Generate Key Phrase",
         "cancel": "Cancel",
         "mnemonic_title": "This is your key phrase.",
-        "mnemonic_desc": "Use these 24 words in sequential order to recover your Axia Wallet",
+        "mnemonic_desc": "Use these 24 words in sequential order to recover your Axwallet",
         "attention": "Attention!",
-        "warning": "Store this key phrase in a secure location. Anyone with this key phrase can access your Axia Wallet. There is no way to recover lost key phrases.",
+        "warning": "Store this key phrase in a secure location. Anyone with this key phrase can access your Axwallet. There is no way to recover lost key phrases.",
         "confirm": "I wrote down my key phrase in a secure location.",
         "regenerate": "Regenerate",
         "success_title": "Congratulations!",
-        "success_desc": "It's time to access your Axia Wallet.",
+        "success_desc": "It's time to access your Axwallet.",
         "success_submit": "Access Wallet",
         "verify": "Verify",
         "verifytitle": "Verify Mnemonic",
@@ -98,14 +98,14 @@
         "error_word": "The mnemonic phrase you entered for word not match the actual phrase."
     },
     "top": {
-        "title1": "Derived Axia Wallet Address",
+        "title1": "Derived Axwallet Address",
         "title2": "Balance",
         "title3": "Subnet",
         "title4": "Network",
         "nftcol": "NFTs",
         "nftempty": "You have not collected any non fungible tokens.",
         "locked": "Locked",
-        "info2": "I bought coins in the Token Sale. Where are my AVAX?",
+        "info2": "I bought coins in the Token Sale. Where are my AXC?",
         "info2_desc": "This wallet is connected to the Axia Everest test network. Your purchase will appear in the wallet after the Axia Mainnet launch.",
         "hover1": "View Address QR Code",
         "hover2": "Paper Wallet",
@@ -121,14 +121,14 @@
             "collectibles": "Collectibles"
         },
         "address": {
-            "derived": "Derived Axia Wallet Address",
+            "derived": "Derived Axwallet Address",
             "title_x": "Derived Wallet Address",
             "title_p": "Derived Platform Wallet Address",
             "title_c": "Derived EVM Wallet Address",
-            "desc_x_1": "This is your X-Chain address to receive funds.",
+            "desc_x_1": "This is your AssetChain address to receive funds.",
             "desc_x_2": "Your address will change after every deposit. You can keep using previous addresses.",
-            "desc_p": "This is your P-Chain address to receive staking rewards and cross chain transfers.",
-            "desc_c": "This is your C-Chain address. Use it to interact with the ethereum virtual machine."
+            "desc_p": "This is your CoreChain address to receive staking rewards and cross chain transfers.",
+            "desc_c": "This is your AppChain address. Use it to interact with the ethereum virtual machine."
         }
     },
     "transfer": {
@@ -144,8 +144,8 @@
         "send": "Send Transaction",
         "summary": "Transaction Summary",
         "total": "Total",
-        "total_axc": "Total AVAX",
-        "chain_warn": "You can only send tokens on the X chain.",
+        "total_axc": "Total AXC",
+        "chain_warn": "You can only send tokens on the AssetChain.",
         "disconnected": "Unable to send assets. Disconnected from the network.",
         "success_title": "Transaction Sent",
         "success_msg": "You have succesfully sent your transaction.",
@@ -317,7 +317,7 @@
         "import_mnemonic_err": "Invalid key phrase.",
         "tooltip": "This key will be forgotten when you refresh the browser.",
         "view_priv_key": "View Private Key",
-        "view_priv_key_c": "View C Chain Private Key",
+        "view_priv_key_c": "View AppChain Private Key",
         "view_key": "View Key Phrase",
         "export_key": "Export Key",
         "hd_addresses": "HD Addresses",
@@ -354,13 +354,13 @@
     },
     "earn": {
         "title": "Earn",
-        "desc": "You can earn more AVAX by staking your existing tokens.",
+        "desc": "You can earn more AXC by staking your existing tokens.",
         "subtitle1": "Validate",
         "subtitle2": "Delegate",
         "subtitle3": "Cross Chain Transfer",
         "subtitle4": "Estimated Rewards",
-        "warning_1": "You must have at least {0} AVAX on the P chain to become a validator.",
-        "warning_2": "You must have at least {0} AVAX on the P chain to become a delegator.",
+        "warning_1": "You must have at least {0} AXC on the CoreChain to become a validator.",
+        "warning_2": "You must have at least {0} AXC on the CoreChain to become a nominator.",
         "validate_card": {
             "title": "Validate",
             "desc": "You have an Axia node that you want to stake with.",
@@ -369,11 +369,11 @@
         "delegate_card": {
             "title": "Delegate",
             "desc": "You do not own an Axia node, but you want to stake using another node.",
-            "submit": "Add Delegator"
+            "submit": "Add Nominator"
         },
         "transfer_card": {
             "title": "Cross Chain Transfer",
-            "desc": "Staking requires AVAX on the P chain. Transfer tokens between X and P.",
+            "desc": "Staking requires AXC on the CoreChain. Transfer tokens between X and P.",
             "submit": "Transfer"
         },
         "rewards_card": {
@@ -434,17 +434,17 @@
             "label_1": "Node ID",
             "duration": {
                 "label": "Staking End Date",
-                "desc": "Your AVAX tokens will be locked until this date.",
+                "desc": "Your AXC tokens will be locked until this date.",
                 "start": "Start Date & Time",
                 "end": "End Date & Time"
             },
             "amount": {
                 "label": "Stake Amount",
-                "desc": "The amount of AVAX to lock for staking."
+                "desc": "The amount of AXC to lock for staking."
             },
             "fee": {
                 "label": "Delegation Fee",
-                "desc": "You will claim this % of the rewards from the delegators on your node."
+                "desc": "You will claim this % of the rewards from the nominators on your node."
             },
             "reward": {
                 "label": "Reward Address",
@@ -482,10 +482,10 @@
             "errs": {
                 "duration_warn": "WARNING: You must have at least 14 days remaining on your validation period to accept delegations.",
                 "date": "Start date must be in the future and end date must be after start date.",
-                "amount": "Stake amount must be at least {0} AVAX",
+                "amount": "Stake amount must be at least {0} AXC",
                 "id": "Invalid Node ID.",
                 "fee": "Delegation fee must be at least {0}%",
-                "address": "Invalid address. Reward address must be a valid P chain address."
+                "address": "Invalid address. Reward address must be a valid CoreChain address."
             }
         },
         "delegate": {
@@ -508,7 +508,7 @@
                 "val_stake": "Validator Stake",
                 "aval_stake": "Available",
                 "aval_stake_tip": "How much more can be delegated to this validator.",
-                "users_tip": "Number of Delegators",
+                "users_tip": "Number of Nominators",
                 "end": "End Time",
                 "up": "Uptime",
                 "up_tip": "Relative to the node this wallet is connected to.",
@@ -527,14 +527,14 @@
             "form": {
                 "period": {
                     "label": "Staking End Date",
-                    "desc": "Your AVAX tokens will be locked until this date.",
+                    "desc": "Your AXC tokens will be locked until this date.",
                     "start": "Start Date & Time",
                     "end": "End Date & Time"
                 },
                 "amount": {
                     "label": "Stake Amount",
-                    "desc": "The amount of AVAX to lock for staking.",
-                    "desc2": "The available delegation amount for this node is {0} AVAX"
+                    "desc": "The amount of AXC to lock for staking.",
+                    "desc2": "The available delegation amount for this node is {0} AXC"
                 },
                 "reward": {
                     "label": "Reward Address",
@@ -554,13 +554,13 @@
             "errs": {
                 "start_now": "Start time must be after current time.",
                 "start_end": "Start date must be in the future and end date must be after start date.",
-                "invalid_addr": "Invalid address. Reward address must be a valid P chain address.",
+                "invalid_addr": "Invalid address. Reward address must be a valid CoreChain address.",
                 "no_addr": "You must give an address to receive delegation rewards.",
                 "min_dur": "Minimum staking duration is 2 weeks.",
                 "max_dur": "Maximum staking duration is 1 year.",
                 "no_node": "You must specify a validator.",
                 "val_end": "Delegation end date can not be longer than the validator's end date.",
-                "amt": "Delegation amount must be at least {0} AVAX."
+                "amt": "Delegation amount must be at least {0} AXC."
             },
             "summary": {
                 "duration": "Staking Duration",
@@ -584,8 +584,8 @@
         "import": {
             "title": "Chain Import",
             "desc": "If you have funds stuck in a failed chain transfer, you can finish importing them here.",
-            "submit_x": "Import X (From P Chain)",
-            "submit_c_x": "Import X (From C Chain)",
+            "submit_x": "Import X (From CoreChain)",
+            "submit_c_x": "Import X (From AppChain)",
             "submit_p": "Import P",
             "submit_c": "Import C"
         },

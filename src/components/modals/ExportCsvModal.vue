@@ -143,7 +143,7 @@ export default class ExportCsvModal extends Vue {
             let myInputs = getOwnedOutputs(inputOuts, myAddresses)
             let isInputOwner = myInputs.length > 0
 
-            if (type === 'add_delegator') {
+            if (type === 'add_nominator') {
                 // Skip if user did not want delegation / fee rewards
                 if (!this.showDelegation && !this.showFees) continue
 
@@ -152,7 +152,7 @@ export default class ExportCsvModal extends Vue {
                 // If user does not want delegation rewards, continue
                 if (isInputOwner && !this.showDelegation) continue
 
-                let type: CsvRowStakingTxType = isInputOwner ? 'add_delegator' : 'fee_received'
+                let type: CsvRowStakingTxType = isInputOwner ? 'add_nominator' : 'fee_received'
 
                 //TODO: What if reward went to another wallet?
                 // if (rewardOuts.length === 0) {
@@ -201,8 +201,8 @@ export default class ExportCsvModal extends Vue {
             'Stake Start Date',
             'Stake Duration',
             'Reward Date',
-            'AVAX Price at Reward Date',
-            'Reward Received (AVAX)',
+            'AXC Price at Reward Date',
+            'Reward Received (AXC)',
             'Reward Received (USD)',
         ]
 

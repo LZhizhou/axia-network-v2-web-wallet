@@ -25,7 +25,7 @@
                             </Tooltip>
                         </th>
                         <th>
-                            <Tooltip text="Number of Delegators"><fa icon="users"></fa></Tooltip>
+                            <Tooltip text="Number of Nominators"><fa icon="users"></fa></Tooltip>
                         </th>
                         <th>{{ $t('earn.delegate.list.end') }}</th>
                         <!--                        <th>-->
@@ -60,7 +60,7 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { ava, pChain } from '@/AVA'
+import { axia, coreChain } from '@/AXIA'
 import { BN } from '@zee-ava/avajs'
 
 import ValidatorRow from '@/components/misc/ValidatorList/ValidatorRow.vue'

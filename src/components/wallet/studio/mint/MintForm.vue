@@ -73,7 +73,7 @@
                     <div class="fee">
                         <p>
                             {{ $t('studio.mint.form_col.fee') }}
-                            <span>{{ txFee.toLocaleString() }} AVAX</span>
+                            <span>{{ txFee.toLocaleString() }} AXC</span>
                         </p>
                     </div>
                     <v-btn
@@ -133,7 +133,7 @@ import NftPayloadView from '@/components/misc/NftPayloadView/NftPayloadView.vue'
 
 import { NFTMintOutput, NFTTransferOutput, UTXO } from '@zee-ava/avajs/dist/apis/avm'
 import { NftFamilyDict } from '@/store/modules/assets/types'
-import { avm, bintools, pChain } from '@/AVA'
+import { avm, bintools, coreChain } from '@/AXIA'
 import {
     GenericFormType,
     JsonFormType,

@@ -1,8 +1,8 @@
 import { UTXO, UTXOSet } from '@zee-ava/avajs/dist/apis/avm'
 
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import { BN } from '@zee-ava/avajs'
-import { AvaNftFamily } from '@/js/AvaNftFamily'
+import { AxiaNftFamily } from '@/js/AxiaNftFamily'
 import { IWalletBalanceDict } from '@/store/types'
 import { UTXO as AVMUTXO } from '@zee-ava/avajs/dist/apis/avm/utxos'
 import Erc20Token from '@/js/Erc20Token'
@@ -10,10 +10,10 @@ import ERC721Token from '@/js/ERC721Token'
 
 export interface AssetsState {
     // isUpdateBalance: boolean
-    assets: AvaAsset[]
+    assets: AxiaAsset[]
     assetsDict: AssetsDict
-    AVA_ASSET_ID: string | null
-    nftFams: AvaNftFamily[]
+    AXIA_ASSET_ID: string | null
+    nftFams: AxiaNftFamily[]
     nftFamsDict: NftFamilyDict
     balanceDict: IWalletBalanceDict
     nftUTXOs: AVMUTXO[]
@@ -38,11 +38,11 @@ export interface AssetDescription {
 }
 
 export interface NftFamilyDict {
-    [id: string]: AvaNftFamily
+    [id: string]: AxiaNftFamily
 }
 
 export interface AssetsDict {
-    [key: string]: AvaAsset
+    [key: string]: AxiaAsset
 }
 
 export interface AddressUtxoDict {

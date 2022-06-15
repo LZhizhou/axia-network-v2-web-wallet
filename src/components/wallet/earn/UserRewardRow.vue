@@ -19,11 +19,11 @@
             </div>
             <div>
                 <label>{{ $t('earn.rewards.row.stake') }}</label>
-                <p class="reward">{{ stakeBig.toLocaleString() }} AVAX</p>
+                <p class="reward">{{ stakeBig.toLocaleString() }} AXC</p>
             </div>
             <div style="text-align: right">
                 <label>{{ $t('earn.rewards.row.reward') }}</label>
-                <p class="reward">{{ rewardBig.toLocaleString() }} AVAX</p>
+                <p class="reward">{{ rewardBig.toLocaleString() }} AXC</p>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { DelegatorRaw, ValidatorRaw } from '../../misc/ValidatorList/types'
+import { NominatorRaw, ValidatorRaw } from '../../misc/ValidatorList/types'
 import { BN } from '@zee-ava/avajs'
 import Big from 'big.js'
 
@@ -40,7 +40,7 @@ export default class UserRewardRow extends Vue {
     now: number = Date.now()
     intervalID: any = null
 
-    @Prop() staker!: ValidatorRaw | DelegatorRaw
+    @Prop() staker!: ValidatorRaw | NominatorRaw
 
     updateNow() {
         this.now = Date.now()

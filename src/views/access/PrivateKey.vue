@@ -33,7 +33,7 @@ import { Vue, Component } from 'vue-property-decorator'
 import { ImportKeyfileInput } from '@/store/types'
 import { SingletonWallet } from '@/js/wallets/SingletonWallet'
 import { privateToAddress } from 'ethereumjs-util'
-import { bintools } from '@/AVA'
+import { bintools } from '@/AXIA'
 import { Buffer } from '@zee-ava/avajs'
 
 @Component

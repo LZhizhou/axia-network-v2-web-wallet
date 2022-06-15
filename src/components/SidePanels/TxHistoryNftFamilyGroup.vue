@@ -14,7 +14,7 @@ import { PayloadBase } from '@zee-ava/avajs/dist/utils'
 import { Buffer } from '@zee-ava/avajs'
 import { PayloadTypes } from '@zee-ava/avajs/dist/utils'
 import { NftGroupDict } from '../wallet/portfolio/types'
-import { AvaNftFamily } from '../../js/AvaNftFamily'
+import { AxiaNftFamily } from '../../js/AxiaNftFamily'
 import { UTXO } from '@/store/modules/history/types'
 
 let payloadtypes = PayloadTypes.getInstance()

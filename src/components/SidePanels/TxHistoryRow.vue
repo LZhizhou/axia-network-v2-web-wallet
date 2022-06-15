@@ -34,7 +34,7 @@ import moment from 'moment'
 // import TxHistoryValue from '@/components/SidePanels/TxHistoryValue.vue'
 import TxHistoryNftFamilyGroup from '@/components/SidePanels/TxHistoryNftFamilyGroup.vue'
 import { ITransactionData, TransactionType, UTXO } from '@/store/modules/history/types'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 import { Buffer } from '@zee-ava/avajs'
 import ImportExport from '@/components/SidePanels/History/ViewTypes/ImportExport.vue'
 import BaseTx from '@/components/SidePanels/History/ViewTypes/BaseTx.vue'
@@ -52,7 +52,7 @@ export default class TxHistoryRow extends Vue {
     @Prop() transaction!: ITransactionData
 
     get explorerUrl(): string | null {
-        let network: AvaNetwork = this.$store.state.Network.selectedNetwork
+        let network: AxiaNetwork = this.$store.state.Network.selectedNetwork
         if (network.explorerSiteUrl) {
             return `${network.explorerSiteUrl}/tx/${this.transaction.id}`
         }
@@ -93,7 +93,7 @@ export default class TxHistoryRow extends Vue {
             case 'pvm_export':
             case 'pvm_import':
                 return ImportExport
-            case 'add_delegator':
+            case 'add_nominator':
             case 'add_validator':
                 return StakingTx
             default:

@@ -18,19 +18,19 @@
             </p>
         </div>
         <div>
-            <label>Delegators</label>
-            <p>{{ node.numDelegators }}</p>
+            <label>Nominators</label>
+            <p>{{ node.numNominators }}</p>
         </div>
         <!--        <div class="stake_row">-->
         <!--            -->
         <!--        </div>-->
         <div>
             <label>Active Stake</label>
-            <p>{{ totalStakeBig.toLocaleString(0) }} AVAX</p>
+            <p>{{ totalStakeBig.toLocaleString(0) }} AXC</p>
         </div>
         <div>
             <label>Available Stake</label>
-            <p>{{ remainingStakeBig.toLocaleString(0) }} AVAX</p>
+            <p>{{ remainingStakeBig.toLocaleString(0) }} AXC</p>
         </div>
         <!--        <div class="dates"></div>-->
         <div class="date_row">
@@ -51,7 +51,7 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { ValidatorListItem } from '@/store/modules/platform/types'
 import { bnToBig } from '@/helpers/helper'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 
 @Component
 export default class NodeCard extends Vue {
@@ -78,7 +78,7 @@ export default class NodeCard extends Vue {
     }
 
     get avascanURL() {
-        let activeNet: AvaNetwork = this.$store.state.Network.selectedNetwork
+        let activeNet: AxiaNetwork = this.$store.state.Network.selectedNetwork
 
         if (activeNet.networkId === 1) {
             return `https://avascan.info/staking/validator/${this.node.nodeID}`

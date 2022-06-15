@@ -60,14 +60,14 @@ import { KeyPair as AVMKeyPair } from '@zee-ava/avajs/dist/apis/avm'
 import { WalletType, WalletNameType } from '@/js/wallets/types'
 
 import MnemonicWallet, {
-    AVA_ACCOUNT_PATH,
+    AXIA_ACCOUNT_PATH,
     LEDGER_ETH_ACCOUNT_PATH,
 } from '@/js/wallets/MnemonicWallet'
 import { LedgerWallet } from '@/js/wallets/LedgerWallet'
 
 import ChainSelect from '@/components/wallet/TopCards/AddressCard/ChainSelect.vue'
 import { ChainIdType } from '@/constants'
-import { ava } from '@/AVA'
+import { axia } from '@/AXIA'
 import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
 @Component({
     components: {
@@ -238,13 +238,13 @@ export default class AddressCard extends Vue {
     async verifyLedgerAddress() {
         const wallet = this.activeWallet as LedgerWallet
 
-        let networkId = ava.getNetworkID()
+        let networkId = axia.getNetworkID()
         let hrp = getPreferredHRP(networkId)
 
         switch (this.chainNow) {
             case 'X':
             case 'P':
-                wallet.app.getWalletAddress(`${AVA_ACCOUNT_PATH}/0/${this.activeIdx}`, hrp)
+                wallet.app.getWalletAddress(`${AXIA_ACCOUNT_PATH}/0/${this.activeIdx}`, hrp)
                 break
             case 'C':
                 wallet.ethApp.getAddress(`${LEDGER_ETH_ACCOUNT_PATH}`)

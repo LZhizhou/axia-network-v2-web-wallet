@@ -33,10 +33,10 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { KeyPair } from '@zee-ava/avajs/dist/apis/avm'
-import { ava, bintools } from '@/AVA'
+import { axia, bintools } from '@/AXIA'
 import createHash from 'create-hash'
 import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
-import { avm } from '@/AVA'
+import { avm } from '@/AXIA'
 import { Buffer } from '@zee-ava/avajs'
 import { digestMessage } from '@/helpers/helper'
 
@@ -63,7 +63,7 @@ export default class VerifyMessage extends Vue {
         let digest = digestMessage(this.message)
         let digestBuff = Buffer.from(digest.toString('hex'), 'hex')
 
-        let networkId = ava.getNetworkID()
+        let networkId = axia.getNetworkID()
 
         let hrp = getPreferredHRP(networkId)
         let keypair = new KeyPair(hrp, 'X')

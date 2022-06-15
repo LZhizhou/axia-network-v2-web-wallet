@@ -45,7 +45,7 @@
                         <v-btn
                             class="button_secondary"
                             data-cy="delegate"
-                            @click="addDelegator"
+                            @click="addNominator"
                             depressed
                             small
                             :disabled="!canDelegate"
@@ -101,7 +101,7 @@ import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
 import AddValidator from '@/components/wallet/earn/Validate/AddValidator.vue'
-import AddDelegator from '@/components/wallet/earn/Delegate/AddDelegator.vue'
+import AddNominator from '@/components/wallet/earn/Delegate/AddNominator.vue'
 import { BN } from '@zee-ava/avajs/dist'
 import UserRewards from '@/components/wallet/earn/UserRewards.vue'
 import { bnToBig } from '@/helpers/helper'
@@ -112,7 +112,7 @@ import Big from 'big.js'
     components: {
         UserRewards,
         AddValidator,
-        AddDelegator,
+        AddNominator,
     },
 })
 export default class Earn extends Vue {
@@ -124,8 +124,8 @@ export default class Earn extends Vue {
         this.pageNow = AddValidator
         this.subtitle = this.$t('earn.subtitle1') as string
     }
-    addDelegator() {
-        this.pageNow = AddDelegator
+    addNominator() {
+        this.pageNow = AddNominator
         this.subtitle = this.$t('earn.subtitle2') as string
     }
     transfer() {

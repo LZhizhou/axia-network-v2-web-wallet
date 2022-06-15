@@ -84,7 +84,7 @@ import { PayloadBase, PayloadTypes } from '@zee-ava/avajs/dist/utils'
 import { BN, Buffer } from '@zee-ava/avajs'
 import { WalletType } from '@/js/wallets/types'
 
-import { avm, pChain } from '@/AVA'
+import { avm, coreChain } from '@/AXIA'
 
 import TxHistoryValue from '@/components/SidePanels/TxHistoryValue.vue'
 import TxHistoryValueFunctional from '@/components/SidePanels/History/TxHistoryValueFunctional.vue'
@@ -178,13 +178,13 @@ export default class BaseTx extends Vue {
             case 'export':
                 return utxo.chainID === avm.getBlockchainID()
             case 'pvm_export':
-                return utxo.chainID === pChain.getBlockchainID()
+                return utxo.chainID === coreChain.getBlockchainID()
             case 'pvm_import':
             case 'import':
                 if (isInput) return false
                 return isIncludes
             case 'add_validator':
-            case 'add_delegator':
+            case 'add_nominator':
                 return !isInput && utxo.stake
             case 'operation':
                 // if no payload it is axc

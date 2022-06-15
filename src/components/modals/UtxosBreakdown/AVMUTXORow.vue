@@ -30,11 +30,11 @@ import {
     StakeableLockOut,
     UTXO as PlatformUTXO,
 } from '@zee-ava/avajs/dist/apis/platformvm'
-import { ava, bintools } from '@/AVA'
-import AvaAsset from '@/js/AvaAsset'
+import { axia, bintools } from '@/AXIA'
+import AxiaAsset from '@/js/AxiaAsset'
 import { bnToBig } from '@/helpers/helper'
 import { UnixNow } from '@zee-ava/avajs/dist/utils'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 
 @Component
 export default class UTXORow extends Vue {
@@ -52,7 +52,7 @@ export default class UTXORow extends Vue {
     get addresses(): string[] {
         let addrs = this.out.getAddresses()
 
-        let hrp = ava.getHRP()
+        let hrp = axia.getHRP()
         let id = this.isX ? 'X' : 'P'
         let addrsClean = addrs.map((addr) => {
             return bintools.addressToString(hrp, id, addr)
@@ -74,7 +74,7 @@ export default class UTXORow extends Vue {
     }
 
     get explorerLink() {
-        let net: AvaNetwork = this.$store.state.Network.selectedNetwork
+        let net: AxiaNetwork = this.$store.state.Network.selectedNetwork
         let explorer = net.explorerSiteUrl
         if (!explorer) return null
         return explorer + '/tx/' + bintools.cb58Encode(this.utxo.getTxID())
@@ -110,7 +110,7 @@ export default class UTXORow extends Vue {
 
         if (this.typeID === 7 || this.typeID === PlatformVMConstants.STAKEABLELOCKOUTID) {
             let out = this.out as AmountOutput
-            let denom = (this.asset as AvaAsset).denomination
+            let denom = (this.asset as AxiaAsset).denomination
             let bn = out.getAmount()
             return bnToBig(bn, denom).toLocaleString()
         }

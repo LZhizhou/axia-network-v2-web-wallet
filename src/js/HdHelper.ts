@@ -6,7 +6,7 @@ import {
 
 import { UTXOSet as PlatformUTXOSet } from '@zee-ava/avajs/dist/apis/platformvm'
 import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
-import { ava, avm, bintools, cChain, pChain } from '@/AVA'
+import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
 import HDKey from 'hdkey'
 import { Buffer } from '@zee-ava/avajs'
 import {
@@ -16,7 +16,7 @@ import {
 import store from '@/store'
 
 import { getAddressChains } from '@/explorer_api'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 import { ChainAlias } from './wallets/types'
 import { avmGetAllUTXOs, platformGetAllUTXOs } from '@/helpers/utxo_helper'
 import { updateFilterAddresses } from '../providers'
@@ -56,7 +56,7 @@ class HdHelper {
         this.isInit = false
 
         this.chainId = chainId
-        let hrp = getPreferredHRP(ava.getNetworkID())
+        let hrp = getPreferredHRP(axia.getNetworkID())
         if (chainId === 'X') {
             this.keyChain = new AVMKeyChain(hrp, chainId)
             this.utxoSet = new AVMUTXOSet()
@@ -83,7 +83,7 @@ class HdHelper {
     async onNetworkChange() {
         this.clearCache()
         this.isInit = false
-        let hrp = getPreferredHRP(ava.getNetworkID())
+        let hrp = getPreferredHRP(axia.getNetworkID())
         if (this.chainId === 'X') {
             this.keyChain = new AVMKeyChain(hrp, this.chainId)
             this.utxoSet = new AVMUTXOSet()
@@ -124,7 +124,7 @@ class HdHelper {
         // Check if explorer is available
 
         // @ts-ignore
-        let network: AvaNetwork = store.state.Network.selectedNetwork
+        let network: AxiaNetwork = store.state.Network.selectedNetwork
         let explorerUrl = network.explorerUrl
 
         if (explorerUrl) {
@@ -183,7 +183,7 @@ class HdHelper {
 
     // Updates the helper keychain to contain keys upto the HD Index
     updateKeychain(): AVMKeyChain | PlatformVMKeyChain {
-        let hrp = getPreferredHRP(ava.getNetworkID())
+        let hrp = getPreferredHRP(axia.getNetworkID())
         let keychain: AVMKeyChain | PlatformVMKeyChain
 
         if (this.chainId === 'X') {
@@ -251,7 +251,7 @@ class HdHelper {
         if (this.chainId === 'X') {
             chainID = avm.getBlockchainID()
         } else {
-            chainID = pChain.getBlockchainID()
+            chainID = coreChain.getBlockchainID()
         }
 
         for (var i = 0; i < addrs.length - INDEX_RANGE; i++) {
@@ -300,7 +300,7 @@ class HdHelper {
         if (this.chainId === 'X') {
             utxoSet = (await avm.getUTXOs(addrs)).utxos
         } else {
-            utxoSet = (await pChain.getUTXOs(addrs)).utxos
+            utxoSet = (await coreChain.getUTXOs(addrs)).utxos
         }
 
         // Scan UTXOs of these indexes and try to find a gap of INDEX_RANGE
@@ -417,7 +417,7 @@ class HdHelper {
 
         let pkHex = key.publicKey.toString('hex')
         let pkBuff = Buffer.from(pkHex, 'hex')
-        let hrp = getPreferredHRP(ava.getNetworkID())
+        let hrp = getPreferredHRP(axia.getNetworkID())
 
         let chainId = this.chainId
 

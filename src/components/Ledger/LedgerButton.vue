@@ -27,7 +27,7 @@ import AppAxc from '@zee-ava/hd-wallet-axia'
 import Spinner from '@/components/misc/Spinner.vue'
 import LedgerBlock from '@/components/modals/LedgerBlock.vue'
 import { LedgerWallet, MIN_EVM_SUPPORT_V } from '@/js/wallets/LedgerWallet'
-import { AVA_ACCOUNT_PATH, LEDGER_ETH_ACCOUNT_PATH } from '@/js/wallets/MnemonicWallet'
+import { AXIA_ACCOUNT_PATH, LEDGER_ETH_ACCOUNT_PATH } from '@/js/wallets/MnemonicWallet'
 import { ILedgerAppConfig } from '@/store/types'
 import { LEDGER_EXCHANGE_TIMEOUT } from '@/store/modules/ledger/types'
 import ImageDayNight from '@/components/misc/ImageDayNight.vue'
@@ -97,7 +97,7 @@ export default class LedgerButton extends Vue {
             let messages = [
                 {
                     title: 'Derivation Path',
-                    value: AVA_ACCOUNT_PATH,
+                    value: AXIA_ACCOUNT_PATH,
                 },
                 {
                     title: 'Derivation Path',

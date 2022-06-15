@@ -16,7 +16,7 @@
         <div>
             <label>{{ $t('cross_chain.form.destination') }}</label>
             <p class="ledger_warn" v-if="!isEVMSupported">
-                C Chain is currently not supported on Ledger devices.
+                AppChain is currently not supported on Ledger devices.
             </p>
             <select @input="onChangeDestination" class="hover_border" v-model="targetChain">
                 <option
@@ -42,7 +42,7 @@
         </div>
         <div class="confirmation_val" v-else>
             <label>{{ $t('earn.transfer.amount') }}</label>
-            <p>{{ formAmtText }} AVAX</p>
+            <p>{{ formAmtText }} AXC</p>
         </div>
     </div>
 </template>
@@ -53,17 +53,17 @@ import { BN } from '@zee-ava/avajs'
 import Big from 'big.js'
 import { bnToBig } from '@/helpers/helper'
 import { ChainIdType } from '@/constants'
-import { avm } from '@/AVA'
+import { avm } from '@/AXIA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import { ChainSwapFormData } from '@/components/wallet/earn/ChainTransfer/types'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 
 const chainTypes: ChainIdType[] = ['X', 'P', 'C']
 const chainNames = {
-    X: 'X Chain',
-    C: 'C Chain',
-    P: 'P Chain',
+    X: 'AssetChain',
+    C: 'AppChain',
+    P: 'CoreChain',
 }
 
 @Component({

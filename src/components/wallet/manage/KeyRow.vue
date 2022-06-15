@@ -114,8 +114,8 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
-import { bintools, keyChain } from '@/AVA'
-import AvaAsset from '@/js/AvaAsset'
+import { bintools, keyChain } from '@/AXIA'
+import AxiaAsset from '@/js/AxiaAsset'
 import { AssetsDict } from '@/store/modules/assets/types'
 import { AmountOutput, KeyPair as AVMKeyPair } from '@zee-ava/avajs/dist/apis/avm'
 import MnemonicPhraseModal from '@/components/modals/MnemonicPhraseModal.vue'
@@ -131,7 +131,7 @@ import { SingletonWallet } from '../../../js/wallets/SingletonWallet'
 import MnemonicPhrase from '@/js/wallets/MnemonicPhrase'
 
 interface IKeyBalanceDict {
-    [key: string]: AvaAsset
+    [key: string]: AxiaAsset
 }
 
 @Component({
@@ -186,14 +186,14 @@ export default class KeyRow extends Vue {
             let assetIdBuff = utxo.getAssetID()
             let assetId = bintools.cb58Encode(assetIdBuff)
 
-            let assetObj: AvaAsset | undefined = this.assetsDict[assetId]
+            let assetObj: AxiaAsset | undefined = this.assetsDict[assetId]
 
             if (!assetObj) {
                 let name = '?'
                 let symbol = '?'
                 let denomination = 0
 
-                let newAsset = new AvaAsset(assetId, name, symbol, denomination)
+                let newAsset = new AxiaAsset(assetId, name, symbol, denomination)
                 newAsset.addBalance(amount)
 
                 res[assetId] = newAsset
@@ -206,7 +206,7 @@ export default class KeyRow extends Vue {
                 let symbol = assetObj.symbol
                 let denomination = assetObj.denomination
 
-                let newAsset = new AvaAsset(assetId, name, symbol, denomination)
+                let newAsset = new AxiaAsset(assetId, name, symbol, denomination)
                 newAsset.addBalance(amount)
 
                 res[assetId] = newAsset

@@ -79,7 +79,7 @@ export default class ChainImport extends Vue {
 
         // // Import from C
         try {
-            let txId = await this.wallet.importToXChain(sourceChain)
+            let txId = await this.wallet.importToAssetChain(sourceChain)
             this.onSuccess(txId)
         } catch (e) {
             if (this.isSuccess) return
@@ -120,7 +120,7 @@ export default class ChainImport extends Vue {
             const gas = GasHelper.estimateImportGasFeeFromMockTx(numIns, numSigs)
 
             const totFee = baseFee.mul(new BN(gas))
-            let txId = await this.wallet.importToCChain(source, Utils.axcCtoX(totFee))
+            let txId = await this.wallet.importToAppChain(source, Utils.axcCtoX(totFee))
             this.onSuccess(txId)
         } catch (e) {
             this.onError(e)

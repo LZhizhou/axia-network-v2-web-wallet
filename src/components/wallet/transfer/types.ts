@@ -1,4 +1,4 @@
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import Big from 'big.js'
 import { BN } from '@zee-ava/avajs'
 // import {UTXO} from "axia";
@@ -7,13 +7,13 @@ import { BN } from '@zee-ava/avajs'
 
 export interface ITransaction {
     uuid: string
-    asset: AvaAsset
+    asset: AxiaAsset
     amount: BN
 }
 
 export interface INftTransaction {}
 
 export interface ICurrencyInputDropdownValue {
-    asset: AvaAsset | null
+    asset: AxiaAsset | null
     amount: BN
 }

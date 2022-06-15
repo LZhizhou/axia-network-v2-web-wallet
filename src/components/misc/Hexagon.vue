@@ -1,6 +1,6 @@
 <template>
     <div class="hex_img">
-        <img src="@/assets/hex.svg" class="hex_img" v-if="!isAva" />
+        <img src="@/assets/hex.svg" class="hex_img" v-if="!isAxia" />
         <img src="@/assets/hex_ava.svg" class="hex_img" v-else />
     </div>
 </template>
@@ -9,7 +9,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class FungibleRow extends Vue {
-    @Prop({ default: false }) isAva?: boolean
+    @Prop({ default: false }) isAxia?: boolean
 }
 </script>
 <style scoped lang="scss">

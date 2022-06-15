@@ -43,12 +43,12 @@ import Dropdown from '@/components/misc/Dropdown.vue'
 
 // @ts-ignore
 import { BigNumInput } from '@zee-ava/vue_components'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import { ICurrencyInputDropdownValue } from '@/components/wallet/transfer/types'
 import { IWalletAssetsDict, IWalletBalanceDict, priceDict } from '@/store/types'
 
 import BalanceDropdown from '@/components/misc/BalancePopup/BalanceDropdown.vue'
-import { avm } from '@/AVA'
+import { avm } from '@/AXIA'
 import Big from 'big.js'
 import { bnToBig } from '@/helpers/helper'
 interface IDropdownValue {
@@ -67,9 +67,9 @@ interface IDropdownValue {
 })
 export default class CurrencyInputDropdown extends Vue {
     amount: BN = new BN(0)
-    asset_now: AvaAsset = this.walletAssetsArray[0]
+    asset_now: AxiaAsset = this.walletAssetsArray[0]
 
-    @Prop({ default: () => [] }) disabled_assets!: AvaAsset[]
+    @Prop({ default: () => [] }) disabled_assets!: AxiaAsset[]
     @Prop({ default: '' }) initial!: string
     @Prop({ default: false }) disabled!: boolean
 
@@ -88,7 +88,7 @@ export default class CurrencyInputDropdown extends Vue {
     }
 
     @Watch('asset_now')
-    drop_change(val: AvaAsset) {
+    drop_change(val: AxiaAsset) {
         this.asset_now = val
         this.$refs.bigIn.clear()
         // this.amount_in(new BN(0))
@@ -166,7 +166,7 @@ export default class CurrencyInputDropdown extends Vue {
         return this.asset_now.denomination
     }
 
-    get walletAssetsArray(): AvaAsset[] {
+    get walletAssetsArray(): AxiaAsset[] {
         // return this.$store.getters.walletAssetsArray
         return this.$store.getters['Assets/walletAssetsArray']
     }
@@ -176,8 +176,8 @@ export default class CurrencyInputDropdown extends Vue {
         return this.$store.getters['Assets/walletAssetsDict']
     }
 
-    get axcAsset(): AvaAsset | null {
-        return this.$store.getters['Assets/AssetAVA']
+    get axcAsset(): AxiaAsset | null {
+        return this.$store.getters['Assets/AssetAXIA']
     }
 
     get max_amount(): null | BN {
@@ -189,7 +189,7 @@ export default class CurrencyInputDropdown extends Vue {
 
         let axcId = this.axcAsset.id
 
-        // Max amount is BALANCE - FEE for AVAX
+        // Max amount is BALANCE - FEE for AXC
         if (assetId === axcId) {
             let fee = avm.getTxFee()
             // console.log(fee);

@@ -1,10 +1,10 @@
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 import { BN } from '@zee-ava/avajs'
 
 export interface NetworkState {
-    networks: AvaNetwork[]
-    networksCustom: AvaNetwork[]
-    selectedNetwork: null | AvaNetwork
+    networks: AxiaNetwork[]
+    networksCustom: AxiaNetwork[]
+    selectedNetwork: null | AxiaNetwork
     // isConnected: boolean
     status: NetworkStatus
 

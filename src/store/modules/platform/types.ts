@@ -1,6 +1,6 @@
 import {
-    DelegatorPendingRaw,
-    DelegatorRaw,
+    NominatorPendingRaw,
+    NominatorRaw,
     ValidatorPendingRaw,
     ValidatorRaw,
 } from '@/components/misc/ValidatorList/types'
@@ -9,7 +9,7 @@ import { BN } from '@zee-ava/avajs'
 export interface PlatformState {
     validators: ValidatorRaw[]
     validatorsPending: ValidatorPendingRaw[]
-    delegatorsPending: DelegatorPendingRaw[]
+    nominatorsPending: NominatorPendingRaw[]
     minStake: BN
     minStakeDelegation: BN
     currentSupply: BN
@@ -21,20 +21,20 @@ export interface GetValidatorsResponse {
 
 export interface GetPendingValidatorsResponse {
     validators: ValidatorPendingRaw[]
-    delegators: DelegatorPendingRaw[]
+    nominators: NominatorPendingRaw[]
 }
 
 export interface ValidatorGroup {
     data: ValidatorRaw
-    // delegators: DelegatorRaw[]
+    // nominators: NominatorRaw[]
 }
 
-export interface ValidatorDelegatorDict {
-    [key: string]: DelegatorRaw[]
+export interface ValidatorNominatorDict {
+    [key: string]: NominatorRaw[]
 }
 
-export interface ValidatorDelegatorPendingDict {
-    [key: string]: DelegatorPendingRaw[]
+export interface ValidatorNominatorPendingDict {
+    [key: string]: NominatorPendingRaw[]
 }
 
 export interface ValidatorDict {
@@ -46,7 +46,7 @@ export interface ValidatorListItem {
     validatorStake: BN
     delegatedStake: BN
     remainingStake: BN
-    numDelegators: number
+    numNominators: number
     startTime: Date
     endTime: Date
     uptime: number

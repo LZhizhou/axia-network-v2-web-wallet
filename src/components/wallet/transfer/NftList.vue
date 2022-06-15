@@ -36,7 +36,7 @@ import { NFTTransferOutput, UTXO } from '@zee-ava/avajs/dist/apis/avm'
 import { getPayloadFromUTXO } from '@/helpers/helper'
 import NftListItem from '@/components/wallet/transfer/NftListItem.vue'
 import { IGroupDict, IGroupQuantity } from '@/components/wallet/studio/mint/types'
-import { bintools } from '@/AVA'
+import { bintools } from '@/AXIA'
 import AvmNftSelectModal from '@/components/modals/AvmNftSelectModal.vue'
 
 @Component({

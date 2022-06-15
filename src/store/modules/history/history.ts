@@ -4,7 +4,7 @@ import { getAddressHistory } from '@/explorer_api'
 import moment from 'moment'
 
 import { HistoryState, ITransactionData } from '@/store/modules/history/types'
-import { avm, pChain } from '@/AVA'
+import { avm, coreChain } from '@/AXIA'
 import { filterDuplicateTransactions } from '@/helpers/history_helper'
 
 const history_module: Module<HistoryState, RootState> = {
@@ -56,7 +56,7 @@ const history_module: Module<HistoryState, RootState> = {
             let limit = 20
 
             let txs = await getAddressHistory(avmAddrs, limit, avm.getBlockchainID())
-            let txsP = await getAddressHistory(pvmAddrs, limit, pChain.getBlockchainID())
+            let txsP = await getAddressHistory(pvmAddrs, limit, coreChain.getBlockchainID())
 
             let transactions = txs
                 .concat(txsP)
@@ -100,7 +100,7 @@ const history_module: Module<HistoryState, RootState> = {
             let limit = 0
 
             let txsX = await getAddressHistory(avmAddrs, limit, avm.getBlockchainID())
-            let txsP = await getAddressHistory(pvmAddrs, limit, pChain.getBlockchainID())
+            let txsP = await getAddressHistory(pvmAddrs, limit, coreChain.getBlockchainID())
 
             let txsXFiltered = filterDuplicateTransactions(txsX)
             let txsPFiltered = filterDuplicateTransactions(txsP)
@@ -116,7 +116,7 @@ const history_module: Module<HistoryState, RootState> = {
     getters: {
         stakingTxs(state) {
             return state.allTransactions.filter((tx) => {
-                let types = ['add_validator', 'add_delegator']
+                let types = ['add_validator', 'add_nominator']
                 if (types.includes(tx.type)) {
                     return true
                 }

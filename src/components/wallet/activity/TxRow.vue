@@ -46,7 +46,7 @@ import StakingTx from '@/components/SidePanels/History/ViewTypes/StakingTx.vue'
 import BaseTx from '@/components/SidePanels/History/ViewTypes/BaseTx.vue'
 import ImportExport from '@/components/SidePanels/History/ViewTypes/ImportExport.vue'
 import moment from 'moment'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 import getMemoFromByteString from '@/services/history/utils'
 
 @Component({
@@ -61,7 +61,7 @@ export default class TxRow extends Vue {
     @Prop() source!: ITransactionDataProcessed
 
     get explorerUrl(): string | null {
-        let network: AvaNetwork = this.$store.state.Network.selectedNetwork
+        let network: AxiaNetwork = this.$store.state.Network.selectedNetwork
         if (network.explorerSiteUrl) {
             return `${network.explorerSiteUrl}/tx/${this.source.id}`
         }
@@ -86,7 +86,7 @@ export default class TxRow extends Vue {
             case 'pvm_export':
             case 'pvm_import':
                 return ImportExport
-            case 'add_delegator':
+            case 'add_nominator':
             case 'add_validator':
                 return StakingTx
             default:

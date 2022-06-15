@@ -50,7 +50,7 @@ import MintNft from '@/components/wallet/studio/mint/MintNft.vue'
 import { IWalletNftMintDict } from '@/store/types'
 import Big from 'big.js'
 import { bnToBig } from '@/helpers/helper'
-import { avm } from '@/AVA'
+import { avm } from '@/AXIA'
 import { BN } from '@zee-ava/avajs'
 @Component({
     name: 'studio',

@@ -1,7 +1,7 @@
 <template>
-    <modal ref="modal" title="Export AVAX Transfers" class="modal_main">
+    <modal ref="modal" title="Export AXC Transfers" class="modal_main">
         <div class="csv_modal_body">
-            <p>Only X chain AVAX transactions will be exported.</p>
+            <p>Only AssetChain AXC transactions will be exported.</p>
             <p class="err" v-if="error">{{ error }}</p>
             <v-btn
                 class="button_secondary"
@@ -36,7 +36,7 @@ import {
     downloadCSVFile,
     parseMemo,
 } from '@/store/modules/history/history_utils'
-import { ava, avm } from '@/AVA'
+import { axia, avm } from '@/AXIA'
 import { BN } from '@zee-ava/avajs'
 
 @Component({
@@ -74,7 +74,7 @@ export default class ExportAxcCsvModal extends Vue {
     }
 
     get axcID() {
-        return this.$store.state.Assets.AVA_ASSET_ID
+        return this.$store.state.Assets.AXIA_ASSET_ID
     }
 
     generateCSVFile() {
@@ -141,7 +141,7 @@ export default class ExportAxcCsvModal extends Vue {
         }
 
         let csvRows = rows.map((row) => axcTransferDataToCsvRow(row))
-        let headers = ['Tx ID', 'Date', 'Memo', 'From', 'To', 'Sent/Received', 'Amount (AVAX)']
+        let headers = ['Tx ID', 'Date', 'Memo', 'From', 'To', 'Sent/Received', 'Amount (AXC)']
         let allRows = [headers, ...csvRows]
 
         let csvContent = createCSVContent(allRows)

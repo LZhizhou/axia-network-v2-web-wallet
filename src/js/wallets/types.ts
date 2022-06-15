@@ -53,8 +53,8 @@ interface IAddressManager {
     getDerivedAddresses(): string[]
     getDerivedAddressesP(): string[]
     getAllDerivedExternalAddresses(): string[]
-    getAllAddressesX(): string[] // returns all addresses this wallet own on the X chain
-    getAllAddressesP(): string[] // returns all addresses this wallet own on the P chain
+    getAllAddressesX(): string[] // returns all addresses this wallet own on the AssetChain
+    getAllAddressesP(): string[] // returns all addresses this wallet own on the CoreChain
     getHistoryAddresses(): string[]
     getPlatformRewardAddress(): string
     getBaseAddress(): string
@@ -63,7 +63,7 @@ interface IAddressManager {
     getFirstAvailableAddressPlatform(): string
 }
 
-// Every AVA Wallet must implement this.
+// Every AXIA Wallet must implement this.
 export interface AvaWalletCore extends IAddressManager {
     id: string // a random string assigned as ID to distinguish between wallets
     type: WalletNameType
@@ -115,13 +115,13 @@ export interface AvaWalletCore extends IAddressManager {
         utxos?: PlatformUTXO[]
     ): Promise<string>
     // chainTransfer(amt: BN, sourceChain: ChainIdType, destinationChain: ChainIdType): Promise<string>
-    exportFromXChain(amt: BN, destinationChain: ExportChainsX): Promise<string>
-    exportFromPChain(amt: BN, destinationChain: ExportChainsP): Promise<string>
-    exportFromCChain(amt: BN, destinationChain: ExportChainsC, baseFee: BN): Promise<string>
+    exportFromAssetChain(amt: BN, destinationChain: ExportChainsX): Promise<string>
+    exportFromCoreChain(amt: BN, destinationChain: ExportChainsP): Promise<string>
+    exportFromAppChain(amt: BN, destinationChain: ExportChainsC, baseFee: BN): Promise<string>
 
     importToPlatformChain(sourceChain: ExportChainsP): Promise<string>
-    importToXChain(sourceChain: ExportChainsX): Promise<string>
-    importToCChain(sourceChain: ExportChainsC, baseFee: BN, utxoSet?: EVMUTXOSet): Promise<string>
+    importToAssetChain(sourceChain: ExportChainsX): Promise<string>
+    importToAppChain(sourceChain: ExportChainsC, baseFee: BN, utxoSet?: EVMUTXOSet): Promise<string>
     issueBatchTx(orders: (AVMUTXO | ITransaction)[], addr: string, memo?: Buffer): Promise<string>
     signMessage(msg: string, address: string): Promise<string>
 }

@@ -58,7 +58,7 @@
             <div class="fees" v-if="isConfirm">
                 <p>
                     {{ $t('transfer.fee_tx') }}
-                    <span>{{ maxFeeText }} AVAX</span>
+                    <span>{{ maxFeeText }} AXC</span>
                 </p>
                 <p>
                     <span>${{ maxFeeUSD.toLocaleString(2) }} USD</span>
@@ -228,7 +228,7 @@ export default class FormC extends Vue {
     }
 
     get symbol(): string {
-        if (this.formToken === 'native') return 'AVAX'
+        if (this.formToken === 'native') return 'AXC'
         return this.formToken.data.symbol
     }
 
@@ -258,19 +258,19 @@ export default class FormC extends Vue {
         let addr = this.addressIn
 
         if (!this.validateAddress(addr)) {
-            this.err = 'Invalid C Chain address. Make sure your address begins with "0x" or "C-0x"'
+            this.err = 'Invalid AppChain address. Make sure your address begins with "0x" or "C-0x"'
             return false
         }
 
         if (addr.substring(0, 2) === 'C-') {
             let hexStr = addr.substring(2)
             if (!web3.utils.isAddress(hexStr)) {
-                this.err = 'Not a valid C chain address.'
+                this.err = 'Not a valid AppChain address.'
                 return false
             }
         } else {
             if (!web3.utils.isAddress(addr)) {
-                this.err = 'Not a valid C chain address.'
+                this.err = 'Not a valid AppChain address.'
                 return false
             }
         }
@@ -304,7 +304,7 @@ export default class FormC extends Vue {
 
         if (!this.isCollectible) {
             if (this.formToken === 'native') {
-                // For AVAX Transfers
+                // For AXC Transfers
                 let gasLimit = await TxHelper.estimateAxcGas(
                     this.wallet.getEvmAddress(),
                     this.formAddress,

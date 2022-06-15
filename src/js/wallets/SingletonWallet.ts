@@ -1,4 +1,4 @@
-import { ava, avm, bintools, cChain, pChain } from '@/AVA'
+import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
 import { ITransaction } from '@/components/wallet/transfer/types'
 import { digestMessage } from '@/helpers/helper'
 import { WalletNameType } from '@/js/wallets/types'
@@ -70,9 +70,9 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         this.key = pk
 
         this.chainId = avm.getBlockchainAlias() || avm.getBlockchainID()
-        this.chainIdP = pChain.getBlockchainAlias() || pChain.getBlockchainID()
+        this.chainIdP = coreChain.getBlockchainAlias() || coreChain.getBlockchainID()
 
-        let hrp = ava.getHRP()
+        let hrp = axia.getHRP()
 
         this.keyChain = new AVMKeyChain(hrp, this.chainId)
         this.keyPair = this.keyChain.importKey(pk)
@@ -93,7 +93,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
 
         let cPrivKey = `PrivateKey-` + bintools.cb58Encode(BufferAxia.from(pkBuf))
         this.ethKeyBech = cPrivKey
-        let cKeyChain = new KeyChain(ava.getHRP(), 'C')
+        let cKeyChain = new KeyChain(axia.getHRP(), 'C')
         this.ethKeyChain = cKeyChain
 
         let cKeypair = cKeyChain.importKey(cPrivKey)
@@ -231,7 +231,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
     }
 
     onnetworkchange(): void {
-        let hrp = ava.getHRP()
+        let hrp = axia.getHRP()
 
         this.keyChain = new AVMKeyChain(hrp, this.chainId)
         this.utxoset = new AVMUTXOSet()
@@ -242,7 +242,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         this.platformKeyPair = this.platformKeyChain.importKey(this.key)
 
         // Update EVM values
-        this.ethKeyChain = new EVMKeyChain(ava.getHRP(), 'C')
+        this.ethKeyChain = new EVMKeyChain(axia.getHRP(), 'C')
         let cKeypair = this.ethKeyChain.importKey(this.ethKeyBech)
         this.ethAddressBech = cKeypair.getAddressString()
         this.ethBalance = new BN(0)

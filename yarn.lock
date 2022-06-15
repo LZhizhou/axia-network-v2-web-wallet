@@ -2803,7 +2803,7 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.9.tgz#d3af6d4e50f337327de90447fe35fa1e117a2fbe"
   integrity sha512-h/emhmZz+DfB2zOGLWawNwXq82UYhn9waTfUjLLmeaIqtnIyNt6kYlpQT/vzJjLZRDRvY2IEJAh1di5qKpKVpA==
 
-"@fortawesome/vue-fontawesome@^0.1.9":
+"@fortawesome/vue-fontawesome@^0.1.10":
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.10.tgz#eeeec1e4e8850bed0468f938292b06cda793bf34"
   integrity sha512-b2+SLF31h32LSepVcXe+BQ63yvbq5qmTCy4KfFogCYm2bn68H5sDWUnX+U7MBqnM2aeEk9M7xSoqGnu+wSdY6w==
@@ -4392,10 +4392,10 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zee-ava/avajs@^3.14.4":
-  version "3.14.4"
-  resolved "https://registry.yarnpkg.com/@zee-ava/avajs/-/avajs-3.14.4.tgz#f3f3254baefe19406c061e969974864d94aad00f"
-  integrity sha512-NUeInyTDFaN1p+8vUKg5dQB1HKpY4MhWUI/EfqYBA4Wi2PSbLoaj8OXn1M79CCIX7DDWbXXG1/mELJNlGkjLoQ==
+"@zee-ava/avajs@^3.14.10":
+  version "3.14.10"
+  resolved "https://registry.yarnpkg.com/@zee-ava/avajs/-/avajs-3.14.10.tgz#1a1173e8b34221f7f42fb02c880564809b3183d3"
+  integrity sha512-jlf41ef1KGS3Rd4kIusv414e+IwBwg8TjEOgPjXLbdacrjgB+QxAhqz2BDkAp/2nUk0AjV6gPl8P8ikcwTYepA==
   dependencies:
     assert "2.0.0"
     axios "0.27.2"
@@ -4414,32 +4414,10 @@
     ws "8.5.0"
     xss "1.0.11"
 
-"@zee-ava/avajs@^3.14.5":
-  version "3.14.5"
-  resolved "https://registry.yarnpkg.com/@zee-ava/avajs/-/avajs-3.14.5.tgz#6125a8690bffeeb65462c23dd65e08cf620f5bea"
-  integrity sha512-AZs6t7P3j9/W5JLS2vpWk4ZXwlGNANn0ty7faF+NHFGeGyFQUWz1EM49VpY3OhAsS7WpK6Vc7ayazZUx+zpYWQ==
-  dependencies:
-    assert "2.0.0"
-    axios "0.27.2"
-    bech32 "2.0.0"
-    bip39 "3.0.4"
-    bn.js "5.2.1"
-    buffer "6.0.3"
-    create-hash "1.2.0"
-    crypto-browserify "3.12.0"
-    elliptic "6.5.4"
-    ethers "5.6.4"
-    hdkey "2.0.1"
-    isomorphic-ws "4.0.1"
-    store2 "2.13.2"
-    stream-browserify "3.0.0"
-    ws "8.5.0"
-    xss "1.0.11"
-
-"@zee-ava/axia-wallet-sdk@^0.17.7":
-  version "0.17.7"
-  resolved "https://registry.yarnpkg.com/@zee-ava/axia-wallet-sdk/-/axia-wallet-sdk-0.17.7.tgz#9cb30ec91e888179f59569f7db2d3c6ab2e432ff"
-  integrity sha512-SLk5MVTuRxnp/Cwb8/A3Lnschqcby3Jmp+CAypgJ+aywl2j4l3uU+tQ4ZXoVeCKlIg0ep701tD264IXUTp4BWQ==
+"@zee-ava/axia-wallet-sdk@^0.17.11":
+  version "0.17.11"
+  resolved "https://registry.yarnpkg.com/@zee-ava/axia-wallet-sdk/-/axia-wallet-sdk-0.17.11.tgz#76c33436f7f4d57cbc028006c1e7213a3073d0ff"
+  integrity sha512-k2pBIAU5W+JHWy/aBWtHDG/+ocwsEwJyQGn3nE81VhjbcERpkpF7Vbn2cS1hIZDhemByPW6aUIcih1yWUOi5BA==
   dependencies:
     "@ethereumjs/common" "2.6.0"
     "@ethereumjs/tx" "3.4.0"
@@ -4471,15 +4449,15 @@
     create-hash "1.2.0"
     jest "^26.4.1"
 
-"@zee-ava/vue_components@^0.10.3":
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/@zee-ava/vue_components/-/vue_components-0.10.3.tgz#93cb88c3bdcf4ed367f41bfd892ff283b4d9ddc5"
-  integrity sha512-VNQ4GNspx8b7w6b4kasIVyZ29iSpiHdWUapZBGGDGqpk7p43e2ZW+AuO/f6VPiVxLkZauTt+iDVj4eF0TKdkyA==
+"@zee-ava/vue_components@^0.10.7":
+  version "0.10.7"
+  resolved "https://registry.yarnpkg.com/@zee-ava/vue_components/-/vue_components-0.10.7.tgz#030594439c57ca8a087e734f921a678edf3b1391"
+  integrity sha512-oPqVU6Ujwqd3lcWhPivkJ3NovWRQ59D9Rg1DLf0qKz15VFjegCAN9+j8v/IXE8mvCJa8G5ZLO1MkFOtgYOyFYg==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.27"
     "@fortawesome/free-solid-svg-icons" "^5.12.1"
-    "@fortawesome/vue-fontawesome" "^0.1.9"
-    "@zee-ava/avajs" "^3.14.4"
+    "@fortawesome/vue-fontawesome" "^0.1.10"
+    "@zee-ava/avajs" "^3.14.10"
     "@zxing/library" "^0.15.2"
     core-js "^3.6.4"
     vue "^2.6.11"

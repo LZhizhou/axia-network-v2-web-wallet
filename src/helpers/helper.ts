@@ -1,4 +1,4 @@
-import { ava } from '@/AVA'
+import { axia } from '@/AXIA'
 
 import {
     KeyChain as AVMKeyChain,
@@ -24,13 +24,13 @@ function bnToBig(val: BN, denomination = 0): Big {
 }
 
 function keyToKeypair(key: string, chainID: string = 'X'): AVMKeyPair {
-    let hrp = getPreferredHRP(ava.getNetworkID())
+    let hrp = getPreferredHRP(axia.getNetworkID())
     let keychain = new AVMKeyChain(hrp, chainID)
     return keychain.importKey(key)
 }
 
 function calculateStakingReward(amount: BN, duration: number, currentSupply: BN): BN {
-    let networkID = ava.getNetworkID()
+    let networkID = axia.getNetworkID()
 
     //@ts-ignore
     let defValues = Defaults.network[networkID]

@@ -12,7 +12,7 @@
         </h2>
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
             These Terms of Use (these “Terms”) constitute a legally binding agreement made between
-            you, whether personally or on behalf of an entity (“you”) and Ava Labs, Inc. (together
+            you, whether personally or on behalf of an entity (“you”) and AXIA Coin, Inc. (together
             with its subsidiaries and affiliates, “Company”, “we”, “us”, or “our”) governing your
             download, access to and/or use of the Core Browser Extension, the Core Mobile
             Application and the Core Website and related websites, applications and features
@@ -821,7 +821,7 @@
             regarding use of the App, please contact us at:
         </p>
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
-            Ava Labs, Inc.
+            AXIA Coin, Inc.
         </p>
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
             1177 Avenue of the Americas

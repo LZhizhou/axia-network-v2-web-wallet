@@ -1,7 +1,7 @@
 import Big from 'big.js'
 
 import { Buffer, BN } from '@zee-ava/avajs'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { ITransaction } from '@/components/wallet/transfer/types'
 import { AllKeyFileTypes, AllKeyFileDecryptedTypes } from '@/js/IKeystore'
@@ -18,7 +18,7 @@ export interface RootState {
     address: String | null
     volatileWallets: WalletType[] // will be forgotten when tab is closed
     warnUpdateKeyfile: boolean
-    prices: priceDict // USD value of 1 AVAX
+    prices: priceDict // USD value of 1 AXC
 }
 
 export interface ILedgerAppConfig {
@@ -58,7 +58,7 @@ export interface IWalletBalanceItem {
 }
 
 export interface IWalletAssetsDict {
-    [assetId: string]: AvaAsset
+    [assetId: string]: AxiaAsset
 }
 
 export interface IWalletNftMintDict {
@@ -89,7 +89,7 @@ export interface BatchTxOrder {
 }
 
 export interface IssueTxInput {
-    asset: AvaAsset
+    asset: AxiaAsset
     assetId: string
     amount: BN
     toAddress: string

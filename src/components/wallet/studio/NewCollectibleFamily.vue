@@ -37,7 +37,7 @@
                     />
                 </div>
                 <div>
-                    <p>{{ $t('studio.family.fee') }}: {{ txFee.toLocaleString() }} AVAX</p>
+                    <p>{{ $t('studio.family.fee') }}: {{ txFee.toLocaleString() }} AXC</p>
                 </div>
                 <p v-if="error" class="err">{{ error }}</p>
                 <v-btn :loading="isLoading" type="submit" class="button_secondary" small>
@@ -75,7 +75,7 @@
 <script lang="ts">
 import { Vue, Component, Watch } from 'vue-property-decorator'
 import { BN } from '@zee-ava/avajs'
-import { pChain } from '@/AVA'
+import { coreChain } from '@/AXIA'
 import { bnToBig } from '@/helpers/helper'
 import Big from 'big.js'
 
@@ -98,7 +98,7 @@ export default class NewCollectibleFamily extends Vue {
     }
 
     get txFee(): Big {
-        return bnToBig(pChain.getCreationTxFee(), 9)
+        return bnToBig(coreChain.getCreationTxFee(), 9)
     }
 
     validate(): boolean {

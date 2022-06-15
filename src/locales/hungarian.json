@@ -5,14 +5,14 @@
     "address": "Cím",
     "add_pk": "Hozzáadás",
     "home": {
-        "desc": "Az Axia Wallet egyszerű, biztonságos, nem letétkezelői pénztárca az Axia eszközök tárolására.",
+        "desc": "Az Axwallet egyszerű, biztonságos, nem letétkezelői pénztárca az Axia eszközök tárolására.",
         "access": {
             "title": "Üdv újra!",
             "desc": "Itt 'férhet hozzá' meglévő Axia pénztárcájához.",
             "submit": "Wallet hozzáférés"
         },
         "create": {
-            "title": "Új Önnek az Axia Wallet?",
+            "title": "Új Önnek az Axwallet?",
             "desc": "„Hozzon létre” új pénztárcát az Axia eszközök küldéséhez, fogadásához és cseréjéhez.",
             "submit": "Hozzon létre új pénztárcát"
         }
@@ -63,7 +63,7 @@
         "submit": "Kulcsmondat létrehozása",
         "cancel": "Megszünteti",
         "mnemonic_title": "Ez a Ön kulcsmondata.",
-        "mnemonic_desc": "Ezt a 24 szót használja az itt megadott sorrendben az Axia Wallet pénztárca\nhelyreállítására/elérésére",
+        "mnemonic_desc": "Ezt a 24 szót használja az itt megadott sorrendben az Axwallet pénztárca\nhelyreállítására/elérésére",
         "attention": "Figyelem!",
         "warning": "Biztonságos helyen tárolja ezt a kulcsmondatot. Ezzel a kulcsmondattal bárki hozzáférhet Axia pénztárcájához. Az elveszített kulcsmondat helyreállítására viszont nincs mód.",
         "confirm": "Biztonsági helyre írtam fel a kulcsmondatomat.",
@@ -85,7 +85,7 @@
         "nftcol": "nem helyettesíthető token (NHT)",
         "nftempty": "Még nem gyűjtött össze nem helyettesíthető tokent.",
         "locked": "Zárt",
-        "info2": "A Token Sale-ban vásároltam érméket. Hol van az AVAX?",
+        "info2": "A Token Sale-ban vásároltam érméket. Hol van az AXC?",
         "info2_desc": "Ez a pénztárca az Axia Everest teszthálózathoz csatlakozik. Vásárlása az Axia Mainnet elindítása után jelenik meg a pénztárcában.",
         "hover1": "Cím QR-kód megtekintése",
         "hover2": "Nyomtatás",
@@ -172,13 +172,13 @@
     },
     "earn": {
         "title": "Keressen",
-        "desc": "Több AVAX-ot kereshet, ha megjátssza meglévő zsetonjait.",
+        "desc": "Több AXC-ot kereshet, ha megjátssza meglévő zsetonjait.",
         "subtitle1": "Érvényesítés",
         "subtitle2": "Delegálás",
         "subtitle3": "Transzfer láncok között",
         "subtitle4": "Becsült jutalom",
-        "warning_1": "Legalább {0} AVAX szükséges a P láncon ahhoz, hogy érvényesítő legyen.",
-        "warning_2": "Legalábbt {0} AVAX szükséges a P láncon ahhoz, hogy érvényesítő legyen.",
+        "warning_1": "Legalább {0} AXC szükséges a P láncon ahhoz, hogy érvényesítő legyen.",
+        "warning_2": "Legalábbt {0} AXC szükséges a P láncon ahhoz, hogy érvényesítő legyen.",
         "validate_card": {
             "title": "Érvényesítés",
             "desc": "Rendelkezik egy Axia csomópontja amit meg akar játszani.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Transzfer láncok között",
-            "desc": "A megjátszáshoz AVAX szükséges a P láncon. Vigyen át zsetont az X láncról P-re.",
+            "desc": "A megjátszáshoz AXC szükséges a P láncon. Vigyen át zsetont az X láncról P-re.",
             "submit": "Transzfer"
         },
         "rewards_card": {
@@ -242,7 +242,7 @@
             },
             "amount": {
                 "label": "Megjátszott összeg",
-                "desc": "AVAX összeg amit zárol a megjátszáshoz."
+                "desc": "AXC összeg amit zárol a megjátszáshoz."
             },
             "fee": {
                 "label": "Delegálási költség",
@@ -281,7 +281,7 @@
             },
             "errs": {
                 "date": "A kezdési dátum a jövőben van, a befejezés dátuma pedig követi a kezdési dátumot.",
-                "amount": "A delegálási összeg legalább {0} AVAX",
+                "amount": "A delegálási összeg legalább {0} AXC",
                 "id": "Érvénytelen csomópont azonosító. Így kell kezdődnie: \"NodeID-\"",
                 "address": "Érvénytelen jutalom cím."
             }
@@ -319,8 +319,8 @@
                 },
                 "amount": {
                     "label": "Megjátszott összeg",
-                    "desc": "AVAX összeg amit zárol a megjátszáshoz.",
-                    "desc2": "Az elérhető delegálási összeg ehhez a csomóponthoz {0} AVAX"
+                    "desc": "AXC összeg amit zárol a megjátszáshoz.",
+                    "desc2": "Az elérhető delegálási összeg ehhez a csomóponthoz {0} AXC"
                 },
                 "reward": {
                     "label": "Jutalom címe",
@@ -345,7 +345,7 @@
                 "max_dur": "A megjátszási időtartam legfeljebb 1 év.",
                 "no_node": "Meg kell adnia egy érvényesítőt.",
                 "val_end": "A delegálás befejezési dátuma nem lehet későbbi az érvényesítő befejezési dátumánál.",
-                "amt": "A delegálási összeg legalább {0} AVAX."
+                "amt": "A delegálási összeg legalább {0} AXC."
             },
             "summary": {
                 "duration": "Megjátszási időtartam",
@@ -388,7 +388,7 @@
         "loading": "Tranzakciós előzmények betöltése..",
         "warn_loading": "Lehet, hogy ez a lista hiányos és nem működik.",
         "error_api": "Az Explorer API nem található",
-        "error_api_desc": "A tranzakciós előzmények megtekintéséhez meg kell adnia egy AVA Explorer API-t ehhez a hálózathoz."
+        "error_api_desc": "A tranzakciós előzmények megtekintéséhez meg kell adnia egy AXIA Explorer API-t ehhez a hálózathoz."
     },
     "modal": {
         "qr": {

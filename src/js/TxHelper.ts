@@ -1,4 +1,4 @@
-import { ava, avm, bintools, cChain, pChain } from '@/AVA'
+import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
 import { ITransaction } from '@/components/wallet/transfer/types'
 import { BN, Buffer } from '@zee-ava/avajs'
 import {
@@ -102,7 +102,7 @@ export async function buildUnsignedTransaction(
 
     // If transferring an NFT, build the transaction on top of an NFT tx
     let unsignedTx: AVMUnsignedTx
-    let networkId: number = ava.getNetworkID()
+    let networkId: number = axia.getNetworkID()
     let chainId: Buffer = bintools.cb58Decode(avm.getBlockchainID())
 
     if (nftUtxos.length > 0) {
@@ -315,7 +315,7 @@ export enum AvmTxNameEnum {
 export enum PlatfromTxNameEnum {
     'Transaction' = PlatformVMConstants.BASETX,
     'Add Validator' = PlatformVMConstants.ADDVALIDATORTX,
-    'Add Delegator' = PlatformVMConstants.ADDDELEGATORTX,
+    'Add Nominator' = PlatformVMConstants.ADDNOMINATORTX,
     'Import' = PlatformVMConstants.IMPORTTX,
     'Export' = PlatformVMConstants.EXPORTTX,
     'Add Subnet Validator' = PlatformVMConstants.ADDSUBNETVALIDATORTX,
@@ -335,7 +335,7 @@ export enum ParseableAvmTxEnum {
 export enum ParseablePlatformEnum {
     'Transaction' = PlatformVMConstants.BASETX,
     'Add Validator' = PlatformVMConstants.ADDVALIDATORTX,
-    'Add Delegator' = PlatformVMConstants.ADDDELEGATORTX,
+    'Add Nominator' = PlatformVMConstants.ADDNOMINATORTX,
     'Import' = PlatformVMConstants.IMPORTTX,
     'Export' = PlatformVMConstants.EXPORTTX,
 }

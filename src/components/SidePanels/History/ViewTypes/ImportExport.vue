@@ -2,18 +2,18 @@
     <div class="import_row" :export="isExport">
         <template v-if="isExport">
             <p>Export ({{ chainAlias }})</p>
-            <p class="amt">{{ isExport ? '-' : '' }}{{ amtText }} AVAX</p>
+            <p class="amt">{{ isExport ? '-' : '' }}{{ amtText }} AXC</p>
         </template>
         <template v-else>
             <p>Import ({{ chainAlias }})</p>
-            <p class="amt">{{ amtText }} AVAX</p>
+            <p class="amt">{{ amtText }} AXC</p>
         </template>
     </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { ITransactionData } from '@/store/modules/history/types'
-import { avm, pChain } from '@/AVA'
+import { avm, coreChain } from '@/AXIA'
 import { BN } from '@zee-ava/avajs'
 import { bnToBig } from '@/helpers/helper'
 
@@ -59,7 +59,7 @@ export default class ImportExport extends Vue {
             chainId = this.destinationChainId
         }
 
-        if (chainId === pChain.getBlockchainID()) {
+        if (chainId === coreChain.getBlockchainID()) {
             return 'P'
         } else if (chainId === avm.getBlockchainID()) {
             return 'X'

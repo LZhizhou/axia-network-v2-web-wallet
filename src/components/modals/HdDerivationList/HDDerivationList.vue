@@ -41,9 +41,9 @@ import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { KeyPair as AVMKeyPair, UTXOSet as AVMUTXOSet } from '@zee-ava/avajs/dist/apis/avm'
 import { UTXOSet as PlatformUTXOSet } from '@zee-ava/avajs/dist/apis/platformvm'
-import { ava, bintools } from '@/AVA'
+import { axia, bintools } from '@/AXIA'
 import Big from 'big.js'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import { DerivationListBalanceDict } from '@/components/modals/HdDerivationList/types'
 import { LedgerWallet } from '../../../js/wallets/LedgerWallet'
 import { bnToBig } from '@/helpers/helper'
@@ -95,7 +95,7 @@ export default class HDDerivationList extends Vue {
         set: AVMUTXOSet | PlatformUTXOSet,
         addrs: string[]
     ): DerivationListBalanceDict[] {
-        let assets: AvaAsset[] = this.$store.state.Assets.assets
+        let assets: AxiaAsset[] = this.$store.state.Assets.assets
 
         let denoms: number[] = assets.map((asset) => {
             return asset.denomination

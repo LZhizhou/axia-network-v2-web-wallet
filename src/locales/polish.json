@@ -85,7 +85,7 @@
         "nftcol": "NFTs",
         "nftempty": "Nie masz żadnych zamienne tokenów.",
         "locked": "Zablokowane",
-        "info2": "Kupiłem monety podczas wyprzedaży. Gdzie są moje tokeny AVAX?",
+        "info2": "Kupiłem monety podczas wyprzedaży. Gdzie są moje tokeny AXC?",
         "info2_desc": "Ten portfel jest połączony z testową Axia Everest siecią. Twój zakup pojawi się w portfelu po uruchomieniu Axia Mainnet.",
         "hover1": "Wyświetl QR kod adresu",
         "hover2": "Wydrukować",
@@ -172,13 +172,13 @@
     },
     "earn": {
         "title": "Zarabiaj",
-        "desc": "Możesz zarobić więcej AVAX, stawiając swoje istniejące tokeny.",
+        "desc": "Możesz zarobić więcej AXC, stawiając swoje istniejące tokeny.",
         "subtitle1": "Ratyfikuj",
         "subtitle2": "Delegat",
         "subtitle3": "Transfer krzyżowy",
         "subtitle4": "Szacowane nagrody",
-        "warning_1": "Aby zostać walidatorem, musisz mieć co najmniej {0} AVAX w łańcuchu P.",
-        "warning_2": "Aby zostać delegatem, musisz mieć co najmniej {0} AVAX w łańcuchu P.",
+        "warning_1": "Aby zostać walidatorem, musisz mieć co najmniej {0} AXC w łańcuchu P.",
+        "warning_2": "Aby zostać delegatem, musisz mieć co najmniej {0} AXC w łańcuchu P.",
         "validate_card": {
             "title": "Waliduj",
             "desc": "Masz węzeł Axia, z którym chcesz postawić.",
@@ -187,11 +187,11 @@
         "delegate_card": {
             "title": "Delegat",
             "desc": "Nie jesteś właścicielem węzła lawinowego, ale chcesz postawić na inny węzeł.",
-            "submit": "Dodaj delegatora"
+            "submit": "Dodaj nominatora"
         },
         "transfer_card": {
             "title": "Transfer krzyżowy",
-            "desc": "Staking wymaga AVAX w łańcuchu P. Przenieś tokeny między X i P.",
+            "desc": "Staking wymaga AXC w łańcuchu P. Przenieś tokeny między X i P.",
             "submit": "Transfer"
         },
         "rewards_card": {
@@ -242,7 +242,7 @@
             },
             "amount": {
                 "label": "Kwota stake",
-                "desc": "Kwota AVAX do zablokowania do obstawienia."
+                "desc": "Kwota AXC do zablokowania do obstawienia."
             },
             "fee": {
                 "label": "Opłata delegacyjna",
@@ -281,7 +281,7 @@
             },
             "errs": {
                 "date": "Data rozpoczęcia musi przypadać w przyszłości, a data zakończenia musi być późniejsza niż data rozpoczęcia.",
-                "amount": "Kwota stawki musi wynosić co najmniej {0} AVAX",
+                "amount": "Kwota stawki musi wynosić co najmniej {0} AXC",
                 "id": "Nieprawidłowy identyfikator węzła. Musi zaczynać się od „NodeID-”",
                 "address": "Nieprawidłowy adres nagrody."
             }
@@ -319,8 +319,8 @@
                 },
                 "amount": {
                     "label": "Kwota stake",
-                    "desc": "Kwota AVAX do zablokowania do obstawienia.",
-                    "desc2": "Dostępna kwota delegowania dla tego węzła to {0} AVAX"
+                    "desc": "Kwota AXC do zablokowania do obstawienia.",
+                    "desc2": "Dostępna kwota delegowania dla tego węzła to {0} AXC"
                 },
                 "reward": {
                     "label": "Adres nagrody",
@@ -345,7 +345,7 @@
                 "max_dur": "Maksymalny okres obstawiania to 1 rok.",
                 "no_node": "Musisz określić walidator.",
                 "val_end": "Data zakończenia delegacji nie może być dłuższa niż data zakończenia walidatora.",
-                "amt": "Kwota delegacji musi wynosić co najmniej {0} AVAX."
+                "amt": "Kwota delegacji musi wynosić co najmniej {0} AXC."
             },
             "summary": {
                 "duration": "Czas trwania obstawiania",
@@ -388,7 +388,7 @@
         "loading": "Wczytuję historię transakcji..",
         "warn_loading": "Ta lista może być niekompletna i nieaktualna.",
         "error_api": "Nie znaleziono interfejsu Explorer API",
-        "error_api_desc": "Aby wyświetlić historię transakcji, musisz udostępnić interfejs API AVA Explorer dla tej sieci."
+        "error_api_desc": "Aby wyświetlić historię transakcji, musisz udostępnić interfejs API AXIA Explorer dla tej sieci."
     },
     "modal": {
         "qr": {

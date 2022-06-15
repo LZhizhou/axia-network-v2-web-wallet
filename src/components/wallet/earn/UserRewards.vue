@@ -2,7 +2,7 @@
     <div v-if="totLength > 0" class="user_rewards">
         <div>
             <label>{{ $t('earn.rewards.total') }}</label>
-            <p class="amt">{{ totalRewardBig.toLocaleString(9) }} AVAX</p>
+            <p class="amt">{{ totalRewardBig.toLocaleString(9) }} AXC</p>
         </div>
         <div v-if="validators.length > 0">
             <h3>{{ $t('earn.rewards.validation') }}</h3>
@@ -13,10 +13,10 @@
                 class="reward_row"
             ></UserRewardRow>
         </div>
-        <div v-if="delegators.length > 0">
+        <div v-if="nominators.length > 0">
             <h3>{{ $t('earn.rewards.delegation') }}</h3>
             <UserRewardRow
-                v-for="(d, i) in delegators"
+                v-for="(d, i) in nominators"
                 :key="i"
                 :staker="d"
                 class="reward_row"
@@ -32,8 +32,8 @@ import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { AvaWalletCore } from '../../../js/wallets/types'
 import {
-    DelegatorPendingRaw,
-    DelegatorRaw,
+    NominatorPendingRaw,
+    NominatorRaw,
     ValidatorPendingRaw,
     ValidatorRaw,
 } from '@/components/misc/ValidatorList/types'
@@ -61,21 +61,21 @@ export default class UserRewards extends Vue {
         return this.cleanList(validators) as ValidatorRaw[]
     }
 
-    get delegators(): DelegatorRaw[] {
-        let delegators: DelegatorRaw[] = []
+    get nominators(): NominatorRaw[] {
+        let nominators: NominatorRaw[] = []
         let validators: ValidatorRaw[] = this.$store.state.Platform.validators
 
         for (var i = 0; i < validators.length; i++) {
             let v = validators[i]
-            if (v.delegators === null) continue
-            delegators.push(...v.delegators)
+            if (v.nominators === null) continue
+            nominators.push(...v.nominators)
         }
 
-        return this.cleanList(delegators) as DelegatorRaw[]
+        return this.cleanList(nominators) as NominatorRaw[]
     }
 
     get totLength() {
-        return this.validators.length + this.delegators.length
+        return this.validators.length + this.nominators.length
     }
 
     get totalReward() {
@@ -83,7 +83,7 @@ export default class UserRewards extends Vue {
             return acc.add(new BN(val.potentialReward))
         }, new BN(0))
 
-        let dels = this.delegators.reduce((acc, val: DelegatorRaw) => {
+        let dels = this.nominators.reduce((acc, val: NominatorRaw) => {
             return acc.add(new BN(val.potentialReward))
         }, new BN(0))
 
@@ -94,7 +94,7 @@ export default class UserRewards extends Vue {
         return bnToBig(this.totalReward, 9)
     }
 
-    cleanList(list: ValidatorRaw[] | DelegatorRaw[]) {
+    cleanList(list: ValidatorRaw[] | NominatorRaw[]) {
         let res = list.filter((val) => {
             let rewardAddrs = val.rewardOwner.addresses
             let filtered = rewardAddrs.filter((addr) => {

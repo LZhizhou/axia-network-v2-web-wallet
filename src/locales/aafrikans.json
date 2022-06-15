@@ -5,14 +5,14 @@
     "address": "Adres",
     "add_pk": "Voeg Privaat Sleutel by",
     "home": {
-        "desc": "Axia Wallet is 'n eenvoudige, veilige, nie-toesighouende beursie vir die berging van Axia-bates.",
+        "desc": "Axwallet is 'n eenvoudige, veilige, nie-toesighouende beursie vir die berging van Axia-bates.",
         "access": {
             "title": "Welkom terug!",
             "desc": "Kry 'toegang' tot jou bestaande Axia beursie hier.",
             "submit": "Kry toegang tot beursie"
         },
         "create": {
-            "title": "Nuut aan Axia Wallet?",
+            "title": "Nuut aan Axwallet?",
             "desc": "'Skep' 'n nuwe beursie om Axia-bates te stuur, ontvang en omruil.",
             "submit": "Skep Nuwe Beursie"
         }
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Genereer 'n nuwe frase om u Axia Wallet op te stel.",
+        "generate": "Genereer 'n nuwe frase om u Axwallet op te stel.",
         "but_have": "Het u alreeds a beursie?",
         "submit": "Genereer Sleutelfrase",
         "cancel": "Kanselleer",
         "mnemonic_title": "Hierdie is u sleutelfrase.",
-        "mnemonic_desc": "Gebruik hierdie 24 woorde in volgorde om u Axia Wallet te herstel",
+        "mnemonic_desc": "Gebruik hierdie 24 woorde in volgorde om u Axwallet te herstel",
         "attention": "Aandag!",
-        "warning": "Stoor hierdie sleutelfrase op 'n veilige plek. Enigiemand met hierdie sleutelfrase kan toegang tot u Axia Wallet verkry. Daar is geen manier om verlore sleutelfrases te herstel nie.",
+        "warning": "Stoor hierdie sleutelfrase op 'n veilige plek. Enigiemand met hierdie sleutelfrase kan toegang tot u Axwallet verkry. Daar is geen manier om verlore sleutelfrases te herstel nie.",
         "confirm": "Ek het my sleutelwoord op 'n veilige plek neergeskryf.",
         "regenerate": "Genereer Weereens",
         "success_title": "Baie geluk!",
-        "success_desc": "Dit is tyd om toegang tot u Axia Wallet te kry.",
+        "success_desc": "Dit is tyd om toegang tot u Axwallet te kry.",
         "success_submit": "Kry Toegang tot Beursie",
         "verify": "Verifieer",
         "verifytitle": "Verifieer Mnemoniek",
@@ -85,7 +85,7 @@
         "nftcol": "NFTs",
         "nftempty": "U het geen tekens wat nie aanpasbaar is nie versamel.",
         "locked": "Gesluit",
-        "info2": "Ek het muntstukke in die Teken Uitverkoping gekoop. Waar is my AVAX?",
+        "info2": "Ek het muntstukke in die Teken Uitverkoping gekoop. Waar is my AXC?",
         "info2_desc": "Hierdie beursie is aan die Axia Everest-toetsnetwerk gekoppel. U aankoop sal in die beursie verskyn na die bekendstelling van Axia Mainnet.",
         "hover1": "Bekyk Adres-QR-kode",
         "hover2": "Druk",
@@ -172,13 +172,13 @@
     },
     "earn": {
         "title": "Verdien",
-        "desc": "U kan meer AVAX verdien deur u bestaande tekens in te sit.",
+        "desc": "U kan meer AXC verdien deur u bestaande tekens in te sit.",
         "subtitle1": "Valideer",
         "subtitle2": "Delegeer",
         "subtitle3": "Kruiskettingoordrag",
         "subtitle4": "Geskatte belonings",
-        "warning_1": "U moet ten minste {0} AVAX aan die P-ketting hê om 'n valideerder te word.",
-        "warning_2": "U moet ten minste {0} AVAX aan die P-ketting hê om 'n afgevaardigde te word.",
+        "warning_1": "U moet ten minste {0} AXC aan die P-ketting hê om 'n valideerder te word.",
+        "warning_2": "U moet ten minste {0} AXC aan die P-ketting hê om 'n afgevaardigde te word.",
         "validate_card": {
             "title": "Valideer",
             "desc": "U het 'n Axia-nodus waarmee u wil 'n insetting maak.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Kruiskettingoordrag",
-            "desc": "Om ' insetting te maak moet AVAX in die P-ketting wees. Dra tekens oor tussen X en P.",
+            "desc": "Om ' insetting te maak moet AXC in die P-ketting wees. Dra tekens oor tussen X en P.",
             "submit": "Oordrag"
         },
         "rewards_card": {
@@ -242,7 +242,7 @@
             },
             "amount": {
                 "label": "Beleggingsbedrag",
-                "desc": "Die hoeveelheid AVAX wat gesluit moet word om in te sit."
+                "desc": "Die hoeveelheid AXC wat gesluit moet word om in te sit."
             },
             "fee": {
                 "label": "Delegasie fooi",
@@ -281,7 +281,7 @@
             },
             "errs": {
                 "date": "Begindatum moet in die toekoms wees en einddatum moet na begindatum wees.",
-                "amount": "Insettingsbedrag moet tenminste {0} AVAX wees",
+                "amount": "Insettingsbedrag moet tenminste {0} AXC wees",
                 "id": "Ongeldige Nodus-ID. Moet begin met \"NodeID-\"",
                 "address": "Ongeldige beloningsadresadres."
             }
@@ -319,8 +319,8 @@
                 },
                 "amount": {
                     "label": "Insettingsbedrag",
-                    "desc": "Die hoeveelheid AVAX wat gesluit moet word om in te sit.",
-                    "desc2": "Die beskikbare delegasiebedrag vir hierdie nodus is {0} AVAX"
+                    "desc": "Die hoeveelheid AXC wat gesluit moet word om in te sit.",
+                    "desc2": "Die beskikbare delegasiebedrag vir hierdie nodus is {0} AXC"
                 },
                 "reward": {
                     "label": "Beloningsadres",
@@ -345,7 +345,7 @@
                 "max_dur": "Maksimum insettingsduur is 2 weke.",
                 "no_node": "U moet 'n valideerder spesifiseer.",
                 "val_end": "Die einddatum van die delegasie kan nie langer as die valideerder se einddatum wees nie.",
-                "amt": "Delegasiebedrag moet tenminste {0} AVAX wees."
+                "amt": "Delegasiebedrag moet tenminste {0} AXC wees."
             },
             "summary": {
                 "duration": "Insettingstydperk",
@@ -388,7 +388,7 @@
         "loading": "Laai tans transaksiegeskiedenis..",
         "warn_loading": "Hierdie lys is miskien onvolledig en nie in orde nie.",
         "error_api": "Explorer API nie gevind nie",
-        "error_api_desc": "U moet 'n AVA Explorer API vir hierdie netwerk verskaf om die transaksiegeskiedenis te sien."
+        "error_api_desc": "U moet 'n AXIA Explorer API vir hierdie netwerk verskaf om die transaksiegeskiedenis te sien."
     },
     "modal": {
         "qr": {

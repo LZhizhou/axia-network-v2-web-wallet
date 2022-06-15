@@ -9,7 +9,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { pChain } from '@/AVA'
+import { coreChain } from '@/AXIA'
 import { bnToBig } from '@/helpers/helper'
 import Big from 'big.js'
 
@@ -27,7 +27,7 @@ export default class MintNft extends Vue {
     mintUtxo: null | UTXO = null
 
     get txFee(): Big {
-        return bnToBig(pChain.getTxFee(), 9)
+        return bnToBig(coreChain.getTxFee(), 9)
     }
 
     async submit() {

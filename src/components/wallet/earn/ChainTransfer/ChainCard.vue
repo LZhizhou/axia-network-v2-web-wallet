@@ -22,7 +22,7 @@ import { Component, Model, Prop, Vue, Watch } from 'vue-property-decorator'
 import { UTXO } from '@zee-ava/avajs/dist/apis/platformvm'
 import { ChainIdType } from '@/constants'
 import { BN } from '@zee-ava/avajs'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { WalletType } from '@/js/wallets/types'
 
@@ -56,9 +56,9 @@ export default class ChainCard extends Vue {
         return chainNames
     }
 
-    get ava_asset(): AvaAsset | null {
-        let ava = this.$store.getters['Assets/AssetAVA']
-        return ava
+    get axia_asset(): AxiaAsset | null {
+        let axia = this.$store.getters['Assets/AssetAXIA']
+        return axia
     }
 
     get wallet(): WalletType {
@@ -71,8 +71,8 @@ export default class ChainCard extends Vue {
     }
 
     get avmUnlocked(): BN {
-        if (!this.ava_asset) return new BN(0)
-        return this.ava_asset.amount
+        if (!this.axia_asset) return new BN(0)
+        return this.axia_asset.amount
     }
 
     get evmUnlocked(): BN {

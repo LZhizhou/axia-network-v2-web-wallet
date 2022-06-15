@@ -1,18 +1,18 @@
 import { UTXOSet as AVMUTXOSet } from '@zee-ava/avajs/dist/apis/avm/utxos'
 import { UTXOSet as PlatformUTXOSet } from '@zee-ava/avajs/dist/apis/platformvm/utxos'
-import { avm, cChain, pChain } from '@/AVA'
+import { avm, appChain, coreChain } from '@/AXIA'
 import { BN } from '@zee-ava/avajs'
 
 export async function getStakeForAddresses(addrs: string[]): Promise<BN> {
     if (addrs.length <= 256) {
-        let stakeData = await pChain.getStake(addrs)
+        let stakeData = await coreChain.getStake(addrs)
         return stakeData.staked
     } else {
         //Break the list in to 1024 chunks
         let chunk = addrs.slice(0, 256)
         let remainingChunk = addrs.slice(256)
 
-        let stakeData = await pChain.getStake(chunk)
+        let stakeData = await coreChain.getStake(chunk)
         let chunkStake = stakeData.staked
         return chunkStake.add(await getStakeForAddresses(remainingChunk))
     }
@@ -78,9 +78,9 @@ export async function platformGetAllUTXOsForAddresses(
 ): Promise<PlatformUTXOSet> {
     let response
     if (!endIndex) {
-        response = await pChain.getUTXOs(addrs)
+        response = await coreChain.getUTXOs(addrs)
     } else {
-        response = await pChain.getUTXOs(addrs, undefined, 0, endIndex)
+        response = await coreChain.getUTXOs(addrs, undefined, 0, endIndex)
     }
 
     let utxoSet = response.utxos

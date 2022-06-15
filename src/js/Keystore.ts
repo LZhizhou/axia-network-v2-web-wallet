@@ -24,7 +24,7 @@ import {
     KeyFileV6,
     KeystoreFileKeyType,
 } from './IKeystore'
-import { avm, bintools } from '@/AVA'
+import { avm, bintools } from '@/AXIA'
 import { Buffer } from 'buffer/'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import Crypto from '@/js/Crypto'

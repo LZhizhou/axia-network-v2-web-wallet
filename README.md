@@ -1,18 +1,18 @@
-# Axia (AVAX) Wallet
+# Axwallet
 
-This is the frontend Vue.js application for the Axia (AVAX) Wallet.
+This is the frontend Vue.js application for the Axwallet.
 
 ## Prerequisites
 
 -   Yarn (https://classic.yarnpkg.com/en/docs/install/)
 -   Recent version of npm (7.4.0)
 -   Node v15.6.0
--   Gecko, Axia client in Golang (https://github.com/ava-labs/axiago)
+-   Gecko, Axia client in Golang (https://github.com/AxiaCoin/axiago)
 
 ## Installation
 
-1. Clone the repo `git clone https://github.com/ava-labs/axia-wallet.git`
-2. Go to root of the project `cd axia-wallet`
+1. Clone the repo `git clone https://github.com/AxiaCoin/axia-network-v2-web-wallet.git`
+2. Go to root of the project `cd axia-network-v2-web-wallet`
 3. Install javascript dependencies with `yarn install`.
 
 ## Running The Project
@@ -49,11 +49,11 @@ WARNING: This history might be out of order and incomplete.
 
 ## Browser Support
 
-We suggest using Google Chrome to view the Axia Wallet website.
+We suggest using Google Chrome to view the Axwallet website.
 
 ### Firefox and https
 
-Firefox does not allow https requests to localhost. But the Axia Wallet uses https by default, so we will need to change this to http. Make this switch by editing the `vue.config.js` file in the root directory and change
+Firefox does not allow https requests to localhost. But the Axwallet uses https by default, so we will need to change this to http. Make this switch by editing the `vue.config.js` file in the root directory and change
 
 ```
 devServer: {
@@ -91,11 +91,11 @@ Saved into local storage as a 2 letter code.
 
 # Dependencies
 
-##### Axia Node (https://github.com/ava-labs/axiago)
+##### Axia Node (https://github.com/AxiaCoin/axiago)
 
 To get utxos and to send transactions.
 
-#### Explorer API Node (https://github.com/ava-labs/ortelius)
+#### Explorer API Node (https://github.com/AxiaCoin/axtract)
 
 To check if an address was used before, and to get activity history.
 

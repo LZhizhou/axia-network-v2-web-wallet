@@ -13,7 +13,7 @@ import {
     TxHelper,
     GasHelper,
 } from '@zee-ava/axia-wallet-sdk'
-import { ava, avm, bintools, cChain, pChain } from '@/AVA'
+import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
 import { UTXOSet as EVMUTXOSet } from '@zee-ava/avajs/dist/apis/evm/utxos'
 import { Tx as EVMTx, UnsignedTx as EVMUnsignedTx } from '@zee-ava/avajs/dist/apis/evm/tx'
 import {
@@ -77,7 +77,7 @@ abstract class WalletCore {
         let fromAddresses = ownerAddresses
         const sourceChainId = Network.chainIdFromAlias(sourceChain)
 
-        return await cChain.buildImportTx(
+        return await appChain.buildImportTx(
             utxoSet,
             toAddress,
             ownerAddresses,
@@ -93,12 +93,12 @@ abstract class WalletCore {
      * @param fee Fee to use in nAVAX
      * @param utxoSet
      */
-    async importToCChain(sourceChain: ExportChainsC, fee: BN, utxoSet?: EVMUTXOSet) {
+    async importToAppChain(sourceChain: ExportChainsC, fee: BN, utxoSet?: EVMUTXOSet) {
         if (!utxoSet) {
             utxoSet = await this.evmGetAtomicUTXOs(sourceChain)
         }
 
-        // TODO: Only use AVAX utxos
+        // TODO: Only use AXC utxos
         // TODO?: If the import fee for a utxo is greater than the value of the utxo, ignore it
 
         if (utxoSet.getAllUTXOs().length === 0) {
@@ -107,14 +107,14 @@ abstract class WalletCore {
 
         const unsignedTxFee = await this.createImportTxC(sourceChain, utxoSet, fee)
         let tx = await this.signC(unsignedTxFee)
-        let id = await cChain.issueTx(tx.toString())
+        let id = await appChain.issueTx(tx.toString())
 
         return id
     }
 
-    async exportFromXChain(amt: BN, destinationChain: ExportChainsX, importFee?: BN) {
+    async exportFromAssetChain(amt: BN, destinationChain: ExportChainsX, importFee?: BN) {
         if (destinationChain === 'C' && !importFee)
-            throw new Error('Exports to C chain must specify an import fee.')
+            throw new Error('Exports to AppChain must specify an import fee.')
 
         let amtFee = amt.clone()
 
@@ -126,7 +126,7 @@ abstract class WalletCore {
         if (importFee) {
             amtFee = amt.add(importFee)
         } else if (destinationChain === 'P') {
-            let fee = pChain.getTxFee()
+            let fee = coreChain.getTxFee()
             amtFee = amt.add(fee)
         }
 
@@ -147,21 +147,21 @@ abstract class WalletCore {
         return avm.issueTx(tx)
     }
 
-    async exportFromPChain(amt: BN, destinationChain: ExportChainsP, importFee?: BN) {
+    async exportFromCoreChain(amt: BN, destinationChain: ExportChainsP, importFee?: BN) {
         let utxoSet = this.getPlatformUTXOSet()
 
         let pChangeAddr = this.getCurrentAddressPlatform()
         let fromAddrs = this.getAllAddressesP()
 
         if (destinationChain === 'C' && !importFee)
-            throw new Error('Exports to C chain must specify an import fee.')
+            throw new Error('Exports to AppChain must specify an import fee.')
 
-        // Calculate C chain import fee
+        // Calculate AppChain import fee
         let amtFee = amt.clone()
         if (importFee) {
             amtFee = amt.add(importFee)
         } else if (destinationChain === 'X') {
-            // We can add the import fee for X chain
+            // We can add the import fee for AssetChain
             let fee = avm.getTxFee()
             amtFee = amt.add(fee)
         }
@@ -180,7 +180,7 @@ abstract class WalletCore {
         )
 
         let tx = await this.signP(exportTx)
-        return await pChain.issueTx(tx)
+        return await coreChain.issueTx(tx)
     }
 
     /**
@@ -189,7 +189,7 @@ abstract class WalletCore {
      * @param destinationChain `X` or `P`
      * @param fee Fee to use in the export transaction, given in nAVAX.
      */
-    async exportFromCChain(amt: BN, destinationChain: ExportChainsC, exportFee: BN) {
+    async exportFromAppChain(amt: BN, destinationChain: ExportChainsC, exportFee: BN) {
         // Add import fee
         // X and P have the same fee
         let importFee = avm.getTxFee()
@@ -215,11 +215,11 @@ abstract class WalletCore {
         )
 
         let tx = await this.signC(exportTx)
-        return cChain.issueTx(tx.toString())
+        return appChain.issueTx(tx.toString())
     }
 
     /**
-     * Returns the estimated gas to export from C chain.
+     * Returns the estimated gas to export from AppChain.
      * @param destinationChain
      * @param amount
      */
@@ -262,7 +262,7 @@ abstract class WalletCore {
         // Owner addresses, the addresses we exported to
         let pToAddr = this.getCurrentAddressPlatform()
 
-        let hrp = ava.getHRP()
+        let hrp = axia.getHRP()
         let utxoAddrs = utxoSet
             .getAddresses()
             .map((addr: Buffer) => bintools.addressToString(hrp, 'P', addr))
@@ -270,7 +270,7 @@ abstract class WalletCore {
         let fromAddrs = utxoAddrs
         let ownerAddrs = utxoAddrs
 
-        const unsignedTx = await pChain.buildImportTx(
+        const unsignedTx = await coreChain.buildImportTx(
             utxoSet,
             ownerAddrs,
             sourceChainId,
@@ -282,10 +282,10 @@ abstract class WalletCore {
         )
         const tx = await this.signP(unsignedTx)
         // Pass in string because AJS fails to verify Tx type
-        return pChain.issueTx(tx.toString())
+        return coreChain.issueTx(tx.toString())
     }
 
-    async importToXChain(sourceChain: AvmImportChainType) {
+    async importToAssetChain(sourceChain: AvmImportChainType) {
         const utxoSet = await this.avmGetAtomicUTXOs(sourceChain)
 
         if (utxoSet.getAllUTXOs().length === 0) {
@@ -294,7 +294,7 @@ abstract class WalletCore {
 
         let xToAddr = this.getCurrentAddressAvm()
 
-        let hrp = ava.getHRP()
+        let hrp = axia.getHRP()
         let utxoAddrs = utxoSet
             .getAddresses()
             .map((addr: Buffer) => bintools.addressToString(hrp, 'X', addr))

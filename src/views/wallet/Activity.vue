@@ -29,7 +29,7 @@
                             depressed
                             :disabled="!showList"
                         >
-                            Export AVAX Transfers
+                            Export AXC Transfers
                         </v-btn>
                     </div>
                 </div>
@@ -99,7 +99,7 @@ type ModeKeyType = 'all' | 'transfer' | 'swap' | 'stake'
 
 //@ts-ignore
 import VirtualList from 'vue-virtual-scroll-list'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 import ExportCsvModal from '@/components/modals/ExportCsvModal.vue'
 import ExportAxcCsvModal from '@/components/modals/ExportAxcCsvModal.vue'
 
@@ -177,7 +177,7 @@ export default class Activity extends Vue {
     }
 
     get hasExplorer() {
-        let network: AvaNetwork | null = this.$store.state.Network.selectedNetwork
+        let network: AxiaNetwork | null = this.$store.state.Network.selectedNetwork
         if (!network?.explorerUrl) {
             return false
         }
@@ -335,7 +335,7 @@ export default class Activity extends Vue {
 
     get txsStake(): ITransactionData[] {
         let txs: ITransactionData[] = this.allTxs
-        let stakeTypes: TransactionType[] = ['add_validator', 'add_delegator']
+        let stakeTypes: TransactionType[] = ['add_validator', 'add_nominator']
 
         return txs.filter((tx) => {
             let txType = tx.type

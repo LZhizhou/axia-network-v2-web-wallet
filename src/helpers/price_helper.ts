@@ -11,7 +11,7 @@ const coingeckoApi = axios.create({
 
 export async function getAxcPriceUSD(): Promise<number> {
     let res = await axios.get(COINGECKO_URL)
-    return res.data['axia-2']['usd']
+    return res.data['avalanche-2']['usd']
 }
 
 let priceHistory: [number, number][] = []

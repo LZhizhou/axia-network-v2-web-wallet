@@ -2,8 +2,8 @@
     <Modal title="Wallet UTXO Breakdown" ref="modal">
         <div class="utxos_breakdown_body">
             <div class="tabs">
-                <button @click="setChain('X')" :active="chain === 'X'">X Chain</button>
-                <button @click="setChain('P')" :active="chain === 'P'">P Chain</button>
+                <button @click="setChain('X')" :active="chain === 'X'">AssetChain</button>
+                <button @click="setChain('P')" :active="chain === 'P'">CoreChain</button>
             </div>
             <div class="scrollable">
                 <div style="height: 90px">
@@ -52,7 +52,11 @@ import { Vue, Component } from 'vue-property-decorator'
 import Modal from '@/components/modals/Modal.vue'
 import { WalletType } from '@/js/wallets/types'
 
-import { UTXOSet as AVMUTXOSet, UTXO as AVMUTXO, AVMConstants } from '@zee-ava/avajs/dist/apis/avm'
+import {
+    UTXOSet as AVMUTXOSet,
+    UTXO as AVMUTXO,
+    AVMConstants,
+} from '@zee-ava/avajs/dist/apis/avm'
 import {
     UTXOSet as PlatformUTXOSet,
     UTXO as PlatformUTXO,

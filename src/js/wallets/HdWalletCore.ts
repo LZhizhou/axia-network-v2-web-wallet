@@ -3,7 +3,7 @@ import { UTXO } from '@zee-ava/avajs/dist/apis/avm'
 
 import { BN, Buffer } from '@zee-ava/avajs'
 import { ITransaction } from '@/components/wallet/transfer/types'
-import { ava, avm, bintools, pChain } from '@/AVA'
+import { axia, avm, bintools, coreChain } from '@/AXIA'
 import { UTXOSet as AVMUTXOSet } from '@zee-ava/avajs/dist/apis/avm/utxos'
 import HDKey from 'hdkey'
 import { HdHelper } from '@/js/HdHelper'
@@ -46,7 +46,7 @@ abstract class HdWalletCore extends WalletCore {
 
     getEvmAddressBech(): string {
         return bintools.addressToString(
-            ava.getHRP(),
+            axia.getHRP(),
             'C',
             // @ts-ignore
             this.ethHdNode.pubKeyHash

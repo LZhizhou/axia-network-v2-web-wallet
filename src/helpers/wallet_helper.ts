@@ -1,4 +1,4 @@
-import { ava, avm, bintools, cChain, pChain } from '@/AVA'
+import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
 import {
     UTXOSet as PlatformUTXOSet,
     UTXO as PlatformUTXO,
@@ -129,7 +129,7 @@ class WalletHelper {
         let startTime = new BN(Math.round(start.getTime() / 1000))
         let endTime = new BN(Math.round(end.getTime() / 1000))
 
-        const unsignedTx = await pChain.buildAddValidatorTx(
+        const unsignedTx = await coreChain.buildAddValidatorTx(
             utxoSet,
             [stakeReturnAddr],
             pAddressStrings, // from
@@ -143,7 +143,7 @@ class WalletHelper {
         )
 
         let tx = await wallet.signP(unsignedTx)
-        return await pChain.issueTx(tx)
+        return await coreChain.issueTx(tx)
     }
 
     static async delegate(
@@ -180,7 +180,7 @@ class WalletHelper {
         let startTime = new BN(Math.round(start.getTime() / 1000))
         let endTime = new BN(Math.round(end.getTime() / 1000))
 
-        const unsignedTx = await pChain.buildAddDelegatorTx(
+        const unsignedTx = await coreChain.buildAddNominatorTx(
             utxoSet,
             [stakeReturnAddr],
             pAddressStrings,
@@ -193,7 +193,7 @@ class WalletHelper {
         )
 
         const tx = await wallet.signP(unsignedTx)
-        return await pChain.issueTx(tx)
+        return await coreChain.issueTx(tx)
     }
 
     static async getEthBalance(wallet: WalletType) {

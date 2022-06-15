@@ -26,12 +26,12 @@
             </div>
             <div class="balance_row">
                 <p class="balance" data-cy="wallet_balance" v-if="!balanceTextRight">
-                    {{ balanceTextLeft }} AVAX
+                    {{ balanceTextLeft }} AXC
                 </p>
                 <p class="balance" data-cy="wallet_balance" v-else>
                     {{ balanceTextLeft }}
                     <span>.{{ balanceTextRight }}</span>
-                    AVAX
+                    AXC
                 </p>
                 <div style="display: flex; flex-direction: row">
                     <p class="balance_usd">
@@ -39,7 +39,7 @@
                         USD
                     </p>
                     <p class="balance_usd" style="background-color: transparent">
-                        <b>1 AVAX</b>
+                        <b>1 AXC</b>
                         =
                         <b>${{ axcPriceText }}</b>
                         USD
@@ -51,47 +51,47 @@
                 <div class="alt_non_breakdown" v-if="!isBreakdown">
                     <div>
                         <label>{{ $t('top.balance.available') }}</label>
-                        <p>{{ unlockedText }} AVAX</p>
+                        <p>{{ unlockedText }} AXC</p>
                     </div>
                     <div v-if="hasLocked">
                         <label>{{ $t('top.locked') }}</label>
-                        <p>{{ balanceTextLocked }} AVAX</p>
+                        <p>{{ balanceTextLocked }} AXC</p>
                     </div>
                     <div v-if="hasMultisig">
                         <label>Multisig</label>
-                        <p>{{ balanceTextMultisig }} AVAX</p>
+                        <p>{{ balanceTextMultisig }} AXC</p>
                     </div>
                     <div>
                         <label>{{ $t('top.balance.stake') }}</label>
-                        <p>{{ stakingText }} AVAX</p>
+                        <p>{{ stakingText }} AXC</p>
                     </div>
                 </div>
                 <div class="alt_breakdown" v-else>
                     <div>
                         <label>{{ $t('top.balance.available') }} (X)</label>
-                        <p>{{ avmUnlocked | cleanAxcBN }} AVAX</p>
+                        <p>{{ avmUnlocked | cleanAxcBN }} AXC</p>
                         <label>{{ $t('top.balance.available') }} (P)</label>
-                        <p>{{ platformUnlocked | cleanAxcBN }} AVAX</p>
+                        <p>{{ platformUnlocked | cleanAxcBN }} AXC</p>
                         <label>{{ $t('top.balance.available') }} (C)</label>
-                        <p>{{ evmUnlocked | cleanAxcBN }} AVAX</p>
+                        <p>{{ evmUnlocked | cleanAxcBN }} AXC</p>
                     </div>
                     <div v-if="hasLocked">
                         <label>{{ $t('top.balance.locked') }} (X)</label>
-                        <p>{{ avmLocked | cleanAxcBN }} AVAX</p>
+                        <p>{{ avmLocked | cleanAxcBN }} AXC</p>
                         <label>{{ $t('top.balance.locked') }} (P)</label>
-                        <p>{{ platformLocked | cleanAxcBN }} AVAX</p>
+                        <p>{{ platformLocked | cleanAxcBN }} AXC</p>
                         <label>{{ $t('top.balance.locked_stake') }} (P)</label>
-                        <p>{{ platformLockedStakeable | cleanAxcBN }} AVAX</p>
+                        <p>{{ platformLockedStakeable | cleanAxcBN }} AXC</p>
                     </div>
                     <div v-if="hasMultisig">
                         <label>Multisig (X)</label>
-                        <p>{{ avmMultisig | cleanAxcBN }} AVAX</p>
+                        <p>{{ avmMultisig | cleanAxcBN }} AXC</p>
                         <label>Multisig (P)</label>
-                        <p>{{ platformMultisig | cleanAxcBN }} AVAX</p>
+                        <p>{{ platformMultisig | cleanAxcBN }} AXC</p>
                     </div>
                     <div>
                         <label>{{ $t('top.balance.stake') }}</label>
-                        <p>{{ stakingText }} AVAX</p>
+                        <p>{{ stakingText }} AXC</p>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop, Ref, Watch } from 'vue-property-decorator'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import Spinner from '@/components/misc/Spinner.vue'
 import NftCol from './NftCol.vue'
@@ -145,9 +145,9 @@ export default class BalanceCard extends Vue {
     showUTXOsModal() {
         this.$refs.utxos_modal.open()
     }
-    get ava_asset(): AvaAsset | null {
-        let ava = this.$store.getters['Assets/AssetAVA']
-        return ava
+    get axia_asset(): AxiaAsset | null {
+        let axia = this.$store.getters['Assets/AssetAXIA']
+        return axia
     }
 
     toggleBreakdown() {
@@ -155,13 +155,13 @@ export default class BalanceCard extends Vue {
     }
 
     get avmUnlocked(): BN {
-        if (!this.ava_asset) return new BN(0)
-        return this.ava_asset.amount
+        if (!this.axia_asset) return new BN(0)
+        return this.axia_asset.amount
     }
 
     get avmLocked(): BN {
-        if (!this.ava_asset) return new BN(0)
-        return this.ava_asset.amountLocked
+        if (!this.axia_asset) return new BN(0)
+        return this.axia_asset.amountLocked
     }
 
     get evmUnlocked(): BN {
@@ -172,17 +172,17 @@ export default class BalanceCard extends Vue {
     }
 
     get totalBalance(): BN {
-        if (!this.ava_asset) return new BN(0)
+        if (!this.axia_asset) return new BN(0)
 
-        let tot = this.ava_asset.getTotalAmount()
+        let tot = this.axia_asset.getTotalAmount()
         // add EVM balance
         tot = tot.add(this.evmUnlocked)
         return tot
     }
 
     get totalBalanceBig(): Big {
-        if (this.ava_asset) {
-            let denom = this.ava_asset.denomination
+        if (this.axia_asset) {
+            let denom = this.axia_asset.denomination
             let bigTot = bnToBig(this.totalBalance, denom)
             return bigTot
         }
@@ -205,8 +205,8 @@ export default class BalanceCard extends Vue {
     }
     // should be unlocked (X+P), locked (X+P) and staked and lockedStakeable
     get balanceText(): string {
-        if (this.ava_asset !== null) {
-            let denom = this.ava_asset.denomination
+        if (this.axia_asset !== null) {
+            let denom = this.axia_asset.denomination
             return this.totalBalanceBig.toLocaleString(denom)
         } else {
             return '?'
@@ -233,16 +233,16 @@ export default class BalanceCard extends Vue {
         return ''
     }
 
-    // Locked balance is the sum of locked AVAX tokens on X and P chain
+    // Locked balance is the sum of locked AXC tokens on X and CoreChain
     get balanceTextLocked(): string {
         if (this.isUpdateBalance) return '--'
 
-        if (this.ava_asset !== null) {
-            let denom = this.ava_asset.denomination
+        if (this.axia_asset !== null) {
+            let denom = this.axia_asset.denomination
             let tot = this.platformLocked.add(this.platformLockedStakeable)
             // let otherLockedAmt = this.platformLocked.add(this.platformLockedStakeable)
             let pLocked = Big(tot.toString()).div(Math.pow(10, denom))
-            let amt = this.ava_asset.getAmount(true)
+            let amt = this.axia_asset.getAmount(true)
             amt = amt.add(pLocked)
 
             return amt.toLocaleString(denom)
@@ -254,8 +254,8 @@ export default class BalanceCard extends Vue {
     get balanceTextMultisig() {
         if (this.isUpdateBalance) return '--'
 
-        if (this.ava_asset !== null) {
-            let denom = this.ava_asset.denomination
+        if (this.axia_asset !== null) {
+            let denom = this.axia_asset.denomination
             return bnToBig(this.avmMultisig.add(this.platformMultisig), denom).toLocaleString()
         } else {
             return '--'
@@ -263,8 +263,8 @@ export default class BalanceCard extends Vue {
     }
 
     get avmMultisig(): BN {
-        if (this.ava_asset !== null) {
-            return this.ava_asset.amountMultisig
+        if (this.axia_asset !== null) {
+            return this.axia_asset.amountMultisig
         } else {
             return new BN(0)
         }
@@ -293,11 +293,11 @@ export default class BalanceCard extends Vue {
     get unlockedText() {
         if (this.isUpdateBalance) return '--'
 
-        if (this.ava_asset) {
-            let xUnlocked = this.ava_asset.amount
+        if (this.axia_asset) {
+            let xUnlocked = this.axia_asset.amount
             let pUnlocked = this.platformUnlocked
 
-            let denom = this.ava_asset.denomination
+            let denom = this.axia_asset.denomination
 
             let tot = xUnlocked.add(pUnlocked).add(this.evmUnlocked)
 
@@ -310,10 +310,10 @@ export default class BalanceCard extends Vue {
     }
 
     get pBalanceText() {
-        if (!this.ava_asset) return '--'
+        if (!this.axia_asset) return '--'
         if (this.isUpdateBalance) return '--'
 
-        let denom = this.ava_asset.denomination
+        let denom = this.axia_asset.denomination
         let bal = this.platformUnlocked
         let bigBal = Big(bal.toString())
         bigBal = bigBal.div(Math.pow(10, denom))

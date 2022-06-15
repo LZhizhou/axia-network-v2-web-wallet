@@ -119,7 +119,7 @@
                                     <fa icon="question-circle"></fa>
                                 </Tooltip>
                             </label>
-                            <p v-if="currency_type === 'AVAX'">{{ maxDelegationText }} AVAX</p>
+                            <p v-if="currency_type === 'AXC'">{{ maxDelegationText }} AXC</p>
                             <p v-if="currency_type === 'USD'">${{ maxDelegationUsdText }} USD</p>
                         </div>
                         <div>
@@ -128,8 +128,8 @@
                         </div>
                         <div>
                             <label>{{ $t('earn.validate.summary.rewards') }}</label>
-                            <p v-if="currency_type === 'AVAX'">
-                                {{ estimatedReward.toLocaleString(2) }} AVAX
+                            <p v-if="currency_type === 'AXC'">
+                                {{ estimatedReward.toLocaleString(2) }} AXC
                             </p>
                             <p v-if="currency_type === 'USD'">
                                 ${{ estimatedRewardUSD.toLocaleString(2) }} USD
@@ -226,7 +226,7 @@ import { BN } from '@zee-ava/avajs'
 import Big from 'big.js'
 //@ts-ignore
 import { QrInput } from '@zee-ava/vue_components'
-import { bintools, pChain } from '@/AVA'
+import { bintools, coreChain } from '@/AXIA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import ConfirmPage from '@/components/wallet/earn/Validate/ConfirmPage.vue'
 import moment from 'moment'
@@ -289,7 +289,7 @@ export default class AddValidator extends Vue {
 
     isSuccess = false
 
-    currency_type = 'AVAX'
+    currency_type = 'AXC'
 
     mounted() {
         this.rewardSelect('local')
@@ -322,7 +322,7 @@ export default class AddValidator extends Vue {
         this.rewardDestination = val
     }
 
-    // Returns true to show a warning about short validation periods that can not take any delegators
+    // Returns true to show a warning about short validation periods that can not take any nominators
     get warnShortDuration(): boolean {
         let dur = this.stakeDuration
 
@@ -364,7 +364,7 @@ export default class AddValidator extends Vue {
     }
 
     get feeAmt(): BN {
-        return pChain.getTxFee()
+        return coreChain.getTxFee()
     }
 
     get utxosBalance(): BN {
@@ -582,7 +582,7 @@ export default class AddValidator extends Vue {
     }
 
     async updateTxStatus(txId: string) {
-        let res = await pChain.getTxStatus(txId)
+        let res = await coreChain.getTxStatus(txId)
 
         let status
         let reason = null

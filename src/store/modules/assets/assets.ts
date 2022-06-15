@@ -13,11 +13,11 @@ import {
     IWalletNftMintDict,
     RootState,
 } from '@/store/types'
-import { ava, avm, bintools, cChain } from '@/AVA'
+import { axia, avm, bintools, appChain } from '@/AXIA'
 import Vue from 'vue'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import { WalletType } from '@/js/wallets/types'
-import { AvaNftFamily } from '@/js/AvaNftFamily'
+import { AxiaNftFamily } from '@/js/AxiaNftFamily'
 import {
     AmountOutput,
     UTXOSet as AVMUTXOSet,
@@ -31,7 +31,7 @@ import { UTXOSet as PlatformUTXOSet } from '@zee-ava/avajs/dist/apis/platformvm/
 import { PlatformVMConstants, StakeableLockOut } from '@zee-ava/avajs/dist/apis/platformvm'
 import axios from 'axios'
 import Erc20Token from '@/js/Erc20Token'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 import { web3 } from '@/evm'
 // import ERC721Token from '@/js/ERC721Token'
 
@@ -52,7 +52,7 @@ const assets_module: Module<AssetsState, RootState> = {
         ERC721: ERC721Module,
     },
     state: {
-        AVA_ASSET_ID: null,
+        AXIA_ASSET_ID: null,
         // isUpdateBalance: false,
         assets: [],
         assetsDict: {}, // holds meta data of assets
@@ -70,14 +70,14 @@ const assets_module: Module<AssetsState, RootState> = {
         nftWhitelist: [],
     },
     mutations: {
-        addAsset(state, asset: AvaAsset) {
+        addAsset(state, asset: AxiaAsset) {
             if (state.assetsDict[asset.id]) {
                 return
             }
             state.assets.push(asset)
             Vue.set(state.assetsDict, asset.id, asset)
         },
-        addNftFamily(state, family: AvaNftFamily) {
+        addNftFamily(state, family: AxiaNftFamily) {
             if (state.nftFamsDict[family.id]) {
                 return
             }
@@ -92,7 +92,7 @@ const assets_module: Module<AssetsState, RootState> = {
             state.nftUTXOs = []
             state.nftMintUTXOs = []
             state.balanceDict = {}
-            state.AVA_ASSET_ID = null
+            state.AXIA_ASSET_ID = null
         },
         saveCustomErc20Tokens(state) {
             let tokens: Erc20Token[] = state.erc20TokensCustom
@@ -120,7 +120,7 @@ const assets_module: Module<AssetsState, RootState> = {
         },
     },
     actions: {
-        async onNetworkChange({ state }, network: AvaNetwork) {
+        async onNetworkChange({ state }, network: AxiaNetwork) {
             let id = await web3.eth.getChainId()
             state.evmChainId = id
         },
@@ -370,12 +370,12 @@ const assets_module: Module<AssetsState, RootState> = {
             })
         },
 
-        // What is the AVA coin in the network
-        async updateAvaAsset({ state, commit }) {
+        // What is the AXIA coin in the network
+        async updateAxiaAsset({ state, commit }) {
             let res = await avm.getAssetDescription('AVAX')
             let id = bintools.cb58Encode(res.assetID)
-            state.AVA_ASSET_ID = id
-            let asset = new AvaAsset(id, res.name, res.symbol, res.denomination)
+            state.AXIA_ASSET_ID = id
+            let asset = new AxiaAsset(id, res.name, res.symbol, res.denomination)
             commit('addAsset', asset)
         },
 
@@ -455,16 +455,16 @@ const assets_module: Module<AssetsState, RootState> = {
         // Adds an unknown asset id to the assets dictionary
         async addUnknownAsset({ state, commit }, assetId: string) {
             // get info about the asset
-            let desc = await ava.XChain().getAssetDescription(assetId)
-            let newAsset = new AvaAsset(assetId, desc.name, desc.symbol, desc.denomination)
+            let desc = await axia.AssetChain().getAssetDescription(assetId)
+            let newAsset = new AxiaAsset(assetId, desc.name, desc.symbol, desc.denomination)
 
             await commit('addAsset', newAsset)
             return desc
         },
 
         async addUnknownNftFamily({ state, commit }, assetId: string) {
-            let desc = await ava.XChain().getAssetDescription(assetId)
-            let newFam = new AvaNftFamily(assetId, desc.name, desc.symbol)
+            let desc = await axia.AssetChain().getAssetDescription(assetId)
+            let newFam = new AxiaNftFamily(assetId, desc.name, desc.symbol)
 
             await commit('addNftFamily', newFam)
             return desc
@@ -523,7 +523,7 @@ const assets_module: Module<AssetsState, RootState> = {
             for (var assetId in assetsDict) {
                 let balanceAmt = balanceDict[assetId]
 
-                let asset: AvaAsset
+                let asset: AxiaAsset
                 if (!balanceAmt) {
                     asset = assetsDict[assetId]
                     asset.resetBalance()
@@ -535,9 +535,9 @@ const assets_module: Module<AssetsState, RootState> = {
                     asset.addBalanceMultisig(balanceAmt.multisig)
                 }
 
-                // Add extras for AVAX token
+                // Add extras for AXC token
                 // @ts-ignore
-                if (asset.id === state.AVA_ASSET_ID) {
+                if (asset.id === state.AXIA_ASSET_ID) {
                     asset.addExtra(getters.walletStakingBalance)
                     asset.addExtra(getters.walletPlatformBalance.available)
                     asset.addExtra(getters.walletPlatformBalance.locked)
@@ -550,9 +550,9 @@ const assets_module: Module<AssetsState, RootState> = {
             return res
         },
 
-        walletAssetsArray(state, getters): AvaAsset[] {
+        walletAssetsArray(state, getters): AxiaAsset[] {
             let assetsDict: IWalletAssetsDict = getters.walletAssetsDict
-            let res: AvaAsset[] = []
+            let res: AxiaAsset[] = []
 
             for (var id in assetsDict) {
                 let asset = assetsDict[id]
@@ -567,7 +567,7 @@ const assets_module: Module<AssetsState, RootState> = {
             return wallet.utxoset
         },
 
-        nftFamilies(state): AvaNftFamily[] {
+        nftFamilies(state): AxiaNftFamily[] {
             return state.nftFams
         },
 
@@ -608,7 +608,7 @@ const assets_module: Module<AssetsState, RootState> = {
 
             let now = UnixNow()
 
-            // The only type of asset is AVAX on the P chain
+            // The only type of asset is AXC on the CoreChain
 
             let utxos = utxoSet.getAllUTXOs()
             for (var n = 0; n < utxos.length; n++) {
@@ -690,12 +690,12 @@ const assets_module: Module<AssetsState, RootState> = {
                 return asset.id
             })
         },
-        AssetAVA(state, getters, rootState, rootGetters): AvaAsset | null {
+        AssetAXIA(state, getters, rootState, rootGetters): AxiaAsset | null {
             let walletBalanceDict = getters.walletAssetsDict
-            let AVA_ASSET_ID = state.AVA_ASSET_ID
-            if (AVA_ASSET_ID) {
-                if (walletBalanceDict[AVA_ASSET_ID]) {
-                    return walletBalanceDict[AVA_ASSET_ID]
+            let AXIA_ASSET_ID = state.AXIA_ASSET_ID
+            if (AXIA_ASSET_ID) {
+                if (walletBalanceDict[AXIA_ASSET_ID]) {
+                    return walletBalanceDict[AXIA_ASSET_ID]
                 }
             }
             return null

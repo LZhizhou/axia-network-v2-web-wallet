@@ -5,7 +5,7 @@
                 <div class="token_row" @click="select('native')">
                     <img src="/img/axc_icon_circle.png" class="col_img" />
                     <div class="col_name">
-                        <p>AVAX</p>
+                        <p>AXC</p>
                         <p>Axia</p>
                     </div>
                     <p class="col_bal">{{ axcBalance.toLocaleString() }}</p>
@@ -76,7 +76,7 @@ export default class EVMTokenSelectModal extends Vue {
     }
 
     // get symbol() {
-    //     if (this.selected === 'native') return 'AVAX'
+    //     if (this.selected === 'native') return 'AXC'
     //     else return this.selected.data.symbol
     // }
 

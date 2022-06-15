@@ -69,7 +69,7 @@ export type TransactionType =
     | 'export'
     | 'add_validator'
     | 'add_subnet_validator'
-    | 'add_delegator'
+    | 'add_nominator'
     | 'create_chain'
     | 'create_subnet'
     | 'pvm_import'
@@ -78,7 +78,7 @@ export type TransactionType =
     | 'reward_validator'
 
 // CSV Staking Row
-export type CsvRowStakingTxType = 'add_validator' | 'add_delegator' | 'fee_received'
+export type CsvRowStakingTxType = 'add_validator' | 'add_nominator' | 'fee_received'
 export interface CsvRowStakingData {
     txId: string
     txType: CsvRowStakingTxType
@@ -94,7 +94,7 @@ export interface CsvRowStakingData {
     nodeID: string
 }
 
-// CSV AVAX Transaction Row
+// CSV AXC Transaction Row
 export interface CsvRowAxcTransferData {
     txId: string
     date: Date

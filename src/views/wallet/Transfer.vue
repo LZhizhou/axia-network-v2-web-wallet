@@ -56,7 +56,7 @@
                     <div class="fees">
                         <p>
                             {{ $t('transfer.fee_tx') }}
-                            <span>{{ txFee.toLocaleString(9) }} AVAX</span>
+                            <span>{{ txFee.toLocaleString(9) }} AXC</span>
                         </p>
                         <p>
                             {{ $t('transfer.total_axc') }}
@@ -142,7 +142,7 @@ import NftList from '@/components/wallet/transfer/NftList.vue'
 
 //@ts-ignore
 import { QrInput } from '@zee-ava/vue_components'
-import { ava, avm, isValidAddress } from '../../AVA'
+import { axia, avm, isValidAddress } from '../../AXIA'
 import FaucetLink from '@/components/misc/FaucetLink.vue'
 import { ITransaction } from '@/components/wallet/transfer/types'
 import { UTXO } from '@zee-ava/avajs/dist/apis/avm'
@@ -156,7 +156,7 @@ import FormC from '@/components/wallet/transfer/FormC.vue'
 import { ChainIdType } from '@/constants'
 
 import ChainInput from '@/components/wallet/transfer/ChainInput.vue'
-import AvaAsset from '../../js/AvaAsset'
+import AxiaAsset from '../../js/AxiaAsset'
 import { TxState } from '@/components/wallet/earn/ChainTransfer/types'
 @Component({
     components: {
@@ -258,7 +258,7 @@ export default class Transfer extends Vue {
         }
 
         // Make sure to address matches the bech32 network hrp
-        let hrp = ava.getHRP()
+        let hrp = axia.getHRP()
         if (!addr.includes(hrp)) {
             err.push('Not a valid address for this network.')
         }
@@ -431,8 +431,8 @@ export default class Transfer extends Vue {
 
         return res
     }
-    get axcAsset(): AvaAsset {
-        return this.$store.getters['Assets/AssetAVA']
+    get axcAsset(): AxiaAsset {
+        return this.$store.getters['Assets/AssetAXIA']
     }
 
     get wallet(): WalletType {

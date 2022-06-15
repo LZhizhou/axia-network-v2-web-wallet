@@ -15,7 +15,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { BaseTxAssetSummary, BaseTxNFTSummary } from '@/helpers/history_helper'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import { bnToBig } from '@/helpers/helper'
 import { BN } from '@zee-ava/avajs'
 import { UTXO } from '@/store/modules/history/types'
@@ -32,7 +32,7 @@ export default class BaseTxNFTOutput extends Vue {
     @Prop() assetID!: string
     @Prop() summary!: UTXO[]
 
-    get assetDetail(): AvaAsset {
+    get assetDetail(): AxiaAsset {
         return this.$store.state.Assets.nftFamsDict[this.assetID]
     }
 
