@@ -52,11 +52,7 @@ import { Vue, Component } from 'vue-property-decorator'
 import Modal from '@/components/modals/Modal.vue'
 import { WalletType } from '@/js/wallets/types'
 
-import {
-    UTXOSet as AVMUTXOSet,
-    UTXO as AVMUTXO,
-    AVMConstants,
-} from '@zee-ava/avajs/dist/apis/avm'
+import { UTXOSet as AVMUTXOSet, UTXO as AVMUTXO, AVMConstants } from '@zee-ava/avajs/dist/apis/avm'
 import {
     UTXOSet as PlatformUTXOSet,
     UTXO as PlatformUTXO,
