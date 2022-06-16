@@ -188,7 +188,7 @@ const network_module: Module<NetworkState, RootState> = {
 
             let fuji = new AxiaNetwork(
                 'Fuji',
-                'http://18.222.205.99:9650',
+                'http://rpc-v2.canarytest.axiacoin.network:9650',
                 5678,
                 'https://explorerapi.avax-test.network',
                 'https://explorer.avax-test.network',

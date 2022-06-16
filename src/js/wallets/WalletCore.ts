@@ -90,7 +90,7 @@ abstract class WalletCore {
     /**
      *
      * @param sourceChain
-     * @param fee Fee to use in nAVAX
+     * @param fee Fee to use in nAXC
      * @param utxoSet
      */
     async importToAppChain(sourceChain: ExportChainsC, fee: BN, utxoSet?: EVMUTXOSet) {
@@ -185,9 +185,9 @@ abstract class WalletCore {
 
     /**
      *
-     * @param amt The amount to receive on the destination chain, in nAVAX.
+     * @param amt The amount to receive on the destination chain, in nAXC.
      * @param destinationChain `X` or `P`
-     * @param fee Fee to use in the export transaction, given in nAVAX.
+     * @param fee Fee to use in the export transaction, given in nAXC.
      */
     async exportFromAppChain(amt: BN, destinationChain: ExportChainsC, exportFee: BN) {
         // Add import fee

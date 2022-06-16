@@ -28,12 +28,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 import { AxiaNftFamily } from '@/js/AxiaNftFamily'
 import NFTCard from './NftCard.vue'
 import { IWalletNftDict, IWalletNftMintDict } from '@/store/types'
-import {
-    NFTTransferOutput,
-    UTXO,
-    AVMConstants,
-    NFTMintOutput,
-} from '@zee-ava/avajs/dist/apis/avm'
+import { NFTTransferOutput, UTXO, AVMConstants, NFTMintOutput } from '@zee-ava/avajs/dist/apis/avm'
 import { NftGroupDict } from '@/components/wallet/portfolio/types'
 import CollectibleFamilyGroup from '@/components/wallet/portfolio/CollectibleFamilyGroup.vue'
 @Component({

@@ -372,7 +372,7 @@ const assets_module: Module<AssetsState, RootState> = {
 
         // What is the AXIA coin in the network
         async updateAxiaAsset({ state, commit }) {
-            let res = await avm.getAssetDescription('AVAX')
+            let res = await avm.getAssetDescription('AXC')
             let id = bintools.cb58Encode(res.assetID)
             state.AXIA_ASSET_ID = id
             let asset = new AxiaAsset(id, res.name, res.symbol, res.denomination)

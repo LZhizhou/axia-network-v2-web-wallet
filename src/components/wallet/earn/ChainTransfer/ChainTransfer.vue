@@ -271,7 +271,7 @@ export default class ChainTransfer extends Vue {
     }
 
     /**
-     * Returns the import fee in nAVAX
+     * Returns the import fee in nAXC
      */
     get importFeeBN(): BN {
         return Utils.bigToBN(this.importFee, 9)
@@ -286,7 +286,7 @@ export default class ChainTransfer extends Vue {
     }
 
     /**
-     * The maximum amount that can be transferred in nAVAX
+     * The maximum amount that can be transferred in nAXC
      */
     get maxAmt(): BN {
         let max = this.balanceBN.sub(this.feeBN)

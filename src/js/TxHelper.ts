@@ -46,8 +46,8 @@ export async function buildUnsignedTransaction(
 
     // TODO: use internal asset ID
     // This does not update on network change, causing issues
-    const AVAX_ID_BUF = await avm.getAXCAssetID()
-    const AVAX_ID_STR = AVAX_ID_BUF.toString('hex')
+    const AXC_ID_BUF = await avm.getAXCAssetID()
+    const AXC_ID_STR = AXC_ID_BUF.toString('hex')
     const TO_BUF = bintools.stringToAddress(addr)
 
     const aad: AssetAmountDestination = new AssetAmountDestination([TO_BUF], fromAddrs, [
@@ -67,7 +67,7 @@ export async function buildUnsignedTransaction(
             let assetId = bintools.cb58Decode(tx.asset.id)
             let amt: BN = tx.amount
 
-            if (assetId.toString('hex') === AVAX_ID_STR) {
+            if (assetId.toString('hex') === AXC_ID_STR) {
                 aad.addAssetAmount(assetId, amt, avm.getTxFee())
                 isFeeAdded = true
             } else {
@@ -79,7 +79,7 @@ export async function buildUnsignedTransaction(
     // If fee isn't added, add it
     if (!isFeeAdded) {
         if (avm.getTxFee().gt(ZERO)) {
-            aad.addAssetAmount(AVAX_ID_BUF, ZERO, avm.getTxFee())
+            aad.addAssetAmount(AXC_ID_BUF, ZERO, avm.getTxFee())
         }
     }
 

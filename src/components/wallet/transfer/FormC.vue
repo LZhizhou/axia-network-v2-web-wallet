@@ -36,13 +36,7 @@
                         <small>Adjusted automatically according to network load.</small>
                     </h4>
                     <p></p>
-                    <input
-                        type="number"
-                        v-model="gasPriceNumber"
-                        min="0"
-                        inputmode="numeric"
-                        disabled
-                    />
+                    <input type="number" placeholder="500" min="500" inputmode="numeric" disabled />
                 </div>
                 <div>
                     <h4>{{ $t('transfer.c_chain.gasLimit') }}</h4>

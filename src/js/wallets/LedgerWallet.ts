@@ -651,7 +651,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
 
             let feeMsg: ILedgerBlockMessage = {
                 title: 'Fee',
-                value: feeNano.toLocaleString() + ' nAVAX',
+                value: feeNano.toLocaleString() + ' nAXC',
             }
 
             msgs = [callMsg, ...paramMsgs, feeMsg]
