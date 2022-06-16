@@ -36,6 +36,7 @@
                         <small>Adjusted automatically according to network load.</small>
                     </h4>
                     <p></p>
+                    <!-- //TODO : Revert back when gas prices are updated in rpc. -->
                     <input type="number" placeholder="500" min="500" inputmode="numeric" disabled />
                 </div>
                 <div>
@@ -188,7 +189,9 @@ export default class FormC extends Vue {
     }
 
     async updateGasPrice() {
-        this.gasPrice = await GasHelper.getAdjustedGasPrice()
+        // this.gasPrice = await GasHelper.getAdjustedGasPrice()
+        //TODO : Revert back when gas prices are updated in rpc.
+        this.gasPrice = new BN(500000000000)
     }
 
     onAmountChange(val: BN) {
