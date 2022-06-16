@@ -103,14 +103,14 @@ To check if an address was used before, and to get activity history.
 
 The wallet needs to connect to an Axia node, and an explorer node to operate properly.
 
-By default, there are two network options to connect to: `Mainnet` and `Fuji`.
+By default, there are two network options to connect to: `Mainnet` and `Testnet`.
 
 ##### Mainnet
 
 -   Axia API: `https://api.axc.network:443`
 -   Explorer API: `https://explorerapi.axc.network`
 
-##### Fuji (Testnet)
+##### Testnet
 
 -   Axia API: `https://api.axc-test.network:443`
 -   Explorer API: `https://explorerapi.axc-test.network`

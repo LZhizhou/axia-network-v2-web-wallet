@@ -186,8 +186,8 @@ const network_module: Module<NetworkState, RootState> = {
                 true
             )
 
-            let fuji = new AxiaNetwork(
-                'Fuji',
+            let testnet = new AxiaNetwork(
+                'Testnet',
                 'http://rpc-v2.canarytest.axiacoin.network:9650',
                 5678,
                 'https://explorerapi.avax-test.network',
@@ -203,7 +203,7 @@ const network_module: Module<NetworkState, RootState> = {
             }
 
             commit('addNetwork', mainnet)
-            commit('addNetwork', fuji)
+            commit('addNetwork', testnet)
 
             try {
                 let isSet = await dispatch('loadSelectedNetwork')
