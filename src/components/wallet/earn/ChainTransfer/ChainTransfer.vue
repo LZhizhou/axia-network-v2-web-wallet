@@ -343,7 +343,6 @@ export default class ChainTransfer extends Vue {
         let wallet: WalletType = this.$store.state.activeWallet
         let exportTxId
         this.exportState = TxState.started
-
         try {
             switch (sourceChain) {
                 case 'X':
@@ -361,10 +360,11 @@ export default class ChainTransfer extends Vue {
                     )
                     break
                 case 'C':
+                    // TODO: Revert back when fee is available at rpc node.
                     exportTxId = await wallet.exportFromAppChain(
                         amt,
                         destinationChain as ExportChainsC,
-                        this.exportFeeBN
+                        new BN(1000000) //this.exportFeeBN
                     )
                     break
             }
