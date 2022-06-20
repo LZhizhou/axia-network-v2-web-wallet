@@ -20,6 +20,7 @@ import {
     ValidatorRaw,
 } from '@/components/misc/ValidatorList/types'
 import { ONEAXC } from '@zee-ava/avajs/dist/utils'
+import { values } from 'cypress/types/lodash'
 
 const MINUTE_MS = 60000
 const HOUR_MS = MINUTE_MS * 60
@@ -64,7 +65,6 @@ const platform_module: Module<PlatformState, RootState> = {
         async updateValidators({ state, commit }) {
             let res = (await coreChain.getCurrentValidators()) as GetValidatorsResponse
             let validators = res.validators
-
             commit('setValidators', validators)
         },
 
@@ -180,7 +180,7 @@ const platform_module: Module<PlatformState, RootState> = {
         nodeNominatorPendingMap(state): ValidatorNominatorPendingDict {
             let res: ValidatorNominatorPendingDict = {}
             let nominators = state.nominatorsPending
-            for (var i = 0; i < nominators.length; i++) {
+            for (var i = 0; i < nominators?.length; i++) {
                 let nominator = nominators[i]
                 let nodeID = nominator.nodeID
                 let target = res[nodeID]

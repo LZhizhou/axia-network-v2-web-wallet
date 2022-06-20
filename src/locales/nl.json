@@ -5,7 +5,7 @@
     "address": "Adres",
     "add_pk": "Privé code toevoegen",
     "home": {
-        "desc": "Axwallet is een eenvoudige en veilige portomonnee zonder bewaarneming voor het opbergen van activa van Axia.",
+        "desc": "AXIA wallet is een eenvoudige en veilige portomonnee zonder bewaarneming voor het opbergen van activa van Axia.",
         "access": {
             "title": "Welkom terug!",
             "desc": "\"Open\" hier uw bestaande Axia-portemonnee.",
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Genereer een nieuwe sleutelzin om uw Axwallet in te stellen.",
+        "generate": "Genereer een nieuwe sleutelzin om uw AXIA wallet in te stellen.",
         "but_have": "Heeft u al een portemonnee?",
         "submit": "Genereer een sleutelzin",
         "cancel": "Annuleren",
         "mnemonic_title": "Dit is uw sleutelzin.",
-        "mnemonic_desc": "Gebruik deze 24 woorden op volgorde om uw Axwallet te herstellen.",
+        "mnemonic_desc": "Gebruik deze 24 woorden op volgorde om uw AXIA wallet te herstellen.",
         "attention": "Attentie!",
-        "warning": "Berg deze sleutelzin op een veilige locatie op. Iedereen met deze sleutelzin heeft toegang tot uw Axwallet. Het is niet mogelijk verloren geraakte sleutelzinnen te herstellen.",
+        "warning": "Berg deze sleutelzin op een veilige locatie op. Iedereen met deze sleutelzin heeft toegang tot uw AXIA wallet. Het is niet mogelijk verloren geraakte sleutelzinnen te herstellen.",
         "confirm": "Ik heb mijn sleutelzin op een veilige locatie opgeschreven.",
         "regenerate": "Opnieuw genereren",
         "success_title": "Gefeliciteerd!",
-        "success_desc": "Het is tijd om uw Axwallet te openen.",
+        "success_desc": "Het is tijd om uw AXIA wallet te openen.",
         "success_submit": "Portemonnee openen",
         "verify": "Verifiëren",
         "verifytitle": "Geheugensteun verifiëren",

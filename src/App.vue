@@ -76,22 +76,22 @@ export default {
                 vmid: 'description',
                 name: 'description',
                 content:
-                    'Axwallet is a simple, highly secure, non-custodial crypto wallet for storing AXC.',
+                    'AXIA wallet is a simple, highly secure, non-custodial crypto wallet for storing AXC.',
             },
             {
                 vmid: 'og:description',
                 name: 'description',
                 content:
-                    'Axwallet is a simple, highly secure, non-custodial crypto wallet for storing AXC.',
+                    'AXIA wallet is a simple, highly secure, non-custodial crypto wallet for storing AXC.',
             },
             {
                 vmid: 'og:title',
                 name: 'og:title',
-                content: 'Fastest Performing and Secure DeFi Wallet | Axwallet',
+                content: 'Fastest Performing and Secure DeFi Wallet | AXIA wallet',
             },
         ],
         title: 'Fastest Performing and Secure DeFi Wallet',
-        titleTemplate: '%s | Axwallet',
+        titleTemplate: '%s | AXIA wallet',
     },
 }
 </script>

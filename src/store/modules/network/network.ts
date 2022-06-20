@@ -2,7 +2,7 @@ import { Module } from 'vuex'
 import { RootState } from '@/store/types'
 import { NetworkState } from '@/store/modules/network/types'
 
-import { axia, avm, bintools, appChain, infoApi, coreChain } from '@/AXIA'
+import { axia, avm, bintools, axChain, infoApi, coreChain } from '@/AXIA'
 import { AxiaNetwork } from '@/js/AxiaNetwork'
 import { explorer_api } from '@/explorer_api'
 import { BN } from '@zee-ava/avajs'
@@ -121,12 +121,12 @@ const network_module: Module<NetworkState, RootState> = {
             avm.setBlockchainAlias('X')
             coreChain.refreshBlockchainID(chainIdP)
             coreChain.setBlockchainAlias('P')
-            appChain.refreshBlockchainID(chainIdC)
-            appChain.setBlockchainAlias('C')
+            axChain.refreshBlockchainID(chainIdC)
+            axChain.setBlockchainAlias('C')
 
             avm.getAXCAssetID(true)
             coreChain.getAXCAssetID(true)
-            appChain.getAXCAssetID(true)
+            axChain.getAXCAssetID(true)
 
             state.selectedNetwork = net
             dispatch('saveSelectedNetwork')

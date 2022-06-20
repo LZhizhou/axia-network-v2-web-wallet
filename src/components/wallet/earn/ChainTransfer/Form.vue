@@ -16,7 +16,7 @@
         <div>
             <label>{{ $t('cross_chain.form.destination') }}</label>
             <p class="ledger_warn" v-if="!isEVMSupported">
-                AppChain is currently not supported on Ledger devices.
+                AXChain is currently not supported on Ledger devices.
             </p>
             <select @input="onChangeDestination" class="hover_border" v-model="targetChain">
                 <option
@@ -61,8 +61,8 @@ import { AxiaNetwork } from '@/js/AxiaNetwork'
 
 const chainTypes: ChainIdType[] = ['X', 'P', 'C']
 const chainNames = {
-    X: 'AssetChain',
-    C: 'AppChain',
+    X: 'SwapChain',
+    C: 'AXChain',
     P: 'CoreChain',
 }
 

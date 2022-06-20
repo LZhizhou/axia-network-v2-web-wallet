@@ -2,7 +2,7 @@
     <Modal title="Wallet UTXO Breakdown" ref="modal">
         <div class="utxos_breakdown_body">
             <div class="tabs">
-                <button @click="setChain('X')" :active="chain === 'X'">AssetChain</button>
+                <button @click="setChain('X')" :active="chain === 'X'">SwapChain</button>
                 <button @click="setChain('P')" :active="chain === 'P'">CoreChain</button>
             </div>
             <div class="scrollable">

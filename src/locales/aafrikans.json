@@ -5,14 +5,14 @@
     "address": "Adres",
     "add_pk": "Voeg Privaat Sleutel by",
     "home": {
-        "desc": "Axwallet is 'n eenvoudige, veilige, nie-toesighouende beursie vir die berging van Axia-bates.",
+        "desc": "AXIA wallet is 'n eenvoudige, veilige, nie-toesighouende beursie vir die berging van Axia-bates.",
         "access": {
             "title": "Welkom terug!",
             "desc": "Kry 'toegang' tot jou bestaande Axia beursie hier.",
             "submit": "Kry toegang tot beursie"
         },
         "create": {
-            "title": "Nuut aan Axwallet?",
+            "title": "Nuut aan AXIA wallet?",
             "desc": "'Skep' 'n nuwe beursie om Axia-bates te stuur, ontvang en omruil.",
             "submit": "Skep Nuwe Beursie"
         }
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Genereer 'n nuwe frase om u Axwallet op te stel.",
+        "generate": "Genereer 'n nuwe frase om u AXIA wallet op te stel.",
         "but_have": "Het u alreeds a beursie?",
         "submit": "Genereer Sleutelfrase",
         "cancel": "Kanselleer",
         "mnemonic_title": "Hierdie is u sleutelfrase.",
-        "mnemonic_desc": "Gebruik hierdie 24 woorde in volgorde om u Axwallet te herstel",
+        "mnemonic_desc": "Gebruik hierdie 24 woorde in volgorde om u AXIA wallet te herstel",
         "attention": "Aandag!",
-        "warning": "Stoor hierdie sleutelfrase op 'n veilige plek. Enigiemand met hierdie sleutelfrase kan toegang tot u Axwallet verkry. Daar is geen manier om verlore sleutelfrases te herstel nie.",
+        "warning": "Stoor hierdie sleutelfrase op 'n veilige plek. Enigiemand met hierdie sleutelfrase kan toegang tot u AXIA wallet verkry. Daar is geen manier om verlore sleutelfrases te herstel nie.",
         "confirm": "Ek het my sleutelwoord op 'n veilige plek neergeskryf.",
         "regenerate": "Genereer Weereens",
         "success_title": "Baie geluk!",
-        "success_desc": "Dit is tyd om toegang tot u Axwallet te kry.",
+        "success_desc": "Dit is tyd om toegang tot u AXIA wallet te kry.",
         "success_submit": "Kry Toegang tot Beursie",
         "verify": "Verifieer",
         "verifytitle": "Verifieer Mnemoniek",

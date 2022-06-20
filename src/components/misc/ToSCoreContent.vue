@@ -12,10 +12,10 @@
         </h2>
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
             These Terms of Use (these “Terms”) constitute a legally binding agreement made between
-            you, whether personally or on behalf of an entity (“you”) and AXIA Coin, Inc. (together
-            with its subsidiaries and affiliates, “Company”, “we”, “us”, or “our”) governing your
-            download, access to and/or use of the Core Browser Extension, the Core Mobile
-            Application and the Core Website and related websites, applications and features
+            you, whether personally or on behalf of an entity (“you”) and AXIA Systems, Inc.
+            (together with its subsidiaries and affiliates, “Company”, “we”, “us”, or “our”)
+            governing your download, access to and/or use of the Core Browser Extension, the Core
+            Mobile Application and the Core Website and related websites, applications and features
             (collectively, the “App”). The App enables users to self-custody digital assets,
             directly access and interact with blockchains, decentralized applications (“dapps”) and
             the Axia Bridge on a peer-to-peer basis, directly interact with other third party
@@ -821,7 +821,7 @@
             regarding use of the App, please contact us at:
         </p>
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
-            AXIA Coin, Inc.
+            AXIA Systems, Inc.
         </p>
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
             1177 Avenue of the Americas

@@ -4,13 +4,13 @@ const TEST_KEY = 'PrivateKey-r6yxM4MiGc93hZ4QxSHhixLEH5RtPjGw6Y85gzg8mgaia6HT3'
 const ADDR_X = 'X-fuji1np2h3agqvgxc29sqfh0dy2nvmedus0sa44ktlr'
 const ADDR_C = '506433b9338e2a5706e3c0d6bce041d30688935f'
 
-import { axia, avm, appChain, coreChain } from '@/AXIA'
+import { axia, avm, axChain, coreChain } from '@/AXIA'
 // import { avmGetAllUTXOs } from '@/helpers/utxo_helper'
 
 axia.setNetworkID(5)
 avm.setBlockchainAlias('X')
 coreChain.setBlockchainAlias('P')
-appChain.setBlockchainAlias('C')
+axChain.setBlockchainAlias('C')
 
 // jest.mock('avmGetAllUTXOs')
 

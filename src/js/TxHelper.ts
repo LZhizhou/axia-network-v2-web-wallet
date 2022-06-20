@@ -1,4 +1,4 @@
-import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
+import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import { ITransaction } from '@/components/wallet/transfer/types'
 import { BN, Buffer } from '@zee-ava/avajs'
 import {

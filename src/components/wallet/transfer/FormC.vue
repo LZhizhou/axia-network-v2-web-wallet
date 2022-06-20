@@ -255,19 +255,19 @@ export default class FormC extends Vue {
         let addr = this.addressIn
 
         if (!this.validateAddress(addr)) {
-            this.err = 'Invalid AppChain address. Make sure your address begins with "0x" or "C-0x"'
+            this.err = 'Invalid AXChain address. Make sure your address begins with "0x" or "C-0x"'
             return false
         }
 
         if (addr.substring(0, 2) === 'C-') {
             let hexStr = addr.substring(2)
             if (!web3.utils.isAddress(hexStr)) {
-                this.err = 'Not a valid AppChain address.'
+                this.err = 'Not a valid AXChain address.'
                 return false
             }
         } else {
             if (!web3.utils.isAddress(addr)) {
-                this.err = 'Not a valid AppChain address.'
+                this.err = 'Not a valid AXChain address.'
                 return false
             }
         }

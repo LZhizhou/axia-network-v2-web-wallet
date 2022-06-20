@@ -32,7 +32,7 @@ import { getPreferredHRP, PayloadBase } from '@zee-ava/avajs/dist/utils'
 
 import * as bip39 from 'bip39'
 import { BN, Buffer as BufferAxia } from '@zee-ava/avajs'
-import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
+import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import { AvmExportChainType, AvmImportChainType, IAvaHdWallet } from '@/js/wallets/types'
 import HDKey from 'hdkey'
 import { ITransaction } from '@/components/wallet/transfer/types'
@@ -223,7 +223,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         return await WalletHelper.issueBatchTx(this, orders, addr, memo)
     }
 
-    // returns a keychain that has all the derived private/public keys for AssetChain
+    // returns a keychain that has all the derived private/public keys for SwapChain
     getKeyChain(): AVMKeyChain {
         let internal = this.internalHelper.getAllDerivedKeys() as AVMKeyPair[]
         let external = this.externalHelper.getAllDerivedKeys() as AVMKeyPair[]

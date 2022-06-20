@@ -5,14 +5,14 @@
     "address": "Adress",
     "add_pk": "Lägg till Privat Nyckel",
     "home": {
-        "desc": "Axwallet är en enkel, säker, icke-depåplånbok för lagring av Axia-tillgångar.",
+        "desc": "AXIA wallet är en enkel, säker, icke-depåplånbok för lagring av Axia-tillgångar.",
         "access": {
             "title": "Välkommen tillbaka!",
             "desc": "'Få tillgång' till din befintliga Axia-plånbok här.",
             "submit": "Få tillgång till Wallet"
         },
         "create": {
-            "title": "Ny i Axwallet?",
+            "title": "Ny i AXIA wallet?",
             "desc": "\"Skapa\" en ny plånbok för att skicka, ta emot och byta Axia-tillgångar.",
             "submit": "Skapa ny Wallet"
         }

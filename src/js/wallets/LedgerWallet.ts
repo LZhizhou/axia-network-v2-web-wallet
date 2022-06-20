@@ -10,7 +10,7 @@ import { Transaction } from '@ethereumjs/tx'
 import moment from 'moment'
 import { Buffer, BN } from '@zee-ava/avajs'
 import HDKey from 'hdkey'
-import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
+import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 const bippath = require('bip32-path')
 import createHash from 'create-hash'
 import store from '@/store'
@@ -718,7 +718,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         // Ledger is not able to parse P/C atomic transactions
         if (txType === PlatformVMConstants.EXPORTTX) {
             const destChainBuff = (tx as PlatformExportTx).getDestinationChain()
-            // If destination chain is AppChain, sign hash
+            // If destination chain is AXChain, sign hash
             const destChain = Network.idToChainAlias(bintools.cb58Encode(destChainBuff))
             if (destChain === 'C') {
                 canLedgerParse = false
@@ -727,7 +727,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         // TODO: Remove after ledger update
         if (txType === PlatformVMConstants.IMPORTTX) {
             const sourceChainBuff = (tx as PlatformImportTx).getSourceChain()
-            // If destination chain is AppChain, sign hash
+            // If destination chain is AXChain, sign hash
             const sourceChain = Network.idToChainAlias(bintools.cb58Encode(sourceChainBuff))
             if (sourceChain === 'C') {
                 canLedgerParse = false
@@ -773,7 +773,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         // Ledger is not able to parse P/C atomic transactions
         if (typeId === EVMConstants.EXPORTTX) {
             const destChainBuff = (tx as EVMExportTx).getDestinationChain()
-            // If destination chain is AppChain, sign hash
+            // If destination chain is AXChain, sign hash
             const destChain = Network.idToChainAlias(bintools.cb58Encode(destChainBuff))
             if (destChain === 'P') {
                 canLedgerParse = false
@@ -782,7 +782,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         // TODO: Remove after ledger update
         if (typeId === EVMConstants.IMPORTTX) {
             const sourceChainBuff = (tx as EVMImportTx).getSourceChain()
-            // If destination chain is AppChain, sign hash
+            // If destination chain is AXChain, sign hash
             const sourceChain = Network.idToChainAlias(bintools.cb58Encode(sourceChainBuff))
             if (sourceChain === 'P') {
                 canLedgerParse = false

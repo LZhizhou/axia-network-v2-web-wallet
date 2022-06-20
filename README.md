@@ -1,6 +1,6 @@
-# Axwallet
+# AXIA wallet
 
-This is the frontend Vue.js application for the Axwallet.
+This is the frontend Vue.js application for the AXIA wallet.
 
 ## Prerequisites
 
@@ -49,11 +49,11 @@ WARNING: This history might be out of order and incomplete.
 
 ## Browser Support
 
-We suggest using Google Chrome to view the Axwallet website.
+We suggest using Google Chrome to view the AXIA wallet website.
 
 ### Firefox and https
 
-Firefox does not allow https requests to localhost. But the Axwallet uses https by default, so we will need to change this to http. Make this switch by editing the `vue.config.js` file in the root directory and change
+Firefox does not allow https requests to localhost. But the AXIA wallet uses https by default, so we will need to change this to http. Make this switch by editing the `vue.config.js` file in the root directory and change
 
 ```
 devServer: {
@@ -95,7 +95,7 @@ Saved into local storage as a 2 letter code.
 
 To get utxos and to send transactions.
 
-#### Explorer API Node (https://github.com/AxiaCoin/axtract)
+#### Explorer API Node (https://github.com/AxiaCoin/magellan)
 
 To check if an address was used before, and to get activity history.
 

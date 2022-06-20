@@ -5,14 +5,14 @@
     "address": "Adresse",
     "add_pk": "Privaten Schlüssel hinzufügen",
     "home": {
-        "desc": "Axwallet ist eine einfache, sichere, \"ohne Aufsicht\" Wallet zur Aufbewahrung von Axia Vermögenswerten.",
+        "desc": "AXIA wallet ist eine einfache, sichere, \"ohne Aufsicht\" Wallet zur Aufbewahrung von Axia Vermögenswerten.",
         "access": {
             "title": "Willkommen zurück!",
-            "desc": "Hier auf dein bestehendes Axwallet zugreifen.",
+            "desc": "Hier auf dein bestehendes AXIA wallet zugreifen.",
             "submit": "Auf Wallet zugreifen"
         },
         "create": {
-            "title": "Neu bei Axwallet?",
+            "title": "Neu bei AXIA wallet?",
             "desc": "Erstelle eine neue Wallet zum Senden, Empfangen und Tauschen von Axia Vermögenswerten.",
             "submit": "Neue Wallet erstellen"
         }
@@ -63,13 +63,13 @@
         "submit": "Schlüsselphrase erstellen",
         "cancel": "Abbrechen",
         "mnemonic_title": "Dies ist Ihr Schlüsselsatz.",
-        "mnemonic_desc": "Verwende diese 24 Wörter in der Reihenfolge, um deine Axwallet wiederzuherstellen",
+        "mnemonic_desc": "Verwende diese 24 Wörter in der Reihenfolge, um deine AXIA wallet wiederzuherstellen",
         "attention": "Achtung!",
-        "warning": "Speichere diese Schlüsselphrase an einem sicheren Ort. Jeder mit dieser Schlüsselphrase kann auf deine Axwallet zugreifen. Es gibt keine Möglichkeit, verlorene Schlüsselphrasen wiederherzustellen.",
+        "warning": "Speichere diese Schlüsselphrase an einem sicheren Ort. Jeder mit dieser Schlüsselphrase kann auf deine AXIA wallet zugreifen. Es gibt keine Möglichkeit, verlorene Schlüsselphrasen wiederherzustellen.",
         "confirm": "Ich habe meine Schlüsselphrase an einem sicheren Ort notiert.",
         "regenerate": "Wiederherstellen",
         "success_title": "Herzlichen Glückwunsch!",
-        "success_desc": "Es ist an der Zeit, deine Axwallet zu öffnen.",
+        "success_desc": "Es ist an der Zeit, deine AXIA wallet zu öffnen.",
         "success_submit": "Auf Wallet zugreifen",
         "verify": "Verifizieren",
         "verifytitle": "Verifiziere Mnemonic",

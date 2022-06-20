@@ -1,7 +1,7 @@
 <template>
     <modal ref="modal" title="Export AXC Transfers" class="modal_main">
         <div class="csv_modal_body">
-            <p>Only AssetChain AXC transactions will be exported.</p>
+            <p>Only SwapChain AXC transactions will be exported.</p>
             <p class="err" v-if="error">{{ error }}</p>
             <v-btn
                 class="button_secondary"

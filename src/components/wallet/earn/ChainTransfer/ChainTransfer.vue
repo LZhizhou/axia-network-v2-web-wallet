@@ -122,7 +122,7 @@ import Dropdown from '@/components/misc/Dropdown.vue'
 import AxcInput from '@/components/misc/AxcInput.vue'
 import AxiaAsset from '@/js/AxiaAsset'
 import { BN } from '@zee-ava/avajs'
-import { avm, appChain, coreChain } from '@/AXIA'
+import { avm, axChain, coreChain } from '@/AXIA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import Spinner from '@/components/misc/Spinner.vue'
 import ChainCard from '@/components/wallet/earn/ChainTransfer/ChainCard.vue'
@@ -346,10 +346,11 @@ export default class ChainTransfer extends Vue {
         try {
             switch (sourceChain) {
                 case 'X':
-                    exportTxId = await wallet.exportFromAssetChain(
+                    // TODO: Revert back when fee is available at rpc node.
+                    exportTxId = await wallet.exportFromSwapChain(
                         amt,
                         destinationChain as ExportChainsX,
-                        this.importFeeBN
+                        new BN(1000000) //this.importFeeBN
                     )
                     break
                 case 'P':
@@ -361,7 +362,7 @@ export default class ChainTransfer extends Vue {
                     break
                 case 'C':
                     // TODO: Revert back when fee is available at rpc node.
-                    exportTxId = await wallet.exportFromAppChain(
+                    exportTxId = await wallet.exportFromAXChain(
                         amt,
                         destinationChain as ExportChainsC,
                         new BN(1000000) //this.exportFeeBN
@@ -390,7 +391,7 @@ export default class ChainTransfer extends Vue {
                 this.exportReason = resp.reason
             }
         } else {
-            let resp = await appChain.getAtomicTxStatus(txId)
+            let resp = await axChain.getAtomicTxStatus(txId)
             status = resp
         }
         this.exportStatus = status
@@ -435,11 +436,11 @@ export default class ChainTransfer extends Vue {
             if (this.targetChain === 'P') {
                 importTxId = await wallet.importToPlatformChain(this.sourceChain as ExportChainsP)
             } else if (this.targetChain === 'X') {
-                importTxId = await wallet.importToAssetChain(this.sourceChain as ExportChainsX)
+                importTxId = await wallet.importToSwapChain(this.sourceChain as ExportChainsX)
             } else {
                 //TODO: Import only the exported UTXO
 
-                importTxId = await wallet.importToAppChain(
+                importTxId = await wallet.importToAXChain(
                     this.sourceChain as ExportChainsC,
                     this.importFeeBN
                 )
@@ -477,7 +478,7 @@ export default class ChainTransfer extends Vue {
                 status = resp.status
             }
         } else {
-            let resp = await appChain.getAtomicTxStatus(txId)
+            let resp = await axChain.getAtomicTxStatus(txId)
             status = resp
         }
 

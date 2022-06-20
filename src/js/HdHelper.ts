@@ -6,7 +6,7 @@ import {
 
 import { UTXOSet as PlatformUTXOSet } from '@zee-ava/avajs/dist/apis/platformvm'
 import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
-import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
+import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import HDKey from 'hdkey'
 import { Buffer } from '@zee-ava/avajs'
 import {
