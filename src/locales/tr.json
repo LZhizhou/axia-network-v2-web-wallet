@@ -128,7 +128,7 @@
         "adv_change": "Adresi Değiştir",
         "send": "İşlemi Gönder",
         "summary": "İşlem Özeti",
-        "chain_warn": "Sadece X zincirine token gönderebilirsiniz.",
+        "chain_warn": "Sadece Swap zincirine token gönderebilirsiniz.",
         "disconnected": "Varlıklar gönderilemedi. Ağ bağlantısı kesildi.",
         "success_title": "İşlem Gönderildi",
         "success_msg": "İşleminizi başarılı şekilde gönderdiniz.",
@@ -195,8 +195,8 @@
         "subtitle2": "Devret",
         "subtitle3": "Çapraz Zincir Transferi",
         "subtitle4": "Tahmini Ödüller",
-        "warning_1": "Doğrulayıcı olabilmeniz için P zincirinde en az {0} AXC'ınızın olması gerekir.",
-        "warning_2": "Devredici olabilmeniz için P zincirinde en az {0} AXC'ınızın olması gerekir.",
+        "warning_1": "Doğrulayıcı olabilmeniz için Core zincirinde en az {0} AXC'ınızın olması gerekir.",
+        "warning_2": "Devredici olabilmeniz için Core zincirinde en az {0} AXC'ınızın olması gerekir.",
         "validate_card": {
             "title": "Doğrula",
             "desc": "Stake yapmak istediğiniz bir Axia düğümünüz var.",
@@ -209,7 +209,7 @@
         },
         "transfer_card": {
             "title": "Çapraz Zincir Transferi",
-            "desc": "Staking, P zincirinde AXC gerektirir. X ve P arasında coin transferi yap.",
+            "desc": "Staking, Core zincirinde AXC gerektirir. Swap ve Core arasında coin transferi yap.",
             "submit": "Transfer"
         },
         "rewards_card": {
@@ -304,7 +304,7 @@
                 "amount": "Stake miktarı en az {0} AXC olmalıdır",
                 "id": "Geçersiz Düğüm Kimliği.",
                 "fee": "Delegasyon ücretiniz en az {0} Axc olmalıdır",
-                "address": "Geçersiz adres. Ödül adresi geçerli bir P zinciri adresi olmalıdır."
+                "address": "Geçersiz adres. Ödül adresi geçerli bir Core zinciri adresi olmalıdır."
             }
         },
         "delegate": {
@@ -372,7 +372,7 @@
             "errs": {
                 "start_now": "Başlama zamanı, şu anki zamandan sonra olmalıdır.",
                 "start_end": "Başlangıç tarihi gelecekte olmalıdır ve bitiş tarihi de başlangıç tarihinden sonra olmalıdır.",
-                "invalid_addr": "Geçersiz adres. Ödül adresi geçerli bir P zinciri adresi olmalıdır.",
+                "invalid_addr": "Geçersiz adres. Ödül adresi geçerli bir Core zinciri adresi olmalıdır.",
                 "no_addr": "Devretme ödüllerini almak için bir adres vermelisiniz.",
                 "min_dur": "Maksimum stake süresi 2 haftadır.",
                 "max_dur": "Maksimum stake süresi 1 yıldır.",
@@ -402,8 +402,8 @@
         "import": {
             "title": "Zincir İçe Aktarma",
             "desc": "Ödemeleriniz, başarısız bir zincir transferinde sıkıştıysa, bunları içe aktarmayı buradan tamamlayabilirsiniz.",
-            "submit_x": "X'i içe aktar",
-            "submit_p": "P'yi içe aktar"
+            "submit_x": "Swap'i içe aktar",
+            "submit_p": "Core'yi içe aktar"
         }
     },
     "logout": {

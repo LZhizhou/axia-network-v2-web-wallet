@@ -177,8 +177,8 @@
         "subtitle2": "Delegar",
         "subtitle3": "Transferencia entre cadenas",
         "subtitle4": "Recompensas estimadas",
-        "warning_1": "Debes tener al menos {0} AXC en la cadena P para convertirte en un validador.",
-        "warning_2": "Debes tener al menos {0} AXC en la cadena P para poder delegar.",
+        "warning_1": "Debes tener al menos {0} AXC en la cadena Core para convertirte en un validador.",
+        "warning_2": "Debes tener al menos {0} AXC en la cadena Core para poder delegar.",
         "validate_card": {
             "title": "Validar",
             "desc": "Tienes un nodo Axia con el que quieres participar con toknes.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Transferencia entre cadenas",
-            "desc": "Para participar, se necesitan AXC en la cadena P- Transferir tokens entre X y P.",
+            "desc": "Para participar, se necesitan AXC en la cadena Core- Transferir tokens entre Swap y Core.",
             "submit": "Transferir"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "La hora de inicio debe ser posterior a la hora actual.",
                 "start_end": "La fecha de inicio debe estar en el futuro y la fecha de finalización debe ser posterior a la fecha de inicio.",
-                "invalid_addr": "Formato de dirección no válido. Su dirección debe comenzar con \"P-\"",
+                "invalid_addr": "Formato de dirección no válido. Su dirección debe comenzar con \"Core-\"",
                 "no_addr": "Debes proporcionar una dirección para recibir las recompensas de delegación.",
                 "min_dur": "La duración mínima para apuesta es de 2 semanas.",
                 "max_dur": "La duración máxima para apuesta es de 1 año.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Importar en cadena",
             "desc": "Si tienes fondos atascados en una transferencia entre cadenas fallida, puedes terminar de importarlos aquí.",
-            "submit_x": "Importar X",
-            "submit_p": "Importar P"
+            "submit_x": "Importar Swap",
+            "submit_p": "Importar Core"
         }
     },
     "logout": {

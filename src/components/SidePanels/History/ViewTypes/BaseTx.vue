@@ -12,7 +12,7 @@
                 <div class="nft_cols">
                     <div class="nft_addr">
                         <p v-for="addr in summary.collectibles.sent.addresses" :key="addr">
-                            to {{ 'X-' + addr }}
+                            to {{ 'Swap-' + addr }}
                         </p>
                     </div>
                     <div class="nft_fams">
@@ -37,7 +37,7 @@
                 <div class="nft_cols">
                     <div class="nft_addr">
                         <p v-for="addr in summary.collectibles.received.addresses" :key="addr">
-                            from {{ 'X-' + addr }}
+                            from {{ 'Swap-' + addr }}
                         </p>
                     </div>
                     <div class="nft_fams">

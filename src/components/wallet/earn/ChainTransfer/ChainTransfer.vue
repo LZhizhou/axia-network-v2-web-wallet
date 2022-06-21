@@ -160,8 +160,8 @@ export default class ChainTransfer extends Vue {
     $refs!: {
         form: ChainSwapForm
     }
-    sourceChain: ChainIdType = 'X'
-    targetChain: ChainIdType = 'P'
+    sourceChain: ChainIdType = 'Swap'
+    targetChain: ChainIdType = 'Core'
     isLoading = false
     amt: BN = new BN(0)
     err: string = ''
@@ -188,7 +188,7 @@ export default class ChainTransfer extends Vue {
     @Watch('sourceChain')
     @Watch('targetChain')
     onChainChange() {
-        if (this.sourceChain === 'C' || this.targetChain === 'C') {
+        if (this.sourceChain === 'AX' || this.targetChain === 'AX') {
             this.updateBaseFee()
         }
     }
@@ -221,9 +221,9 @@ export default class ChainTransfer extends Vue {
     }
 
     get balanceBN(): BN {
-        if (this.sourceChain === 'P') {
+        if (this.sourceChain === 'Core') {
             return this.platformUnlocked
-        } else if (this.sourceChain === 'C') {
+        } else if (this.sourceChain === 'AX') {
             return this.evmUnlocked
         } else {
             return this.avmUnlocked
@@ -247,9 +247,9 @@ export default class ChainTransfer extends Vue {
     }
 
     getFee(chain: ChainIdType, isExport: boolean): Big {
-        if (chain === 'X') {
+        if (chain === 'Swap') {
             return Utils.bnToBigAxcX(avm.getTxFee())
-        } else if (chain === 'P') {
+        } else if (chain === 'Core') {
             return Utils.bnToBigAxcX(coreChain.getTxFee())
         } else {
             const fee = isExport
@@ -345,7 +345,7 @@ export default class ChainTransfer extends Vue {
         this.exportState = TxState.started
         try {
             switch (sourceChain) {
-                case 'X':
+                case 'Swap':
                     // TODO: Revert back when fee is available at rpc node.
                     exportTxId = await wallet.exportFromSwapChain(
                         amt,
@@ -353,14 +353,14 @@ export default class ChainTransfer extends Vue {
                         new BN(1000000) //this.importFeeBN
                     )
                     break
-                case 'P':
+                case 'Core':
                     exportTxId = await wallet.exportFromCoreChain(
                         amt,
                         destinationChain as ExportChainsP,
                         this.importFeeBN
                     )
                     break
-                case 'C':
+                case 'AX':
                     // TODO: Revert back when fee is available at rpc node.
                     exportTxId = await wallet.exportFromAXChain(
                         amt,
@@ -380,9 +380,9 @@ export default class ChainTransfer extends Vue {
     // STEP 2
     async waitExportStatus(txId: string, remainingTries = 15) {
         let status
-        if (this.sourceChain === 'X') {
+        if (this.sourceChain === 'Swap') {
             status = await avm.getTxStatus(txId)
-        } else if (this.sourceChain === 'P') {
+        } else if (this.sourceChain === 'Core') {
             let resp = await coreChain.getTxStatus(txId)
             if (typeof resp === 'string') {
                 status = resp
@@ -433,9 +433,9 @@ export default class ChainTransfer extends Vue {
         let wallet: MnemonicWallet = this.$store.state.activeWallet
         let importTxId
         try {
-            if (this.targetChain === 'P') {
+            if (this.targetChain === 'Core') {
                 importTxId = await wallet.importToPlatformChain(this.sourceChain as ExportChainsP)
-            } else if (this.targetChain === 'X') {
+            } else if (this.targetChain === 'Swap') {
                 importTxId = await wallet.importToSwapChain(this.sourceChain as ExportChainsX)
             } else {
                 //TODO: Import only the exported UTXO
@@ -468,9 +468,9 @@ export default class ChainTransfer extends Vue {
     async waitImportStatus(txId: string) {
         let status
 
-        if (this.targetChain === 'X') {
+        if (this.targetChain === 'Swap') {
             status = await avm.getTxStatus(txId)
-        } else if (this.targetChain === 'P') {
+        } else if (this.targetChain === 'Core') {
             let resp = await coreChain.getTxStatus(txId)
             if (typeof resp === 'string') {
                 status = resp

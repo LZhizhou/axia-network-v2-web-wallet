@@ -60,9 +60,9 @@ export default class ImportExport extends Vue {
         }
 
         if (chainId === coreChain.getBlockchainID()) {
-            return 'P'
+            return 'Core'
         } else if (chainId === avm.getBlockchainID()) {
-            return 'X'
+            return 'Swap'
         }
         return chainId
     }

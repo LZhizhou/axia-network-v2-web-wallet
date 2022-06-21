@@ -80,7 +80,7 @@
     "top": {
         "title1": "Hergeleitete AXC Wallet Adresse",
         "title2": "Guthaben",
-        "title3": "Subnetz",
+        "title3": "Allychainz",
         "title4": "Netzwerk",
         "nftcol": "NFTs",
         "nftempty": "Du hast noch keine \"non-fungible\" Tokens (NFTs) gesammelt.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "\"Cross Chain\" Transfer",
-            "desc": "Staking erfordert AXC auf der CoreChain. Transferiere deine Tokens zwischen X und P.",
+            "desc": "Staking erfordert AXC auf der CoreChain. Transferiere deine Tokens zwischen Swap und Core.",
             "submit": "Transfer"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "Die Startzeit muss nach der aktuellen Zeit liegen.",
                 "start_end": "Das Startdatum muss in der Zukunft liegen und das Enddatum muss nach dem Startdatum liegen.",
-                "invalid_addr": "Ungültiges Adressformat. Deine Adresse muss mit \"P-\" beginnen",
+                "invalid_addr": "Ungültiges Adressformat. Deine Adresse muss mit \"Core-\" beginnen",
                 "no_addr": "Gib eine Adresse an, um Delegationsprämien zu erhalten.",
                 "min_dur": "Minimum Stakingzeitraum beträgt 2 Wochen.",
                 "max_dur": "Maximum Stakingzeitraum beträgt 1 Jahr.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Chain Import",
             "desc": "Stecken Vermögenswerte in einem fehlgeschlagenden Chain Transfer fest, kannst du den Import hier beenden.",
-            "submit_x": "Import X",
-            "submit_p": "Import P"
+            "submit_x": "Import Swap",
+            "submit_p": "Import Core"
         }
     },
     "logout": {

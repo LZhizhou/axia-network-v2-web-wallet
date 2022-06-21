@@ -113,16 +113,16 @@ const network_module: Module<NetworkState, RootState> = {
             commit('History/clear', null, { root: true })
 
             // Query the network to get network id
-            let chainIdX = await infoApi.getBlockchainID('X')
-            let chainIdP = await infoApi.getBlockchainID('P')
-            let chainIdC = await infoApi.getBlockchainID('C')
+            let chainIdX = await infoApi.getBlockchainID('Swap')
+            let chainIdP = await infoApi.getBlockchainID('Core')
+            let chainIdC = await infoApi.getBlockchainID('AX')
 
             avm.refreshBlockchainID(chainIdX)
-            avm.setBlockchainAlias('X')
+            avm.setBlockchainAlias('Swap')
             coreChain.refreshBlockchainID(chainIdP)
-            coreChain.setBlockchainAlias('P')
+            coreChain.setBlockchainAlias('Core')
             axChain.refreshBlockchainID(chainIdC)
-            axChain.setBlockchainAlias('C')
+            axChain.setBlockchainAlias('AX')
 
             avm.getAXCAssetID(true)
             coreChain.getAXCAssetID(true)
@@ -135,7 +135,7 @@ const network_module: Module<NetworkState, RootState> = {
             explorer_api.defaults.baseURL = net.explorerUrl
 
             // Set web3 Network Settings
-            let web3Provider = `${net.protocol}://${net.ip}:${net.port}/ext/bc/C/rpc`
+            let web3Provider = `${net.protocol}://${net.ip}:${net.port}/ext/bc/AX/rpc`
             web3.setProvider(web3Provider)
 
             // Set socket connections
@@ -188,7 +188,7 @@ const network_module: Module<NetworkState, RootState> = {
 
             let testnet = new AxiaNetwork(
                 'Testnet',
-                'http://rpc-v2.canarytest.axiacoin.network:9650',
+                'http://rpc-v2.canarytest.axiacoin.network',
                 5678,
                 'https://explorerapi.avax-test.network',
                 'https://explorer.avax-test.network',

@@ -80,7 +80,7 @@
     "top": {
         "title1": "Adresse de portefeuille Axia dérivée",
         "title2": "Solde",
-        "title3": "Subnet",
+        "title3": "Allychain",
         "title4": "Réseau",
         "nftcol": "NFTs",
         "nftempty": "Vous n'avez pas encore collecté de jeton non fongible.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Transfert entre chaînes",
-            "desc": "La mise en jeu nécessite de l'AXC sur la CoreChain. Transférer des jetons entre X et P.",
+            "desc": "La mise en jeu nécessite de l'AXC sur la CoreChain. Transférer des jetons entre Swap et Core.",
             "submit": "Transfert"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "L'heure de départ doit être postérieure à l'heure actuelle.",
                 "start_end": "La date de début doit se situer dans le futur et la date de fin doit être postérieure à la date de début.",
-                "invalid_addr": "Format d'adresse non valide. Votre adresse doit commencer par « P- »",
+                "invalid_addr": "Format d'adresse non valide. Votre adresse doit commencer par « Core- »",
                 "no_addr": "Vous devez donner une adresse pour recevoir les récompenses de la délégation.",
                 "min_dur": "La durée minimale de la mise d'enjeu est de 2 semaines.",
                 "max_dur": "La durée maximale de la mise d'enjeu est 1 an.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Importation d'une chaîne",
             "desc": "Si vous avez des fonds bloqués dans un transfert entre chaînes qui a échoué, vous pouvez finir de les importer ici.",
-            "submit_x": "Importation X",
-            "submit_p": "Importation P"
+            "submit_x": "Importation Swap",
+            "submit_p": "Importation Core"
         }
     },
     "logout": {

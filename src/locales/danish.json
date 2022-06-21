@@ -80,7 +80,7 @@
     "top": {
         "title1": "Afledt Axia tegnebog-adresse",
         "title2": "Saldo",
-        "title3": "Subnet",
+        "title3": "Allychain",
         "title4": "Netværk",
         "nftcol": "NFTs",
         "nftempty": "Du har ikke samlet nogen ikke-ombyttelige poletter.",
@@ -177,8 +177,8 @@
         "subtitle2": "Deleger",
         "subtitle3": "Cross Chain overførsel",
         "subtitle4": "Anslåede belønninger",
-        "warning_1": "Du skal have mindst {0} AXC i P-kæden for at blive bekræftet.",
-        "warning_2": "Du skal have mindst {0} AXC i P-kæden for at blive delegeret.",
+        "warning_1": "Du skal have mindst {0} AXC i Core-kæden for at blive bekræftet.",
+        "warning_2": "Du skal have mindst {0} AXC i Core-kæden for at blive delegeret.",
         "validate_card": {
             "title": "Bekræft",
             "desc": "Du har en Axia-knude, som du vil satse på.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Cross Chain overførsel",
-            "desc": "Indsatser kræver AXC på P-kæden. Overfør poletter mellem X og P.",
+            "desc": "Indsatser kræver AXC på Core-kæden. Overfør poletter mellem Swap og Core.",
             "submit": "Overfør"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "Starttidspunktet skal være efter det aktuelle tidspunkt.",
                 "start_end": "Startdatoen skal være i fremtiden, og slutdatoen skal være efter startdatoen.",
-                "invalid_addr": "Ugyldigt adresseformat. Din adresse skal starte med \"P-\"",
+                "invalid_addr": "Ugyldigt adresseformat. Din adresse skal starte med \"Core-\"",
                 "no_addr": "Du skal give en adresse for at modtage delegationsbelønninger.",
                 "min_dur": "Min. indsatsvarighed er 2 uger.",
                 "max_dur": "Maks. indsatsvarighed er 1 år.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Import af kæde",
             "desc": "Hvis du har penge, som sidder fast i en mislykket kædeoverførsel, kan du afslutte importen her.",
-            "submit_x": "Importer X",
-            "submit_p": "Importer P"
+            "submit_x": "Importer Swap",
+            "submit_p": "Importer Core"
         }
     },
     "logout": {

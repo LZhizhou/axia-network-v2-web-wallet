@@ -100,7 +100,7 @@
     "top": {
         "title1": "Derived AXIA wallet Address",
         "title2": "Balance",
-        "title3": "Subnet",
+        "title3": "Allychain",
         "title4": "Network",
         "nftcol": "NFTs",
         "nftempty": "You have not collected any non fungible tokens.",
@@ -172,7 +172,7 @@
     },
     "cross_chain": {
         "title": "Cross Chain",
-        "desc": "Transfer tokens between Exchange (X) , Platform (P) and Contract (C) chains.",
+        "desc": "Transfer tokens between Exchange (Swap) , Platform (Core) and Contract (AX) chains.",
         "card": {
             "source": "Source",
             "destination": "Destination",
@@ -373,7 +373,7 @@
         },
         "transfer_card": {
             "title": "Cross Chain Transfer",
-            "desc": "Staking requires AXC on the CoreChain. Transfer tokens between X and P.",
+            "desc": "Staking requires AXC on the CoreChain. Transfer tokens between Swap and Core.",
             "submit": "Transfer"
         },
         "rewards_card": {
@@ -418,7 +418,7 @@
         },
         "shared": {
             "utxo_select": {
-                "available": "Available Balance (P)",
+                "available": "Available Balance (Core)",
                 "all": "All",
                 "custom": "Custom",
                 "select": "Select UTXOs",
@@ -584,10 +584,10 @@
         "import": {
             "title": "Chain Import",
             "desc": "If you have funds stuck in a failed chain transfer, you can finish importing them here.",
-            "submit_x": "Import X (From CoreChain)",
-            "submit_c_x": "Import X (From AXChain)",
-            "submit_p": "Import P",
-            "submit_c": "Import C"
+            "submit_x": "Import Swap (From CoreChain)",
+            "submit_c_x": "Import Swap (From AXChain)",
+            "submit_p": "Import Core",
+            "submit_c": "Import AX"
         },
         "sign": {
             "title": "Sign Message",

@@ -59,11 +59,11 @@ import AxiaAsset from '@/js/AxiaAsset'
 import { ChainSwapFormData } from '@/components/wallet/earn/ChainTransfer/types'
 import { AxiaNetwork } from '@/js/AxiaNetwork'
 
-const chainTypes: ChainIdType[] = ['X', 'P', 'C']
+const chainTypes: ChainIdType[] = ['Swap', 'Core', 'AX']
 const chainNames = {
-    X: 'SwapChain',
-    C: 'AXChain',
-    P: 'CoreChain',
+    Swap: 'SwapChain',
+    AX: 'AXChain',
+    Core: 'CoreChain',
 }
 
 @Component({
@@ -72,8 +72,8 @@ const chainNames = {
     },
 })
 export default class Form extends Vue {
-    sourceChain: ChainIdType = 'X'
-    targetChain: ChainIdType = 'P'
+    sourceChain: ChainIdType = 'Swap'
+    targetChain: ChainIdType = 'Core'
     amt: BN = new BN(0)
 
     @Prop() balance!: Big
@@ -95,7 +95,7 @@ export default class Form extends Vue {
 
     get sourceOptions(): ChainIdType[] {
         if (!this.isEVMSupported) {
-            return ['X', 'P']
+            return ['Swap', 'Core']
         }
 
         let all = [...chainTypes]
@@ -104,9 +104,9 @@ export default class Form extends Vue {
 
     get destinationOptions(): ChainIdType[] {
         return {
-            X: ['P', 'C'],
-            P: ['X', 'C'],
-            C: ['X', 'P'],
+            Swap: ['Core', 'AX'],
+            Core: ['Swap', 'AX'],
+            AX: ['Swap', 'Core'],
         }[this.sourceChain] as ChainIdType[]
     }
 

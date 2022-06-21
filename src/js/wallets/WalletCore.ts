@@ -113,19 +113,21 @@ abstract class WalletCore {
     }
 
     async exportFromSwapChain(amt: BN, destinationChain: ExportChainsX, importFee?: BN) {
-        if (destinationChain === 'C' && !importFee)
+        if (destinationChain === 'AX' && !importFee)
             throw new Error('Exports to AXChain must specify an import fee.')
 
         let amtFee = amt.clone()
 
         // Get destination address
         let destinationAddr =
-            destinationChain === 'P' ? this.getCurrentAddressPlatform() : this.getEvmAddressBech()
+            destinationChain === 'Core'
+                ? this.getCurrentAddressPlatform()
+                : this.getEvmAddressBech()
 
         // Add import fee to transaction
         if (importFee) {
             amtFee = amt.add(importFee)
-        } else if (destinationChain === 'P') {
+        } else if (destinationChain === 'Core') {
             let fee = coreChain.getTxFee()
             amtFee = amt.add(fee)
         }
@@ -153,14 +155,14 @@ abstract class WalletCore {
         let pChangeAddr = this.getCurrentAddressPlatform()
         let fromAddrs = this.getAllAddressesP()
 
-        if (destinationChain === 'C' && !importFee)
+        if (destinationChain === 'AX' && !importFee)
             throw new Error('Exports to AXChain must specify an import fee.')
 
         // Calculate AXChain import fee
         let amtFee = amt.clone()
         if (importFee) {
             amtFee = amt.add(importFee)
-        } else if (destinationChain === 'X') {
+        } else if (destinationChain === 'Swap') {
             // We can add the import fee for SwapChain
             let fee = avm.getTxFee()
             amtFee = amt.add(fee)
@@ -168,7 +170,7 @@ abstract class WalletCore {
 
         // Get the destination address for the right chain
         let destinationAddr =
-            destinationChain === 'C' ? this.getEvmAddressBech() : this.getCurrentAddressAvm()
+            destinationChain === 'AX' ? this.getEvmAddressBech() : this.getCurrentAddressAvm()
 
         const exportTx = await TxHelper.buildPlatformExportTransaction(
             utxoSet,
@@ -186,12 +188,12 @@ abstract class WalletCore {
     /**
      *
      * @param amt The amount to receive on the destination chain, in nAXC.
-     * @param destinationChain `X` or `P`
+     * @param destinationChain `Swap` or `Core`
      * @param fee Fee to use in the export transaction, given in nAXC.
      */
     async exportFromAXChain(amt: BN, destinationChain: ExportChainsC, exportFee: BN) {
         // Add import fee
-        // X and P have the same fee
+        // Swap and Core have the same fee
         let importFee = avm.getTxFee()
         let amtFee = amt.add(importFee)
 
@@ -201,7 +203,7 @@ abstract class WalletCore {
         let fromAddresses = [hexAddr]
 
         let destinationAddr =
-            destinationChain === 'X'
+            destinationChain === 'Swap'
                 ? this.getCurrentAddressAvm()
                 : this.getCurrentAddressPlatform()
 
@@ -228,7 +230,7 @@ abstract class WalletCore {
         let bechAddr = this.getEvmAddressBech()
 
         let destinationAddr =
-            destinationChain === 'X'
+            destinationChain === 'Swap'
                 ? this.getCurrentAddressAvm()
                 : this.getCurrentAddressPlatform()
 
@@ -265,7 +267,7 @@ abstract class WalletCore {
         let hrp = axia.getHRP()
         let utxoAddrs = utxoSet
             .getAddresses()
-            .map((addr: Buffer) => bintools.addressToString(hrp, 'P', addr))
+            .map((addr: Buffer) => bintools.addressToString(hrp, 'Core', addr))
 
         let fromAddrs = utxoAddrs
         let ownerAddrs = utxoAddrs
@@ -297,7 +299,7 @@ abstract class WalletCore {
         let hrp = axia.getHRP()
         let utxoAddrs = utxoSet
             .getAddresses()
-            .map((addr: Buffer) => bintools.addressToString(hrp, 'X', addr))
+            .map((addr: Buffer) => bintools.addressToString(hrp, 'Swap', addr))
 
         let fromAddrs = utxoAddrs
         let ownerAddrs = utxoAddrs

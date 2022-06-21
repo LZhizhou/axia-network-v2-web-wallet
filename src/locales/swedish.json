@@ -177,8 +177,8 @@
         "subtitle2": "Delegera",
         "subtitle3": "Cross Chain Överförelser",
         "subtitle4": "Beräknade belöningar",
-        "warning_1": "Du måste ha minst {0} AXC i P-kedjan för att bli validerare.",
-        "warning_2": "Du måste ha minst {0} AXC i P-kedjan för att bli nominator.",
+        "warning_1": "Du måste ha minst {0} AXC i Core-kedjan för att bli validerare.",
+        "warning_2": "Du måste ha minst {0} AXC i Core-kedjan för att bli nominator.",
         "validate_card": {
             "title": "Validera",
             "desc": "Du har en Axia-nod som du vill placera med.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Cross Chain Överföring",
-            "desc": "Satsa kräver AXC i P-kedjan. Överför tokens mellan X och P.",
+            "desc": "Satsa kräver AXC i Core-kedjan. Överför tokens mellan Swap och Core.",
             "submit": "Överföring"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "Starttiden måste vara efter den nuvarande tiden.",
                 "start_end": "Startdatumet måste ligga i framtiden och slutdatumet måste vara efter startdatumet.",
-                "invalid_addr": "Ogiltigt adressformat. Din adress måste börja med \"P-\"",
+                "invalid_addr": "Ogiltigt adressformat. Din adress måste börja med \"Core-\"",
                 "no_addr": "Du måste ange en adress för att få delegationsbelöningar.",
                 "min_dur": "Minsta satsningstid är 2 veckor.",
                 "max_dur": "Högsta satsningstid är 1 år.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Kedjeimport",
             "desc": "Om du har pengar kvar i en misslyckad kedjeöverföring kan du slutimportera dem här.",
-            "submit_x": "Importera X",
-            "submit_p": "Importera P"
+            "submit_x": "Importera Swap",
+            "submit_p": "Importera Core"
         }
     },
     "logout": {

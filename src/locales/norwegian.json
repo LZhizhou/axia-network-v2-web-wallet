@@ -177,8 +177,8 @@
         "subtitle2": "Deleger",
         "subtitle3": "Krysskjedeoverføring",
         "subtitle4": "Estimerte belønninger",
-        "warning_1": "Du må ha minst {0} AXC på P-kjedet for å bli en validator.",
-        "warning_2": "Du må ha minst {0} AXC på P-kjedet for å bli en nominator.",
+        "warning_1": "Du må ha minst {0} AXC på Core-kjedet for å bli en validator.",
+        "warning_2": "Du må ha minst {0} AXC på Core-kjedet for å bli en nominator.",
         "validate_card": {
             "title": "Valider",
             "desc": "Du har en Axia-node som du vil satse med.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Krysskjedeoverføring",
-            "desc": "Satsing krever AXC på P-kjedet. Overfør polletter mellom X og P.",
+            "desc": "Satsing krever AXC på Core-kjedet. Overfør polletter mellom Swap og Core.",
             "submit": "Overfør"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "Starttidspunktet må være etter nåværende tid.",
                 "start_end": "Startdatoen må være i fremtiden og sluttdatoen må være etter startdatoen.",
-                "invalid_addr": "Ugyldig adresseformat. Adressen din må starte med \"P-”",
+                "invalid_addr": "Ugyldig adresseformat. Adressen din må starte med \"Core-”",
                 "no_addr": "Du må oppgi en adresse for å motta delegeringsbelønninger.",
                 "min_dur": "Minste innsatsperiode er 2 uker.",
                 "max_dur": "Maksimal innsatsperiode er 1 år.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Kjedeimport",
             "desc": "Dersom du har penger som sitter fast i en feilet kjedeoverføring, kan du fullføre importen her.",
-            "submit_x": "Importer X",
-            "submit_p": "Importer P"
+            "submit_x": "Importer Swap",
+            "submit_p": "Importer Core"
         }
     },
     "logout": {

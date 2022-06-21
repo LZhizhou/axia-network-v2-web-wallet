@@ -581,7 +581,7 @@
             You and the Company agree that any arbitration shall be limited to the Dispute between
             the parties individually. TO THE FULL EXTENT PERMITTED BY LAW, (A) NO ARBITRATION SHALL
             BE JOINED WITH ANY OTHER PROCEEDING; (B) THERE IS NO RIGHT OR AUTHORITY FOR ANY DISPUTE
-            TO BE ARBITRATED ON A CLASS-ACTION BASIS OR TO UTILIZE CLASS ACTION PROCEDURES; AND (C)
+            TO BE ARBITRATED ON A CLASS-ACTION BASIS OR TO UTILIZE CLASS ACTION PROCEDURES; AND (AX)
             THERE IS NO RIGHT OR AUTHORITY FOR ANY DISPUTE TO BE BROUGHT IN A PURPORTED
             REPRESENTATIVE CAPACITY ON BEHALF OF THE GENERAL PUBLIC OR ANY OTHER PERSONS. Unless
             consented to in writing by all parties to the arbitration, an award in arbitration shall

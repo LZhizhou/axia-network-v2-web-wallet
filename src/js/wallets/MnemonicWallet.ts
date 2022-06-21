@@ -80,7 +80,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         super.onnetworkchange()
 
         // Update EVM values
-        this.ethKeyChain = new EVMKeyChain(axia.getHRP(), 'C')
+        this.ethKeyChain = new EVMKeyChain(axia.getHRP(), 'AX')
         let cKeypair = this.ethKeyChain.importKey(this.ethKeyBech)
         this.ethBalance = new BN(0)
     }
@@ -103,7 +103,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         let cPrivKey = `PrivateKey-` + bintools.cb58Encode(BufferAxia.from(ethPrivateKey))
         this.ethKeyBech = cPrivKey
 
-        let cKeyChain = new KeyChain(axia.getHRP(), 'C')
+        let cKeyChain = new KeyChain(axia.getHRP(), 'AX')
         this.ethKeyChain = cKeyChain
 
         let cKeypair = cKeyChain.importKey(cPrivKey)

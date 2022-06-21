@@ -242,7 +242,7 @@ export default class FormC extends Vue {
     }
 
     validateAddress(addr: string) {
-        if (addr.substring(0, 4) !== 'C-0x' && addr.substring(0, 2) !== '0x') {
+        if (addr.substring(0, 4) !== 'AX-0x' && addr.substring(0, 2) !== '0x') {
             return false
         }
 
@@ -255,11 +255,11 @@ export default class FormC extends Vue {
         let addr = this.addressIn
 
         if (!this.validateAddress(addr)) {
-            this.err = 'Invalid AXChain address. Make sure your address begins with "0x" or "C-0x"'
+            this.err = 'Invalid AXChain address. Make sure your address begins with "0x" or "AX-0x"'
             return false
         }
 
-        if (addr.substring(0, 2) === 'C-') {
+        if (addr.substring(0, 2) === 'AX-') {
             let hexStr = addr.substring(2)
             if (!web3.utils.isAddress(hexStr)) {
                 this.err = 'Not a valid AXChain address.'
@@ -406,7 +406,7 @@ export default class FormC extends Vue {
         let gasPriceWei = this.gasPrice
         let toAddress = this.formAddress
 
-        if (toAddress.substring(0, 2) === 'C-') {
+        if (toAddress.substring(0, 2) === 'AX-') {
             toAddress = toAddress.substring(2)
         }
 

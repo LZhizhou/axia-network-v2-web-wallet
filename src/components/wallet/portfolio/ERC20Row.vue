@@ -34,7 +34,7 @@ export default class ERC20Row extends Vue {
     }
 
     get sendLink() {
-        return `/wallet/transfer?chain=C&token=${this.token.data.address}`
+        return `/wallet/transfer?chain=AX&token=${this.token.data.address}`
     }
 }
 </script>

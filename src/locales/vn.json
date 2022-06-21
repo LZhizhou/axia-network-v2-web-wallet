@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Chuyển đổi Chain",
-            "desc": "Staking yêu cầu có AXC trên CoreChain. Hãy chuyển token từ X sang P.",
+            "desc": "Staking yêu cầu có AXC trên CoreChain. Hãy chuyển token từ Swap sang Core.",
             "submit": "Chuyển đổi"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "Ngày bắt đầu phải sau thời điểm hiện tại.",
                 "start_end": "Ngày bắt đầu phải ở trong tương lai và ngày kết thúc phải sau ngày bắt đầu.",
-                "invalid_addr": "Định dạng địa chỉ không hợp lệ. Địa chỉ của bạn phải bắt đầu bằng “P-”",
+                "invalid_addr": "Định dạng địa chỉ không hợp lệ. Địa chỉ của bạn phải bắt đầu bằng “Core-”",
                 "no_addr": "Bạn phải cung cấp địa chỉ để nhận lợi nhuận ủy quyền.",
                 "min_dur": "Thời gian staking tối thiểu là 2 tuần.",
                 "max_dur": "Thời gian staking tối đa là 1 năm.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Nhập Chain",
             "desc": "Nếu bạn có khoản tiền kẹt trong một giao dịch chuyển đổi chain thất bại, bạn có thể kết thúc quá trình bằng cách nhập tại đây.",
-            "submit_x": "Nhập X",
-            "submit_p": "Nhập P"
+            "submit_x": "Nhập Swap",
+            "submit_p": "Nhập Core"
         }
     },
     "logout": {

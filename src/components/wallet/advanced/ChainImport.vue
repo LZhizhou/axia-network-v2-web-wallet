@@ -8,30 +8,30 @@
         </div>
         <p class="err" v-else-if="err">{{ err }}</p>
         <template v-if="!isLoading">
-            <v-btn block class="button_secondary" depressed @click="atomicImportX('P')" small>
-                Import X (From P)
+            <v-btn block class="button_secondary" depressed @click="atomicImportX('Core')" small>
+                Import Swap (From Core)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportX('C')" small>
-                Import X (From C)
+            <v-btn block class="button_secondary" depressed @click="atomicImportX('AX')" small>
+                Import Swap (From AX)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportP('X')" small>
-                Import P (From X)
+            <v-btn block class="button_secondary" depressed @click="atomicImportP('Swap')" small>
+                Import Core (From Swap)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportP('C')" small>
-                Import P (From C)
+            <v-btn block class="button_secondary" depressed @click="atomicImportP('AX')" small>
+                Import Core (From AX)
             </v-btn>
             <v-btn
                 v-if="isEVMSupported"
                 block
                 class="button_secondary"
                 depressed
-                @click="atomicImportC('X')"
+                @click="atomicImportC('Swap')"
                 small
             >
-                Import C (from X)
+                Import AX (from Swap)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportC('P')" small>
-                Import C (from P)
+            <v-btn block class="button_secondary" depressed @click="atomicImportC('Core')" small>
+                Import AX (from Core)
             </v-btn>
         </template>
         <Spinner class="spinner" v-else></Spinner>
@@ -77,7 +77,7 @@ export default class ChainImport extends Vue {
         this.beforeSubmit()
         if (!this.wallet) return
 
-        // // Import from C
+        // // Import from AX
         try {
             let txId = await this.wallet.importToSwapChain(sourceChain)
             this.onSuccess(txId)

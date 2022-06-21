@@ -1,8 +1,8 @@
 <template>
     <div class="chain_select">
-        <button @click="setChain('X')" :active="chain === 'X'">X</button>
-        <button @click="setChain('P')" :active="chain === 'P'">P</button>
-        <button @click="setChain('C')" :active="chain === 'C'" v-if="isEVMSupported">C</button>
+        <button @click="setChain('Swap')" :active="chain === 'Swap'">Swap</button>
+        <button @click="setChain('Core')" :active="chain === 'Core'">Core</button>
+        <button @click="setChain('AX')" :active="chain === 'AX'" v-if="isEVMSupported">AX</button>
     </div>
 </template>
 <script lang="ts">

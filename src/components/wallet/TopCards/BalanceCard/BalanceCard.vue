@@ -68,25 +68,25 @@
                 </div>
                 <div class="alt_breakdown" v-else>
                     <div>
-                        <label>{{ $t('top.balance.available') }} (X)</label>
+                        <label>{{ $t('top.balance.available') }} (Swap)</label>
                         <p>{{ avmUnlocked | cleanAxcBN }} AXC</p>
-                        <label>{{ $t('top.balance.available') }} (P)</label>
+                        <label>{{ $t('top.balance.available') }} (Core)</label>
                         <p>{{ platformUnlocked | cleanAxcBN }} AXC</p>
-                        <label>{{ $t('top.balance.available') }} (C)</label>
+                        <label>{{ $t('top.balance.available') }} (AX)</label>
                         <p>{{ evmUnlocked | cleanAxcBN }} AXC</p>
                     </div>
                     <div v-if="hasLocked">
-                        <label>{{ $t('top.balance.locked') }} (X)</label>
+                        <label>{{ $t('top.balance.locked') }} (Swap)</label>
                         <p>{{ avmLocked | cleanAxcBN }} AXC</p>
-                        <label>{{ $t('top.balance.locked') }} (P)</label>
+                        <label>{{ $t('top.balance.locked') }} (Core)</label>
                         <p>{{ platformLocked | cleanAxcBN }} AXC</p>
-                        <label>{{ $t('top.balance.locked_stake') }} (P)</label>
+                        <label>{{ $t('top.balance.locked_stake') }} (Core)</label>
                         <p>{{ platformLockedStakeable | cleanAxcBN }} AXC</p>
                     </div>
                     <div v-if="hasMultisig">
-                        <label>Multisig (X)</label>
+                        <label>Multisig (Swap)</label>
                         <p>{{ avmMultisig | cleanAxcBN }} AXC</p>
-                        <label>Multisig (P)</label>
+                        <label>Multisig (Core)</label>
                         <p>{{ platformMultisig | cleanAxcBN }} AXC</p>
                     </div>
                     <div>
@@ -203,7 +203,7 @@ export default class BalanceCard extends Vue {
         if (this.isUpdateBalance) return '--'
         return this.totalBalanceUSD.toLocaleString(2)
     }
-    // should be unlocked (X+P), locked (X+P) and staked and lockedStakeable
+    // should be unlocked (Swap+Core), locked (Swap+Core) and staked and lockedStakeable
     get balanceText(): string {
         if (this.axia_asset !== null) {
             let denom = this.axia_asset.denomination
@@ -233,7 +233,7 @@ export default class BalanceCard extends Vue {
         return ''
     }
 
-    // Locked balance is the sum of locked AXC tokens on X and CoreChain
+    // Locked balance is the sum of locked AXC tokens on Swap and CoreChain
     get balanceTextLocked(): string {
         if (this.isUpdateBalance) return '--'
 

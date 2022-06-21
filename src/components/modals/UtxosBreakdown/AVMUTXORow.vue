@@ -53,7 +53,7 @@ export default class UTXORow extends Vue {
         let addrs = this.out.getAddresses()
 
         let hrp = axia.getHRP()
-        let id = this.isX ? 'X' : 'P'
+        let id = this.isX ? 'Swap' : 'Core'
         let addrsClean = addrs.map((addr) => {
             return bintools.addressToString(hrp, id, addr)
         })

@@ -177,8 +177,8 @@
         "subtitle2": "Deleagă",
         "subtitle3": "Transfer Încrucișat",
         "subtitle4": "Recompense Estimate",
-        "warning_1": "Trebuie să ai cel puțin {0} AXC în lanțul P pentru a deveni un validator.",
-        "warning_2": "Trebuie să ai cel puțin {0} AXC în lanțul P pentru a deveni un delegatar.",
+        "warning_1": "Trebuie să ai cel puțin {0} AXC în lanțul Core pentru a deveni un validator.",
+        "warning_2": "Trebuie să ai cel puțin {0} AXC în lanțul Core pentru a deveni un delegatar.",
         "validate_card": {
             "title": "Validează",
             "desc": "Ai un nod Axia cu care dorești să mizezi.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Transfer Încrucișat",
-            "desc": "Miza necesită AXC în lanțul P. Transferă jetoane între X și P.",
+            "desc": "Miza necesită AXC în lanțul Core. Transferă jetoane între Swap și Core.",
             "submit": "Transferă"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "Ora de început trebuie să fie după ora actuală.",
                 "start_end": "Data de Început trebuie să fie în viitor, iar data de sfârșit trebuie să fie după data de început.",
-                "invalid_addr": "Format adresă invalid. Adresa ta trebuie să înceapă cu „P-”",
+                "invalid_addr": "Format adresă invalid. Adresa ta trebuie să înceapă cu „Core-”",
                 "no_addr": "Trebuie să dai o adresă pentru a primi recompensele delegării.",
                 "min_dur": "Durata minimă a mizei este de 2 săptămâni.",
                 "max_dur": "Durata maximă a mizei este de 1 an.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Importă Lanțul",
             "desc": "Dacă ai fonduri blocate într-un transfer eșuat în lanț, poți termina importarea lor aici.",
-            "submit_x": "Importă X",
-            "submit_p": "Importă P"
+            "submit_x": "Importă Swap",
+            "submit_p": "Importă Core"
         }
     },
     "logout": {

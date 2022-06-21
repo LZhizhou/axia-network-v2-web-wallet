@@ -177,8 +177,8 @@
         "subtitle2": "Delegar",
         "subtitle3": "Transferència mixta en cadena",
         "subtitle4": "Premis estimats",
-        "warning_1": "Heu de disposar de com a mínim {0} AXC a la cadena P per tornar-vos validador.",
-        "warning_2": "Heu de disposar de com a mínim {0} AXC a la cadena P per tornar-vos delegat.",
+        "warning_1": "Heu de disposar de com a mínim {0} AXC a la cadena Core per tornar-vos validador.",
+        "warning_2": "Heu de disposar de com a mínim {0} AXC a la cadena Core per tornar-vos delegat.",
         "validate_card": {
             "title": "Validar",
             "desc": "Disposeu d'un node Axia amb el qual voleu partipar.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Transferència mixta en cadena",
-            "desc": "La participació requereix AXC a la cadena P. Transferir les fitxes entre X i P.",
+            "desc": "La participació requereix AXC a la cadena Core. Transferir les fitxes entre Swap i Core.",
             "submit": "Transferir"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "L'hora d'inici ha de ser posterior a l'hora actual.",
                 "start_end": "L'hora d'inici ha de ser al futur proper i l'hora de finalització ha de ser posterior a l'hora d'inici.",
-                "invalid_addr": "Format d'adreça invàlida. La vostra adreça ha de començar amb \"P-\"",
+                "invalid_addr": "Format d'adreça invàlida. La vostra adreça ha de començar amb \"Core-\"",
                 "no_addr": "Heu de proporcionar una adreça per rebre recompenses de delegació.",
                 "min_dur": "La durada mínima de la participació és de 2 setmanes.",
                 "max_dur": "La durada màxima de la participació és d'1 any.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Importació en cadena",
             "desc": "Si teniu fons encallats en una cadena de transferència fallida, podeu finalitzar la importació aquí.",
-            "submit_x": "Importa X",
-            "submit_p": "Importa P"
+            "submit_x": "Importa Swap",
+            "submit_p": "Importa Core"
         }
     },
     "logout": {

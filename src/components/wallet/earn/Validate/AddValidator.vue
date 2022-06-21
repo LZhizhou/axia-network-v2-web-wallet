@@ -490,8 +490,8 @@ export default class AddValidator extends Vue {
         if (this.rewardDestination !== 'local') {
             let rewardAddr = this.rewardIn
 
-            // If it doesnt start with P
-            if (rewardAddr[0] !== 'P') {
+            // If it doesnt start with Core
+            if (rewardAddr[0] !== 'Core') {
                 this.err = this.$t('earn.validate.errs.address') as string
                 return false
             }

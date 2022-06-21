@@ -2,8 +2,8 @@
     <div v-if="isEVMSupported">
         <label>{{ $t('transfer.source_chain.title') }}</label>
         <div class="chain_select">
-            <button :active="formType === 'X'" @click="set('X')">X</button>
-            <button :active="formType === 'C'" @click="set('C')">C</button>
+            <button :active="formType === 'Swap'" @click="set('Swap')">Swap</button>
+            <button :active="formType === 'AX'" @click="set('AX')">AX</button>
         </div>
     </div>
 </template>

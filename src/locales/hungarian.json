@@ -177,8 +177,8 @@
         "subtitle2": "Delegálás",
         "subtitle3": "Transzfer láncok között",
         "subtitle4": "Becsült jutalom",
-        "warning_1": "Legalább {0} AXC szükséges a P láncon ahhoz, hogy érvényesítő legyen.",
-        "warning_2": "Legalábbt {0} AXC szükséges a P láncon ahhoz, hogy érvényesítő legyen.",
+        "warning_1": "Legalább {0} AXC szükséges a Core láncon ahhoz, hogy érvényesítő legyen.",
+        "warning_2": "Legalábbt {0} AXC szükséges a Core láncon ahhoz, hogy érvényesítő legyen.",
         "validate_card": {
             "title": "Érvényesítés",
             "desc": "Rendelkezik egy Axia csomópontja amit meg akar játszani.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Transzfer láncok között",
-            "desc": "A megjátszáshoz AXC szükséges a P láncon. Vigyen át zsetont az X láncról P-re.",
+            "desc": "A megjátszáshoz AXC szükséges a Core láncon. Vigyen át zsetont az Swap láncról Core-re.",
             "submit": "Transzfer"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "A kezdés idejének az aktuális idő utáninak kell lennie.",
                 "start_end": "A kezdési dátum a jövőben van, a befejezés dátuma pedig követi a kezdési dátumot.",
-                "invalid_addr": "Érvénytelen cím formátum. A címnek így kell kezdődnie \"P-\"",
+                "invalid_addr": "Érvénytelen cím formátum. A címnek így kell kezdődnie \"Core-\"",
                 "no_addr": "Meg kell adnia egy címet, hogy megkapja a delegálási jutalmat.",
                 "min_dur": "A megjátszási időtartam legalább 2 hét.",
                 "max_dur": "A megjátszási időtartam legfeljebb 1 év.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Lánc importálás",
             "desc": "Ha a pénze egy sikertelen lánc transzferben maradt, befejezheti úgy, hogy ide importálja.",
-            "submit_x": "X importálása",
-            "submit_p": "P importálása"
+            "submit_x": "Swap importálása",
+            "submit_p": "Core importálása"
         }
     },
     "logout": {

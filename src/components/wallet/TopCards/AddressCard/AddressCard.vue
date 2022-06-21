@@ -80,7 +80,7 @@ import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
 export default class AddressCard extends Vue {
     colorLight: string = '#FFF'
     colorDark: string = '#242729'
-    chainNow: ChainIdType = 'X'
+    chainNow: ChainIdType = 'Swap'
 
     $refs!: {
         qr_modal: QRModal
@@ -109,9 +109,9 @@ export default class AddressCard extends Vue {
         switch (this.chainNow) {
             default:
                 return this.$t('top.address.title_x') as string
-            case 'P':
+            case 'Core':
                 return this.$t('top.address.title_p') as string
-            case 'C':
+            case 'AX':
                 return this.$t('top.address.title_c') as string
         }
     }
@@ -120,9 +120,9 @@ export default class AddressCard extends Vue {
         switch (this.chainNow) {
             default:
                 return this.getAddressMsgX()
-            case 'P':
+            case 'Core':
                 return this.$t('top.address.desc_p') as string
-            case 'C':
+            case 'AX':
                 return this.$t('top.address.desc_c') as string
         }
     }
@@ -177,11 +177,11 @@ export default class AddressCard extends Vue {
 
     get activeAddress(): string {
         switch (this.chainNow) {
-            case 'X':
+            case 'Swap':
                 return this.address
-            case 'P':
+            case 'Core':
                 return this.addressPVM
-            case 'C':
+            case 'AX':
                 return this.addressEVM
         }
         return this.address
@@ -194,9 +194,9 @@ export default class AddressCard extends Vue {
         if (walletType === 'singleton') return 0
 
         switch (this.chainNow) {
-            case 'X':
+            case 'Swap':
                 return wallet.getExternalActiveIndex()
-            case 'P':
+            case 'Core':
                 return wallet.getPlatformActiveIndex()
             default:
                 return 0
@@ -242,11 +242,11 @@ export default class AddressCard extends Vue {
         let hrp = getPreferredHRP(networkId)
 
         switch (this.chainNow) {
-            case 'X':
-            case 'P':
+            case 'Swap':
+            case 'Core':
                 wallet.app.getWalletAddress(`${AXIA_ACCOUNT_PATH}/0/${this.activeIdx}`, hrp)
                 break
-            case 'C':
+            case 'AX':
                 wallet.ethApp.getAddress(`${LEDGER_ETH_ACCOUNT_PATH}`)
         }
     }

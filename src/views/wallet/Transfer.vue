@@ -5,10 +5,10 @@
             <p>{{ $t('transfer.disconnected') }}</p>
         </div>
         <div class="card_body" v-else>
-            <FormC v-show="formType === 'C'">
+            <FormC v-show="formType === 'AX'">
                 <ChainInput v-model="formType" :disabled="isConfirm"></ChainInput>
             </FormC>
-            <div class="new_order_Form" v-show="formType === 'X'">
+            <div class="new_order_Form" v-show="formType === 'Swap'">
                 <div class="lists">
                     <ChainInput v-model="formType" :disabled="isConfirm"></ChainInput>
                     <div>
@@ -170,7 +170,7 @@ import { TxState } from '@/components/wallet/earn/ChainTransfer/types'
     },
 })
 export default class Transfer extends Vue {
-    formType: ChainIdType = 'X'
+    formType: ChainIdType = 'Swap'
     showAdvanced: boolean = false
     isAjax: boolean = false
     addressIn: string = ''
@@ -234,8 +234,8 @@ export default class Transfer extends Vue {
 
         let chain = addr.split('-')
 
-        if (chain[0] !== 'X') {
-            err.push('Invalid address. You can only send to other X addresses.')
+        if (chain[0] !== 'Swap') {
+            err.push('Invalid address. You can only send to other Swap addresses.')
         }
 
         if (!isValidAddress(addr)) {
@@ -473,10 +473,10 @@ export default class Transfer extends Vue {
 
         if (this.$route.query.chain) {
             let chain = this.$route.query.chain as string
-            if (chain === 'X') {
-                this.formType = 'X'
+            if (chain === 'Swap') {
+                this.formType = 'Swap'
             } else {
-                this.formType = 'C'
+                this.formType = 'AX'
             }
         }
 

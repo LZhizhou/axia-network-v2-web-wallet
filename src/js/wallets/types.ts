@@ -38,9 +38,9 @@ export interface IIndexKeyCache {
     [index: number]: AVMKeyPair
 }
 
-export type ChainAlias = 'X' | 'P'
-export type AvmImportChainType = 'P' | 'C'
-export type AvmExportChainType = 'P' | 'C'
+export type ChainAlias = 'Swap' | 'Core'
+export type AvmImportChainType = 'Core' | 'AX'
+export type AvmExportChainType = 'Core' | 'AX'
 
 export type WalletNameType = 'mnemonic' | 'ledger' | 'singleton'
 export type WalletType = MnemonicWallet | LedgerWallet | SingletonWallet

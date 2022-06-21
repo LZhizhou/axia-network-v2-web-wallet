@@ -1,7 +1,9 @@
 <template>
     <div class="tx_out">
         <div class="addresses">
-            <p v-for="addr in summary.addresses" :key="addr">{{ direction }} {{ 'X-' + addr }}</p>
+            <p v-for="addr in summary.addresses" :key="addr">
+                {{ direction }} {{ 'Swap-' + addr }}
+            </p>
         </div>
         <p class="amount" :profit="isProfit">
             {{ amtText }}
