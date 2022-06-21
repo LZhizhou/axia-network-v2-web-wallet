@@ -1,6 +1,9 @@
 <template>
     <div class="nft_col">
-        <h4>{{ $t('top.balance.collectibles') }}</h4>
+        <div class="header">
+            <div class="collectible_icon"><img src="@/assets/collectibles.png" /></div>
+            <h4>{{ $t('top.balance.collectibles') }}</h4>
+        </div>
         <p v-if="isEmpty">{{ $t('top.nftempty') }}</p>
         <div v-else class="rows">
             <p>{{ statusText }}</p>
@@ -172,5 +175,23 @@ $nft_w: 35px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.header {
+    display: flex;
+
+    h4 {
+        margin-left: 12px;
+        flex-grow: 1;
+    }
+}
+.collectible_icon {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-color);
+
+    img {
+        object-fit: contain;
+        width: 100%;
+    }
 }
 </style>

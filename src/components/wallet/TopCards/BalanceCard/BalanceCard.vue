@@ -6,7 +6,7 @@
                 <div class="refresh">
                     <Spinner v-if="isUpdateBalance" class="spinner"></Spinner>
                     <button v-else @click="updateBalance">
-                        <fa icon="sync"></fa>
+                        <img src="@/assets/balance_sync.png" />
                     </button>
                 </div>
                 <h4>{{ $t('top.title2') }}</h4>

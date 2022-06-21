@@ -28,12 +28,12 @@
         <div class="rows">
             <div class="header">
                 <template v-if="is_default">
-                    <img src="@/assets/key_active.svg" class="key_logo" />
+                    <img src="@/assets/key_active.png" class="key_logo" />
                 </template>
                 <template v-else>
                     <img
                         v-if="$root.theme === 'day'"
-                        src="@/assets/key_inactive.svg"
+                        src="@/assets/key_inactive.png"
                         class="key_logo"
                     />
                     <img v-else src="@/assets/key_inactive_night.png" class="key_logo" />
