@@ -1,4 +1,7 @@
-<template>
+<template
+    :style="{    background: linear-gradient(359.99deg, #fcfeff 16.91%, #e7f3fe 48.95%, #ffffff 99.99%);
+}"
+>
     <div class="create_wallet">
         <b-container>
             <b-row>
@@ -7,11 +10,7 @@
                         <!-- PHASE 1 -->
                         <div v-if="!keyPhrase" class="stage_1">
                             <div class="img_container">
-                                <img
-                                    v-if="$root.theme === 'day'"
-                                    src="@/assets/diamond-secondary.png"
-                                    alt
-                                />
+                                <img v-if="$root.theme === 'day'" src="@/assets/DESIGN.png" alt />
                                 <img v-else src="@/assets/diamond-secondary-night.svg" alt />
                             </div>
                             <h1>{{ $t('create.generate') }}</h1>
@@ -215,7 +214,7 @@ export default class CreateWallet extends Vue {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--bg-light);
+    background-color: white;
     padding: main.$container-padding;
     text-align: center;
     /*min-width: 1000px;*/

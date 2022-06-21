@@ -39,16 +39,17 @@
                         <h4>{{ $t('network.title') }}</h4>
                         <button
                             @click="viewCustom"
-                            class="button_secondary"
+                            class="secondary_button"
                             data-cy="create-custom-option"
                         >
-                            {{ $t('network.custom') }}
+                            <b>{{ $t('network.custom') }}</b>
+                            <img src="../../assets/plus.png" :style="{ marginBottom: '-7px' }" />
                         </button>
                     </template>
                     <template v-if="page === 'custom'">
                         <h4>{{ $t('network.title2') }}</h4>
                         <button @click="viewList" class="tab_cancel">
-                            {{ $t('network.cancel') }}
+                            {{ $t('network.cancel') }}.
                         </button>
                     </template>
                     <template v-if="page === 'edit'">
@@ -214,6 +215,11 @@ export default class NetworkMenu extends Vue {
 
 .tab_cancel {
     color: var(--primary-color);
+}
+
+.secondary_button {
+    color: #178fe1;
+    background-color: none;
 }
 
 .network_dispose_bg {

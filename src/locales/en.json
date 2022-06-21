@@ -8,12 +8,12 @@
         "desc": "Axwallet is a simple, secure, non-custodial wallet for storing Axia assets.",
         "access": {
             "title": "Welcome Back!",
-            "desc": "Access your existing Axwallet here.",
+            "desc": "Access your existing AXIA wallet here.",
             "submit": "Access Wallet"
         },
         "create": {
-            "title": "New to Axwallet?",
-            "desc": "Create a new wallet to send, receive and swap Axia assets.",
+            "title": "New to AXIA wallet?",
+            "desc": "Create a new wallet to send, receive and swap AXIA coins.",
             "submit": "Create New Wallet"
         }
     },
@@ -78,7 +78,7 @@
         }
     },
     "create": {
-        "generate": "Generate a new key phrase to setup your Axwallet.",
+        "generate": "Generate a new key phrase to setup your AXIA wallet.",
         "but_have": "Already have a wallet?",
         "submit": "Generate Key Phrase",
         "cancel": "Cancel",

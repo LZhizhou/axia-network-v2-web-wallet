@@ -2,8 +2,8 @@
     <div class="wallet_sidebar">
         <div class="stick">
             <div class="brand">
-                <img v-if="$root.theme === 'day'" src="@/assets/wallet_logo.png" />
-                <img v-else src="@/assets/wallet_logo_dark.png" />
+                <img v-if="$root.theme === 'day'" src="@/assets/logo.png" />
+                <img v-else src="@/assets/logo.png" />
             </div>
             <div class="links">
                 <router-link to="/wallet" class="wallet_link">
@@ -89,7 +89,7 @@ export default {
         align-items: center;
 
         img {
-            width: 80%;
+            width: 50%;
             object-fit: contain;
         }
     }

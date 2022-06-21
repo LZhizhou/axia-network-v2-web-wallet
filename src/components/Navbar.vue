@@ -2,14 +2,14 @@
     <div id="nav">
         <ConfirmLogout ref="logout"></ConfirmLogout>
         <router-link to="/" class="logo">
-            <img v-if="$root.theme === 'day'" src="@/assets/wallet_logo.png" />
+            <img v-if="$root.theme === 'day'" src="@/assets/logo.png" />
             <img v-else src="@/assets/wallet_logo_dark.png" />
             <!--            <span class="slogan">by Axia</span>-->
         </router-link>
         <v-spacer></v-spacer>
 
         <div class="buts_right">
-            <DayNightToggle class="action_but"></DayNightToggle>
+            <!-- <DayNightToggle class="action_but"></DayNightToggle> -->
             <template v-if="isAuth">
                 <button @click="logout">{{ $t('logout.button') }}</button>
             </template>
