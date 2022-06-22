@@ -5,12 +5,14 @@
             {{ $t('advanced.sign.desc') }}
         </p>
         <div v-if="isHD">
-            <label>{{ $t('advanced.sign.label1') }}</label>
+            <label :style="{ color: 'black' }">{{ $t('advanced.sign.label1') }}</label>
             <SearchAddress :wallet="wallet" v-model="sourceAddress"></SearchAddress>
         </div>
         <div>
-            <label>{{ $t('advanced.sign.label2') }}</label>
-            <p class="warn">{{ $t('advanced.sign.warn') }}</p>
+            <p class="warn">
+                <label>{{ $t('advanced.sign.label2') }}</label>
+                {{ $t('advanced.sign.warn') }}
+            </p>
             <textarea v-model="message"></textarea>
         </div>
         <p class="err">{{ error }}</p>

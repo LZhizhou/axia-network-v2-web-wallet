@@ -102,7 +102,6 @@ export default class AxcInput extends Vue {
     .ticker,
     .amt_in,
     .max_but {
-        background-color: var(--bg-light);
         //border-radius: 3px;
     }
 }
@@ -135,9 +134,8 @@ export default class AxcInput extends Vue {
 }
 
 .col1 {
-    border-radius: 3px;
-    background-color: var(--bg-light);
-    border: 1px solid transparent;
+    border: 2px solid #e6e8ec;
+    border-radius: 12px;
     //display: flex;
     display: grid;
     grid-template-columns: max-content 1fr;

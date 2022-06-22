@@ -1,33 +1,35 @@
 <template>
     <div class="swap_form">
-        <div>
-            <label>{{ $t('cross_chain.form.source') }}</label>
-            <select @input="onChangeSource" class="hover_border" v-model="sourceChain">
-                <option
-                    v-for="option in sourceOptions"
-                    :value="option"
-                    :key="option"
-                    :disabled="isConfirm"
-                >
-                    {{ chainNames[option] }}
-                </option>
-            </select>
-        </div>
-        <div>
-            <label>{{ $t('cross_chain.form.destination') }}</label>
-            <p class="ledger_warn" v-if="!isEVMSupported">
-                AXChain is currently not supported on Ledger devices.
-            </p>
-            <select @input="onChangeDestination" class="hover_border" v-model="targetChain">
-                <option
-                    v-for="option in destinationOptions"
-                    :value="option"
-                    :key="option"
-                    :disabled="isConfirm"
-                >
-                    {{ chainNames[option] }}
-                </option>
-            </select>
+        <div :style="{ display: 'flex', flexDirection: 'row', columnGap: '20px' }">
+            <div>
+                <label>{{ $t('cross_chain.form.source') }}</label>
+                <select @input="onChangeSource" class="hover_border" v-model="sourceChain">
+                    <option
+                        v-for="option in sourceOptions"
+                        :value="option"
+                        :key="option"
+                        :disabled="isConfirm"
+                    >
+                        {{ chainNames[option] }}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label>{{ $t('cross_chain.form.destination') }}</label>
+                <p class="ledger_warn" v-if="!isEVMSupported">
+                    AXChain is currently not supported on Ledger devices.
+                </p>
+                <select @input="onChangeDestination" class="hover_border" v-model="targetChain">
+                    <option
+                        v-for="option in destinationOptions"
+                        :value="option"
+                        :key="option"
+                        :disabled="isConfirm"
+                    >
+                        {{ chainNames[option] }}
+                    </option>
+                </select>
+            </div>
         </div>
 
         <div v-if="!isConfirm">
@@ -172,13 +174,12 @@ label {
     font-family: Roboto, sans-serif;
     margin-bottom: 4px !important;
 }
-
 select {
+    border: 2px solid #e6e8ec;
+    border-radius: 12px;
     width: 100%;
     color: var(--primary-color);
-    background-color: var(--bg-light);
-    border: 1px solid transparent;
-    border-radius: 4px;
+    background-color: #fff;
     padding: 16px 12px;
     font-size: 14px;
     outline: none;

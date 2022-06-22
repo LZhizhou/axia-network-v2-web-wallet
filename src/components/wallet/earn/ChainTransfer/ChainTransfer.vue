@@ -96,21 +96,27 @@
                 </div>
             </div>
             <div class="right_col">
-                <ChainCard :chain="sourceChain"></ChainCard>
-                <ChainCard :chain="targetChain" :is-source="false"></ChainCard>
-                <TxStateCard
-                    :state="exportState"
-                    :status="exportStatus"
-                    :reason="exportReason"
-                    :tx-id="exportId"
-                ></TxStateCard>
-                <TxStateCard
-                    :state="importState"
-                    :status="importStatus"
-                    :reason="importReason"
-                    :tx-id="importId"
-                    :is-export="false"
-                ></TxStateCard>
+                <div class="details">
+                    <ChainCard :chain="sourceChain"></ChainCard>
+                    <TxStateCard
+                        :state="exportState"
+                        :status="exportStatus"
+                        :reason="exportReason"
+                        :tx-id="exportId"
+                        class="right-item"
+                    ></TxStateCard>
+                </div>
+                <div class="details" :style="{ background: '#F0FAF7' }">
+                    <ChainCard :chain="targetChain"></ChainCard>
+                    <TxStateCard
+                        :state="importState"
+                        :status="importStatus"
+                        :reason="importReason"
+                        :tx-id="importId"
+                        :is-export="false"
+                        class="right-item"
+                    ></TxStateCard>
+                </div>
             </div>
         </div>
     </div>
@@ -574,13 +580,17 @@ export default class ChainTransfer extends Vue {
     display: grid;
     grid-template-columns: max-content 1fr;
     column-gap: 5vw;
+    background-color: #fff !important;
+    box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+    padding: 10px 25px;
+    border-radius: 20px;
 }
 
 .right_col {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: repeat(2, 1fr);
     column-gap: 14px;
-    row-gap: 2px;
+    row-gap: 10px;
     padding-top: 14px;
     height: max-content;
     //height: 100%;
@@ -593,6 +603,18 @@ export default class ChainTransfer extends Vue {
     }
 }
 
+.details {
+    background: #f4f5f6;
+    border-radius: 12px;
+    display: flex;
+    color: black !important;
+}
+
+.right-item {
+    margin-left: 20%;
+    border-left: 1px solid;
+    padding-left: 10%;
+}
 .form {
     max-width: 100%;
     width: 360px;

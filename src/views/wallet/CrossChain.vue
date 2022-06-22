@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="cross-chain">
         <div class="head">
             <h1>{{ $t('cross_chain.title') }}</h1>
             <p>
@@ -30,5 +30,9 @@ h1 {
     //display: flex;
     //align-items: center;
     //justify-content: space-between;
+}
+.cross-chain {
+    background-color: #f8f9fa !important;
+    box-shadow: none !important;
 }
 </style>
