@@ -2,8 +2,8 @@
     <Modal title="Wallet UTXO Breakdown" ref="modal">
         <div class="utxos_breakdown_body">
             <div class="tabs">
-                <button @click="setChain('X')" :active="chain === 'X'">AssetChain</button>
-                <button @click="setChain('P')" :active="chain === 'P'">CoreChain</button>
+                <button @click="setChain('Swap')" :active="chain === 'Swap'">SwapChain</button>
+                <button @click="setChain('Core')" :active="chain === 'Core'">CoreChain</button>
             </div>
             <div class="scrollable">
                 <div style="height: 90px">
@@ -24,13 +24,13 @@
                                 v-for="utxo in avmUTXOs"
                                 :key="utxo.getUTXOID()"
                                 :utxo="utxo"
-                                v-show="chain === 'X'"
+                                v-show="chain === 'Swap'"
                             ></UTXORow>
                             <UTXORow
                                 v-for="utxo in platformUTXOs"
                                 :key="utxo.getUTXOID()"
                                 :utxo="utxo"
-                                v-show="chain === 'P'"
+                                v-show="chain === 'Core'"
                                 :is-x="false"
                             ></UTXORow>
                             <tr v-if="isEmpty" class="empty_row">
@@ -65,7 +65,7 @@ import UTXORow from '@/components/modals/UtxosBreakdown/AVMUTXORow.vue'
     components: { UTXORow, Modal },
 })
 export default class UtxosBreakdownModal extends Vue {
-    chain = 'X'
+    chain = 'Swap'
 
     $refs!: {
         modal: Modal
@@ -99,7 +99,7 @@ export default class UtxosBreakdownModal extends Vue {
     }
 
     get isEmpty() {
-        if (this.chain === 'X') {
+        if (this.chain === 'Swap') {
             return this.avmUTXOs.length === 0
         } else {
             return this.platformUTXOs.length === 0

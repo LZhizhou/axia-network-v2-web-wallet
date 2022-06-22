@@ -10,12 +10,12 @@ let ip: string = 'bootstrap.ava.network'
 let port: number = 21000
 let protocol: string = 'https'
 let network_id: number = 2
-let chain_id: string = 'X'
+let chain_id: string = 'Swap'
 let bintools: BinTools = BinTools.getInstance()
 let axia: Axia = new Axia(ip, port, protocol, network_id, chain_id)
 
-let avm: AVMAPI = axia.AssetChain()
-let appChain: EVMAPI = axia.AppChain()
+let avm: AVMAPI = axia.SwapChain()
+let axChain: EVMAPI = axia.AXChain()
 let coreChain = axia.CoreChain()
 let infoApi: InfoAPI = axia.Info()
 let keyChain: AVMKeyChain = avm.keyChain()
@@ -29,4 +29,4 @@ function isValidAddress(addr: string) {
     }
 }
 
-export { axia, avm, coreChain, appChain, infoApi, bintools, isValidAddress, keyChain }
+export { axia, avm, coreChain, axChain, infoApi, bintools, isValidAddress, keyChain }

@@ -38,9 +38,9 @@ export interface IIndexKeyCache {
     [index: number]: AVMKeyPair
 }
 
-export type ChainAlias = 'X' | 'P'
-export type AvmImportChainType = 'P' | 'C'
-export type AvmExportChainType = 'P' | 'C'
+export type ChainAlias = 'Swap' | 'Core'
+export type AvmImportChainType = 'Core' | 'AX'
+export type AvmExportChainType = 'Core' | 'AX'
 
 export type WalletNameType = 'mnemonic' | 'ledger' | 'singleton'
 export type WalletType = MnemonicWallet | LedgerWallet | SingletonWallet
@@ -53,7 +53,7 @@ interface IAddressManager {
     getDerivedAddresses(): string[]
     getDerivedAddressesP(): string[]
     getAllDerivedExternalAddresses(): string[]
-    getAllAddressesX(): string[] // returns all addresses this wallet own on the AssetChain
+    getAllAddressesX(): string[] // returns all addresses this wallet own on the SwapChain
     getAllAddressesP(): string[] // returns all addresses this wallet own on the CoreChain
     getHistoryAddresses(): string[]
     getPlatformRewardAddress(): string
@@ -115,13 +115,13 @@ export interface AvaWalletCore extends IAddressManager {
         utxos?: PlatformUTXO[]
     ): Promise<string>
     // chainTransfer(amt: BN, sourceChain: ChainIdType, destinationChain: ChainIdType): Promise<string>
-    exportFromAssetChain(amt: BN, destinationChain: ExportChainsX): Promise<string>
+    exportFromSwapChain(amt: BN, destinationChain: ExportChainsX): Promise<string>
     exportFromCoreChain(amt: BN, destinationChain: ExportChainsP): Promise<string>
-    exportFromAppChain(amt: BN, destinationChain: ExportChainsC, baseFee: BN): Promise<string>
+    exportFromAXChain(amt: BN, destinationChain: ExportChainsC, baseFee: BN): Promise<string>
 
     importToPlatformChain(sourceChain: ExportChainsP): Promise<string>
-    importToAssetChain(sourceChain: ExportChainsX): Promise<string>
-    importToAppChain(sourceChain: ExportChainsC, baseFee: BN, utxoSet?: EVMUTXOSet): Promise<string>
+    importToSwapChain(sourceChain: ExportChainsX): Promise<string>
+    importToAXChain(sourceChain: ExportChainsC, baseFee: BN, utxoSet?: EVMUTXOSet): Promise<string>
     issueBatchTx(orders: (AVMUTXO | ITransaction)[], addr: string, memo?: Buffer): Promise<string>
     signMessage(msg: string, address: string): Promise<string>
 }

@@ -177,8 +177,8 @@
         "subtitle2": "Delegovat",
         "subtitle3": "Křížový řetězový převod",
         "subtitle4": "Odhadované odměny",
-        "warning_1": "Abyste se stali validátorem, musíte mít alespoň {0} AXC na řetězci P.",
-        "warning_2": "Abyste se stali delegátorem, musíte mít alespoň {0} AXC na řetězci P.",
+        "warning_1": "Abyste se stali validátorem, musíte mít alespoň {0} AXC na řetězci Core.",
+        "warning_2": "Abyste se stali delegátorem, musíte mít alespoň {0} AXC na řetězci Core.",
         "validate_card": {
             "title": "Validovat",
             "desc": "Máte uzel Axia, s kterým chcete vsazovat.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Křížový řetězový převod",
-            "desc": "Vsazování vyžaduje AXC na řetězci P. Převeďte tokeny mezi X a P.",
+            "desc": "Vsazování vyžaduje AXC na řetězci Core. Převeďte tokeny mezi Swap a Core.",
             "submit": "Převod"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "Čas začátku musí být pozdější než aktuální čas.",
                 "start_end": "Datum začátku musí být v budoucnu a datum konce musí být pozdější než datum začátku.",
-                "invalid_addr": "Neplatný formát adresy. Vaše adresa musí začínat na „P-“",
+                "invalid_addr": "Neplatný formát adresy. Vaše adresa musí začínat na „Core-“",
                 "no_addr": "Chcete-li dostávat delegační odměny, musíte zadat adresu.",
                 "min_dur": "Minimální doba trvání vsazení je 2 týdny.",
                 "max_dur": "Maximální doba trvání vsazení je 1 rok.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Import řetězce",
             "desc": "Jestliže máte prostředky uvízlé v nezdařené řetězcové transakci, můžete jejich import dokončit zde.",
-            "submit_x": "Import X",
-            "submit_p": "Import P"
+            "submit_x": "Import Swap",
+            "submit_p": "Import Core"
         }
     },
     "logout": {

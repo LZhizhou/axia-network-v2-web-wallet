@@ -32,7 +32,12 @@
                     <div class="asset add_token_row">
                         <button @click="addToken">Add Token</button>
                         <span>or</span>
-                        <button @click="addTokenList">Add Token List</button>
+                        <button
+                            :style="{ background: '#178FE1', color: '#fff' }"
+                            @click="addTokenList"
+                        >
+                            Add Token List
+                        </button>
                     </div>
                 </div>
             </div>

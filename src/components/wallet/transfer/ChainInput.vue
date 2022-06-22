@@ -1,9 +1,11 @@
 <template>
     <div v-if="isEVMSupported">
-        <label>{{ $t('transfer.source_chain.title') }}</label>
+        <label :style="{ fontSize: '25px', fontWeight: '600', color: 'black' }">
+            {{ $t('transfer.source_chain.title') }}
+        </label>
         <div class="chain_select">
-            <button :active="formType === 'X'" @click="set('X')">X</button>
-            <button :active="formType === 'C'" @click="set('C')">C</button>
+            <button :active="formType === 'Swap'" @click="set('Swap')">Swap</button>
+            <button :active="formType === 'AX'" @click="set('AX')">AX</button>
         </div>
     </div>
 </template>
@@ -38,28 +40,33 @@ label {
 }
 .chain_select {
     display: flex;
+    border: 1px solid #9ccded;
+    border-radius: 50px;
     width: max-content;
     > button {
         //border: 1px solid var(--primary-color);
         //margin-right: 14px;
         padding-right: 14px;
-        opacity: 0.2;
+        opacity: 0.9;
         transition-duration: 0.1s;
         cursor: pointer;
-        color: var(--primary-color);
+        color: #9ccded;
         //background-color: var(--bg-light);
         display: flex;
         align-items: center;
-        font-size: 28px;
+        font-size: 16px;
+        margin: 5px;
 
         &:hover {
             opacity: 1;
         }
         &[active] {
-            //background-color: var(--secondary-color);
-            color: var(--secondary-color);
-            //border-color: var(--primary-color-light);
+            background: #178fe1;
+            border-radius: 20px;
             opacity: 1;
+            color: #fff;
+            margin: 5px;
+            padding: 0 20px;
         }
     }
 }

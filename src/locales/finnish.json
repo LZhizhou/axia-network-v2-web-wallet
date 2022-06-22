@@ -177,8 +177,8 @@
         "subtitle2": "Delegoi",
         "subtitle3": "Cross Chain-Siirto",
         "subtitle4": "Arvioidut Palkkiot",
-        "warning_1": "Sinulla on oltava vähintään {0} AXCIA P-ketjussa, jotta voit tulla vahvistajaksi.",
-        "warning_2": "Sinulla on oltava vähintään {0} AXCIA P-ketjussa, jotta voit tulla delegoijaksi.",
+        "warning_1": "Sinulla on oltava vähintään {0} AXCIA Core-ketjussa, jotta voit tulla vahvistajaksi.",
+        "warning_2": "Sinulla on oltava vähintään {0} AXCIA Core-ketjussa, jotta voit tulla delegoijaksi.",
         "validate_card": {
             "title": "Vahvista",
             "desc": "Sinulla on Axia-node, johon haluat panostaa.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Cross Chain-Siirto",
-            "desc": "Panostaminen vaatii AXCIN P-ketjussa. Siirrä rahakkeita X:n ja P:n välillä.",
+            "desc": "Panostaminen vaatii AXCIN Core-ketjussa. Siirrä rahakkeita Swap:n ja Core:n välillä.",
             "submit": "Siirrä"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "Aloitusajan on oltava nykyisen ajan jälkeen.",
                 "start_end": "Aloituspäivän on oltava tulevaisuudessa ja lopetuspäivän on oltava alkamispäivän jälkeen.",
-                "invalid_addr": "Virheellinen osoitemuoto. Osoitteesi on aloitettava kirjaimella \"P-\"",
+                "invalid_addr": "Virheellinen osoitemuoto. Osoitteesi on aloitettava kirjaimella \"Core-\"",
                 "no_addr": "Sinun on annettava osoite saadaksesi delegointipalkintoja.",
                 "min_dur": "Pienin panostuksen kesto on 2 viikkoa.",
                 "max_dur": "Suurin panostuksen kesto on 1 vuosi.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Ketjutuonti",
             "desc": "Jos varojasi on jumissa epäonnistuneessa ketjunsiirrossa, voit lopettaa niiden tuomisen täältä.",
-            "submit_x": "Tuo X",
-            "submit_p": "Tuo P"
+            "submit_x": "Tuo Swap",
+            "submit_p": "Tuo Core"
         }
     },
     "logout": {

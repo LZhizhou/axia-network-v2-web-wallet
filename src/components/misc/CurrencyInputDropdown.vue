@@ -192,7 +192,6 @@ export default class CurrencyInputDropdown extends Vue {
         // Max amount is BALANCE - FEE for AXC
         if (assetId === axcId) {
             let fee = avm.getTxFee()
-            // console.log(fee);
             if (fee.gte(balance.amount)) {
                 return new BN(0)
             } else {

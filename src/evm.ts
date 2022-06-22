@@ -8,7 +8,7 @@ const abiDecoder = require('abi-decoder') // NodeJS
 abiDecoder.addABI(ERC721Abi.abi)
 abiDecoder.addABI(ERC20Abi.abi)
 
-let rpcUrl = `http://18.222.205.99:9650/ext/bc/C/rpc`
+let rpcUrl = `http://rpc-v2.canarytest.axiacoin.network/ext/bc/AX/rpc`
 
 let web3 = new Web3(rpcUrl)
 

@@ -80,7 +80,7 @@
     "top": {
         "title1": "Indirizzo del Wallet Axia derivato",
         "title2": "Saldo",
-        "title3": "Subnet",
+        "title3": "Allychain",
         "title4": "Rete",
         "nftcol": "NFT",
         "nftempty": "Non hai ancora collezionato alcun token non fungibile.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Trasferimento tra chain",
-            "desc": "Per lo staking è necessario avere AXC sulla CoreChain. Trasferisci token tra X e P.",
+            "desc": "Per lo staking è necessario avere AXC sulla CoreChain. Trasferisci token tra Swap e Core.",
             "submit": "Trasferimento"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "L'ora di inizio deve essere successiva all'ora corrente.",
                 "start_end": "La data di inizio deve essere futura e la data di fine deve essere successiva alla data di inizio.",
-                "invalid_addr": "Formato dell'indirizzo non valido. Il tuo indirizzo deve iniziare con \"P-\"",
+                "invalid_addr": "Formato dell'indirizzo non valido. Il tuo indirizzo deve iniziare con \"Core-\"",
                 "no_addr": "Devi fornire un indirizzo per ricevere le ricompense della delega.",
                 "min_dur": "La durata minima dello staking è di 2 settimane.",
                 "max_dur": "La durata massima dello staking è di 1 anno.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Importazione della chain",
             "desc": "Se hai dei fondi bloccati in un trasferimento tra chain fallito, puoi completare l'importazione qui.",
-            "submit_x": "Importa X",
-            "submit_p": "Importa P"
+            "submit_x": "Importa Swap",
+            "submit_p": "Importa Core"
         }
     },
     "logout": {
@@ -413,7 +413,7 @@
         },
         "activateWallet": {
             "title": "Attiva il wallet",
-            "desc": "C'è un wallet attivo. Inserisci la tua password per accedere.",
+            "desc": "AX'è un wallet attivo. Inserisci la tua password per accedere.",
             "submit": "Accedi al wallet",
             "cancel": "Accedi ad un altro wallet",
             "cancel2": "(Il wallet precedente verrà dimenticato.)",

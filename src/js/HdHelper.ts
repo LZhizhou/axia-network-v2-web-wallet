@@ -6,7 +6,7 @@ import {
 
 import { UTXOSet as PlatformUTXOSet } from '@zee-ava/avajs/dist/apis/platformvm'
 import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
-import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
+import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import HDKey from 'hdkey'
 import { Buffer } from '@zee-ava/avajs'
 import {
@@ -48,7 +48,7 @@ class HdHelper {
     constructor(
         changePath: string,
         masterKey: HDKey,
-        chainId: ChainAlias = 'X',
+        chainId: ChainAlias = 'Swap',
         isPublic: boolean = false
     ) {
         this.changePath = changePath
@@ -57,7 +57,7 @@ class HdHelper {
 
         this.chainId = chainId
         let hrp = getPreferredHRP(axia.getNetworkID())
-        if (chainId === 'X') {
+        if (chainId === 'Swap') {
             this.keyChain = new AVMKeyChain(hrp, chainId)
             this.utxoSet = new AVMUTXOSet()
         } else {
@@ -84,7 +84,7 @@ class HdHelper {
         this.clearCache()
         this.isInit = false
         let hrp = getPreferredHRP(axia.getNetworkID())
-        if (this.chainId === 'X') {
+        if (this.chainId === 'Swap') {
             this.keyChain = new AVMKeyChain(hrp, this.chainId)
             this.utxoSet = new AVMUTXOSet()
         } else {
@@ -101,7 +101,7 @@ class HdHelper {
         let newIndex: number = this.hdIndex + 1
 
         if (!this.isPublic) {
-            if (this.chainId === 'X') {
+            if (this.chainId === 'Swap') {
                 let keychain = this.keyChain as AVMKeyChain
                 let newKey = this.getKeyForIndex(newIndex) as AVMKeyPair
                 keychain.addKey(newKey)
@@ -151,7 +151,7 @@ class HdHelper {
         let addrs: string[] = this.getAllDerivedAddresses()
         let result: AVMUTXOSet | PlatformUTXOSet
 
-        if (this.chainId === 'X') {
+        if (this.chainId === 'Swap') {
             result = await avmGetAllUTXOs(addrs)
         } else {
             result = await platformGetAllUTXOs(addrs)
@@ -186,7 +186,7 @@ class HdHelper {
         let hrp = getPreferredHRP(axia.getNetworkID())
         let keychain: AVMKeyChain | PlatformVMKeyChain
 
-        if (this.chainId === 'X') {
+        if (this.chainId === 'Swap') {
             keychain = new AVMKeyChain(hrp, this.chainId)
         } else {
             keychain = new PlatformVMKeyChain(hrp, this.chainId)
@@ -194,7 +194,7 @@ class HdHelper {
 
         for (let i: number = 0; i <= this.hdIndex; i++) {
             let key: AVMKeyPair | PlatformVMKeyPair
-            if (this.chainId === 'X') {
+            if (this.chainId === 'Swap') {
                 key = this.getKeyForIndex(i) as AVMKeyPair
                 ;(keychain as AVMKeyChain).addKey(key)
             } else {
@@ -214,7 +214,7 @@ class HdHelper {
     getAllDerivedKeys(upTo = this.hdIndex): AVMKeyPair[] | PlatformVMKeyPair[] {
         let set: AVMKeyPair[] | PlatformVMKeyPair[] = []
         for (var i = 0; i <= upTo; i++) {
-            if (this.chainId === 'X') {
+            if (this.chainId === 'Swap') {
                 let key = this.getKeyForIndex(i) as AVMKeyPair
                 ;(set as AVMKeyPair[]).push(key)
             } else {
@@ -248,7 +248,7 @@ class HdHelper {
         let addrChains = await getAddressChains(addrs)
 
         let chainID
-        if (this.chainId === 'X') {
+        if (this.chainId === 'Swap') {
             chainID = avm.getBlockchainID()
         } else {
             chainID = coreChain.getBlockchainID()
@@ -297,7 +297,7 @@ class HdHelper {
 
         let utxoSet
 
-        if (this.chainId === 'X') {
+        if (this.chainId === 'Swap') {
             utxoSet = (await avm.getUTXOs(addrs)).utxos
         } else {
             utxoSet = (await coreChain.getUTXOs(addrs)).utxos
@@ -364,7 +364,7 @@ class HdHelper {
         // If key is cached return that
         let cacheExternal: AVMKeyPair | PlatformVMKeyPair
 
-        if (this.chainId === 'X') {
+        if (this.chainId === 'Swap') {
             cacheExternal = this.keyCache[index] as AVMKeyPair
         } else {
             cacheExternal = this.keyCache[index] as PlatformVMKeyPair

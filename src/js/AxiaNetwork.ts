@@ -30,7 +30,7 @@ class AxiaNetwork {
         this.explorerUrl = explorerUrl
         this.explorerSiteUrl = explorerSiteUrl
         this.protocol = 'http'
-        this.port = 9650
+        this.port = 80
         this.ip = 'localhost'
         this.url = url
         this.updateURL(url)
@@ -108,12 +108,12 @@ class AxiaNetwork {
 
     getWsUrlX(): string {
         let protocol = this.protocol === 'https' ? 'wss' : 'ws'
-        return `${protocol}://${this.ip}:${this.port}/ext/bc/X/events`
+        return `${protocol}://${this.ip}:${this.port}/ext/bc/Swap/events`
     }
 
     getWsUrlC(): string {
         let protocol = this.protocol === 'https' ? 'wss' : 'ws'
-        return `${protocol}://${this.ip}:${this.port}/ext/bc/C/ws`
+        return `${protocol}://${this.ip}:${this.port}/ext/bc/AX/ws`
     }
 }
 

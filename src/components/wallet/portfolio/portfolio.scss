@@ -11,11 +11,10 @@
   }
 
   button {
-    border: 1px solid var(--primary-color-light);
-    border-radius: 22px;
+    border: 2px solid #178FE1;
+    border-radius: 12px;
     padding: 8px 24px;
-    border-color: var(--secondary-color);
-    color: var(--secondary-color);
+    color: #178FE1;
     &:hover {
       opacity: 0.6;
       //border-color: var(--secondary-color);

@@ -5,7 +5,7 @@
     "address": "Address",
     "add_pk": "Add Private Key",
     "home": {
-        "desc": "Axwallet is a simple, secure, non-custodial wallet for storing Axia assets.",
+        "desc": "AXIA wallet is a simple, secure, non-custodial wallet for storing Axia assets.",
         "access": {
             "title": "Welcome Back!",
             "desc": "Access your existing AXIA wallet here.",
@@ -83,13 +83,13 @@
         "submit": "Generate Key Phrase",
         "cancel": "Cancel",
         "mnemonic_title": "This is your key phrase.",
-        "mnemonic_desc": "Use these 24 words in sequential order to recover your Axwallet",
+        "mnemonic_desc": "Use these 24 words in sequential order to recover your AXIA wallet",
         "attention": "Attention!",
-        "warning": "Store this key phrase in a secure location. Anyone with this key phrase can access your Axwallet. There is no way to recover lost key phrases.",
+        "warning": "Store this key phrase in a secure location. Anyone with this key phrase can access your AXIA wallet. There is no way to recover lost key phrases.",
         "confirm": "I wrote down my key phrase in a secure location.",
         "regenerate": "Regenerate",
         "success_title": "Congratulations!",
-        "success_desc": "It's time to access your Axwallet.",
+        "success_desc": "It's time to access your AXIA wallet.",
         "success_submit": "Access Wallet",
         "verify": "Verify",
         "verifytitle": "Verify Mnemonic",
@@ -98,9 +98,9 @@
         "error_word": "The mnemonic phrase you entered for word not match the actual phrase."
     },
     "top": {
-        "title1": "Derived Axwallet Address",
+        "title1": "Derived AXIA wallet Address",
         "title2": "Balance",
-        "title3": "Subnet",
+        "title3": "Allychain",
         "title4": "Network",
         "nftcol": "NFTs",
         "nftempty": "You have not collected any non fungible tokens.",
@@ -121,14 +121,14 @@
             "collectibles": "Collectibles"
         },
         "address": {
-            "derived": "Derived Axwallet Address",
+            "derived": "Derived AXIA wallet Address",
             "title_x": "Derived Wallet Address",
             "title_p": "Derived Platform Wallet Address",
             "title_c": "Derived EVM Wallet Address",
-            "desc_x_1": "This is your AssetChain address to receive funds.",
+            "desc_x_1": "This is your SwapChain address to receive funds.",
             "desc_x_2": "Your address will change after every deposit. You can keep using previous addresses.",
             "desc_p": "This is your CoreChain address to receive staking rewards and cross chain transfers.",
-            "desc_c": "This is your AppChain address. Use it to interact with the ethereum virtual machine."
+            "desc_c": "This is your AXChain address. Use it to interact with the ethereum virtual machine."
         }
     },
     "transfer": {
@@ -145,7 +145,7 @@
         "summary": "Transaction Summary",
         "total": "Total",
         "total_axc": "Total AXC",
-        "chain_warn": "You can only send tokens on the AssetChain.",
+        "chain_warn": "You can only send tokens on the SwapChain.",
         "disconnected": "Unable to send assets. Disconnected from the network.",
         "success_title": "Transaction Sent",
         "success_msg": "You have succesfully sent your transaction.",
@@ -172,7 +172,7 @@
     },
     "cross_chain": {
         "title": "Cross Chain",
-        "desc": "Transfer tokens between Exchange (X) , Platform (P) and Contract (C) chains.",
+        "desc": "Transfer tokens between Exchange (Swap) , Platform (Core) and Contract (AX) chains.",
         "card": {
             "source": "Source",
             "destination": "Destination",
@@ -317,7 +317,7 @@
         "import_mnemonic_err": "Invalid key phrase.",
         "tooltip": "This key will be forgotten when you refresh the browser.",
         "view_priv_key": "View Private Key",
-        "view_priv_key_c": "View AppChain Private Key",
+        "view_priv_key_c": "View AXChain Private Key",
         "view_key": "View Key Phrase",
         "export_key": "Export Key",
         "hd_addresses": "HD Addresses",
@@ -373,7 +373,7 @@
         },
         "transfer_card": {
             "title": "Cross Chain Transfer",
-            "desc": "Staking requires AXC on the CoreChain. Transfer tokens between X and P.",
+            "desc": "Staking requires AXC on the CoreChain. Transfer tokens between Swap and Core.",
             "submit": "Transfer"
         },
         "rewards_card": {
@@ -418,7 +418,7 @@
         },
         "shared": {
             "utxo_select": {
-                "available": "Available Balance (P)",
+                "available": "Available Balance (Core)",
                 "all": "All",
                 "custom": "Custom",
                 "select": "Select UTXOs",
@@ -584,10 +584,10 @@
         "import": {
             "title": "Chain Import",
             "desc": "If you have funds stuck in a failed chain transfer, you can finish importing them here.",
-            "submit_x": "Import X (From CoreChain)",
-            "submit_c_x": "Import X (From AppChain)",
-            "submit_p": "Import P",
-            "submit_c": "Import C"
+            "submit_x": "Import Swap (From CoreChain)",
+            "submit_c_x": "Import Swap (From AXChain)",
+            "submit_p": "Import Core",
+            "submit_c": "Import AX"
         },
         "sign": {
             "title": "Sign Message",

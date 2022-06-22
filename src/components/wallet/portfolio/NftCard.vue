@@ -75,7 +75,7 @@ export default class NftCard extends Vue {
             path: '/wallet/transfer',
             query: {
                 nft: utxoId,
-                chain: 'X',
+                chain: 'Swap',
             },
         })
     }

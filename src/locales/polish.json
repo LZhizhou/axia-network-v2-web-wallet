@@ -177,8 +177,8 @@
         "subtitle2": "Delegat",
         "subtitle3": "Transfer krzyżowy",
         "subtitle4": "Szacowane nagrody",
-        "warning_1": "Aby zostać walidatorem, musisz mieć co najmniej {0} AXC w łańcuchu P.",
-        "warning_2": "Aby zostać delegatem, musisz mieć co najmniej {0} AXC w łańcuchu P.",
+        "warning_1": "Aby zostać walidatorem, musisz mieć co najmniej {0} AXC w łańcuchu Core.",
+        "warning_2": "Aby zostać delegatem, musisz mieć co najmniej {0} AXC w łańcuchu Core.",
         "validate_card": {
             "title": "Waliduj",
             "desc": "Masz węzeł Axia, z którym chcesz postawić.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Transfer krzyżowy",
-            "desc": "Staking wymaga AXC w łańcuchu P. Przenieś tokeny między X i P.",
+            "desc": "Staking wymaga AXC w łańcuchu Core. Przenieś tokeny między Swap i Core.",
             "submit": "Transfer"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "Czas rozpoczęcia musi być późniejszy niż aktualny czas.",
                 "start_end": "Data rozpoczęcia musi przypadać w przyszłości, a data zakończenia musi być późniejsza niż data rozpoczęcia.",
-                "invalid_addr": "Nieprawidłowy format adresu. Twój adres musi zaczynać się od „P-”",
+                "invalid_addr": "Nieprawidłowy format adresu. Twój adres musi zaczynać się od „Core-”",
                 "no_addr": "Musisz podać adres, aby otrzymać nagrody delegacji.",
                 "min_dur": "Minimalny okres obstawiania to 2 tygodnie.",
                 "max_dur": "Maksymalny okres obstawiania to 1 rok.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Import łańcuchowy",
             "desc": "Jeśli środki utknęły w nieudanym przelewie łańcuchowym, możesz dokończyć ich importowanie tutaj.",
-            "submit_x": "Import X",
-            "submit_p": "Import P"
+            "submit_x": "Import Swap",
+            "submit_p": "Import Core"
         }
     },
     "logout": {

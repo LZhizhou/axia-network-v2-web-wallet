@@ -6,7 +6,7 @@
                 <!-- <div class="refresh">
                     <Spinner v-if="isUpdateBalance" class="spinner"></Spinner>
                     <button v-else @click="updateBalance">
-                        <fa icon="sync"></fa>
+                        <img src="@/assets/balance_sync.png" />
                     </button>
                 </div> -->
                 <h4>{{ $t('top.title2') }}</h4>
@@ -38,7 +38,7 @@
                         <b>$ {{ totalBalanceUSDText }}</b>
                         USD
                     </p>
-                    <p class="balance_usd" style="background-color: transparent">
+                    <p class="balance_usd" style="background-color: #e6e8ec">
                         <b>1 AXC</b>
                         =
                         <b>${{ axcPriceText }}</b>
@@ -50,48 +50,54 @@
             <div class="alt_info">
                 <div class="alt_non_breakdown" v-if="!isBreakdown">
                     <div>
-                        <label>{{ $t('top.balance.available') }}</label>
                         <p>{{ unlockedText }} AXC</p>
+                        <label>{{ $t('top.balance.available') }}</label>
                     </div>
                     <div v-if="hasLocked">
-                        <label>{{ $t('top.locked') }}</label>
                         <p>{{ balanceTextLocked }} AXC</p>
+                        <label>{{ $t('top.locked') }}</label>
                     </div>
                     <div v-if="hasMultisig">
-                        <label>Multisig</label>
                         <p>{{ balanceTextMultisig }} AXC</p>
+                        <label>Multisig</label>
                     </div>
                     <div>
-                        <label>{{ $t('top.balance.stake') }}</label>
                         <p>{{ stakingText }} AXC</p>
+                        <label>{{ $t('top.balance.stake') }}</label>
                     </div>
                 </div>
                 <div class="alt_breakdown" v-else>
                     <div>
-                        <label>{{ $t('top.balance.available') }} (X)</label>
                         <p>{{ avmUnlocked | cleanAxcBN }} AXC</p>
-                        <label>{{ $t('top.balance.available') }} (P)</label>
-                        <p>{{ platformUnlocked | cleanAxcBN }} AXC</p>
-                        <label>{{ $t('top.balance.available') }} (C)</label>
-                        <p>{{ evmUnlocked | cleanAxcBN }} AXC</p>
-                    </div>
-                    <div v-if="hasLocked">
-                        <label>{{ $t('top.balance.locked') }} (X)</label>
-                        <p>{{ avmLocked | cleanAxcBN }} AXC</p>
-                        <label>{{ $t('top.balance.locked') }} (P)</label>
-                        <p>{{ platformLocked | cleanAxcBN }} AXC</p>
-                        <label>{{ $t('top.balance.locked_stake') }} (P)</label>
-                        <p>{{ platformLockedStakeable | cleanAxcBN }} AXC</p>
-                    </div>
-                    <div v-if="hasMultisig">
-                        <label>Multisig (X)</label>
-                        <p>{{ avmMultisig | cleanAxcBN }} AXC</p>
-                        <label>Multisig (P)</label>
-                        <p>{{ platformMultisig | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.available') }} (Swap)</label>
                     </div>
                     <div>
-                        <label>{{ $t('top.balance.stake') }}</label>
+                        <p>{{ platformUnlocked | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.available') }} (Core)</label>
+                    </div>
+                    <div>
+                        <p>{{ evmUnlocked | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.available') }} (AX)</label>
+                    </div>
+                    <div v-if="hasLocked">
+                        <p>{{ avmLocked | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.locked') }} (Swap)</label>
+
+                        <p>{{ platformLocked | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.locked') }} (Core)</label>
+
+                        <p>{{ platformLockedStakeable | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.locked_stake') }} (Core)</label>
+                    </div>
+                    <div v-if="hasMultisig">
+                        <p>{{ avmMultisig | cleanAxcBN }} AXC</p>
+                        <label>Multisig (Swap)</label>
+                        <p>{{ platformMultisig | cleanAxcBN }} AXC</p>
+                        <label>Multisig (Core)</label>
+                    </div>
+                    <div>
                         <p>{{ stakingText }} AXC</p>
+                        <label>{{ $t('top.balance.stake') }}</label>
                     </div>
                 </div>
             </div>
@@ -203,7 +209,7 @@ export default class BalanceCard extends Vue {
         if (this.isUpdateBalance) return '--'
         return this.totalBalanceUSD.toLocaleString(2)
     }
-    // should be unlocked (X+P), locked (X+P) and staked and lockedStakeable
+    // should be unlocked (Swap+Core), locked (Swap+Core) and staked and lockedStakeable
     get balanceText(): string {
         if (this.axia_asset !== null) {
             let denom = this.axia_asset.denomination
@@ -233,7 +239,7 @@ export default class BalanceCard extends Vue {
         return ''
     }
 
-    // Locked balance is the sum of locked AXC tokens on X and CoreChain
+    // Locked balance is the sum of locked AXC tokens on Swap and CoreChain
     get balanceTextLocked(): string {
         if (this.isUpdateBalance) return '--'
 
@@ -374,18 +380,26 @@ export default class BalanceCard extends Vue {
 @use '../../../../main';
 .balance_card {
     display: grid;
-    grid-template-columns: 1fr 230px;
+    grid-template-columns: 1fr 1fr;
     column-gap: 20px;
+    background-color: #f5f6fa;
 }
 
 .nft_card {
     border-left: 2px solid var(--bg-light);
+    background-color: #fff;
+    box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+    border-radius: 12px;
 }
 .fungible_card {
     height: 100%;
+    padding: 15px;
     display: grid !important;
     grid-template-rows: max-content 1fr max-content;
     flex-direction: column;
+    box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+    background-color: #fff;
+    border-radius: 12px;
 }
 
 .where_info {
@@ -427,12 +441,13 @@ h4 {
 
 .balance_usd {
     width: max-content;
-    background: var(--bg-light);
     color: var(--primary-color-light);
     font-size: 13px;
     padding: 1px 6px;
     border-radius: 3px;
     margin-right: 6px !important;
+    background: #e9f6ff;
+    border-radius: 41px;
 }
 
 .refresh {
@@ -487,14 +502,12 @@ h4 {
 }
 
 .alt_info > div {
-    display: grid;
-    grid-template-columns: repeat(4, max-content);
-    column-gap: 0px;
+    display: flex;
     margin-top: 12px;
     > div {
         position: relative;
         padding: 0 24px;
-        border-right: 2px solid var(--bg-light);
+        //border-right: 2px solid var(--bg-light);
         &:first-of-type {
             padding-left: 0;
         }

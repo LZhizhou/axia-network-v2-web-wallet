@@ -9,7 +9,7 @@
                 <label>URL</label>
                 <input
                     type="text"
-                    placeholder="http://localhost:9650"
+                    placeholder="http://localhost:80"
                     v-model="url"
                     @input="checkUrl"
                 />
@@ -59,7 +59,7 @@ export default class EditPage extends Vue {
     networkId = 12345
     explorer_api: string | undefined = ''
     explorer_site: string | undefined = ''
-    chainId = 'X'
+    chainId = 'Swap'
     err = null
     err_url = ''
 
@@ -178,7 +178,7 @@ export default class EditPage extends Vue {
 //             url: '',
 //             networkId: 12345,
 //             explorer_api: '',
-//             chainId: 'X',
+//             chainId: 'Swap',
 //             err: null,
 //             err_url: '',
 //         }

@@ -6,7 +6,7 @@
             v-if="walletType === 'mnemonic'"
             :wallet="activeWallet"
         ></paper-wallet>
-        <p class="addr_info">{{ addressMsg }}</p>
+        <ChainSelect v-model="chainNow"></ChainSelect>
         <div class="bottom">
             <div class="col_qr">
                 <canvas ref="qr"></canvas>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="bottom_tabs">
-            <ChainSelect v-model="chainNow"></ChainSelect>
+            <p class="addr_info">{{ addressMsg }}</p>
         </div>
     </div>
 </template>
@@ -80,7 +80,7 @@ import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
 export default class AddressCard extends Vue {
     colorLight: string = '#FFF'
     colorDark: string = '#242729'
-    chainNow: ChainIdType = 'X'
+    chainNow: ChainIdType = 'Swap'
 
     $refs!: {
         qr_modal: QRModal
@@ -109,9 +109,9 @@ export default class AddressCard extends Vue {
         switch (this.chainNow) {
             default:
                 return this.$t('top.address.title_x') as string
-            case 'P':
+            case 'Core':
                 return this.$t('top.address.title_p') as string
-            case 'C':
+            case 'AX':
                 return this.$t('top.address.title_c') as string
         }
     }
@@ -120,9 +120,9 @@ export default class AddressCard extends Vue {
         switch (this.chainNow) {
             default:
                 return this.getAddressMsgX()
-            case 'P':
+            case 'Core':
                 return this.$t('top.address.desc_p') as string
-            case 'C':
+            case 'AX':
                 return this.$t('top.address.desc_c') as string
         }
     }
@@ -177,11 +177,11 @@ export default class AddressCard extends Vue {
 
     get activeAddress(): string {
         switch (this.chainNow) {
-            case 'X':
+            case 'Swap':
                 return this.address
-            case 'P':
+            case 'Core':
                 return this.addressPVM
-            case 'C':
+            case 'AX':
                 return this.addressEVM
         }
         return this.address
@@ -194,9 +194,9 @@ export default class AddressCard extends Vue {
         if (walletType === 'singleton') return 0
 
         switch (this.chainNow) {
-            case 'X':
+            case 'Swap':
                 return wallet.getExternalActiveIndex()
-            case 'P':
+            case 'Core':
                 return wallet.getPlatformActiveIndex()
             default:
                 return 0
@@ -242,11 +242,11 @@ export default class AddressCard extends Vue {
         let hrp = getPreferredHRP(networkId)
 
         switch (this.chainNow) {
-            case 'X':
-            case 'P':
+            case 'Swap':
+            case 'Core':
                 wallet.app.getWalletAddress(`${AXIA_ACCOUNT_PATH}/0/${this.activeIdx}`, hrp)
                 break
-            case 'C':
+            case 'AX':
                 wallet.ethApp.getAddress(`${LEDGER_ETH_ACCOUNT_PATH}`)
         }
     }
@@ -263,6 +263,10 @@ export default class AddressCard extends Vue {
     display: flex;
     flex-direction: column;
     padding: 0 !important;
+    background-color: #fff;
+    margin: 12px;
+    box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+    border-radius: 12px;
 }
 .buts {
     width: 100%;
@@ -305,6 +309,7 @@ export default class AddressCard extends Vue {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: #e9f6ff;
 }
 .mainnet_but {
     background-image: url('/img/modal_icons/mainnet_addr.svg');
@@ -328,12 +333,14 @@ export default class AddressCard extends Vue {
 
 .addr_info {
     margin: 19px !important;
-    margin-bottom: 0 !important;
-    background-color: var(--bg-light);
-    font-size: 13px;
+    margin-bottom: 5px !important;
     font-weight: bold;
+    color: #004373;
     text-align: center;
     padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 12px;
+    background: #e9f6ff;
 }
 
 $qr_width: 110px;

@@ -66,14 +66,14 @@ export default class VerifyMessage extends Vue {
         let networkId = axia.getNetworkID()
 
         let hrp = getPreferredHRP(networkId)
-        let keypair = new KeyPair(hrp, 'X')
+        let keypair = new KeyPair(hrp, 'Swap')
 
         let signedBuff = bintools.cb58Decode(this.signature)
 
         let pubKey = keypair.recover(digestBuff, signedBuff)
         let addressBuff = KeyPair.addressFromPublicKey(pubKey)
-        this.addressX = bintools.addressToString(hrp, 'X', addressBuff)
-        this.addressP = bintools.addressToString(hrp, 'P', addressBuff)
+        this.addressX = bintools.addressToString(hrp, 'Swap', addressBuff)
+        this.addressP = bintools.addressToString(hrp, 'Core', addressBuff)
     }
 
     clear() {

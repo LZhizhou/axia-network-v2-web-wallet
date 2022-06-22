@@ -5,7 +5,7 @@
     "address": "Adres",
     "add_pk": "Privé code toevoegen",
     "home": {
-        "desc": "Axwallet is een eenvoudige en veilige portomonnee zonder bewaarneming voor het opbergen van activa van Axia.",
+        "desc": "AXIA wallet is een eenvoudige en veilige portomonnee zonder bewaarneming voor het opbergen van activa van Axia.",
         "access": {
             "title": "Welkom terug!",
             "desc": "\"Open\" hier uw bestaande Axia-portemonnee.",
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Genereer een nieuwe sleutelzin om uw Axwallet in te stellen.",
+        "generate": "Genereer een nieuwe sleutelzin om uw AXIA wallet in te stellen.",
         "but_have": "Heeft u al een portemonnee?",
         "submit": "Genereer een sleutelzin",
         "cancel": "Annuleren",
         "mnemonic_title": "Dit is uw sleutelzin.",
-        "mnemonic_desc": "Gebruik deze 24 woorden op volgorde om uw Axwallet te herstellen.",
+        "mnemonic_desc": "Gebruik deze 24 woorden op volgorde om uw AXIA wallet te herstellen.",
         "attention": "Attentie!",
-        "warning": "Berg deze sleutelzin op een veilige locatie op. Iedereen met deze sleutelzin heeft toegang tot uw Axwallet. Het is niet mogelijk verloren geraakte sleutelzinnen te herstellen.",
+        "warning": "Berg deze sleutelzin op een veilige locatie op. Iedereen met deze sleutelzin heeft toegang tot uw AXIA wallet. Het is niet mogelijk verloren geraakte sleutelzinnen te herstellen.",
         "confirm": "Ik heb mijn sleutelzin op een veilige locatie opgeschreven.",
         "regenerate": "Opnieuw genereren",
         "success_title": "Gefeliciteerd!",
-        "success_desc": "Het is tijd om uw Axwallet te openen.",
+        "success_desc": "Het is tijd om uw AXIA wallet te openen.",
         "success_submit": "Portemonnee openen",
         "verify": "Verifiëren",
         "verifytitle": "Geheugensteun verifiëren",
@@ -80,7 +80,7 @@
     "top": {
         "title1": "Afgeleid adres Axia-portemonne",
         "title2": "Saldo",
-        "title3": "Subnet",
+        "title3": "Allychain",
         "title4": "Netwerk",
         "nftcol": "NFTs",
         "nftempty": "U hebt geen onvervangbare tokens verzameld.",
@@ -177,8 +177,8 @@
         "subtitle2": "Delegeren",
         "subtitle3": "Cross-keten overboeking",
         "subtitle4": "Geschatte beloningen",
-        "warning_1": "U moet ten minste {0} AXC-punten op de P-keten hebben om een validator te worden.",
-        "warning_2": "U moet ten minste {0} AXC-punten op de P-keten hebben om een delegatielid te worden.",
+        "warning_1": "U moet ten minste {0} AXC-punten op de Core-keten hebben om een validator te worden.",
+        "warning_2": "U moet ten minste {0} AXC-punten op de Core-keten hebben om een delegatielid te worden.",
         "validate_card": {
             "title": "Valideren",
             "desc": "U hebt een Axia-nodus die u wilt inzetten.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Cross-keten overboeking",
-            "desc": "Voor het inzetten is AXC op de P-keten nodig. Boek tokens over tussen X en P.",
+            "desc": "Voor het inzetten is AXC op de Core-keten nodig. Boek tokens over tussen Swap en Core.",
             "submit": "Overboeken"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "De starttijd moet later zijn dan de huidige tijd.",
                 "start_end": "De startdatum moet in de toekomst liggen en de einddatum moet later dan de startdatum zijn.",
-                "invalid_addr": "Ongeldige adresindeling. Uw adres moet beginnen met \"P-\"",
+                "invalid_addr": "Ongeldige adresindeling. Uw adres moet beginnen met \"Core-\"",
                 "no_addr": "U moet een adres opgeven om delegatiebeloningen te kunnen ontvangen.",
                 "min_dur": "De minimum inzet duurt 2 weken.",
                 "max_dur": "De maximum inzet is 1 jaar.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Keten importeren",
             "desc": "Als u fondsen vast heb zitten in een mislukte overboeking van een keten, dan kunt u het importeren ervan hier voltooien.",
-            "submit_x": "X importeren",
-            "submit_p": "P importeren"
+            "submit_x": "Swap importeren",
+            "submit_p": "Core importeren"
         }
     },
     "logout": {

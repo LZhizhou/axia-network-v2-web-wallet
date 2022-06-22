@@ -366,7 +366,7 @@ export default class AddNominator extends Vue {
             // this.err = "Start date must be in the future and end date must be after start date."
         } else if (msg.includes('address format')) {
             this.err = this.$t('earn.delegate.errs.invalid_addr') as string
-            // this.err = "Invalid address format. Your address must start with \"P-\"";
+            // this.err = "Invalid address format. Your address must start with \"Core-\"";
         } else {
             this.err = e.message
         }

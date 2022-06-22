@@ -21,7 +21,7 @@ module.exports = {
         },
     },
     pwa: {
-        name: 'Axwallet',
+        name: 'AXIA wallet',
         manifestOptions: {
             start_url: '/',
         },

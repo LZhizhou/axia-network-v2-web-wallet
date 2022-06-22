@@ -23,7 +23,7 @@ function bnToBig(val: BN, denomination = 0): Big {
     return new Big(val.toString()).div(Math.pow(10, denomination))
 }
 
-function keyToKeypair(key: string, chainID: string = 'X'): AVMKeyPair {
+function keyToKeypair(key: string, chainID: string = 'Swap'): AVMKeyPair {
     let hrp = getPreferredHRP(axia.getNetworkID())
     let keychain = new AVMKeyChain(hrp, chainID)
     return keychain.importKey(key)
@@ -39,7 +39,7 @@ function calculateStakingReward(amount: BN, duration: number, currentSupply: BN)
         console.error('Network default values not found.')
         return new BN(0)
     }
-    const defPlatformVals = defValues.P
+    const defPlatformVals = defValues.Core
 
     let maxConsumption: number = defPlatformVals.maxConsumption
     let minConsumption: number = defPlatformVals.minConsumption

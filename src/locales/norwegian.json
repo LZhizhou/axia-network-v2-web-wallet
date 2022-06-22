@@ -5,14 +5,14 @@
     "address": "Adresse",
     "add_pk": "Legg til privat nøkkel",
     "home": {
-        "desc": "Axwallet er en enkel, sikker, forvaringsfri lommebok for lagring av Axia-aktiva.",
+        "desc": "AXIA wallet er en enkel, sikker, forvaringsfri lommebok for lagring av Axia-aktiva.",
         "access": {
             "title": "Velkommen tilbake!",
             "desc": "‘Få tilgang’ til din eksisterende Axia-lommebok her.",
             "submit": "Få tilgang til lommebok"
         },
         "create": {
-            "title": "Ny hos Axwallet?",
+            "title": "Ny hos AXIA wallet?",
             "desc": "‘Lag’ en ny lommebok for å sende, motta og bytte Axia-aktiva.",
             "submit": "Lag ny lommebok"
         }
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Generer en ny nøkkelfrase for å sette opp din Axwallet.",
+        "generate": "Generer en ny nøkkelfrase for å sette opp din AXIA wallet.",
         "but_have": "Har du allerede en lommebok?",
         "submit": "Generer nøkkelfrase",
         "cancel": "Avbryt",
         "mnemonic_title": "Dette er nøkkelfrasen din.",
-        "mnemonic_desc": "Bruk disse 24 ordene i rekkefølge for å tilbakestille din Axwallet",
+        "mnemonic_desc": "Bruk disse 24 ordene i rekkefølge for å tilbakestille din AXIA wallet",
         "attention": "Se her!",
-        "warning": "Lagre denne nøkkelfrasen på et trygt sted. Alle som har denne nøkkelfrasen, har tilgang til din Axwallet. Det finnes ingen metode for å tilbakestille tapte nøkkelfraser.",
+        "warning": "Lagre denne nøkkelfrasen på et trygt sted. Alle som har denne nøkkelfrasen, har tilgang til din AXIA wallet. Det finnes ingen metode for å tilbakestille tapte nøkkelfraser.",
         "confirm": "Jeg skrev ned nøkkelfrasen min på et sikkert sted.",
         "regenerate": "Regenerer",
         "success_title": "Gratulerer!",
-        "success_desc": "Tiden er inne for å gå inn på din Axwallet.",
+        "success_desc": "Tiden er inne for å gå inn på din AXIA wallet.",
         "success_submit": "Få tilgang til lommebok",
         "verify": "Bekreft",
         "verifytitle": "Verifiser Mnemonic",
@@ -78,7 +78,7 @@
         "error_word": "Mnemonic-frasen du oppga for ord samsvarer ikke med den faktiske frasen."
     },
     "top": {
-        "title1": "Avledet Axwallet-adresse",
+        "title1": "Avledet AXIA wallet-adresse",
         "title2": "Saldo",
         "title3": "Undernett",
         "title4": "Nettverk",
@@ -101,7 +101,7 @@
             "collectibles": "Samleobjekter"
         },
         "address": {
-            "derived": "Avledet Axwallet-adresse",
+            "derived": "Avledet AXIA wallet-adresse",
             "desc": "Dette er din adresse for mottak av penger. Adressen din endres etter hvert innskudd."
         }
     },
@@ -177,8 +177,8 @@
         "subtitle2": "Deleger",
         "subtitle3": "Krysskjedeoverføring",
         "subtitle4": "Estimerte belønninger",
-        "warning_1": "Du må ha minst {0} AXC på P-kjedet for å bli en validator.",
-        "warning_2": "Du må ha minst {0} AXC på P-kjedet for å bli en nominator.",
+        "warning_1": "Du må ha minst {0} AXC på Core-kjedet for å bli en validator.",
+        "warning_2": "Du må ha minst {0} AXC på Core-kjedet for å bli en nominator.",
         "validate_card": {
             "title": "Valider",
             "desc": "Du har en Axia-node som du vil satse med.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Krysskjedeoverføring",
-            "desc": "Satsing krever AXC på P-kjedet. Overfør polletter mellom X og P.",
+            "desc": "Satsing krever AXC på Core-kjedet. Overfør polletter mellom Swap og Core.",
             "submit": "Overfør"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "Starttidspunktet må være etter nåværende tid.",
                 "start_end": "Startdatoen må være i fremtiden og sluttdatoen må være etter startdatoen.",
-                "invalid_addr": "Ugyldig adresseformat. Adressen din må starte med \"P-”",
+                "invalid_addr": "Ugyldig adresseformat. Adressen din må starte med \"Core-”",
                 "no_addr": "Du må oppgi en adresse for å motta delegeringsbelønninger.",
                 "min_dur": "Minste innsatsperiode er 2 uker.",
                 "max_dur": "Maksimal innsatsperiode er 1 år.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Kjedeimport",
             "desc": "Dersom du har penger som sitter fast i en feilet kjedeoverføring, kan du fullføre importen her.",
-            "submit_x": "Importer X",
-            "submit_p": "Importer P"
+            "submit_x": "Importer Swap",
+            "submit_p": "Importer Core"
         }
     },
     "logout": {

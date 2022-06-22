@@ -5,14 +5,14 @@
     "address": "Adreça",
     "add_pk": "Afegeix la clau privada",
     "home": {
-        "desc": "Axwallet és una cartera senzilla, segura i no privativa per desar actius Axia.",
+        "desc": "AXIA wallet és una cartera senzilla, segura i no privativa per desar actius Axia.",
         "access": {
             "title": "Benvingut de nou!",
             "desc": "'Accediu' a la vostra cartera Axia existent aquí.",
             "submit": "Accediu a la Cartera"
         },
         "create": {
-            "title": "Sou nous a Axwallet?",
+            "title": "Sou nous a AXIA wallet?",
             "desc": "'Creeu' una nova cartera per enviar, rebre i intercanviar actius Axia.",
             "submit": "Crea una cartera nova"
         }
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Genera una nova frase clau per utilitzar amb la vostra Axwallet.",
+        "generate": "Genera una nova frase clau per utilitzar amb la vostra AXIA wallet.",
         "but_have": "Ja tens una cartera?",
         "submit": "Genera una frase clau",
         "cancel": "Cancel·la",
         "mnemonic_title": "Aquesta es la vostra frase clau.",
-        "mnemonic_desc": "Utilitzeu aquestes 24 paraules en ordre seqüencial per recuperar el vostre Axwallet",
+        "mnemonic_desc": "Utilitzeu aquestes 24 paraules en ordre seqüencial per recuperar el vostre AXIA wallet",
         "attention": "Atenció!",
-        "warning": "Deseu aquesta frase clau en una localització segura. Qualsevol que disposi d'aquesta frase clau pot accedir la vostra Axwallet. No hi ha forma de recuperar les frases clau perdudes.",
+        "warning": "Deseu aquesta frase clau en una localització segura. Qualsevol que disposi d'aquesta frase clau pot accedir la vostra AXIA wallet. No hi ha forma de recuperar les frases clau perdudes.",
         "confirm": "He anotat la meva frase clau en una localització segura.",
         "regenerate": "Regenerar",
         "success_title": "Enhorabona!",
-        "success_desc": "És hora d'accedir a la vostra Axwallet.",
+        "success_desc": "És hora d'accedir a la vostra AXIA wallet.",
         "success_submit": "Accedeix a la cartera",
         "verify": "Verifica",
         "verifytitle": "Verifica la mnemotècnica",
@@ -101,7 +101,7 @@
             "collectibles": "Cobraments"
         },
         "address": {
-            "derived": "Adreça Axwallet derivada",
+            "derived": "Adreça AXIA wallet derivada",
             "desc": "Aquesta es la vostra adreça per rebre fons. La vostra adreça canviarà després de cada dipòsit."
         }
     },
@@ -177,8 +177,8 @@
         "subtitle2": "Delegar",
         "subtitle3": "Transferència mixta en cadena",
         "subtitle4": "Premis estimats",
-        "warning_1": "Heu de disposar de com a mínim {0} AXC a la cadena P per tornar-vos validador.",
-        "warning_2": "Heu de disposar de com a mínim {0} AXC a la cadena P per tornar-vos delegat.",
+        "warning_1": "Heu de disposar de com a mínim {0} AXC a la cadena Core per tornar-vos validador.",
+        "warning_2": "Heu de disposar de com a mínim {0} AXC a la cadena Core per tornar-vos delegat.",
         "validate_card": {
             "title": "Validar",
             "desc": "Disposeu d'un node Axia amb el qual voleu partipar.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Transferència mixta en cadena",
-            "desc": "La participació requereix AXC a la cadena P. Transferir les fitxes entre X i P.",
+            "desc": "La participació requereix AXC a la cadena Core. Transferir les fitxes entre Swap i Core.",
             "submit": "Transferir"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "L'hora d'inici ha de ser posterior a l'hora actual.",
                 "start_end": "L'hora d'inici ha de ser al futur proper i l'hora de finalització ha de ser posterior a l'hora d'inici.",
-                "invalid_addr": "Format d'adreça invàlida. La vostra adreça ha de començar amb \"P-\"",
+                "invalid_addr": "Format d'adreça invàlida. La vostra adreça ha de començar amb \"Core-\"",
                 "no_addr": "Heu de proporcionar una adreça per rebre recompenses de delegació.",
                 "min_dur": "La durada mínima de la participació és de 2 setmanes.",
                 "max_dur": "La durada màxima de la participació és d'1 any.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Importació en cadena",
             "desc": "Si teniu fons encallats en una cadena de transferència fallida, podeu finalitzar la importació aquí.",
-            "submit_x": "Importa X",
-            "submit_p": "Importa P"
+            "submit_x": "Importa Swap",
+            "submit_p": "Importa Core"
         }
     },
     "logout": {

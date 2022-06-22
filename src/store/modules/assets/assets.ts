@@ -13,7 +13,7 @@ import {
     IWalletNftMintDict,
     RootState,
 } from '@/store/types'
-import { axia, avm, bintools, appChain } from '@/AXIA'
+import { axia, avm, bintools, axChain } from '@/AXIA'
 import Vue from 'vue'
 import AxiaAsset from '@/js/AxiaAsset'
 import { WalletType } from '@/js/wallets/types'
@@ -370,7 +370,7 @@ const assets_module: Module<AssetsState, RootState> = {
             })
         },
 
-        // What is the AXIA coin in the network
+        // What is the AXIA Systems in the network
         async updateAxiaAsset({ state, commit }) {
             let res = await avm.getAssetDescription('AXC')
             let id = bintools.cb58Encode(res.assetID)
@@ -455,7 +455,7 @@ const assets_module: Module<AssetsState, RootState> = {
         // Adds an unknown asset id to the assets dictionary
         async addUnknownAsset({ state, commit }, assetId: string) {
             // get info about the asset
-            let desc = await axia.AssetChain().getAssetDescription(assetId)
+            let desc = await axia.SwapChain().getAssetDescription(assetId)
             let newAsset = new AxiaAsset(assetId, desc.name, desc.symbol, desc.denomination)
 
             await commit('addAsset', newAsset)
@@ -463,7 +463,7 @@ const assets_module: Module<AssetsState, RootState> = {
         },
 
         async addUnknownNftFamily({ state, commit }, assetId: string) {
-            let desc = await axia.AssetChain().getAssetDescription(assetId)
+            let desc = await axia.SwapChain().getAssetDescription(assetId)
             let newFam = new AxiaNftFamily(assetId, desc.name, desc.symbol)
 
             await commit('addNftFamily', newFam)

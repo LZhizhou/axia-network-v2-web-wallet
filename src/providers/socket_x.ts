@@ -13,7 +13,7 @@ export function connectSocketX(network: AxiaNetwork) {
         socketX.close()
     }
 
-    // Setup the AssetChain socket connection
+    // Setup the SwapChain socket connection
     let wsURL = network.getWsUrlX()
     socketX = new Sockette(wsURL, {
         onopen: xOnOpen,
@@ -50,7 +50,7 @@ export function updateFilterAddresses(): void {
     }
 }
 
-// Clears the filter listening to AssetChain transactions
+// Clears the filter listening to SwapChain transactions
 function clearFilter() {
     let pubsub = new PubSub()
     let bloom = pubsub.newBloom(FILTER_ADDRESS_SIZE)

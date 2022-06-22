@@ -1,4 +1,4 @@
-import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
+import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import { ITransaction } from '@/components/wallet/transfer/types'
 import { digestMessage } from '@/helpers/helper'
 import { WalletNameType } from '@/js/wallets/types'
@@ -93,7 +93,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
 
         let cPrivKey = `PrivateKey-` + bintools.cb58Encode(BufferAxia.from(pkBuf))
         this.ethKeyBech = cPrivKey
-        let cKeyChain = new KeyChain(axia.getHRP(), 'C')
+        let cKeyChain = new KeyChain(axia.getHRP(), 'AX')
         this.ethKeyChain = cKeyChain
 
         let cKeypair = cKeyChain.importKey(cPrivKey)
@@ -242,7 +242,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         this.platformKeyPair = this.platformKeyChain.importKey(this.key)
 
         // Update EVM values
-        this.ethKeyChain = new EVMKeyChain(axia.getHRP(), 'C')
+        this.ethKeyChain = new EVMKeyChain(axia.getHRP(), 'AX')
         let cKeypair = this.ethKeyChain.importKey(this.ethKeyBech)
         this.ethAddressBech = cKeypair.getAddressString()
         this.ethBalance = new BN(0)

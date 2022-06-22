@@ -57,13 +57,13 @@ export default class TxHistoryValue extends Vue {
     get actionText(): string {
         switch (this.type) {
             case 'pvm_import':
-                return 'Import (P)'
+                return 'Import (Core)'
             case 'import':
-                return 'Import (X)'
+                return 'Import (Swap)'
             case 'pvm_export':
-                return 'Export (P)'
+                return 'Export (Core)'
             case 'export':
-                return 'Export (X)'
+                return 'Export (Swap)'
             case 'base':
                 if (this.isIncome) {
                     return 'Received'

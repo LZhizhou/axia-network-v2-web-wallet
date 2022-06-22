@@ -5,14 +5,14 @@
     "address": "Adres",
     "add_pk": "Voeg Privaat Sleutel by",
     "home": {
-        "desc": "Axwallet is 'n eenvoudige, veilige, nie-toesighouende beursie vir die berging van Axia-bates.",
+        "desc": "AXIA wallet is 'n eenvoudige, veilige, nie-toesighouende beursie vir die berging van Axia-bates.",
         "access": {
             "title": "Welkom terug!",
             "desc": "Kry 'toegang' tot jou bestaande Axia beursie hier.",
             "submit": "Kry toegang tot beursie"
         },
         "create": {
-            "title": "Nuut aan Axwallet?",
+            "title": "Nuut aan AXIA wallet?",
             "desc": "'Skep' 'n nuwe beursie om Axia-bates te stuur, ontvang en omruil.",
             "submit": "Skep Nuwe Beursie"
         }
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Genereer 'n nuwe frase om u Axwallet op te stel.",
+        "generate": "Genereer 'n nuwe frase om u AXIA wallet op te stel.",
         "but_have": "Het u alreeds a beursie?",
         "submit": "Genereer Sleutelfrase",
         "cancel": "Kanselleer",
         "mnemonic_title": "Hierdie is u sleutelfrase.",
-        "mnemonic_desc": "Gebruik hierdie 24 woorde in volgorde om u Axwallet te herstel",
+        "mnemonic_desc": "Gebruik hierdie 24 woorde in volgorde om u AXIA wallet te herstel",
         "attention": "Aandag!",
-        "warning": "Stoor hierdie sleutelfrase op 'n veilige plek. Enigiemand met hierdie sleutelfrase kan toegang tot u Axwallet verkry. Daar is geen manier om verlore sleutelfrases te herstel nie.",
+        "warning": "Stoor hierdie sleutelfrase op 'n veilige plek. Enigiemand met hierdie sleutelfrase kan toegang tot u AXIA wallet verkry. Daar is geen manier om verlore sleutelfrases te herstel nie.",
         "confirm": "Ek het my sleutelwoord op 'n veilige plek neergeskryf.",
         "regenerate": "Genereer Weereens",
         "success_title": "Baie geluk!",
-        "success_desc": "Dit is tyd om toegang tot u Axwallet te kry.",
+        "success_desc": "Dit is tyd om toegang tot u AXIA wallet te kry.",
         "success_submit": "Kry Toegang tot Beursie",
         "verify": "Verifieer",
         "verifytitle": "Verifieer Mnemoniek",
@@ -80,7 +80,7 @@
     "top": {
         "title1": "Afgeleide Axia-beursie-adres",
         "title2": "Saldo",
-        "title3": "Subnet",
+        "title3": "Allychain",
         "title4": "Netwerk",
         "nftcol": "NFTs",
         "nftempty": "U het geen tekens wat nie aanpasbaar is nie versamel.",
@@ -177,8 +177,8 @@
         "subtitle2": "Delegeer",
         "subtitle3": "Kruiskettingoordrag",
         "subtitle4": "Geskatte belonings",
-        "warning_1": "U moet ten minste {0} AXC aan die P-ketting hê om 'n valideerder te word.",
-        "warning_2": "U moet ten minste {0} AXC aan die P-ketting hê om 'n afgevaardigde te word.",
+        "warning_1": "U moet ten minste {0} AXC aan die Core-ketting hê om 'n valideerder te word.",
+        "warning_2": "U moet ten minste {0} AXC aan die Core-ketting hê om 'n afgevaardigde te word.",
         "validate_card": {
             "title": "Valideer",
             "desc": "U het 'n Axia-nodus waarmee u wil 'n insetting maak.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Kruiskettingoordrag",
-            "desc": "Om ' insetting te maak moet AXC in die P-ketting wees. Dra tekens oor tussen X en P.",
+            "desc": "Om ' insetting te maak moet AXC in die Core-ketting wees. Dra tekens oor tussen Swap en Core.",
             "submit": "Oordrag"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "Begintyd moet na huidige tyd wees.",
                 "start_end": "Begindatum moet in die toekoms wees en einddatum moet na begindatum wees.",
-                "invalid_addr": "Ongeldige adresformaat. U adres moet met \"P-\" begin",
+                "invalid_addr": "Ongeldige adresformaat. U adres moet met \"Core-\" begin",
                 "no_addr": "U moet 'n adres verskaaf om afvaardigingsbelonings te ontvang.",
                 "min_dur": "Die minimum beleggingsduur is 2 weke.",
                 "max_dur": "Maksimum insettingsduur is 2 weke.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Trek van Ketting in",
             "desc": "As u fondse het wat in 'n mislukte kettingoorbrenging vassit, kan u die intrek daarvan hier voltooi.",
-            "submit_x": "Trek X In",
-            "submit_p": "Trek P In"
+            "submit_x": "Trek Swap In",
+            "submit_p": "Trek Core In"
         }
     },
     "logout": {

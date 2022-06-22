@@ -5,14 +5,14 @@
     "address": "Endereço",
     "add_pk": "Adicionar Private Key",
     "home": {
-        "desc": "A Axwallet é uma carteira simples, segura e sem custódia para armazenar os ativos do Axia.",
+        "desc": "A AXIA wallet é uma carteira simples, segura e sem custódia para armazenar os ativos do Axia.",
         "access": {
             "title": "Bem Vindo de Volta!",
-            "desc": "'Acesse' sua Axwallet existente aqui.",
+            "desc": "'Acesse' sua AXIA wallet existente aqui.",
             "submit": "Acessar a Wallet"
         },
         "create": {
-            "title": "Você é novo na Axwallet?",
+            "title": "Você é novo na AXIA wallet?",
             "desc": "'Criar' uma nova wallet para enviar, receber e trocar os ativos do Axia.",
             "submit": "Criar Nova Wallet"
         }
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Gerar uma nova frase-chave para configurar sua Axwallet.",
+        "generate": "Gerar uma nova frase-chave para configurar sua AXIA wallet.",
         "but_have": "Já tem uma wallet?",
         "submit": "Gerar Frase-Chave",
         "cancel": "Cancelar",
         "mnemonic_title": "Esta é sua frase-chave.",
-        "mnemonic_desc": "Use estas 24 palavras em ordem sequencial para recuperar sua Axwallet",
+        "mnemonic_desc": "Use estas 24 palavras em ordem sequencial para recuperar sua AXIA wallet",
         "attention": "Atenção!",
-        "warning": "Armazene esta frase-chave em um local seguro. Qualquer pessoa com esta frase-chave pode acessar sua Axwallet. As frases-chave perdidas não podem ser recuperadas.",
+        "warning": "Armazene esta frase-chave em um local seguro. Qualquer pessoa com esta frase-chave pode acessar sua AXIA wallet. As frases-chave perdidas não podem ser recuperadas.",
         "confirm": "Eu anotei a minha frase-chave em um local seguro.",
         "regenerate": "Recriado",
         "success_title": "Parabéns!",
-        "success_desc": "É hora de acessar sua Axwallet.",
+        "success_desc": "É hora de acessar sua AXIA wallet.",
         "success_submit": "Acessar Wallet",
         "verify": "Verificar",
         "verifytitle": "Verificar Mnemônico",
@@ -101,7 +101,7 @@
             "collectibles": "Colecionáveis"
         },
         "address": {
-            "derived": "Derivado do Endereço da Axwallet",
+            "derived": "Derivado do Endereço da AXIA wallet",
             "desc": "Este é o seu endereço para receber fundos. Seu endereço mudará após cada depósito."
         }
     },
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Transferência de Cadeia Cruzada",
-            "desc": "Apostar requer AXC na 'CoreChain'. Transfira tokens entre X e P.",
+            "desc": "Apostar requer AXC na 'CoreChain'. Transfira tokens entre Swap e Core.",
             "submit": "Transferência"
         },
         "rewards_card": {
@@ -339,7 +339,7 @@
             "errs": {
                 "start_now": "A hora de início deve ser posterior à hora atual.",
                 "start_end": "A data de início deve estar no futuro e a data de término deve ser posterior ao início.",
-                "invalid_addr": "Formato de endereço inválido. Seu endereço deve começar com \"P-\"",
+                "invalid_addr": "Formato de endereço inválido. Seu endereço deve começar com \"Core-\"",
                 "no_addr": "Você deve fornecer um endereço para receber as recompensas de delegação.",
                 "min_dur": "A duração mínima de aposta é 2 semanas.",
                 "max_dur": "A duração máxima de aposta é 1 ano.",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Importação de Cadeia",
             "desc": "Se você tem alguns fundos presos em uma transferência em cadeia que falhou, você pode terminar de importá-los aqui.",
-            "submit_x": "Importar X",
-            "submit_p": "Importar P"
+            "submit_x": "Importar Swap",
+            "submit_p": "Importar Core"
         }
     },
     "logout": {

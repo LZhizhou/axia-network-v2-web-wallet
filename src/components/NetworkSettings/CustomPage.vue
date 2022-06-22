@@ -15,7 +15,7 @@
                 <input
                     data-cy="custom-network-url"
                     type="text"
-                    placeholder="http://localhost:9650"
+                    placeholder="http://localhost:80"
                     v-model="url"
                     @input="checkUrl"
                 />

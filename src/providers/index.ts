@@ -3,7 +3,7 @@ import { connectSocketX } from '@/providers/socket_x'
 import { connectSocketC } from '@/providers/socket_c'
 
 export function setSocketNetwork(network: AxiaNetwork) {
-    // Setup AssetChain connection
+    // Setup SwapChain connection
     connectSocketX(network)
     // Setup EVM socket connection
     connectSocketC(network)

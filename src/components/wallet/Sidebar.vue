@@ -13,7 +13,7 @@
                 </router-link>
                 <router-link to="/wallet/transfer" data-cy="wallet_transfer" class="wallet_link">
                     <img v-if="$root.theme === 'day'" src="@/assets/sidebar/transfer_nav.png" />
-                    <img v-else src="@/assets/sidebar/transfer_nav_night.svg" />
+                    <img v-else src="@/assets/sidebar/transfer_nav.png" />
                     {{ $t('wallet.sidebar.send') }}
                 </router-link>
                 <router-link
@@ -21,38 +21,44 @@
                     data-cy="wallet_export"
                     class="wallet_export wallet_link"
                 >
-                    <span><fa icon="random" class="icon"></fa></span>
+                    <img v-if="$root.theme === 'day'" src="@/assets/sidebar/crosschain_nav.png" />
+                    <img v-else src="@/assets/sidebar/crosschain_nav.png" />
                     {{ $t('wallet.sidebar.export') }}
                 </router-link>
                 <router-link to="/wallet/earn" data-cy="wallet_earn" class="wallet_link">
                     <img v-if="$root.theme === 'day'" src="@/assets/sidebar/earn_nav.png" />
-                    <img v-else src="@/assets/sidebar/earn_nav_night.png" />
+                    <img v-else src="@/assets/sidebar/earn_nav.png" />
                     {{ $t('wallet.sidebar.earn') }}
                 </router-link>
                 <router-link to="/wallet/studio" data-cy="wallet_studio" class="wallet_link">
-                    <img v-if="$root.theme === 'day'" src="@/assets/sidebar/studio_nav.svg" />
-                    <img v-else src="@/assets/sidebar/studio_nav_night.svg" />
+                    <img v-if="$root.theme === 'day'" src="@/assets/sidebar/studio_nav.png" />
+                    <img v-else src="@/assets/sidebar/studio_nav.png" />
                     {{ $t('wallet.sidebar.studio') }}
                 </router-link>
                 <router-link to="/wallet/activity" data-cy="wallet_activity" class="wallet_link">
-                    <img v-if="$root.theme === 'day'" src="@/assets/sidebar/activity_nav.svg" />
-                    <img v-else src="@/assets/sidebar/activity_nav_night.svg" />
+                    <img v-if="$root.theme === 'day'" src="@/assets/sidebar/activity_nav.png" />
+                    <img v-else src="@/assets/sidebar/activity_nav.png" />
                     {{ $t('wallet.sidebar.activity') }}
                 </router-link>
                 <router-link to="/wallet/keys" data-cy="wallet_manage" class="wallet_link">
                     <img v-if="$root.theme === 'day'" src="@/assets/sidebar/manage_nav.png" />
-                    <img v-else src="@/assets/sidebar/manage_nav_night.svg" />
+                    <img v-else src="@/assets/sidebar/manage_nav.png" />
                     {{ $t('wallet.sidebar.manage') }}
                 </router-link>
                 <router-link to="/wallet/advanced" data-cy="wallet_advanced" class="wallet_link">
                     <img v-if="$root.theme === 'day'" src="@/assets/sidebar/advanced_nav.png" />
-                    <img v-else src="@/assets/sidebar/advanced_nav_night.png" />
+                    <img v-else src="@/assets/sidebar/advanced_nav.png" />
                     {{ $t('wallet.sidebar.advanced') }}
                 </router-link>
             </div>
             <div class="bottom">
                 <AccountMenu class="wallet_link"></AccountMenu>
                 <LanguageSelect></LanguageSelect>
+                <div>
+                    <button @click="logout" class="logout">
+                        {{ $t('logout.button') }}
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -60,10 +66,13 @@
 <script>
 import LanguageSelect from '@/components/misc/LanguageSelect/LanguageSelect'
 import AccountMenu from '@/components/wallet/sidebar/AccountMenu'
+import ConfirmLogout from '@/components/modals/ConfirmLogout.vue'
+
 export default {
     components: {
         AccountMenu,
         LanguageSelect,
+        ConfirmLogout,
     },
 }
 </script>
@@ -71,6 +80,7 @@ export default {
 @use "../../main";
 
 .wallet_sidebar {
+    font-size: 16px;
     .stick {
         display: flex;
         flex-direction: column;
@@ -117,9 +127,10 @@ export default {
         }
 
         a.router-link-exact-active {
-            color: var(--primary-color) !important;
+            color: #178fe1 !important;
             opacity: 1;
-            background-color: var(--bg-wallet);
+            background: #e9f6ff;
+            font-weight: 500;
 
             img {
                 opacity: 1;

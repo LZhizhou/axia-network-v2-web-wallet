@@ -15,7 +15,7 @@ import CreateWallet from '@/components/CreateWalletWorkflow/CreateWallet.vue'
     },
     metaInfo: () => {
         const description =
-            "Here at Axia, we've made storing digital assets easy. Create an Axwallet today is see what the buzz is all about!"
+            "Here at Axia, we've made storing digital assets easy. Create an AXIA wallet today is see what the buzz is all about!"
         return {
             meta: [
                 {
@@ -31,7 +31,7 @@ import CreateWallet from '@/components/CreateWalletWorkflow/CreateWallet.vue'
                 {
                     vmid: 'og:title',
                     name: 'og:title',
-                    content: 'Create | Axwallet',
+                    content: 'Create | AXIA wallet',
                 },
             ],
             title: 'Create',

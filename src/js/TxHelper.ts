@@ -1,4 +1,4 @@
-import { axia, avm, bintools, appChain, coreChain } from '@/AXIA'
+import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import { ITransaction } from '@/components/wallet/transfer/types'
 import { BN, Buffer } from '@zee-ava/avajs'
 import {
@@ -41,7 +41,7 @@ export async function buildUnsignedTransaction(
     }
 
     let fromAddrsStr: string[] = derivedAddresses
-    let fromAddrs: Buffer[] = fromAddrsStr.map((val) => bintools.parseAddress(val, 'X'))
+    let fromAddrs: Buffer[] = fromAddrsStr.map((val) => bintools.parseAddress(val, 'Swap'))
     let changeAddr: Buffer = bintools.stringToAddress(changeAddress)
 
     // TODO: use internal asset ID
@@ -190,7 +190,7 @@ export async function buildMintNftTx(
     fromAddresses: string[],
     utxoSet: UTXOSet
 ): Promise<AVMUnsignedTx> {
-    let addrBuf = bintools.parseAddress(ownerAddress, 'X')
+    let addrBuf = bintools.parseAddress(ownerAddress, 'Swap')
     let owners = []
 
     let sourceAddresses = fromAddresses
@@ -318,9 +318,9 @@ export enum PlatfromTxNameEnum {
     'Add Nominator' = PlatformVMConstants.ADDNOMINATORTX,
     'Import' = PlatformVMConstants.IMPORTTX,
     'Export' = PlatformVMConstants.EXPORTTX,
-    'Add Subnet Validator' = PlatformVMConstants.ADDSUBNETVALIDATORTX,
+    'Add Allychain Validator' = PlatformVMConstants.ADDALLYCHAINVALIDATORTX,
     'Create Chain' = PlatformVMConstants.CREATECHAINTX,
-    'Create Subnet' = PlatformVMConstants.CREATESUBNETTX,
+    'Create Allychain' = PlatformVMConstants.CREATEALLYCHAINTX,
     'Advance Time' = PlatformVMConstants.ADVANCETIMETX,
     'Reward Validator' = PlatformVMConstants.REWARDVALIDATORTX,
 }

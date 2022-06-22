@@ -2,7 +2,7 @@ import { Module } from 'vuex'
 import { RootState } from '@/store/types'
 import { NetworkState } from '@/store/modules/network/types'
 
-import { axia, avm, bintools, appChain, infoApi, coreChain } from '@/AXIA'
+import { axia, avm, bintools, axChain, infoApi, coreChain } from '@/AXIA'
 import { AxiaNetwork } from '@/js/AxiaNetwork'
 import { explorer_api } from '@/explorer_api'
 import { BN } from '@zee-ava/avajs'
@@ -113,20 +113,20 @@ const network_module: Module<NetworkState, RootState> = {
             commit('History/clear', null, { root: true })
 
             // Query the network to get network id
-            let chainIdX = await infoApi.getBlockchainID('X')
-            let chainIdP = await infoApi.getBlockchainID('P')
-            let chainIdC = await infoApi.getBlockchainID('C')
+            let chainIdX = await infoApi.getBlockchainID('Swap')
+            let chainIdP = await infoApi.getBlockchainID('Core')
+            let chainIdC = await infoApi.getBlockchainID('AX')
 
             avm.refreshBlockchainID(chainIdX)
-            avm.setBlockchainAlias('X')
+            avm.setBlockchainAlias('Swap')
             coreChain.refreshBlockchainID(chainIdP)
-            coreChain.setBlockchainAlias('P')
-            appChain.refreshBlockchainID(chainIdC)
-            appChain.setBlockchainAlias('C')
+            coreChain.setBlockchainAlias('Core')
+            axChain.refreshBlockchainID(chainIdC)
+            axChain.setBlockchainAlias('AX')
 
             avm.getAXCAssetID(true)
             coreChain.getAXCAssetID(true)
-            appChain.getAXCAssetID(true)
+            axChain.getAXCAssetID(true)
 
             state.selectedNetwork = net
             dispatch('saveSelectedNetwork')
@@ -135,7 +135,7 @@ const network_module: Module<NetworkState, RootState> = {
             explorer_api.defaults.baseURL = net.explorerUrl
 
             // Set web3 Network Settings
-            let web3Provider = `${net.protocol}://${net.ip}:${net.port}/ext/bc/C/rpc`
+            let web3Provider = `${net.protocol}://${net.ip}:${net.port}/ext/bc/AX/rpc`
             web3.setProvider(web3Provider)
 
             // Set socket connections
@@ -188,7 +188,7 @@ const network_module: Module<NetworkState, RootState> = {
 
             let testnet = new AxiaNetwork(
                 'Testnet',
-                'http://rpc-v2.canarytest.axiacoin.network:9650',
+                'http://rpc-v2.canarytest.axiacoin.network',
                 5678,
                 'https://explorerapi.avax-test.network',
                 'https://explorer.avax-test.network',

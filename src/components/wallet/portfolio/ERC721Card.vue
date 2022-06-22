@@ -99,7 +99,7 @@ export default class ERC721Card extends Vue {
         this.$router.push({
             path: '/wallet/transfer',
             query: {
-                chain: 'C',
+                chain: 'AX',
                 token: this.token.contractAddress,
                 tokenId: this.index,
             },

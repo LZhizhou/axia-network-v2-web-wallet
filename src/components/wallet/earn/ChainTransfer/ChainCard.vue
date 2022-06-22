@@ -29,11 +29,11 @@ import { WalletType } from '@/js/wallets/types'
 import { bnToBig } from '@/helpers/helper'
 import NumberCounter from '@/components/misc/NumberCounter.vue'
 
-const chainTypes: ChainIdType[] = ['X', 'P', 'C']
+const chainTypes: ChainIdType[] = ['Swap', 'Core', 'AX']
 const chainNames = {
-    X: 'Exchange Chain',
-    C: 'Contract Chain',
-    P: 'Platform Chain',
+    Swap: 'Exchange Chain',
+    AX: 'Contract Chain',
+    Core: 'Platform Chain',
 }
 
 @Component({
@@ -81,9 +81,9 @@ export default class ChainCard extends Vue {
     }
 
     get balance() {
-        if (this.chain === 'X') {
+        if (this.chain === 'Swap') {
             return this.avmUnlocked
-        } else if (this.chain === 'P') {
+        } else if (this.chain === 'Core') {
             return this.platformUnlocked
         } else {
             return this.evmUnlocked

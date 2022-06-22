@@ -31,7 +31,7 @@ abstract class HdWalletCore extends WalletCore {
         this.chainId = avm.getBlockchainAlias() || avm.getBlockchainID()
         this.externalHelper = new HdHelper('m/0', accountHdKey, undefined, isPublic)
         this.internalHelper = new HdHelper('m/1', accountHdKey, undefined, isPublic)
-        this.platformHelper = new HdHelper('m/0', accountHdKey, 'P', isPublic)
+        this.platformHelper = new HdHelper('m/0', accountHdKey, 'Core', isPublic)
 
         this.externalHelper.oninit().then((res) => {
             this.updateInitState()
@@ -47,7 +47,7 @@ abstract class HdWalletCore extends WalletCore {
     getEvmAddressBech(): string {
         return bintools.addressToString(
             axia.getHRP(),
-            'C',
+            'AX',
             // @ts-ignore
             this.ethHdNode.pubKeyHash
         )
@@ -159,9 +159,9 @@ abstract class HdWalletCore extends WalletCore {
 
     getChangePath(chainId?: ChainAlias): string {
         switch (chainId) {
-            case 'P':
+            case 'Core':
                 return this.platformHelper.changePath
-            case 'X':
+            case 'Swap':
             default:
                 return this.internalHelper.changePath
         }
@@ -169,9 +169,9 @@ abstract class HdWalletCore extends WalletCore {
 
     getChangeIndex(chainId?: ChainAlias): number {
         switch (chainId) {
-            case 'P':
+            case 'Core':
                 return this.platformHelper.hdIndex
-            case 'X':
+            case 'Swap':
             default:
                 return this.internalHelper.hdIndex
         }
@@ -181,9 +181,9 @@ abstract class HdWalletCore extends WalletCore {
         if (idx === undefined || idx === null) return null
 
         switch (chainId) {
-            case 'P':
+            case 'Core':
                 return this.platformHelper.getAddressForIndex(idx)
-            case 'X':
+            case 'Swap':
             default:
                 return this.internalHelper.getAddressForIndex(idx)
         }
@@ -246,7 +246,7 @@ abstract class HdWalletCore extends WalletCore {
     }
 
     findExternalAddressIndex(address: string): number | null {
-        // TODO: Look for P addresses too
+        // TODO: Look for Core addresses too
         let indexX = this.externalHelper.findAddressIndex(address)
         let indexP = this.platformHelper.findAddressIndex(address)
 
