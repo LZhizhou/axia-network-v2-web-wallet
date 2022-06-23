@@ -173,8 +173,12 @@ export default class ChainImport extends Vue {
 <style scoped lang="scss">
 .v-btn {
     margin: 8px 0;
+    background: #178fe1 !important;
+    color: white !important;
 }
-
+.chain_import {
+    background-color: #fff;
+}
 .is_success {
     label {
         color: var(--primary-color-light);

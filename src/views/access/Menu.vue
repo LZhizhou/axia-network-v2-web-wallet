@@ -65,6 +65,9 @@ export default class Menu extends Vue {}
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 8px 32px rgba(20, 92, 143, 0.08);
+    padding: 10px 25px;
 }
 
 img {

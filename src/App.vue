@@ -114,6 +114,7 @@ export default {
         min-height: calc(100vh - 80px);
         position: relative;
         padding: main.$container_padding_m;
+        background: linear-gradient(359.99deg, #fcfeff 16.91%, #e7f3fe 48.95%, #ffffff 99.99%);
     }
 }
 

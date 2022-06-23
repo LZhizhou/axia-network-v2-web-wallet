@@ -114,6 +114,7 @@ label {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 14px;
+    flex-basis: 50%;
 }
 
 .input_group {

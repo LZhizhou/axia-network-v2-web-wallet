@@ -137,6 +137,8 @@ export default class Keystore extends Vue {
 .ava_button {
     width: 100%;
     margin-bottom: 22px;
+    background: #35b994 !important;
+    border-radius: 12px;
 }
 .access_card {
     /*max-width: 80vw;*/

@@ -209,6 +209,8 @@ export default class Earn extends Vue {
 .earn_page {
     display: grid;
     grid-template-rows: max-content 1fr;
+    background-color: #f8f9fa !important;
+    box-shadow: none !important;
 }
 .header {
     h1 {
@@ -253,14 +255,15 @@ export default class Earn extends Vue {
         align-items: flex-start;
         //max-width: 260px;
         padding: 30px;
-        border-radius: 4px;
-        background-color: var(--bg-light);
+        background: #ffffff;
+        box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+        border-radius: 12px;
     }
 
     h4 {
         font-size: 32px !important;
-        font-weight: lighter;
-        color: var(--primary-color-light);
+        font-weight: 400;
+        color: black;
     }
 
     p {
@@ -274,6 +277,13 @@ export default class Earn extends Vue {
 
     .v-btn {
         margin-top: 14px;
+        background: #178fe1 !important;
+        border-radius: 12px !important;
+    }
+    .v-btn.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+        background: #007cbd !important;
+        color: white !important;
+        opacity: 0.5;
     }
 }
 
