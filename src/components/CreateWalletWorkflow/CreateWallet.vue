@@ -1,7 +1,4 @@
-<template
-    :style="{    background: linear-gradient(359.99deg, #fcfeff 16.91%, #e7f3fe 48.95%, #ffffff 99.99%);
-}"
->
+<template>
     <div class="create_wallet">
         <b-container>
             <b-row>
@@ -217,6 +214,8 @@ export default class CreateWallet extends Vue {
     background-color: white;
     padding: main.$container-padding;
     text-align: center;
+    box-shadow: 0px 8px 32px rgba(20, 92, 143, 0.08);
+    border-radius: 12px;
     /*min-width: 1000px;*/
 
     img {
@@ -261,7 +260,7 @@ export default class CreateWallet extends Vue {
 .but_generate {
     display: block;
     height: max-content;
-    background-color: main.$secondary-color;
+    background-color: #35b994 !important;
 }
 
 .key_disp {

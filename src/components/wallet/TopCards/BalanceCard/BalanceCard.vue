@@ -3,12 +3,12 @@
         <UtxosBreakdownModal ref="utxos_modal"></UtxosBreakdownModal>
         <div class="fungible_card">
             <div class="header">
-                <!-- <div class="refresh">
+                <div class="refresh">
                     <Spinner v-if="isUpdateBalance" class="spinner"></Spinner>
                     <button v-else @click="updateBalance">
                         <img src="@/assets/balance_sync.png" />
                     </button>
-                </div> -->
+                </div>
                 <h4>{{ $t('top.title2') }}</h4>
                 <!-- <template v-if="!isBreakdown">
                     <button class="breakdown_toggle" @click="toggleBreakdown">

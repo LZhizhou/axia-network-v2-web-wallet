@@ -10,10 +10,10 @@
         </div>
         <div>
             <p class="warn">
-                <label>{{ $t('advanced.sign.label2') }}</label>
-                {{ $t('advanced.sign.warn') }}
+                <span :style="{ color: 'black' }">{{ $t('advanced.sign.label2') }}</span>
+                ({{ $t('advanced.sign.warn') }})
             </p>
-            <textarea v-model="message"></textarea>
+            <textarea placeholder="Message" v-model="message"></textarea>
         </div>
         <p class="err">{{ error }}</p>
         <v-btn class="button_secondary" block small depressed @click="sign" :disabled="!canSubmit">
@@ -88,6 +88,15 @@ textarea,
     padding: 6px 12px;
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+.v-btn {
+    background: #178fe1 !important;
+}
+.theme--light.v-btn.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+    background-color: #178fe1 !important;
+    opacity: 0.5;
+    color: white !important;
+}
 select {
     outline: none;
     width: 100%;
@@ -118,7 +127,10 @@ textarea {
     resize: none;
     font-size: 13px;
     padding: 6px 12px;
-    height: 80px;
+    height: 40px;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #edeef5;
 }
 
 .signed {
