@@ -102,7 +102,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 
 import AddValidator from '@/components/wallet/earn/Validate/AddValidator.vue'
 import AddNominator from '@/components/wallet/earn/Delegate/AddNominator.vue'
-import { BN } from '@zee-ava/avajs/dist'
+import { BN } from '@axia-systems/axiajs/dist'
 import UserRewards from '@/components/wallet/earn/UserRewards.vue'
 import { bnToBig } from '@/helpers/helper'
 import Big from 'big.js'

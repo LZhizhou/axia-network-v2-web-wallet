@@ -1,5 +1,5 @@
 // Manages BigNumber and Ava conversion and arithmetic
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import Big from 'big.js'
 
 class AxiaAsset {

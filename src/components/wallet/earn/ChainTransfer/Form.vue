@@ -49,7 +49,7 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 import AxcInput from '@/components/misc/AxcInput.vue'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import Big from 'big.js'
 import { bnToBig } from '@/helpers/helper'
 import { ChainIdType } from '@/constants'

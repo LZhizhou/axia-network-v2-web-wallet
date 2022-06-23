@@ -10,11 +10,11 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { NFTTransferOutput, UTXO } from '@zee-ava/avajs/dist/apis/avm'
+import { NFTTransferOutput, UTXO } from '@axia-systems/axiajs/dist/apis/avm'
 import NftPayloadView from '@/components/misc/NftPayloadView/NftPayloadView.vue'
-import { PayloadBase } from '@zee-ava/avajs/dist/utils'
-import { Buffer } from '@zee-ava/avajs'
-import { PayloadTypes } from '@zee-ava/avajs/dist/utils'
+import { PayloadBase } from '@axia-systems/axiajs/dist/utils'
+import { Buffer } from '@axia-systems/axiajs'
+import { PayloadTypes } from '@axia-systems/axiajs/dist/utils'
 import Tooltip from '@/components/misc/Tooltip.vue'
 import NFTViewModal from '@/components/modals/NFTViewModal.vue'
 import NftCard from '@/components/wallet/portfolio/NftCard.vue'

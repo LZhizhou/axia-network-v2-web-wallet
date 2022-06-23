@@ -5,12 +5,12 @@ import { NetworkState } from '@/store/modules/network/types'
 import { axia, avm, bintools, axChain, infoApi, coreChain } from '@/AXIA'
 import { AxiaNetwork } from '@/js/AxiaNetwork'
 import { explorer_api } from '@/explorer_api'
-import { BN } from '@zee-ava/avajs'
-import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
+import { BN } from '@axia-systems/axiajs'
+import { getPreferredHRP } from '@axia-systems/axiajs/dist/utils'
 import router from '@/router'
 import { web3 } from '@/evm'
 import { setSocketNetwork } from '../../../providers'
-import { Network } from '@zee-ava/axia-wallet-sdk'
+import { Network } from '@axia-systems/wallet-sdk'
 const network_module: Module<NetworkState, RootState> = {
     namespaced: true,
     state: {

@@ -1,8 +1,8 @@
 import { ValidatorListFilter } from '@/components/wallet/earn/Delegate/types'
 import { ValidatorListItem } from '@/store/modules/platform/types'
 import { DAY_MS } from '@/constants'
-import { ONEAXC } from '@zee-ava/avajs/dist/utils'
-import { BN } from '@zee-ava/avajs'
+import { ONEAXC } from '@axia-systems/axiajs/dist/utils'
+import { BN } from '@axia-systems/axiajs'
 
 function filterValidatorList(
     list: ValidatorListItem[],

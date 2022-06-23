@@ -37,7 +37,7 @@ import {
     parseMemo,
 } from '@/store/modules/history/history_utils'
 import { axia, avm } from '@/AXIA'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 
 @Component({
     components: {

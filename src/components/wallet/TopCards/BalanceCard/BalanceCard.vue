@@ -3,12 +3,12 @@
         <UtxosBreakdownModal ref="utxos_modal"></UtxosBreakdownModal>
         <div class="fungible_card">
             <div class="header">
-                <!-- <div class="refresh">
+                <div class="refresh">
                     <Spinner v-if="isUpdateBalance" class="spinner"></Spinner>
                     <button v-else @click="updateBalance">
                         <img src="@/assets/balance_sync.png" />
                     </button>
-                </div> -->
+                </div>
                 <h4>{{ $t('top.title2') }}</h4>
                 <!-- <template v-if="!isBreakdown">
                     <button class="breakdown_toggle" @click="toggleBreakdown">
@@ -115,8 +115,8 @@ import NftCol from './NftCol.vue'
 import Tooltip from '@/components/misc/Tooltip.vue'
 
 import Big from 'big.js'
-import { BN } from '@zee-ava/avajs/dist'
-import { ONEAXC } from '@zee-ava/avajs/dist/utils'
+import { BN } from '@axia-systems/axiajs/dist'
+import { ONEAXC } from '@axia-systems/axiajs/dist/utils'
 import { bnToBig } from '@/helpers/helper'
 import { priceDict } from '@/store/types'
 import { WalletType } from '@/js/wallets/types'

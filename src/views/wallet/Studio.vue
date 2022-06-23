@@ -54,7 +54,7 @@ import { IWalletNftMintDict } from '@/store/types'
 import Big from 'big.js'
 import { bnToBig } from '@/helpers/helper'
 import { avm } from '@/AXIA'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 @Component({
     name: 'studio',
     components: {

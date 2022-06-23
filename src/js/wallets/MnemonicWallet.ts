@@ -12,7 +12,7 @@ import {
     UTXO as AVMUTXO,
     AssetAmountDestination,
     UTXOSet,
-} from '@zee-ava/avajs/dist/apis/avm'
+} from '@axia-systems/axiajs/dist/apis/avm'
 
 import { privateToAddress } from 'ethereumjs-util'
 
@@ -21,31 +21,31 @@ import {
     UnsignedTx as PlatformUnsignedTx,
     UTXO as PlatformUTXO,
     Tx as PlatformTx,
-} from '@zee-ava/avajs/dist/apis/platformvm'
+} from '@axia-systems/axiajs/dist/apis/platformvm'
 
 import {
     KeyChain as EVMKeyChain,
     UnsignedTx as EVMUnsignedTx,
     Tx as EvmTx,
-} from '@zee-ava/avajs/dist/apis/evm'
-import { getPreferredHRP, PayloadBase } from '@zee-ava/avajs/dist/utils'
+} from '@axia-systems/axiajs/dist/apis/evm'
+import { getPreferredHRP, PayloadBase } from '@axia-systems/axiajs/dist/utils'
 
 import * as bip39 from 'bip39'
-import { BN, Buffer as BufferAxia } from '@zee-ava/avajs'
+import { BN, Buffer as BufferAxia } from '@axia-systems/axiajs'
 import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import { AvmExportChainType, AvmImportChainType, IAvaHdWallet } from '@/js/wallets/types'
 import HDKey from 'hdkey'
 import { ITransaction } from '@/components/wallet/transfer/types'
-import { KeyPair as PlatformVMKeyPair } from '@zee-ava/avajs/dist/apis/platformvm'
+import { KeyPair as PlatformVMKeyPair } from '@axia-systems/axiajs/dist/apis/platformvm'
 import { HdWalletCore } from '@/js/wallets/HdWalletCore'
 import { WalletNameType } from '@/js/wallets/types'
 import { digestMessage } from '@/helpers/helper'
-import { KeyChain } from '@zee-ava/avajs/dist/apis/evm'
+import { KeyChain } from '@axia-systems/axiajs/dist/apis/evm'
 import Erc20Token from '@/js/Erc20Token'
 import { WalletHelper } from '@/helpers/wallet_helper'
 import { Transaction } from '@ethereumjs/tx'
 import MnemonicPhrase from '@/js/wallets/MnemonicPhrase'
-import { ExportChainsC, ExportChainsP } from '@zee-ava/axia-wallet-sdk'
+import { ExportChainsAX, ExportChainsCore } from '@axia-systems/wallet-sdk'
 
 // HD WALLET
 // Accounts are not used and the account index is fixed to 0
@@ -240,20 +240,20 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         return keychain
     }
 
-    async signX(unsignedTx: AVMUnsignedTx): Promise<AVMTx> {
+    async signSwap(unsignedTx: AVMUnsignedTx): Promise<AVMTx> {
         let keychain = this.getKeyChain()
 
         const tx = unsignedTx.sign(keychain)
         return tx
     }
 
-    async signP(unsignedTx: PlatformUnsignedTx): Promise<PlatformTx> {
+    async signCore(unsignedTx: PlatformUnsignedTx): Promise<PlatformTx> {
         let keychain = this.platformHelper.getKeychain() as PlatformVMKeyChain
         const tx = unsignedTx.sign(keychain)
         return tx
     }
 
-    async signC(unsignedTx: EVMUnsignedTx): Promise<EvmTx> {
+    async signAX(unsignedTx: EVMUnsignedTx): Promise<EvmTx> {
         let keyChain = this.ethKeyChain
         return unsignedTx.sign(keyChain)
     }

@@ -32,12 +32,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { KeyPair } from '@zee-ava/avajs/dist/apis/avm'
+import { KeyPair } from '@axia-systems/axiajs/dist/apis/avm'
 import { axia, bintools } from '@/AXIA'
 import createHash from 'create-hash'
-import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
+import { getPreferredHRP } from '@axia-systems/axiajs/dist/utils'
 import { avm } from '@/AXIA'
-import { Buffer } from '@zee-ava/avajs'
+import { Buffer } from '@axia-systems/axiajs'
 import { digestMessage } from '@/helpers/helper'
 
 @Component

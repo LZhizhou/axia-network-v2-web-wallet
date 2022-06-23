@@ -49,11 +49,11 @@ import {
     StakeableLockOut,
     UTXO,
     UTXOSet,
-} from '@zee-ava/avajs/dist/apis/platformvm'
+} from '@axia-systems/axiajs/dist/apis/platformvm'
 
 import UtxoRow from '@/components/modals/UtxoSelect/UtxoRow.vue'
-import { BN } from '@zee-ava/avajs'
-import { UnixNow } from '@zee-ava/avajs/dist/utils'
+import { BN } from '@axia-systems/axiajs'
+import { UnixNow } from '@axia-systems/axiajs/dist/utils'
 import { bnToBig } from '@/helpers/helper'
 
 @Component({

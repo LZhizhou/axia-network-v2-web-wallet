@@ -8,11 +8,11 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { NFTTransferOutput } from '@zee-ava/avajs/dist/apis/avm'
+import { NFTTransferOutput } from '@axia-systems/axiajs/dist/apis/avm'
 import NftPayloadView from '@/components/misc/NftPayloadView/NftPayloadView.vue'
-import { PayloadBase } from '@zee-ava/avajs/dist/utils'
-import { Buffer } from '@zee-ava/avajs'
-import { PayloadTypes } from '@zee-ava/avajs/dist/utils'
+import { PayloadBase } from '@axia-systems/axiajs/dist/utils'
+import { Buffer } from '@axia-systems/axiajs'
+import { PayloadTypes } from '@axia-systems/axiajs/dist/utils'
 import { NftGroupDict } from '../wallet/portfolio/types'
 import { AxiaNftFamily } from '../../js/AxiaNftFamily'
 import { UTXO } from '@/store/modules/history/types'

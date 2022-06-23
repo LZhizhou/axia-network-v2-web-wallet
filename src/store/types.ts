@@ -1,11 +1,11 @@
 import Big from 'big.js'
 
-import { Buffer, BN } from '@zee-ava/avajs'
+import { Buffer, BN } from '@axia-systems/axiajs'
 import AxiaAsset from '@/js/AxiaAsset'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { ITransaction } from '@/components/wallet/transfer/types'
 import { AllKeyFileTypes, AllKeyFileDecryptedTypes } from '@/js/IKeystore'
-import { UTXO } from '@zee-ava/avajs/dist/apis/avm'
+import { UTXO } from '@axia-systems/axiajs/dist/apis/avm'
 import { LedgerWallet } from '@/js/wallets/LedgerWallet'
 import { SingletonWallet } from '@/js/wallets/SingletonWallet'
 import { UTXO as TxUTXO } from './modules/history/types'

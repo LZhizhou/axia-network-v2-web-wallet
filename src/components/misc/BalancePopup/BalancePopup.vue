@@ -36,7 +36,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 import AxiaAsset from '@/js/AxiaAsset'
 import BalanceRow from './BalanceRow.vue'
 import CollectibleTab from './CollectibleTab.vue'
-import { UTXO } from '@zee-ava/avajs/dist/apis/avm'
+import { UTXO } from '@axia-systems/axiajs/dist/apis/avm'
 
 @Component({
     components: {

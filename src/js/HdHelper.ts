@@ -2,17 +2,17 @@ import {
     KeyChain as AVMKeyChain,
     KeyPair as AVMKeyPair,
     UTXOSet as AVMUTXOSet,
-} from '@zee-ava/avajs/dist/apis/avm'
+} from '@axia-systems/axiajs/dist/apis/avm'
 
-import { UTXOSet as PlatformUTXOSet } from '@zee-ava/avajs/dist/apis/platformvm'
-import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
+import { UTXOSet as PlatformUTXOSet } from '@axia-systems/axiajs/dist/apis/platformvm'
+import { getPreferredHRP } from '@axia-systems/axiajs/dist/utils'
 import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import HDKey from 'hdkey'
-import { Buffer } from '@zee-ava/avajs'
+import { Buffer } from '@axia-systems/axiajs'
 import {
     KeyChain as PlatformVMKeyChain,
     KeyPair as PlatformVMKeyPair,
-} from '@zee-ava/avajs/dist/apis/platformvm'
+} from '@axia-systems/axiajs/dist/apis/platformvm'
 import store from '@/store'
 
 import { getAddressChains } from '@/explorer_api'
