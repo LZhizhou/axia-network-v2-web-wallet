@@ -1,7 +1,7 @@
 import { Module } from 'vuex'
 import { RootState } from '@/store/types'
 
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import { coreChain } from '@/AXIA'
 
 import {
@@ -19,7 +19,7 @@ import {
     NominatorRaw,
     ValidatorRaw,
 } from '@/components/misc/ValidatorList/types'
-import { ONEAXC } from '@zee-ava/avajs/dist/utils'
+import { ONEAXC } from '@axia-systems/axiajs/dist/utils'
 import { values } from 'cypress/types/lodash'
 
 const MINUTE_MS = 60000

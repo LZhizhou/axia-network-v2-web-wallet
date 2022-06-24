@@ -4,7 +4,7 @@ import {
     ITransactionData,
     UTXO,
 } from '@/store/modules/history/types'
-import { BN, Buffer } from '@zee-ava/avajs'
+import { BN, Buffer } from '@axia-systems/axiajs'
 import moment from 'moment'
 
 export function isArraysOverlap(arr1: any[], arr2: any[]): boolean {

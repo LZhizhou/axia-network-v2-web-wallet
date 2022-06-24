@@ -19,9 +19,9 @@
 </template>
 <script lang="ts">
 import { Component, Model, Prop, Vue, Watch } from 'vue-property-decorator'
-import { UTXO } from '@zee-ava/avajs/dist/apis/platformvm'
+import { UTXO } from '@axia-systems/axiajs/dist/apis/platformvm'
 import { ChainIdType } from '@/constants'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import AxiaAsset from '@/js/AxiaAsset'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { WalletType } from '@/js/wallets/types'

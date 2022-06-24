@@ -29,7 +29,7 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import Big from 'big.js'
 
 @Component

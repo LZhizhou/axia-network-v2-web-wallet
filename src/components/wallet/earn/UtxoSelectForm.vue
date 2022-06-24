@@ -29,13 +29,13 @@
 <script lang="ts">
 import { Vue, Component, Model, Watch } from 'vue-property-decorator'
 import UtxoSelectModal from '@/components/modals/UtxoSelect/UtxoSelect.vue'
-import { AmountOutput, UTXO, UTXOSet } from '@zee-ava/avajs/dist/apis/platformvm'
+import { AmountOutput, UTXO, UTXOSet } from '@axia-systems/axiajs/dist/apis/platformvm'
 import { WalletType } from '@/js/wallets/types'
 
 import { CurrencyType } from '@/components/misc/CurrencySelect/types'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import { bnToBig } from '@/helpers/helper'
-import { UnixNow } from '@zee-ava/avajs/dist/utils'
+import { UnixNow } from '@axia-systems/axiajs/dist/utils'
 @Component({
     components: {
         UtxoSelectModal,

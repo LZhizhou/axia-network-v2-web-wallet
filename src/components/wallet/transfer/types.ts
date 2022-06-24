@@ -1,6 +1,6 @@
 import AxiaAsset from '@/js/AxiaAsset'
 import Big from 'big.js'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 // import {UTXO} from "axia";
 
 // type AssetType = "fungible" | "collectible"

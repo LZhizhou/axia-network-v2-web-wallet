@@ -1,8 +1,8 @@
-import { KeyChain as AVMKeyChain, AVMAPI } from '@zee-ava/avajs/dist/apis/avm'
-import { InfoAPI } from '@zee-ava/avajs/dist/apis/info'
-import Axia from '@zee-ava/avajs'
-import BinTools from '@zee-ava/avajs/dist/utils/bintools'
-import { EVMAPI } from '@zee-ava/avajs/dist/apis/evm'
+import { KeyChain as AVMKeyChain, AVMAPI } from '@axia-systems/axiajs/dist/apis/avm'
+import { InfoAPI } from '@axia-systems/axiajs/dist/apis/info'
+import Axia from '@axia-systems/axiajs'
+import BinTools from '@axia-systems/axiajs/dist/utils/bintools'
+import { EVMAPI } from '@axia-systems/axiajs/dist/apis/evm'
 
 // Connect to TestNet by default
 // Doesn't really matter how we initialize, it will get changed by the network module later

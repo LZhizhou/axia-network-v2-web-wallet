@@ -23,7 +23,7 @@ import TransportWebHID from '@ledgerhq/hw-transport-webhid'
 // @ts-ignore
 import Eth from '@ledgerhq/hw-app-eth'
 // @ts-ignore
-import AppAxc from '@zee-ava/hd-wallet-axia'
+import AppAxc from '@axia-systems/hd-wallet'
 import Spinner from '@/components/misc/Spinner.vue'
 import LedgerBlock from '@/components/modals/LedgerBlock.vue'
 import { LedgerWallet, MIN_EVM_SUPPORT_V } from '@/js/wallets/LedgerWallet'

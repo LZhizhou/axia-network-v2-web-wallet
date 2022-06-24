@@ -34,7 +34,7 @@ import { ImportKeyfileInput } from '@/store/types'
 import { SingletonWallet } from '@/js/wallets/SingletonWallet'
 import { privateToAddress } from 'ethereumjs-util'
 import { bintools } from '@/AXIA'
-import { Buffer } from '@zee-ava/avajs'
+import { Buffer } from '@axia-systems/axiajs'
 
 @Component
 export default class PrivateKey extends Vue {

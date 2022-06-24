@@ -36,13 +36,13 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop, Emit, Watch } from 'vue-property-decorator'
 
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 // import Big from 'big.js';
 import Dropdown from '@/components/misc/Dropdown.vue'
 // import BigNumInput from "@/components/misc/BigNumInput";
 
 // @ts-ignore
-import { BigNumInput } from '@zee-ava/vue_components'
+import { BigNumInput } from '@axia-systems/vue-components'
 import AxiaAsset from '@/js/AxiaAsset'
 import { ICurrencyInputDropdownValue } from '@/components/wallet/transfer/types'
 import { IWalletAssetsDict, IWalletBalanceDict, priceDict } from '@/store/types'

@@ -1,6 +1,6 @@
 // import AppBtc from "@ledgerhq/hw-app-btc";
 //@ts-ignore
-import AppAxc from '@zee-ava/hd-wallet-axia'
+import AppAxc from '@axia-systems/hd-wallet'
 //@ts-ignore
 import Eth from '@ledgerhq/hw-app-eth'
 
@@ -8,7 +8,7 @@ import EthereumjsCommon from '@ethereumjs/common'
 import { Transaction } from '@ethereumjs/tx'
 
 import moment from 'moment'
-import { Buffer, BN } from '@zee-ava/avajs'
+import { Buffer, BN } from '@axia-systems/axiajs'
 import HDKey from 'hdkey'
 import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 const bippath = require('bip32-path')
@@ -16,7 +16,11 @@ import createHash from 'create-hash'
 import store from '@/store'
 import { importPublic, publicToAddress, bnToRlp, rlp } from 'ethereumjs-util'
 
-import { UTXO as AVMUTXO, UTXO, UTXOSet as AVMUTXOSet } from '@zee-ava/avajs/dist/apis/avm/utxos'
+import {
+    UTXO as AVMUTXO,
+    UTXO,
+    UTXOSet as AVMUTXOSet,
+} from '@axia-systems/axiajs/dist/apis/avm/utxos'
 import { AvaWalletCore } from '@/js/wallets/types'
 import { ITransaction } from '@/components/wallet/transfer/types'
 import {
@@ -27,7 +31,7 @@ import {
     Tx as AVMTx,
     UnsignedTx as AVMUnsignedTx,
     ImportTx as AVMImportTx,
-} from '@zee-ava/avajs/dist/apis/avm'
+} from '@axia-systems/axiajs/dist/apis/avm'
 
 import {
     ImportTx as PlatformImportTx,
@@ -39,7 +43,7 @@ import {
     SelectCredentialClass as PlatformSelectCredentialClass,
     AddNominatorTx,
     AddValidatorTx,
-} from '@zee-ava/avajs/dist/apis/platformvm'
+} from '@axia-systems/axiajs/dist/apis/platformvm'
 
 import {
     UnsignedTx as EVMUnsignedTx,
@@ -49,10 +53,16 @@ import {
     EVMConstants,
     EVMInput,
     SelectCredentialClass as EVMSelectCredentialClass,
-} from '@zee-ava/avajs/dist/apis/evm'
+} from '@axia-systems/axiajs/dist/apis/evm'
 
-import { Credential, SigIdx, Signature, UTXOResponse, Address } from '@zee-ava/avajs/dist/common'
-import { getPreferredHRP, PayloadBase } from '@zee-ava/avajs/dist/utils'
+import {
+    Credential,
+    SigIdx,
+    Signature,
+    UTXOResponse,
+    Address,
+} from '@axia-systems/axiajs/dist/common'
+import { getPreferredHRP, PayloadBase } from '@axia-systems/axiajs/dist/utils'
 import { HdWalletCore } from '@/js/wallets/HdWalletCore'
 import { ILedgerAppConfig } from '@/store/types'
 import { WalletNameType } from '@/js/wallets/types'
@@ -64,7 +74,7 @@ import { ParseableAvmTxEnum, ParseablePlatformEnum, ParseableEvmTxEnum } from '.
 import { ILedgerBlockMessage } from '../../store/modules/ledger/types'
 import Erc20Token from '@/js/Erc20Token'
 import { WalletHelper } from '@/helpers/wallet_helper'
-import { Utils, NetworkHelper, Network } from '@zee-ava/axia-wallet-sdk'
+import { Utils, NetworkHelper, Network } from '@axia-systems/wallet-sdk'
 
 export const MIN_EVM_SUPPORT_V = '0.5.3'
 
@@ -661,7 +671,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         return msgs
     }
 
-    async signX(unsignedTx: AVMUnsignedTx): Promise<AVMTx> {
+    async signSwap(unsignedTx: AVMUnsignedTx): Promise<AVMTx> {
         let tx = unsignedTx.getTransaction()
         let txType = tx.getTxType()
         let chainId: ChainIdType = 'Swap'
@@ -692,7 +702,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         return signedTx
     }
 
-    async signP(unsignedTx: PlatformUnsignedTx): Promise<PlatformTx> {
+    async signCore(unsignedTx: PlatformUnsignedTx): Promise<PlatformTx> {
         let tx = unsignedTx.getTransaction()
         let txType = tx.getTxType()
         let chainId: ChainIdType = 'Core'
@@ -752,7 +762,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         return signedTx
     }
 
-    async signC(unsignedTx: EVMUnsignedTx): Promise<EvmTx> {
+    async signAX(unsignedTx: EVMUnsignedTx): Promise<EvmTx> {
         // TODO: Might need to upgrade paths array to:
         //  paths = Array(utxoSet.getAllUTXOs().length).fill('0/0'),
         let tx = unsignedTx.getTransaction()

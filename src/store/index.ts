@@ -35,7 +35,7 @@ import {
 } from '@/js/Keystore'
 import { LedgerWallet } from '@/js/wallets/LedgerWallet'
 import { SingletonWallet } from '@/js/wallets/SingletonWallet'
-import { Buffer } from '@zee-ava/avajs'
+import { Buffer } from '@axia-systems/axiajs'
 import { privateToAddress } from 'ethereumjs-util'
 import { updateFilterAddresses } from '../providers'
 import { getAxcPriceUSD } from '@/helpers/price_helper'

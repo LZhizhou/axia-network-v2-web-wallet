@@ -33,7 +33,7 @@ import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 
 const uuidv1 = require('uuid/v1')
 
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import CurrencyInputDropdown from '@/components/misc/CurrencyInputDropdown.vue'
 import AxiaAsset from '@/js/AxiaAsset'
 import { AssetsDict } from '@/store/modules/assets/types'
