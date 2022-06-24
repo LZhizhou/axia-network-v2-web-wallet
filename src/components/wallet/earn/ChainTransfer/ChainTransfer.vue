@@ -107,7 +107,7 @@
                     ></TxStateCard>
                 </div>
                 <div class="details" :style="{ background: '#F0FAF7' }">
-                    <ChainCard :chain="targetChain"></ChainCard>
+                    <ChainCard :chain="targetChain" :is-source="false"></ChainCard>
                     <TxStateCard
                         :state="importState"
                         :status="importStatus"
