@@ -80,8 +80,8 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { ITransactionData, UTXO } from '@/store/modules/history/types'
 import { TransactionValueDict } from '@/components/SidePanels/types'
-import { PayloadBase, PayloadTypes } from '@zee-ava/avajs/dist/utils'
-import { BN, Buffer } from '@zee-ava/avajs'
+import { PayloadBase, PayloadTypes } from '@axia-systems/axiajs/dist/utils'
+import { BN, Buffer } from '@axia-systems/axiajs'
 import { WalletType } from '@/js/wallets/types'
 
 import { avm, coreChain } from '@/AXIA'

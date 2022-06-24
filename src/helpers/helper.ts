@@ -5,7 +5,7 @@ import {
     KeyPair as AVMKeyPair,
     NFTTransferOutput,
     UTXO,
-} from '@zee-ava/avajs/dist/apis/avm'
+} from '@axia-systems/axiajs/dist/apis/avm'
 
 import {
     Defaults,
@@ -13,10 +13,10 @@ import {
     ONEAXC,
     PayloadBase,
     PayloadTypes,
-} from '@zee-ava/avajs/dist/utils'
+} from '@axia-systems/axiajs/dist/utils'
 import Big from 'big.js'
 
-import { Buffer, BN } from '@zee-ava/avajs'
+import { Buffer, BN } from '@axia-systems/axiajs'
 import createHash from 'create-hash'
 
 function bnToBig(val: BN, denomination = 0): Big {

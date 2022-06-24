@@ -43,16 +43,16 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 
 import Spinner from '@/components/misc/Spinner.vue'
 import { WalletType } from '@/js/wallets/types'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import {
-    ExportChainsC,
-    ExportChainsP,
-    ExportChainsX,
+    ExportChainsAX,
+    ExportChainsCore,
+    ExportChainsSwap,
     GasHelper,
     Network,
     NetworkHelper,
     Utils,
-} from '@zee-ava/axia-wallet-sdk'
+} from '@axia-systems/wallet-sdk'
 
 @Component({
     components: { Spinner },
@@ -73,7 +73,7 @@ export default class ChainImport extends Vue {
         return this.wallet.ethAddress
     }
 
-    async atomicImportX(sourceChain: ExportChainsX) {
+    async atomicImportX(sourceChain: ExportChainsSwap) {
         this.beforeSubmit()
         if (!this.wallet) return
 
@@ -87,7 +87,7 @@ export default class ChainImport extends Vue {
         }
     }
 
-    async atomicImportP(source: ExportChainsP) {
+    async atomicImportP(source: ExportChainsCore) {
         this.beforeSubmit()
         if (!this.wallet) return
         try {
@@ -98,7 +98,7 @@ export default class ChainImport extends Vue {
         }
     }
 
-    async atomicImportC(source: ExportChainsC) {
+    async atomicImportC(source: ExportChainsAX) {
         this.beforeSubmit()
         if (!this.wallet) return
         try {
@@ -120,7 +120,7 @@ export default class ChainImport extends Vue {
             const gas = GasHelper.estimateImportGasFeeFromMockTx(numIns, numSigs)
 
             const totFee = baseFee.mul(new BN(gas))
-            let txId = await this.wallet.importToAXChain(source, Utils.axcCtoX(totFee))
+            let txId = await this.wallet.importToAXChain(source, Utils.axcAXtoSwap(totFee))
             this.onSuccess(txId)
         } catch (e) {
             this.onError(e)

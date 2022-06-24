@@ -1,6 +1,6 @@
 import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import { ITransaction } from '@/components/wallet/transfer/types'
-import { BN, Buffer } from '@zee-ava/avajs'
+import { BN, Buffer } from '@axia-systems/axiajs'
 import {
     AssetAmountDestination,
     BaseTx,
@@ -13,13 +13,13 @@ import {
     UTXOSet,
     UTXOSet as AVMUTXOSet,
     AVMConstants,
-} from '@zee-ava/avajs/dist/apis/avm'
+} from '@axia-systems/axiajs/dist/apis/avm'
 
-import { PayloadBase } from '@zee-ava/avajs/dist/utils'
-import { OutputOwners } from '@zee-ava/avajs/dist/common'
-import { PlatformVMConstants } from '@zee-ava/avajs/dist/apis/platformvm'
+import { PayloadBase } from '@axia-systems/axiajs/dist/utils'
+import { OutputOwners } from '@axia-systems/axiajs/dist/common'
+import { PlatformVMConstants } from '@axia-systems/axiajs/dist/apis/platformvm'
 
-import { UnsignedTx as EVMUnsignedTx, EVMConstants } from '@zee-ava/avajs/dist/apis/evm'
+import { UnsignedTx as EVMUnsignedTx, EVMConstants } from '@axia-systems/axiajs/dist/apis/evm'
 
 import { web3 } from '@/evm'
 import ERC721Token from '@/js/ERC721Token'

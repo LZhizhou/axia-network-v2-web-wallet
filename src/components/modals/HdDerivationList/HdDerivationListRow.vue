@@ -28,7 +28,7 @@ import { LedgerWallet } from '@/js/wallets/LedgerWallet'
 import { WalletType } from '@/js/wallets/types'
 
 import { axia } from '@/AXIA'
-import { getPreferredHRP } from '@zee-ava/avajs/dist/utils'
+import { getPreferredHRP } from '@axia-systems/axiajs/dist/utils'
 import { AXIA_ACCOUNT_PATH } from '../../../js/wallets/MnemonicWallet'
 
 @Component

@@ -127,7 +127,7 @@ import { Component, Vue, Watch } from 'vue-property-decorator'
 import Dropdown from '@/components/misc/Dropdown.vue'
 import AxcInput from '@/components/misc/AxcInput.vue'
 import AxiaAsset from '@/js/AxiaAsset'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import { avm, axChain, coreChain } from '@/AXIA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import Spinner from '@/components/misc/Spinner.vue'
@@ -140,13 +140,13 @@ import ChainSwapForm from '@/components/wallet/earn/ChainTransfer/Form.vue'
 
 import { WalletType } from '@/js/wallets/types'
 import {
-    ExportChainsC,
-    ExportChainsP,
-    ExportChainsX,
+    ExportChainsAX,
+    ExportChainsCore,
+    ExportChainsSwap,
     GasHelper,
     Utils,
     Big,
-} from '@zee-ava/axia-wallet-sdk'
+} from '@axia-systems/wallet-sdk'
 
 const IMPORT_DELAY = 5000 // in ms
 const BALANCE_DELAY = 2000 // in ms
@@ -223,7 +223,7 @@ export default class ChainTransfer extends Vue {
 
     get evmUnlocked(): BN {
         let balRaw = this.wallet.ethBalance
-        return Utils.axcCtoX(balRaw)
+        return Utils.axcAXtoSwap(balRaw)
     }
 
     get balanceBN(): BN {
@@ -241,7 +241,7 @@ export default class ChainTransfer extends Vue {
     }
 
     get formAmtText() {
-        return Utils.bnToAxcX(this.formAmt)
+        return Utils.bnToAxcSwap(this.formAmt)
     }
 
     get fee(): Big {
@@ -254,13 +254,13 @@ export default class ChainTransfer extends Vue {
 
     getFee(chain: ChainIdType, isExport: boolean): Big {
         if (chain === 'Swap') {
-            return Utils.bnToBigAxcX(avm.getTxFee())
+            return Utils.bnToBigAxcSwap(avm.getTxFee())
         } else if (chain === 'Core') {
-            return Utils.bnToBigAxcX(coreChain.getTxFee())
+            return Utils.bnToBigAxcSwap(coreChain.getTxFee())
         } else {
             const fee = isExport
                 ? GasHelper.estimateExportGasFeeFromMockTx(
-                      this.targetChain as ExportChainsC,
+                      this.targetChain as ExportChainsAX,
                       this.amt,
                       this.wallet.getEvmAddress(),
                       this.wallet.getCurrentAddressPlatform()
@@ -268,7 +268,7 @@ export default class ChainTransfer extends Vue {
                 : GasHelper.estimateImportGasFeeFromMockTx(1, 1)
 
             const totFeeWei = this.baseFee.mul(new BN(fee))
-            return Utils.bnToBigAxcC(totFeeWei)
+            return Utils.bnToBigAxcAX(totFeeWei)
         }
     }
 
@@ -355,22 +355,23 @@ export default class ChainTransfer extends Vue {
                     // TODO: Revert back when fee is available at rpc node.
                     exportTxId = await wallet.exportFromSwapChain(
                         amt,
-                        destinationChain as ExportChainsX,
+                        destinationChain as ExportChainsSwap,
                         new BN(1000000) //this.importFeeBN
                     )
                     break
                 case 'Core':
+                    // TODO: Revert back when fee is available at rpc node.
                     exportTxId = await wallet.exportFromCoreChain(
                         amt,
-                        destinationChain as ExportChainsP,
-                        this.importFeeBN
+                        destinationChain as ExportChainsCore,
+                        new BN(1000000) //this.importFeeBN
                     )
                     break
                 case 'AX':
                     // TODO: Revert back when fee is available at rpc node.
                     exportTxId = await wallet.exportFromAXChain(
                         amt,
-                        destinationChain as ExportChainsC,
+                        destinationChain as ExportChainsAX,
                         new BN(1000000) //this.exportFeeBN
                     )
                     break
@@ -440,15 +441,18 @@ export default class ChainTransfer extends Vue {
         let importTxId
         try {
             if (this.targetChain === 'Core') {
-                importTxId = await wallet.importToPlatformChain(this.sourceChain as ExportChainsP)
+                importTxId = await wallet.importToPlatformChain(
+                    this.sourceChain as ExportChainsCore
+                )
             } else if (this.targetChain === 'Swap') {
-                importTxId = await wallet.importToSwapChain(this.sourceChain as ExportChainsX)
+                importTxId = await wallet.importToSwapChain(this.sourceChain as ExportChainsSwap)
             } else {
                 //TODO: Import only the exported UTXO
+                // TODO: Revert back when fee is available at rpc node.
 
                 importTxId = await wallet.importToAXChain(
-                    this.sourceChain as ExportChainsC,
-                    this.importFeeBN
+                    this.sourceChain as ExportChainsAX,
+                    new BN(1000000) //this.importFeeBN
                 )
             }
         } catch (e) {

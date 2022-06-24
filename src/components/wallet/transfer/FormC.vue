@@ -123,12 +123,12 @@ import { Vue, Component } from 'vue-property-decorator'
 import AxcInput from '@/components/misc/AxcInput.vue'
 import { priceDict } from '@/store/types'
 import { WalletType } from '@/js/wallets/types'
-import { GasHelper, TxHelper, Utils } from '@zee-ava/axia-wallet-sdk'
+import { GasHelper, TxHelper, Utils } from '@axia-systems/wallet-sdk'
 
 // @ts-ignore
-import { QrInput } from '@zee-ava/vue_components'
+import { QrInput } from '@axia-systems/vue-components'
 import Big from 'big.js'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import { bnToBig } from '@/helpers/helper'
 import { web3 } from '@/evm'
 import EVMInputDropdown from '@/components/misc/EVMInputDropdown/EVMInputDropdown.vue'
@@ -185,7 +185,7 @@ export default class FormC extends Vue {
     }
 
     get gasPriceNumber() {
-        return Utils.bnToBigAxcX(this.gasPrice).toFixed(0)
+        return Utils.bnToBigAxcSwap(this.gasPrice).toFixed(0)
     }
 
     async updateGasPrice() {
@@ -281,11 +281,11 @@ export default class FormC extends Vue {
     }
 
     get maxFeeUSD() {
-        return Utils.bnToBigAxcC(this.maxFee).times(this.priceDict.usd)
+        return Utils.bnToBigAxcAX(this.maxFee).times(this.priceDict.usd)
     }
 
     get maxFeeText(): string {
-        return Utils.bnToAxcC(this.maxFee)
+        return Utils.bnToAxcAX(this.maxFee)
     }
 
     // balance - (gas * price)

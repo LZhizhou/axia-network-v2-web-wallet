@@ -42,8 +42,8 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 //@ts-ignore
-import { BigNumInput } from '@zee-ava/vue_components'
-import { BN } from '@zee-ava/avajs'
+import { BigNumInput } from '@axia-systems/vue-components'
+import { BN } from '@axia-systems/axiajs'
 import EVMAssetDropdown from '@/components/misc/EVMInputDropdown/EVMAssetDropdown.vue'
 import Erc20Token from '@/js/Erc20Token'
 import Big from 'big.js'

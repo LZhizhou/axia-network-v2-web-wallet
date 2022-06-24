@@ -1,10 +1,10 @@
-import { UTXO, UTXOSet } from '@zee-ava/avajs/dist/apis/avm'
+import { UTXO, UTXOSet } from '@axia-systems/axiajs/dist/apis/avm'
 
 import AxiaAsset from '@/js/AxiaAsset'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import { AxiaNftFamily } from '@/js/AxiaNftFamily'
 import { IWalletBalanceDict } from '@/store/types'
-import { UTXO as AVMUTXO } from '@zee-ava/avajs/dist/apis/avm/utxos'
+import { UTXO as AVMUTXO } from '@axia-systems/axiajs/dist/apis/avm/utxos'
 import Erc20Token from '@/js/Erc20Token'
 import ERC721Token from '@/js/ERC721Token'
 

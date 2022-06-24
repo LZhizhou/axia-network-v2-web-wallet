@@ -61,7 +61,7 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { axia, coreChain } from '@/AXIA'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 
 import ValidatorRow from '@/components/misc/ValidatorList/ValidatorRow.vue'
 import FilterSettings from '@/components/misc/ValidatorList/FilterSettings.vue'

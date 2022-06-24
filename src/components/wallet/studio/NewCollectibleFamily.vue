@@ -74,7 +74,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Watch } from 'vue-property-decorator'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import { coreChain } from '@/AXIA'
 import { bnToBig } from '@/helpers/helper'
 import Big from 'big.js'

@@ -24,16 +24,16 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { AmountOutput, AVMConstants, UTXO as AVMUTXO } from '@zee-ava/avajs/dist/apis/avm'
+import { AmountOutput, AVMConstants, UTXO as AVMUTXO } from '@axia-systems/axiajs/dist/apis/avm'
 import {
     PlatformVMConstants,
     StakeableLockOut,
     UTXO as PlatformUTXO,
-} from '@zee-ava/avajs/dist/apis/platformvm'
+} from '@axia-systems/axiajs/dist/apis/platformvm'
 import { axia, bintools } from '@/AXIA'
 import AxiaAsset from '@/js/AxiaAsset'
 import { bnToBig } from '@/helpers/helper'
-import { UnixNow } from '@zee-ava/avajs/dist/utils'
+import { UnixNow } from '@axia-systems/axiajs/dist/utils'
 import { AxiaNetwork } from '@/js/AxiaNetwork'
 
 @Component

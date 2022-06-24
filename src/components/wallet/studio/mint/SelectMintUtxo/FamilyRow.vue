@@ -25,7 +25,7 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { AxiaNftFamily } from '../../../../../js/AxiaNftFamily'
 import { IWalletNftMintDict } from '@/store/types'
-import { NFTTransferOutput, UTXO } from '@zee-ava/avajs/dist/apis/avm'
+import { NFTTransferOutput, UTXO } from '@axia-systems/axiajs/dist/apis/avm'
 import NftPayloadView from '@/components/misc/NftPayloadView/NftPayloadView.vue'
 import NftFamilyCardsPreview from '@/components/misc/NftFamilyCardsPreview.vue'
 @Component({

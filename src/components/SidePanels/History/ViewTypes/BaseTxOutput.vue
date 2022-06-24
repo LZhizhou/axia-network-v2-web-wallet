@@ -18,7 +18,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 import { BaseTxAssetSummary } from '@/helpers/history_helper'
 import AxiaAsset from '@/js/AxiaAsset'
 import { bnToBig } from '@/helpers/helper'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 
 @Component
 export default class BaseTxOutput extends Vue {

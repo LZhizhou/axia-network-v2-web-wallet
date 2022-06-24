@@ -19,7 +19,7 @@ import { axia, coreChain } from '@/AXIA'
 import { NominatorRaw, ValidatorRaw } from '@/components/misc/ValidatorList/types'
 import moment from 'moment'
 import Big from 'big.js'
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import { bnToBig } from '@/helpers/helper'
 import { ValidatorListItem } from '@/store/modules/platform/types'
 

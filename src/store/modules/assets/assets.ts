@@ -24,11 +24,11 @@ import {
     UTXO as AVMUTXO,
     UTXO,
     NFTMintOutput,
-} from '@zee-ava/avajs/dist/apis/avm'
-import { UnixNow } from '@zee-ava/avajs/dist/utils'
-import { BN } from '@zee-ava/avajs'
-import { UTXOSet as PlatformUTXOSet } from '@zee-ava/avajs/dist/apis/platformvm/utxos'
-import { PlatformVMConstants, StakeableLockOut } from '@zee-ava/avajs/dist/apis/platformvm'
+} from '@axia-systems/axiajs/dist/apis/avm'
+import { UnixNow } from '@axia-systems/axiajs/dist/utils'
+import { BN } from '@axia-systems/axiajs'
+import { UTXOSet as PlatformUTXOSet } from '@axia-systems/axiajs/dist/apis/platformvm/utxos'
+import { PlatformVMConstants, StakeableLockOut } from '@axia-systems/axiajs/dist/apis/platformvm'
 import axios from 'axios'
 import Erc20Token from '@/js/Erc20Token'
 import { AxiaNetwork } from '@/js/AxiaNetwork'

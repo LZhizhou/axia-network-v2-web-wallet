@@ -2,11 +2,11 @@ import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import {
     UTXOSet as PlatformUTXOSet,
     UTXO as PlatformUTXO,
-} from '@zee-ava/avajs/dist/apis/platformvm/utxos'
-import { UTXO as AVMUTXO } from '@zee-ava/avajs/dist/apis/avm/utxos'
+} from '@axia-systems/axiajs/dist/apis/platformvm/utxos'
+import { UTXO as AVMUTXO } from '@axia-systems/axiajs/dist/apis/avm/utxos'
 import { WalletType } from '@/js/wallets/types'
 
-import { BN, Buffer } from '@zee-ava/avajs'
+import { BN, Buffer } from '@axia-systems/axiajs'
 import {
     buildCreateNftFamilyTx,
     buildEvmTransferErc20Tx,
@@ -14,7 +14,7 @@ import {
     buildEvmTransferNativeTx,
     buildMintNftTx,
 } from '@/js/TxHelper'
-import { PayloadBase } from '@zee-ava/avajs/dist/utils'
+import { PayloadBase } from '@axia-systems/axiajs/dist/utils'
 import { ITransaction } from '@/components/wallet/transfer/types'
 
 import { web3 } from '@/evm'
@@ -51,7 +51,7 @@ class WalletHelper {
             utxoSet
         )
 
-        let signed = await wallet.signX(unsignedTx)
+        let signed = await wallet.signSwap(unsignedTx)
         return await avm.issueTx(signed)
     }
 
@@ -76,7 +76,7 @@ class WalletHelper {
             sourceAddresses,
             utxoSet
         )
-        let signed = await wallet.signX(tx)
+        let signed = await wallet.signSwap(tx)
         return await avm.issueTx(signed)
     }
 
@@ -87,7 +87,7 @@ class WalletHelper {
         memo: Buffer | undefined
     ): Promise<string> {
         let unsignedTx = await wallet.buildUnsignedTransaction(orders, addr, memo)
-        const tx = await wallet.signX(unsignedTx)
+        const tx = await wallet.signSwap(unsignedTx)
         const txId: string = await avm.issueTx(tx)
 
         return txId
@@ -142,7 +142,7 @@ class WalletHelper {
             delegationFee
         )
 
-        let tx = await wallet.signP(unsignedTx)
+        let tx = await wallet.signCore(unsignedTx)
         return await coreChain.issueTx(tx)
     }
 
@@ -192,7 +192,7 @@ class WalletHelper {
             [rewardAddress] // reward address
         )
 
-        const tx = await wallet.signP(unsignedTx)
+        const tx = await wallet.signCore(unsignedTx)
         return await coreChain.issueTx(tx)
     }
 

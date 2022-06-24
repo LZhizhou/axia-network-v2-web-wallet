@@ -30,8 +30,8 @@
 import 'reflect-metadata'
 import { Vue, Component, Ref, Prop } from 'vue-property-decorator'
 import { ITransaction } from './types'
-import { UTXO } from '@zee-ava/avajs/dist/apis/avm'
-import { BN } from '@zee-ava/avajs'
+import { UTXO } from '@axia-systems/axiajs/dist/apis/avm'
+import { BN } from '@axia-systems/axiajs'
 import { bnToBig, getPayloadFromUTXO } from '@/helpers/helper'
 import NftPayloadView from '@/components/misc/NftPayloadView/NftPayloadView.vue'
 @Component({

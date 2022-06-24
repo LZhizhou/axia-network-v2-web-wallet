@@ -200,7 +200,7 @@ import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 
 import AxcInput from '@/components/misc/AxcInput.vue'
 //@ts-ignore
-import { QrInput } from '@zee-ava/vue_components'
+import { QrInput } from '@axia-systems/vue-components'
 import ValidatorsList from '@/components/misc/ValidatorList/ValidatorsList.vue'
 import { ValidatorRaw } from '@/components/misc/ValidatorList/types'
 import StakingCalculator from '@/components/wallet/earn/StakingCalculator.vue'
@@ -208,17 +208,17 @@ import ConfirmPage from '@/components/wallet/earn/Delegate/ConfirmPage.vue'
 import Big from 'big.js'
 import moment from 'moment'
 
-import { BN } from '@zee-ava/avajs'
+import { BN } from '@axia-systems/axiajs'
 import {
     AmountOutput,
     PlatformVMConstants,
     UTXO,
     UTXOSet,
-} from '@zee-ava/avajs/dist/apis/platformvm'
+} from '@axia-systems/axiajs/dist/apis/platformvm'
 import { axia, avm, bintools, infoApi, coreChain } from '@/AXIA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { bnToBig, calculateStakingReward } from '@/helpers/helper'
-import { Defaults, ONEAXC } from '@zee-ava/avajs/dist/utils'
+import { Defaults, ONEAXC } from '@axia-systems/axiajs/dist/utils'
 import { ValidatorListItem } from '@/store/modules/platform/types'
 import NodeSelection from '@/components/wallet/earn/Delegate/NodeSelection.vue'
 import CurrencySelect from '@/components/misc/CurrencySelect/CurrencySelect.vue'

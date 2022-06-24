@@ -2,7 +2,7 @@ import Sockette from 'sockette'
 import { WalletType } from '@/js/wallets/types'
 import store from '@/store'
 import { AxiaNetwork } from '@/js/AxiaNetwork'
-import { PubSub } from '@zee-ava/avajs'
+import { PubSub } from '@axia-systems/axiajs'
 
 const FILTER_ADDRESS_SIZE = 1000
 

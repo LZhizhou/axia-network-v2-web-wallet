@@ -9,7 +9,7 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import Modal from '@/components/modals/Modal.vue'
 import NftPayloadView from '@/components/misc/NftPayloadView/NftPayloadView.vue'
-import { PayloadBase } from '@zee-ava/avajs/dist/utils'
+import { PayloadBase } from '@axia-systems/axiajs/dist/utils'
 @Component({
     components: { NftPayloadView, Modal },
 })
