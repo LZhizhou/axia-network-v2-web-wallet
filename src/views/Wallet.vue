@@ -10,8 +10,7 @@
                     <img src="@/assets/search.png" />
                     <input type="text" v-model="search" placeholder="Search" class="search-box" />
                 </div>
-                <transaction-history-side-panel></transaction-history-side-panel>
-
+                <transaction-history-side-panel class="net_menu"></transaction-history-side-panel>
                 <network-menu class="net_menu"></network-menu>
             </div>
             <top-info class="wallet_top"></top-info>

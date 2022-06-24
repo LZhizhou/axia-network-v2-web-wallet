@@ -4,7 +4,7 @@
             <p>Transactions</p>
         </div>
         <transition name="slide_right">
-            <div class="network_body" v-if="isActive" key="body">
+            <div class="network_body" v-show="isActive" key="body">
                 <Transaction-History-Panel></Transaction-History-Panel>
             </div>
         </transition>
@@ -13,19 +13,19 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
-
-import { AxiaNetwork } from '@/js/AxiaNetwork'
-import { NetworkStatus } from '@/store/modules/network/types'
 import TransactionHistoryPanel from '@/components/SidePanels/TransactionHistoryPanel.vue'
+
+const isTrue = true
+const isFalse = false
 
 export default class TransactionHistorySidePanel extends Vue {
     isActive: boolean = false
-
     closeMenu(): void {
-        this.isActive = false
+        this.isActive = isFalse
     }
     toggleMenu(): void {
-        this.isActive = !this.isActive
+        console.log(isTrue)
+        this.isActive = isTrue
     }
 }
 </script>

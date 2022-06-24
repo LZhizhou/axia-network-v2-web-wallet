@@ -5,28 +5,28 @@
         <div class="menus">
             <AccountsFound class="accounts_menu"></AccountsFound>
             <div class="options">
-                <router-link to="/access/privatekey" class="menu_option button_primary">
+                <router-link to="/access/privatekey" class="menu_option">
                     {{ $t('access.but_private_key') }}
                     <ImageDayNight
                         day="/img/access_icons/day/privatekey.svg"
                         night="/img/access_icons/night/privatekey.svg"
                     ></ImageDayNight>
                 </router-link>
-                <router-link to="/access/mnemonic" class="menu_option button_primary">
+                <router-link to="/access/mnemonic" class="menu_option">
                     {{ $t('access.but_mnemonic') }}
                     <ImageDayNight
                         day="/img/access_icons/day/mnemonic.svg"
                         night="/img/access_icons/night/mnemonic.svg"
                     ></ImageDayNight>
                 </router-link>
-                <router-link to="/access/keystore" class="menu_option button_primary">
+                <router-link to="/access/keystore" class="menu_option">
                     {{ $t('access.but_keystore') }}
                     <ImageDayNight
                         day="/img/access_icons/day/keystore.svg"
                         night="/img/access_icons/night/keystore.svg"
                     ></ImageDayNight>
                 </router-link>
-                <LedgerButton class="menu_option button_primary"></LedgerButton>
+                <LedgerButton class="menu_option"></LedgerButton>
                 <!--            <TorusGoogle class="option button_primary" text="Google"></TorusGoogle>-->
             </div>
         </div>
@@ -101,8 +101,12 @@ hr {
 }
 
 .menu_option {
+    background-color: #178fe1 !important;
+    background: #178fe1 !important;
+    color: white !important;
     justify-content: space-between;
     align-items: center;
+    border-radius: 12px;
     img {
         width: 24px;
         height: 24px;

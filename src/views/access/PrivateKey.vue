@@ -15,7 +15,7 @@
                 ></v-text-field>
                 <p class="err">{{ error }}</p>
                 <v-btn
-                    class="ava_button button_primary"
+                    class="ava_button"
                     @click="access"
                     :loading="isLoading"
                     :disabled="!canSubmit"
@@ -78,12 +78,21 @@ export default class PrivateKey extends Vue {
     background-color: var(--bg) !important;
 }
 .ava_button {
+    background-color: #178fe1 !important;
     width: 100%;
+    color: #fff !important;
     margin-bottom: 22px;
+}
+
+.theme--light.v-btn.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+    opacity: 0.5;
+    background-color: #178fe1 !important;
+    color: #fff !important;
 }
 .access_card {
     /*max-width: 80vw;*/
-    background-color: var(--bg-light);
+    background-color: #fff;
+    border-radius: 12px;
     padding: main.$container-padding;
     width: 100%;
     /*max-width: 240px;*/

@@ -116,8 +116,9 @@ export default class Mnemonic extends Vue {
 .mnemonic_auth {
     margin: 0px auto;
     width: max-content;
-    background-color: var(--bg-light);
+    background-color: #fff;
     padding: main.$container-padding;
+    border-radius: 12px;
 
     .left,
     .right {
