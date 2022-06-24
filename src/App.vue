@@ -7,7 +7,7 @@
                 <div class="main_cols" :wallet_view="!isNavbar">
                     <UpgradeToAccountModal></UpgradeToAccountModal>
                     <transition name="fade" mode="out-in">
-                        <router-view id="router_view" />
+                        <router-view id="router_view" :class="[isNavbar ? 'bg-style' : null]" />
                     </transition>
                 </div>
             </template>
@@ -114,10 +114,17 @@ export default {
         min-height: calc(100vh - 80px);
         position: relative;
         padding: main.$container_padding_m;
-        background: linear-gradient(359.99deg, #fcfeff 16.91%, #e7f3fe 48.95%, #ffffff 99.99%);
     }
 }
 
+.bg-style {
+    background: linear-gradient(
+        359.99deg,
+        #fcfeff 16.91%,
+        #e7f3fe 48.95%,
+        #ffffff 99.99%
+    ) !important;
+}
 #router_view {
     min-height: calc(100vh - 80px);
     position: relative;

@@ -267,6 +267,7 @@ export default class AddressCard extends Vue {
     margin: 12px;
     box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
     border-radius: 12px;
+    min-height: 290px !important;
 }
 .buts {
     width: 100%;
@@ -309,7 +310,6 @@ export default class AddressCard extends Vue {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #e9f6ff;
 }
 .mainnet_but {
     background-image: url('/img/modal_icons/mainnet_addr.svg');

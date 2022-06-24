@@ -40,7 +40,7 @@ button {
     padding: 4px 14px;
     border: 1px solid transparent;
     color: var(--primary-color-light);
-    background-color: var(--bg-wallet);
+    background-color: none;
     border-radius: 4px;
     margin-right: 6px;
     margin-bottom: 6px;
@@ -52,10 +52,16 @@ button {
     //}
 
     &[active] {
-        color: var(--bg-wallet);
-        //border-color: #285599;
-        background-color: var(--primary-color);
+        background: #178fe1;
+        margin: 2px;
+        border-radius: 20px;
+        padding: 5px 15px;
+        color: #fff;
     }
+}
+
+button:hover {
+    border: none;
 }
 
 @include main.medium-device {

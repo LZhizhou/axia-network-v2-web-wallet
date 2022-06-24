@@ -2,25 +2,21 @@
     <div class="home_view">
         <div class="header">
             <h1>{{ $t('portfolio.assets') }}</h1>
-            <div>
-                <select class="dropdown" @change="updateTab($event)" v-model="key">
-                    <option
-                        @click="tab = 'fungibles'"
-                        :active="tab === `fungibles`"
-                        data-cy="wallet_fungible"
-                        value="fungibles"
-                    >
-                        {{ $t('portfolio.assets1') }}
-                    </option>
-                    <option
-                        @click="tab = 'collectibles'"
-                        :active="tab === `collectibles`"
-                        data-cy="wallet_nft"
-                        value="collectibles"
-                    >
-                        {{ $t('portfolio.assets2') }}
-                    </option>
-                </select>
+            <div class="opt-btn">
+                <button
+                    @click="tab = 'fungibles'"
+                    :active="tab === `fungibles`"
+                    data-cy="wallet_fungible"
+                >
+                    {{ $t('portfolio.assets1') }}
+                </button>
+                <button
+                    @click="tab = 'collectibles'"
+                    :active="tab === `collectibles`"
+                    data-cy="wallet_nft"
+                >
+                    {{ $t('portfolio.assets2') }}
+                </button>
             </div>
             <div style="flex-grow: 1"></div>
             <div class="search hover_border">
@@ -54,7 +50,6 @@ export default {
         return {
             search: '',
             tab: 'fungibles',
-            key: '',
         }
     },
     components: {
@@ -66,12 +61,6 @@ export default {
             this.search = ''
         },
     },
-    methods: {
-        updateTab(event) {
-            console.log(event.target.value)
-            tab = event
-        },
-    },
 }
 </script>
 <style scoped lang="scss">
@@ -81,14 +70,16 @@ export default {
     display: grid;
     grid-template-rows: max-content 1fr;
 }
-.dropdown {
-    border: 2px solid #e6e8ec;
-    border-radius: 12px;
-    text-align: center;
-    padding: 5px;
+.opt-btn {
+    border: 1px solid #9ccded;
+    border-radius: 40px;
+    display: grid;
+    padding: 2px 0px;
+    grid-template-columns: 1fr 1fr;
 }
 .header {
     display: flex;
+    flex-grow: 111;
     align-items: center;
     border-bottom: 2px solid transparent;
     flex-wrap: nowrap;
@@ -97,7 +88,6 @@ export default {
     h1 {
         font-weight: normal;
         margin-right: 30px;
-        flex-grow: 11;
     }
 
     button {
@@ -110,8 +100,9 @@ export default {
         color: var(--primary-color-light);
 
         &[active] {
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--secondary-color);
+            color: white;
+            background: #178fe1;
+            border-radius: 20px;
         }
     }
 }

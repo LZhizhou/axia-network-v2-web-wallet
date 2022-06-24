@@ -9,20 +9,20 @@
             </button>
         </div>
         <transition name="fade" mode="out-in">
-            <transaction-history-panel class="panel_content"></transaction-history-panel>
+            <transaction-history-side-panel class="panel_content"></transaction-history-side-panel>
         </transition>
     </div>
 </template>
 <script>
 import NetworkMenu from '../NetworkSettings/NetworkMenu'
-import TransactionHistoryPanel from './TransactionHistoryPanel'
+import TransactionHistorySidePanel from './TransactionHistorySidePanel.vue'
 import DayNightToggle from '@/components/misc/DayNightToggle'
 import ConfirmLogout from '@/components/modals/ConfirmLogout.vue'
 
 export default {
     components: {
         NetworkMenu,
-        TransactionHistoryPanel,
+        TransactionHistorySidePanel,
         DayNightToggle,
         ConfirmLogout,
     },

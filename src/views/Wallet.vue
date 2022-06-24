@@ -10,7 +10,8 @@
                     <img src="@/assets/search.png" />
                     <input type="text" v-model="search" placeholder="Search" class="search-box" />
                 </div>
-                <div>Transactions</div>
+                <transaction-history-side-panel></transaction-history-side-panel>
+
                 <network-menu class="net_menu"></network-menu>
             </div>
             <top-info class="wallet_top"></top-info>
@@ -22,9 +23,6 @@
                 </keep-alive>
             </transition>
         </div>
-        <!-- <transition name="fade" mode="out-in">
-            <main-panel class="panel"></main-panel>
-        </transition> -->
     </div>
 </template>
 
@@ -35,6 +33,7 @@ import Sidebar from '@/components/wallet/Sidebar.vue'
 import MainPanel from '@/components/SidePanels/MainPanel.vue'
 import UpdateKeystoreModal from '@/components/modals/UpdateKeystore/UpdateKeystoreModal.vue'
 import NetworkMenu from '@/components/NetworkSettings/NetworkMenu.vue'
+import TransactionHistorySidePanel from '@/components/SidePanels/TransactionHistorySidePanel.vue'
 
 const TIMEOUT_DURATION = 60 * 7 // in seconds
 const TIMEOUT_DUR_MS = TIMEOUT_DURATION * 1000
@@ -46,6 +45,7 @@ const TIMEOUT_DUR_MS = TIMEOUT_DURATION * 1000
         TopInfo,
         UpdateKeystoreModal,
         NetworkMenu,
+        TransactionHistorySidePanel,
     },
 })
 export default class Wallet extends Vue {
@@ -167,6 +167,9 @@ export default class Wallet extends Vue {
         //     padding: 5px;
         //     padding-left: 20px;
         width: 85%;
+    }
+    .search-box:hover {
+        border: none !important;
     }
 }
 .panel {

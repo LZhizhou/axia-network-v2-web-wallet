@@ -6,11 +6,11 @@
         </p>
         <div>
             <label>{{ $t('advanced.verify.label1') }}</label>
-            <textarea v-model="message"></textarea>
+            <textarea placeholder="Message" v-model="message"></textarea>
         </div>
         <div>
             <label>{{ $t('advanced.verify.label2') }}</label>
-            <textarea v-model="signature"></textarea>
+            <textarea placeholder="Signature" v-model="signature"></textarea>
         </div>
         <p class="err">{{ error }}</p>
         <v-btn
@@ -101,10 +101,27 @@ input,
 .address {
     padding: 6px 12px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: none;
     font-size: 13px;
 }
 
+textarea {
+    background-color: white !important;
+    padding: 10px;
+    border: 2px solid #edeef5;
+    border-radius: 12px;
+}
+
+.theme--light.v-btn.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+    background-color: #178fe1 !important;
+    opacity: 0.5;
+    color: white !important;
+}
+
+.v-btn {
+    background-color: #178fe1 !important;
+    color: white !important;
+}
 label {
     display: block;
     text-align: left;
@@ -118,7 +135,7 @@ textarea {
     width: 100%;
     resize: none;
     padding: 6px 12px;
-    height: 80px;
+    height: 40px;
 }
 
 .result {

@@ -395,6 +395,11 @@ export default class Activity extends Vue {
     }
 }
 
+.radio_buts {
+    border: 1px solid #9ccded;
+    border-radius: 20px;
+}
+
 .header {
     display: flex;
     flex-direction: row;
