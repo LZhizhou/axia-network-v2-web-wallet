@@ -1,11 +1,14 @@
 <template>
     <div>
-        <div class="toggle_but" @click="toggleMenu">
+        <button class="toggle_but" @click="toggleMenu">
             <p>Transactions</p>
-        </div>
+        </button>
+        <transition name="fade">
+            <div class="network_dispose_bg" v-if="isActive" key="bg" @click="closeMenu"></div>
+        </transition>
         <transition name="slide_right">
             <div class="network_body" v-show="isActive" key="body">
-                <Transaction-History-Panel></Transaction-History-Panel>
+                <transaction-history-panel></transaction-history-panel>
             </div>
         </transition>
     </div>
@@ -15,17 +18,20 @@ import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import TransactionHistoryPanel from '@/components/SidePanels/TransactionHistoryPanel.vue'
 
-const isTrue = true
-const isFalse = false
-
+@Component({
+    components: {
+        TransactionHistoryPanel,
+    },
+})
 export default class TransactionHistorySidePanel extends Vue {
     isActive: boolean = false
+
     closeMenu(): void {
-        this.isActive = isFalse
+        this.isActive = false
     }
+
     toggleMenu(): void {
-        console.log(isTrue)
-        this.isActive = isTrue
+        this.isActive = !this.isActive
     }
 }
 </script>

@@ -8,7 +8,7 @@
             <div
                 style="display: flex; flex-direction: column; align-items: center; margin-top: 14px"
             >
-                <v-btn class="ava_button button_primary" @click="submit" :loading="isLoading">
+                <v-btn class="ava_button confirm-btn" @click="submit" :loading="isLoading">
                     {{ $t('logout.button_conf') }}
                 </v-btn>
                 <button class="ava_button_secondary" @click="close">
@@ -64,5 +64,9 @@ export default class ConfirmLogout extends Vue {
     max-width: 100%;
     padding: 30px;
     /*background-color: var(--bg-light);*/
+}
+.confirm-btn {
+    background-color: #178fe1 !important;
+    color: white;
 }
 </style>
