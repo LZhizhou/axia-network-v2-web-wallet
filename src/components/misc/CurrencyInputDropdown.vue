@@ -15,7 +15,8 @@
                         :placeholder="placeholder"
                         :disabled="disabled"
                     ></big-num-input>
-                    <p class="usd_val" :active="isAxc">${{ amountUSD.toLocaleString(2) }}</p>
+                    <!-- <p class="usd_val" :active="isAxc">${{ amountUSD.toLocaleString(2) }}</p> -->
+                    <p class="usd_val" :active="isAxc">${{ '--' }}</p>
                 </div>
             </div>
             <BalanceDropdown

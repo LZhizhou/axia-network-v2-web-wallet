@@ -14,9 +14,10 @@
                         class="bigIn"
                         :disabled="disabled"
                     ></BigNumInput>
-                    <p class="usd_val" :active="token === 'native'">
+                    <!-- <p class="usd_val" :active="token === 'native'">
                         ${{ usd_val.toLocaleString(2) }}
-                    </p>
+                    </p> -->
+                    <p class="usd_val" :active="token === 'native'">${{ '--' }}</p>
                 </div>
             </template>
             <template v-else>

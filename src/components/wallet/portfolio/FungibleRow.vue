@@ -20,7 +20,7 @@
             </span>
             <br />
             <span class="fiat" v-if="isAxcToken">
-                {{ totalUSD.toLocaleString(2) }}
+                {{ '--' }}
                 &nbsp;USD
             </span>
         </p>
