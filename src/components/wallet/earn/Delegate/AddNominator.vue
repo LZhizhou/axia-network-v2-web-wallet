@@ -106,7 +106,7 @@
                         <label>{{ $t('earn.delegate.summary.duration') }} *</label>
                         <p>{{ stakingDurationText }}</p>
                     </div>
-                    <div>
+                    <!-- <div>
                         <label>{{ $t('earn.delegate.summary.reward') }}</label>
                         <p v-if="currency_type === 'AXC'">
                             {{ estimatedReward.toLocaleString(2) }} AXC
@@ -114,7 +114,7 @@
                         <p v-if="currency_type === 'USD'">
                             ${{ estimatedRewardUSD.toLocaleString(2) }} USD
                         </p>
-                    </div>
+                    </div> -->
                     <div>
                         <label>{{ $t('earn.delegate.summary.fee') }}</label>
                         <p v-if="currency_type === 'AXC'">

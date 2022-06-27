@@ -172,7 +172,7 @@
     },
     "cross_chain": {
         "title": "Cross Chain",
-        "desc": "Transfer tokens between Exchange (Swap) , Platform (Core) and Contract (AX) chains.",
+        "desc": "Transfer tokens between Swap, Core and AX chains.",
         "card": {
             "source": "Source",
             "destination": "Destination",
@@ -287,7 +287,7 @@
         "save_account": {
             "title": "Save Account",
             "desc": "Encode your wallet with a password and store securely on this browser.",
-            "submit":  "Save",
+            "submit": "Save",
             "placeholder_1": "Account Name",
             "placeholder_2": "Password",
             "placeholder_3": "Confirm Password"
@@ -328,7 +328,7 @@
         "remove_success_msg": "Private key and assets removed from the wallet.",
         "password_validation": "Password must be at least 9 characters long.",
         "password_validation2": "Password do not match.",
-        "account_name_required" : "Account Name Required."
+        "account_name_required": "Account Name Required."
     },
     "portfolio": {
         "assets": "Assets",
