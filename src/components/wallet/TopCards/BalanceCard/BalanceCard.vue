@@ -35,13 +35,16 @@
                 </p>
                 <div style="display: flex; flex-direction: row">
                     <p class="balance_usd">
-                        <b>$ {{ totalBalanceUSDText }}</b>
+                        <!-- <b>$ {{ totalBalanceUSDText }}</b> -->
+                        <b>$ {{ '--' }}</b>
+
                         USD
                     </p>
                     <p class="balance_usd" style="background-color: #e6e8ec">
                         <b>1 AXC</b>
                         =
-                        <b>${{ axcPriceText }}</b>
+                        <!-- <b>${{ axcPriceText }}</b> -->
+                        <b>${{ '--' }}</b>
                         USD
                     </p>
                 </div>

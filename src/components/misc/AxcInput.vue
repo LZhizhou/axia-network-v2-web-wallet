@@ -19,9 +19,13 @@
                     <b>{{ $t('misc.balance') }}:</b>
                     {{ balance.toLocaleString() }}
                 </p>
-                <p>
+                <!-- <p>
                     <b>$</b>
                     {{ amountUSD.toLocaleString(2) }}
+                </p> -->
+                <p>
+                    <b>$</b>
+                    {{ '--' }}
                 </p>
             </div>
             <div></div>
