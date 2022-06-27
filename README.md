@@ -107,11 +107,11 @@ By default, there are two network options to connect to: `Mainnet` and `Testnet`
 
 ##### Mainnet
 
--   Axia API: `https://api.axc.network:443`
+-   Axia API: `https://1.p2p-v2.testnet.axiacoin.network`
 -   Explorer API: `https://explorerapi.axc.network`
 
 ##### Testnet
 
--   Axia API: `https://api.axc-test.network:443`
+-   Axia API: `https://1.p2p-v2.testnet.axiacoin.network`
 -   Explorer API: `https://explorerapi.axc-test.network`
 

@@ -179,16 +179,16 @@ const network_module: Module<NetworkState, RootState> = {
         async init({ state, commit, dispatch }) {
             let mainnet = new AxiaNetwork(
                 'Mainnet',
-                'https://api.avax.network:443',
-                1,
-                'https://explorerapi.avax.network',
-                'https://explorer.avax.network',
+                'https://1.p2p-v2.testnet.axiacoin.network:443',
+                5678,
+                'https://explorerapi.avax-test.network',
+                'https://explorer.avax-test.network',
                 true
             )
 
             let testnet = new AxiaNetwork(
                 'Testnet',
-                'http://rpc-v2.canarytest.axiacoin.network',
+                'https://1.p2p-v2.testnet.axiacoin.network:443',
                 5678,
                 'https://explorerapi.avax-test.network',
                 'https://explorer.avax-test.network',
