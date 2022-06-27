@@ -8,16 +8,16 @@
         </div>
         <p class="err" v-else-if="err">{{ err }}</p>
         <template v-if="!isLoading">
-            <v-btn block class="button_secondary" depressed @click="atomicImportX('Core')" small>
+            <v-btn block class="button_secondary" depressed @click="atomicImportSwap('Core')" small>
                 Import Swap (From Core)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportX('AX')" small>
+            <v-btn block class="button_secondary" depressed @click="atomicImportSwap('AX')" small>
                 Import Swap (From AX)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportP('Swap')" small>
+            <v-btn block class="button_secondary" depressed @click="atomicImportCore('Swap')" small>
                 Import Core (From Swap)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportP('AX')" small>
+            <v-btn block class="button_secondary" depressed @click="atomicImportCore('AX')" small>
                 Import Core (From AX)
             </v-btn>
             <v-btn
@@ -25,12 +25,12 @@
                 block
                 class="button_secondary"
                 depressed
-                @click="atomicImportC('Swap')"
+                @click="atomicImportAX('Swap')"
                 small
             >
                 Import AX (from Swap)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportC('Core')" small>
+            <v-btn block class="button_secondary" depressed @click="atomicImportAX('Core')" small>
                 Import AX (from Core)
             </v-btn>
         </template>
@@ -73,7 +73,7 @@ export default class ChainImport extends Vue {
         return this.wallet.ethAddress
     }
 
-    async atomicImportX(sourceChain: ExportChainsSwap) {
+    async atomicImportSwap(sourceChain: ExportChainsSwap) {
         this.beforeSubmit()
         if (!this.wallet) return
 
@@ -87,7 +87,7 @@ export default class ChainImport extends Vue {
         }
     }
 
-    async atomicImportP(source: ExportChainsCore) {
+    async atomicImportCore(source: ExportChainsCore) {
         this.beforeSubmit()
         if (!this.wallet) return
         try {
@@ -98,7 +98,7 @@ export default class ChainImport extends Vue {
         }
     }
 
-    async atomicImportC(source: ExportChainsAX) {
+    async atomicImportAX(source: ExportChainsAX) {
         this.beforeSubmit()
         if (!this.wallet) return
         try {
