@@ -177,8 +177,8 @@
         "subtitle2": "Ủy quyền",
         "subtitle3": "Chuyển đổi giữa các Chain",
         "subtitle4": "Phần thưởng dự kiến",
-        "warning_1": "Bạn phải sở hữu tối thiểu {0} AXC trên CoreChain để trở thành trình xác thực.",
-        "warning_2": "Bạn phải sở hữu tối thiểu {0} AXC trên CoreChain để có thể ủy quyền.",
+        "warning_1": "Bạn phải sở hữu tối thiểu {0} AXC trên Core-Chain để trở thành trình xác thực.",
+        "warning_2": "Bạn phải sở hữu tối thiểu {0} AXC trên Core-Chain để có thể ủy quyền.",
         "validate_card": {
             "title": "Trình xác thực",
             "desc": "Bạn sở hữu một nút Axia mà bạn muốn stake.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Chuyển đổi Chain",
-            "desc": "Staking yêu cầu có AXC trên CoreChain. Hãy chuyển token từ Swap sang Core.",
+            "desc": "Staking yêu cầu có AXC trên Core-Chain. Hãy chuyển token từ Swap sang Core.",
             "submit": "Chuyển đổi"
         },
         "rewards_card": {

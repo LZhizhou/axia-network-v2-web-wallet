@@ -177,8 +177,8 @@
         "subtitle2": "Delega",
         "subtitle3": "Trasferimento tra chain",
         "subtitle4": "Ricompense stimate",
-        "warning_1": "Devi avere almeno {0} AXC sulla CoreChain per diventare un validatore.",
-        "warning_2": "Devi avere almeno {0} AXC sulla CoreChain per delegare.",
+        "warning_1": "Devi avere almeno {0} AXC sulla Core-Chain per diventare un validatore.",
+        "warning_2": "Devi avere almeno {0} AXC sulla Core-Chain per delegare.",
         "validate_card": {
             "title": "Validare",
             "desc": "Hai un nodo Axia con cui vuoi fare staking.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Trasferimento tra chain",
-            "desc": "Per lo staking è necessario avere AXC sulla CoreChain. Trasferisci token tra Swap e Core.",
+            "desc": "Per lo staking è necessario avere AXC sulla Core-Chain. Trasferisci token tra Swap e Core.",
             "submit": "Trasferimento"
         },
         "rewards_card": {

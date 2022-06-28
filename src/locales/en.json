@@ -125,10 +125,10 @@
             "title_x": "Derived Wallet Address",
             "title_p": "Derived Platform Wallet Address",
             "title_c": "Derived EVM Wallet Address",
-            "desc_x_1": "This is your SwapChain address to receive funds.",
+            "desc_x_1": "This is your Swap-Chain address to receive funds.",
             "desc_x_2": "Your address will change after every deposit. You can keep using previous addresses.",
-            "desc_p": "This is your CoreChain address to receive staking rewards and cross chain transfers.",
-            "desc_c": "This is your AXChain address. Use it to interact with the ethereum virtual machine."
+            "desc_p": "This is your Core-Chain address to receive staking rewards and cross chain transfers.",
+            "desc_c": "This is your AX-Chain address. Use it to interact with the ethereum virtual machine."
         }
     },
     "transfer": {

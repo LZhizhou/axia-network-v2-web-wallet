@@ -177,8 +177,8 @@
         "subtitle2": "Delegieren",
         "subtitle3": "\"Cross Chain\" Transfer",
         "subtitle4": "Geschätzte Prämien",
-        "warning_1": "Du musst mindestens {0} AXC auf der CoreChain haben, um ein Validator zu werden.",
-        "warning_2": "Du musst mindestens {0} AXC auf der CoreChain haben, um ein Nominator zu werden.",
+        "warning_1": "Du musst mindestens {0} AXC auf der Core-Chain haben, um ein Validator zu werden.",
+        "warning_2": "Du musst mindestens {0} AXC auf der Core-Chain haben, um ein Nominator zu werden.",
         "validate_card": {
             "title": "Validieren",
             "desc": "Du hast einen Axia Knoten, mit dem Du staken möchtest.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "\"Cross Chain\" Transfer",
-            "desc": "Staking erfordert AXC auf der CoreChain. Transferiere deine Tokens zwischen Swap und Core.",
+            "desc": "Staking erfordert AXC auf der Core-Chain. Transferiere deine Tokens zwischen Swap und Core.",
             "submit": "Transfer"
         },
         "rewards_card": {

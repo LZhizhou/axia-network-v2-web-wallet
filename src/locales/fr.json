@@ -177,8 +177,8 @@
         "subtitle2": "Déléguer",
         "subtitle3": "Transfert entre chaînes",
         "subtitle4": "Récompenses estimées",
-        "warning_1": "Vous devez avoir au moins {0} AXC sur la CoreChain pour devenir un validateur.",
-        "warning_2": "Vous devez avoir au moins {0} AXC sur la CoreChain pour devenir un délégateur.",
+        "warning_1": "Vous devez avoir au moins {0} AXC sur la Core-Chain pour devenir un validateur.",
+        "warning_2": "Vous devez avoir au moins {0} AXC sur la Core-Chain pour devenir un délégateur.",
         "validate_card": {
             "title": "Valider",
             "desc": "Vous avez un nœud Axia avec lequel vous souhaitez faire un enjeu.",
@@ -191,7 +191,7 @@
         },
         "transfer_card": {
             "title": "Transfert entre chaînes",
-            "desc": "La mise en jeu nécessite de l'AXC sur la CoreChain. Transférer des jetons entre Swap et Core.",
+            "desc": "La mise en jeu nécessite de l'AXC sur la Core-Chain. Transférer des jetons entre Swap et Core.",
             "submit": "Transfert"
         },
         "rewards_card": {
