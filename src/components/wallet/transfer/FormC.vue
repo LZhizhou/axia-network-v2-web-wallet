@@ -56,7 +56,8 @@
                     <span>{{ maxFeeText }} AXC</span>
                 </p>
                 <p>
-                    <span>${{ maxFeeUSD.toLocaleString(2) }} USD</span>
+                    <!-- <span>${{ maxFeeUSD.toLocaleString(2) }} USD</span> -->
+                    <span>${{ '--' }} USD</span>
                 </p>
             </div>
             <template v-if="!isSuccess">

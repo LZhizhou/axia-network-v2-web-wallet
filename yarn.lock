@@ -24,6 +24,28 @@
     ws "8.5.0"
     xss "1.0.11"
 
+"@axia-systems/axiajs@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-2.0.1.tgz#6f78fdde126c4431a986195a9c5cb15952d11a8a"
+  integrity sha512-R4+WFtAvw2HDSOXjYT14a5XQkVRK+pu9QFc2VkTf0zT3zaUNuvc3vcTxUt9x3N6mAaIAuy9NJeVTOITmi1Bvmw==
+  dependencies:
+    assert "2.0.0"
+    axios "0.27.2"
+    bech32 "2.0.0"
+    bip39 "3.0.4"
+    bn.js "5.2.1"
+    buffer "6.0.3"
+    create-hash "1.2.0"
+    crypto-browserify "3.12.0"
+    elliptic "6.5.4"
+    ethers "5.6.4"
+    hdkey "2.0.1"
+    isomorphic-ws "4.0.1"
+    store2 "2.13.2"
+    stream-browserify "3.0.0"
+    ws "8.5.0"
+    xss "1.0.11"
+
 "@axia-systems/hd-wallet@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@axia-systems/hd-wallet/-/hd-wallet-1.0.0.tgz"

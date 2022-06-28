@@ -60,7 +60,8 @@
                         </p>
                         <p>
                             {{ $t('transfer.total_axc') }}
-                            <span>{{ totalUSD.toLocaleString(2) }} USD</span>
+                            <!-- <span>{{ totalUSD.toLocaleString(2) }} USD</span> -->
+                            <span>{{ '--' }} USD</span>
                         </p>
                     </div>
                     <div class="checkout">
