@@ -3,7 +3,7 @@
         <template v-slot:default>
             <fa icon="exclamation-triangle"></fa>
             Make sure the URL is
-            <b>wallet.axia.network</b>
+            <b>wallet-v2.testnet.axiacoin.network</b>
             <button @click="dismiss" class="dismiss_but" data-cy="dismiss_banner">
                 <fa icon="times"></fa>
             </button>

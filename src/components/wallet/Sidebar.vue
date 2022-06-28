@@ -56,7 +56,7 @@
                 <LanguageSelect></LanguageSelect>
                 <div @click="logout" class="logout">
                     <img src="@/assets/sidebar/logout.svg" />
-                    <div>{{ $t('logout.button') }}</div>
+                    <button>{{ $t('logout.button') }}</button>
                 </div>
             </div>
         </div>
