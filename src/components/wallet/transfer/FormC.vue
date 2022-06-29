@@ -36,8 +36,13 @@
                         <small>Adjusted automatically according to network load.</small>
                     </h4>
                     <p></p>
-                    <!-- //TODO : Revert back when gas prices are updated in rpc. -->
-                    <input type="number" placeholder="500" min="500" inputmode="numeric" disabled />
+                    <input
+                        type="number"
+                        v-model="gasPriceNumber"
+                        min="0"
+                        inputmode="numeric"
+                        disabled
+                    />
                 </div>
                 <div>
                     <h4>{{ $t('transfer.c_chain.gasLimit') }}</h4>
@@ -190,9 +195,7 @@ export default class FormC extends Vue {
     }
 
     async updateGasPrice() {
-        // this.gasPrice = await GasHelper.getAdjustedGasPrice()
-        //TODO : Revert back when gas prices are updated in rpc.
-        this.gasPrice = new BN(500000000000)
+        this.gasPrice = await GasHelper.getAdjustedGasPrice()
     }
 
     onAmountChange(val: BN) {

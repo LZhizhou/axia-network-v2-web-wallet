@@ -352,27 +352,24 @@ export default class ChainTransfer extends Vue {
         try {
             switch (sourceChain) {
                 case 'Swap':
-                    // TODO: Revert back when fee is available at rpc node.
                     exportTxId = await wallet.exportFromSwapChain(
                         amt,
                         destinationChain as ExportChainsSwap,
-                        new BN(1000000) //this.importFeeBN
+                        this.importFeeBN
                     )
                     break
                 case 'Core':
-                    // TODO: Revert back when fee is available at rpc node.
                     exportTxId = await wallet.exportFromCoreChain(
                         amt,
                         destinationChain as ExportChainsCore,
-                        new BN(1000000) //this.importFeeBN
+                        this.importFeeBN
                     )
                     break
                 case 'AX':
-                    // TODO: Revert back when fee is available at rpc node.
                     exportTxId = await wallet.exportFromAXChain(
                         amt,
                         destinationChain as ExportChainsAX,
-                        new BN(1000000) //this.exportFeeBN
+                        this.exportFeeBN
                     )
                     break
             }
@@ -448,11 +445,10 @@ export default class ChainTransfer extends Vue {
                 importTxId = await wallet.importToSwapChain(this.sourceChain as ExportChainsSwap)
             } else {
                 //TODO: Import only the exported UTXO
-                // TODO: Revert back when fee is available at rpc node.
 
                 importTxId = await wallet.importToAXChain(
                     this.sourceChain as ExportChainsAX,
-                    new BN(1000000) //this.importFeeBN
+                    this.importFeeBN
                 )
             }
         } catch (e) {

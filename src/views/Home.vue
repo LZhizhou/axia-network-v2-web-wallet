@@ -5,7 +5,7 @@
                 <b-col>
                     <div class="home_wrapper">
                         <h1>
-                            AXwallet a secure crypto wallet for the
+                            AXIA wallet a secure crypto wallet for the
                             <br />
                             AXIA Network.
                         </h1>
