@@ -24,6 +24,28 @@
     ws "8.5.0"
     xss "1.0.11"
 
+"@axia-systems/axiajs@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-2.0.4.tgz#8cb9905eec6d8907634cd2ec7fbb38a32c5a32a8"
+  integrity sha512-+shbJdpBgP5EtALzOTtifcGAH3+2fg2chDZXW7fOV64+YC+x4afvp1Fob1/69ttvPwwbGe0vxPI+W3W7t6lEFg==
+  dependencies:
+    assert "2.0.0"
+    axios "0.27.2"
+    bech32 "2.0.0"
+    bip39 "3.0.4"
+    bn.js "5.2.1"
+    buffer "6.0.3"
+    create-hash "1.2.0"
+    crypto-browserify "3.12.0"
+    elliptic "6.5.4"
+    ethers "5.6.4"
+    hdkey "2.0.1"
+    isomorphic-ws "4.0.1"
+    store2 "2.13.2"
+    stream-browserify "3.0.0"
+    ws "8.5.0"
+    xss "1.0.11"
+
 "@axia-systems/hd-wallet@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@axia-systems/hd-wallet/-/hd-wallet-1.0.0.tgz"
@@ -47,10 +69,10 @@
     core-js "^3.6.4"
     vue "^2.6.11"
 
-"@axia-systems/wallet-sdk@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@axia-systems/wallet-sdk/-/wallet-sdk-2.0.1.tgz#6f809ee0cea74cc8420b62316a075b4cc4f3b189"
-  integrity sha512-6WGje5vYX+ziA22p5pGynGK2iYxRx05C1oBz4VUYBdaEXvGvcq+qiKo9nhL2HIKbUaimzT39mPjtkQdN20Qj1A==
+"@axia-systems/wallet-sdk@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@axia-systems/wallet-sdk/-/wallet-sdk-2.0.3.tgz#484ba7240ff696f6de6033337dbe1ddc68791ba8"
+  integrity sha512-eJnED1Dnir1G/lpBed+pl9XC+OmzIyDOf8Ztm7XfK1kqGceT9G1YcVXy/rFAAzEMKCFDyyqoMpetW4a0pqtxGQ==
   dependencies:
     "@axia-systems/hd-wallet" "^1.0.0"
     "@ethereumjs/common" "2.6.0"

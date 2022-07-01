@@ -181,8 +181,8 @@ const network_module: Module<NetworkState, RootState> = {
                 'Mainnet',
                 'https://1.p2p-v2.testnet.axiacoin.network:443',
                 5678,
-                'https://explorerapi.avax-test.network',
-                'https://explorer.avax-test.network',
+                'https://magellan-v2.testnet.axiacoin.network',
+                'https://axscan-v2.testnet.axiacoin.network',
                 true
             )
 
@@ -190,8 +190,8 @@ const network_module: Module<NetworkState, RootState> = {
                 'Testnet',
                 'https://1.p2p-v2.testnet.axiacoin.network:443',
                 5678,
-                'https://explorerapi.avax-test.network',
-                'https://explorer.avax-test.network',
+                'https://magellan-v2.testnet.axiacoin.network',
+                'https://axscan-v2.testnet.axiacoin.network',
                 true
             )
 
