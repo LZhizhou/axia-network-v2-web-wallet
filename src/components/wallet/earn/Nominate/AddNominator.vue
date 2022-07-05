@@ -525,7 +525,7 @@ export default class AddNominator extends Vue {
 
     get nominationFee(): number {
         if (!this.selected) return 0
-        return this.    .fee
+        return this.selected.fee
     }
 
     get totalFee(): BN {
