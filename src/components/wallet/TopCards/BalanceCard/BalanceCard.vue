@@ -135,7 +135,7 @@ import UtxosBreakdownModal from '@/components/modals/UtxosBreakdown/UtxosBreakdo
     filters: {
         cleanAxcBN(val: BN) {
             let big = Big(val.toString()).div(Big(ONEAXC.toString()))
-            return big.toLocaleString()
+            return big.toLocaleString(2)
         },
     },
 })
@@ -162,7 +162,6 @@ export default class BalanceCard extends Vue {
     toggleBreakdown() {
         this.isBreakdown = !this.isBreakdown
     }
-
     get avmUnlocked(): BN {
         if (!this.axia_asset) return new BN(0)
         return this.axia_asset.amount

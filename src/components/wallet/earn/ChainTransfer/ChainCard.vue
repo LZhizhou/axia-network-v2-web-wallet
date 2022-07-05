@@ -31,9 +31,9 @@ import NumberCounter from '@/components/misc/NumberCounter.vue'
 
 const chainTypes: ChainIdType[] = ['Swap', 'Core', 'AX']
 const chainNames = {
-    Swap: 'Exchange Chain',
-    AX: 'Contract Chain',
-    Core: 'Platform Chain',
+    Swap: 'Swap Chain',
+    AX: 'AX Chain',
+    Core: 'Core Chain',
 }
 
 @Component({

@@ -35,13 +35,13 @@ button {
     transition-duration: 0.2s;
 
     &:hover {
-        background-color: var(--primary-color-light);
-        color: var(--bg);
+        background-color: #e9f6ff;
+        color: black;
     }
 
     &[active] {
-        background-color: var(--primary-color);
-        color: var(--bg);
+        background-color: #178fe1;
+        color: #fff;
     }
 }
 </style>
