@@ -184,7 +184,7 @@
             "desc": "Bạn sở hữu một nút Axia mà bạn muốn stake.",
             "submit": "Thêm Trình xác thực"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Ủy quyền",
             "desc": "Bạn không sở hữu nút Axia, nhưng bạn muốn stake bằng nút khác.",
             "submit": "Thêm ủy quyền"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Tổng Phần Thưởng",
             "validation": "Thao tác Xác thực",
-            "delegation": "Thao tác Ủy quyền",
+            "nomination": "Thao tác Ủy quyền",
             "empty": "Bạn không có phần thưởng đang chờ nào.",
             "row": {
                 "start": "Bắt đầu",
@@ -286,7 +286,7 @@
                 "address": "Địa chỉ nhận thưởng không hợp lệ."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Chọn nút để ủy quyền",
                 "search": "Tìm ID Nút",

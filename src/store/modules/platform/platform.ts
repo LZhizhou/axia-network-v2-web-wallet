@@ -34,7 +34,7 @@ const platform_module: Module<PlatformState, RootState> = {
         // nominators: [],
         nominatorsPending: [],
         minStake: new BN(0),
-        minStakeDelegation: new BN(0),
+        minStakeNomination: new BN(0),
         currentSupply: new BN(1),
     },
     mutations: {
@@ -50,10 +50,10 @@ const platform_module: Module<PlatformState, RootState> = {
         async updateMinStakeAmount({ state }) {
             let res = await coreChain.getMinStake(true)
             state.minStake = res.minValidatorStake
-            state.minStakeDelegation = res.minNominatorStake
+            state.minStakeNomination = res.minNominatorStake
 
             // console.log(state.minStake.toString())
-            // console.log(state.minStakeDelegation.toString())
+            // console.log(state.minStakeNomination.toString())
         },
 
         async update({ dispatch }) {
@@ -110,17 +110,17 @@ const platform_module: Module<PlatformState, RootState> = {
                 let nominators: NominatorRaw[] = nominatorMap[nodeID] || []
                 let nominatorsPending: NominatorPendingRaw[] = nominatorPendingMap[nodeID] || []
 
-                let delegatedAmt = new BN(0)
-                let delegatedPendingAmt = new BN(0)
+                let nominatedAmt = new BN(0)
+                let nominatedPendingAmt = new BN(0)
 
                 if (nominators) {
-                    delegatedAmt = nominators.reduce((acc: BN, val: NominatorRaw) => {
+                    nominatedAmt = nominators.reduce((acc: BN, val: NominatorRaw) => {
                         return acc.add(new BN(val.stakeAmount))
                     }, new BN(0))
                 }
 
                 if (nominatorsPending) {
-                    delegatedPendingAmt = nominatorsPending.reduce(
+                    nominatedPendingAmt = nominatorsPending.reduce(
                         (acc: BN, val: NominatorPendingRaw) => {
                             return acc.add(new BN(val.stakeAmount))
                         },
@@ -131,32 +131,32 @@ const platform_module: Module<PlatformState, RootState> = {
                 let startTime = new Date(parseInt(v.startTime) * 1000)
                 let endTime = new Date(parseInt(v.endTime) * 1000)
 
-                let delegatedStake = delegatedAmt.add(delegatedPendingAmt)
+                let nominatedStake = nominatedAmt.add(nominatedPendingAmt)
                 let validatorStake = new BN(v.stakeAmount)
                 // Calculate remaining stake
                 let absMaxStake = ONEAXC.mul(new BN(3000000))
                 let relativeMaxStake = validatorStake.mul(new BN(5))
                 let stakeLimit = BN.min(absMaxStake, relativeMaxStake)
 
-                let remainingStake = stakeLimit.sub(validatorStake).sub(delegatedStake)
+                let remainingStake = stakeLimit.sub(validatorStake).sub(nominatedStake)
 
                 let listItem: ValidatorListItem = {
                     nodeID: v.nodeID,
                     validatorStake: validatorStake,
-                    delegatedStake: delegatedStake,
+                    nominatedStake: nominatedStake,
                     remainingStake: remainingStake,
                     numNominators: nominators.length + nominatorsPending.length,
                     startTime: startTime,
                     endTime,
                     uptime: parseFloat(v.uptime),
-                    fee: parseFloat(v.delegationFee),
+                    fee: parseFloat(v.nominationFee),
                 }
                 res.push(listItem)
             }
 
             res = res.filter((v) => {
                 // Remove if remaining space is less than minimum
-                let min = state.minStakeDelegation
+                let min = state.minStakeNomination
                 if (v.remainingStake.lt(min)) return false
                 return true
             })
@@ -212,8 +212,8 @@ const platform_module: Module<PlatformState, RootState> = {
             }
         },
 
-        // Returns total active and pending delegation amount for the given node id
-        // validatorTotalDelegated: (state, getters) => (nodeId: string) => {
+        // Returns total active and pending nomination amount for the given node id
+        // validatorTotalNominated: (state, getters) => (nodeId: string) => {
         //     // let validator: ValidatorRaw = getters.validatorsDict[nodeId];
         //
         //     let nominators: NominatorRaw[]|undefined = getters.nodeNominatorMap[nodeId];

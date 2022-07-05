@@ -184,7 +184,7 @@
             "desc": "Você tem um nó Axia com o qual você deseja apostar.",
             "submit": "Adicionar Validador"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegar",
             "desc": "Você não possui um nó Axia, mas deseja apostar usando outro nó.",
             "submit": "Adicionar Delegado"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Total de Recompensas",
             "validation": "Validação",
-            "delegation": "Delegação",
+            "nomination": "Delegação",
             "empty": "Você não tem recompensas pendentes.",
             "row": {
                 "start": "Iniciar",
@@ -286,7 +286,7 @@
                 "address": "O endereço de recompensa é inválido."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Selecione um nó para delegar",
                 "search": "Pesquisar o ID do Nó",

@@ -356,7 +356,7 @@
         "title": "Earn",
         "desc": "You can earn more AXC by staking your existing tokens.",
         "subtitle1": "Validate",
-        "subtitle2": "Delegate",
+        "subtitle2": "Nominate",
         "subtitle3": "Cross Chain Transfer",
         "subtitle4": "Estimated Rewards",
         "warning_1": "You must have at least {0} AXC on the CoreChain to become a validator.",
@@ -366,8 +366,8 @@
             "desc": "You have an Axia node that you want to stake with.",
             "submit": "Add Validator"
         },
-        "delegate_card": {
-            "title": "Delegate",
+        "nominate_card": {
+            "title": "Nominate",
             "desc": "You do not own an Axia node, but you want to stake using another node.",
             "submit": "Add Nominator"
         },
@@ -406,7 +406,7 @@
         "rewards": {
             "total": "Total Rewards",
             "validation": "Validation",
-            "delegation": "Delegation",
+            "nomination": "Nomination",
             "empty": "You do not have any pending rewards.",
             "row": {
                 "start": "Start",
@@ -443,7 +443,7 @@
                 "desc": "The amount of AXC to lock for staking."
             },
             "fee": {
-                "label": "Delegation Fee",
+                "label": "Nomination Fee",
                 "desc": "You will claim this % of the rewards from the nominators on your node."
             },
             "reward": {
@@ -453,8 +453,8 @@
                 "chip_2": "Custom Address"
             },
             "summary": {
-                "max_del": "Max Delegation Amount",
-                "max_del_tooltip": "Maximum amount that can be delegated to this validator.",
+                "max_del": "Max Nomination Amount",
+                "max_del_tooltip": "Maximum amount that can be nominated to this validator.",
                 "duration": "Staking Duration",
                 "rewards": "Estimated Rewards",
                 "warn": "If it is your first time staking, start small. Staked tokens are locked until the end of the staking period."
@@ -465,7 +465,7 @@
                 "start": "Start Date",
                 "start_desc": "Your validation will start at least 5 minutes after you submit this form.",
                 "end": "End Date",
-                "fee": "Delegation Fee",
+                "fee": "Nomination Fee",
                 "reward": "Reward Address",
                 "type_local": "This wallet",
                 "type_custom": "Custom"
@@ -480,19 +480,19 @@
                 "reason": "Reason"
             },
             "errs": {
-                "duration_warn": "WARNING: You must have at least 14 days remaining on your validation period to accept delegations.",
+                "duration_warn": "WARNING: You must have at least 14 days remaining on your validation period to accept nominations.",
                 "date": "Start date must be in the future and end date must be after start date.",
                 "amount": "Stake amount must be at least {0} AXC",
                 "id": "Invalid Node ID.",
-                "fee": "Delegation fee must be at least {0}%",
+                "fee": "Nomination fee must be at least {0}%",
                 "address": "Invalid address. Reward address must be a valid CoreChain address."
             }
         },
-        "delegate": {
+        "nominate": {
             "filter": {
                 "title": "Filter",
                 "title2": "Filter Settings",
-                "label1": "Minimum Available Delegation",
+                "label1": "Minimum Available Nomination",
                 "label2": "Minimum Time Remaining",
                 "label3": "Maximum Fee",
                 "label4": "Minimum Uptime",
@@ -502,12 +502,12 @@
                 "cancel": "Cancel"
             },
             "list": {
-                "prompt": "Select a node to delegate",
+                "prompt": "Select a node to nominate",
                 "search": "Search Node ID",
                 "id": "Node ID",
                 "val_stake": "Validator Stake",
                 "aval_stake": "Available",
-                "aval_stake_tip": "How much more can be delegated to this validator.",
+                "aval_stake_tip": "How much more can be nominated to this validator.",
                 "users_tip": "Number of Nominators",
                 "end": "End Time",
                 "up": "Uptime",
@@ -520,7 +520,7 @@
             },
             "node": {
                 "selected": "Selected Node",
-                "fee": "Delegation Fee",
+                "fee": "Nomination Fee",
                 "start": "Validator Start Date",
                 "end": "Validator End Date"
             },
@@ -534,7 +534,7 @@
                 "amount": {
                     "label": "Stake Amount",
                     "desc": "The amount of AXC to lock for staking.",
-                    "desc2": "The available delegation amount for this node is {0} AXC"
+                    "desc2": "The available nomination amount for this node is {0} AXC"
                 },
                 "reward": {
                     "label": "Reward Address",
@@ -547,7 +547,7 @@
                 "node": "Node ID",
                 "amount": "Staking Amount",
                 "start": "Start Date",
-                "start_desc": "Your delegation will start 5 minutes after you submit this form.",
+                "start_desc": "Your nomination will start 5 minutes after you submit this form.",
                 "end": "End Date",
                 "reward": "Reward Address"
             },
@@ -555,12 +555,12 @@
                 "start_now": "Start time must be after current time.",
                 "start_end": "Start date must be in the future and end date must be after start date.",
                 "invalid_addr": "Invalid address. Reward address must be a valid CoreChain address.",
-                "no_addr": "You must give an address to receive delegation rewards.",
+                "no_addr": "You must give an address to receive nomination rewards.",
                 "min_dur": "Minimum staking duration is 2 weeks.",
                 "max_dur": "Maximum staking duration is 1 year.",
                 "no_node": "You must specify a validator.",
-                "val_end": "Delegation end date can not be longer than the validator's end date.",
-                "amt": "Delegation amount must be at least {0} AXC."
+                "val_end": "Nomination end date can not be longer than the validator's end date.",
+                "amt": "Nomination amount must be at least {0} AXC."
             },
             "summary": {
                 "duration": "Staking Duration",
@@ -572,7 +572,7 @@
             "submit": "Submit",
             "cancel": "Cancel",
             "success": {
-                "title": "Delegation transaction sent.",
+                "title": "Nomination transaction sent.",
                 "desc": "If the transaction is accepted your tokens will be locked for staking. You will receive your locked tokens plus the rewards once your staking period is over.",
                 "status": "Status",
                 "reason": "Reason"
@@ -618,7 +618,7 @@
         "mode1": "All",
         "mode2": "Transfer",
         "mode3": "Export & Import",
-        "mode4": "Validation & Delegation",
+        "mode4": "Validation & Nomination",
         "found": "{0} transactions found",
         "months": {
             "0": "January",

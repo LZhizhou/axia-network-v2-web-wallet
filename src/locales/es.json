@@ -184,7 +184,7 @@
             "desc": "Tienes un nodo Axia con el que quieres participar con toknes.",
             "submit": "Añadir validador"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegar",
             "desc": "No tienes un nodo Axia, pero quieres delegar tokens en otro nodo.",
             "submit": "Añadir delgador"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Recompensas totales",
             "validation": "Validación",
-            "delegation": "Delegación",
+            "nomination": "Delegación",
             "empty": "No tienes ninguna recompensa pendiente.",
             "row": {
                 "start": "Inicio",
@@ -286,7 +286,7 @@
                 "address": "Dirección de recompensa no válida."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Selecciona un nodo para delegar",
                 "search": "Buscar ID del nodo",

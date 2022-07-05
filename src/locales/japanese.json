@@ -184,7 +184,7 @@
             "desc": "ステーク先にするAxiaノードを選択する必要があります",
             "submit": "バリデーターを追加"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "デリゲート",
             "desc": "あなたがAxiaノードを保有していない場合は別のノードにステークしなければなりません",
             "submit": "デリゲーターを追加"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "合計リワード",
             "validation": "バリデーション",
-            "delegation": "デリゲーション",
+            "nomination": "デリゲーション",
             "empty": "保留中リワードはありません",
             "row": {
                 "start": "開始",
@@ -286,7 +286,7 @@
                 "address": "リワードアドレスが無効です"
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "デリゲート先のノードを選択",
                 "search": "ノードIDを検索",

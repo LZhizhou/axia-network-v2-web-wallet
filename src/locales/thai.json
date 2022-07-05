@@ -184,7 +184,7 @@
             "desc": "คุณมี Axia node ที่ต้องการวางเดิมพัน",
             "submit": "เพิ่มผู้ตรวจสอบ"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "มอบสิทธิ์",
             "desc": "คุณไม่มี Axia node ของตนเองแต่คุณต้องการวางเดิมพันโดยใช้ node อื่นๆ",
             "submit": "เพิ่มตัวแทน"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "รวมรางวัล",
             "validation": "การรับรอง",
-            "delegation": "มอบสิทธิ์",
+            "nomination": "มอบสิทธิ์",
             "empty": "คุณไม่มีรางวัลที่จะได้รับ",
             "row": {
                 "start": "เริ่ม",
@@ -286,7 +286,7 @@
                 "address": "ที่อยู่รางวัลไม่ถูกต้อง"
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "เลือก Node เพื่อมอบสิทธิ์",
                 "search": "ค้นหา Node ID",

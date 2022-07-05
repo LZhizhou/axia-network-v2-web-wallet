@@ -178,13 +178,13 @@
         "subtitle3": "Transfer krzyżowy",
         "subtitle4": "Szacowane nagrody",
         "warning_1": "Aby zostać walidatorem, musisz mieć co najmniej {0} AXC w łańcuchu Core.",
-        "warning_2": "Aby zostać delegatem, musisz mieć co najmniej {0} AXC w łańcuchu Core.",
+        "warning_2": "Aby zostać nominatem, musisz mieć co najmniej {0} AXC w łańcuchu Core.",
         "validate_card": {
             "title": "Waliduj",
             "desc": "Masz węzeł Axia, z którym chcesz postawić.",
             "submit": "Dodaj walidatora"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegat",
             "desc": "Nie jesteś właścicielem węzła lawinowego, ale chcesz postawić na inny węzeł.",
             "submit": "Dodaj nominatora"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Całkowite nagrody",
             "validation": "Walidacja",
-            "delegation": "Delegacja",
+            "nomination": "Delegacja",
             "empty": "Nie masz żadnych oczekujących nagród.",
             "row": {
                 "start": "Start",
@@ -286,7 +286,7 @@
                 "address": "Nieprawidłowy adres nagrody."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Wybierz węzeł do delegowania",
                 "search": "Wyszukaj identyfikator węzła",

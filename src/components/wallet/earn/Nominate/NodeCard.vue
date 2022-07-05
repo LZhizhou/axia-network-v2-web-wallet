@@ -65,8 +65,8 @@ export default class NodeCard extends Vue {
         return bnToBig(this.node.validatorStake, 9)
     }
 
-    get delegatedStakeBig() {
-        return bnToBig(this.node.delegatedStake, 9)
+    get nominatedStakeBig() {
+        return bnToBig(this.node.nominatedStake, 9)
     }
 
     get remainingStakeBig() {
@@ -74,7 +74,7 @@ export default class NodeCard extends Vue {
     }
 
     get totalStakeBig() {
-        return bnToBig(this.node.validatorStake.add(this.node.delegatedStake), 9)
+        return bnToBig(this.node.validatorStake.add(this.node.nominatedStake), 9)
     }
 
     get avascanURL() {

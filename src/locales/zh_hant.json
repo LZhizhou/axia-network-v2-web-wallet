@@ -184,7 +184,7 @@
             "desc": "你有一個想用於質押的Axia節點。",
             "submit": "添加驗證者"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "委託",
             "desc": "你沒有Axia節點，但你想使用另一個節點進行質押。",
             "submit": "添加委託者"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "縂獎勵",
             "validation": "驗證",
-            "delegation": "委託",
+            "nomination": "委託",
             "empty": "你沒有任何待付獎勵。",
             "row": {
                 "start": "開始",
@@ -286,7 +286,7 @@
                 "address": "無效的獎勵地址。"
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "選擇一個要委託的節點",
                 "search": "搜尋節點ID",

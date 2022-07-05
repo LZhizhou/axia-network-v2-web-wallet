@@ -14,7 +14,7 @@
             ></UserRewardRow>
         </div>
         <div v-if="nominators.length > 0">
-            <h3>{{ $t('earn.rewards.delegation') }}</h3>
+            <h3>{{ $t('earn.rewards.nomination') }}</h3>
             <UserRewardRow
                 v-for="(d, i) in nominators"
                 :key="i"

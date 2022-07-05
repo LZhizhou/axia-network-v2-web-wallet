@@ -184,7 +184,7 @@
             "desc": "Máte uzel Axia, s kterým chcete vsazovat.",
             "submit": "Přidat validátora"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegovat",
             "desc": "Nevlastníte žádný uzel Axia, ale chcete vsazovat pomocí jiného uzlu.",
             "submit": "Přidat delegátora"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Odměny celkem",
             "validation": "Validace",
-            "delegation": "Delegace",
+            "nomination": "Delegace",
             "empty": "Nemáte žádné nezpracované odměny.",
             "row": {
                 "start": "Začátek",
@@ -286,7 +286,7 @@
                 "address": "Neplatná adresa pro odměny."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Vyberte uzel k delegování",
                 "search": "Vyhledat ID uzlu",

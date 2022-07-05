@@ -11,7 +11,7 @@ export interface PlatformState {
     validatorsPending: ValidatorPendingRaw[]
     nominatorsPending: NominatorPendingRaw[]
     minStake: BN
-    minStakeDelegation: BN
+    minStakeNomination: BN
     currentSupply: BN
 }
 
@@ -44,7 +44,7 @@ export interface ValidatorDict {
 export interface ValidatorListItem {
     nodeID: string
     validatorStake: BN
-    delegatedStake: BN
+    nominatedStake: BN
     remainingStake: BN
     numNominators: number
     startTime: Date

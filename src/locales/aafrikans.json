@@ -184,7 +184,7 @@
             "desc": "U het 'n Axia-nodus waarmee u wil 'n insetting maak.",
             "submit": "Voeg Valideerder by"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegeer",
             "desc": "U besit nie 'n Avalanch-nodus nie, maar u 'm ander nodus gebruik om 'n insetting te maak.",
             "submit": "Voeg Afgevaardigde by"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Totale belonings",
             "validation": "Validasie",
-            "delegation": "Delegasie",
+            "nomination": "Delegasie",
             "empty": "U het geen belonings wat hangende is nie.",
             "row": {
                 "start": "Begin",
@@ -286,7 +286,7 @@
                 "address": "Ongeldige beloningsadresadres."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Kies 'n nodus om te delegeer",
                 "search": "Soek Nodus-ID",

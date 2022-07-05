@@ -184,7 +184,7 @@
             "desc": "Du har en Axia-knude, som du vil satse på.",
             "submit": "Tilføj Validator"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Deleger",
             "desc": "Du ejer ikke en Axia-knude, men du vil satse ved hjælp af en anden knude.",
             "submit": "Tilføj Nominator"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Samlede belønninger",
             "validation": "Validering",
-            "delegation": "Delegation",
+            "nomination": "Nomination",
             "empty": "Du har ingen ventende belønninger.",
             "row": {
                 "start": "Start",
@@ -245,7 +245,7 @@
                 "desc": "Mængden af AXC, der skal låses til indsats."
             },
             "fee": {
-                "label": "Delegationsgebyr",
+                "label": "Nominationsgebyr",
                 "desc": "Du vil kræve denne % af belønningerne fra nominatorerne på din knude."
             },
             "reward": {
@@ -255,7 +255,7 @@
                 "chip_2": "Brugers adresse"
             },
             "summary": {
-                "max_del": "Maks. Delegationsbeløb",
+                "max_del": "Maks. Nominationsbeløb",
                 "max_del_tooltip": "Maksimumbeløb, der kan delegeres til denne validator.",
                 "duration": "Indsatsvarighed",
                 "rewards": "Anslåede belønninger",
@@ -266,7 +266,7 @@
                 "amount": "Indsatsbeløb",
                 "start": "Startdato",
                 "end": "Slutdato",
-                "fee": "Delegationsgebyr",
+                "fee": "Nominationsgebyr",
                 "reward": "Belønningsadresse",
                 "type_local": "Denne tegnebog",
                 "type_custom": "Kunde"
@@ -286,7 +286,7 @@
                 "address": "Ugyldig belønningsadresse."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Vælg en knude, der skal delegeres",
                 "search": "Søg efter knude-id",
@@ -306,7 +306,7 @@
             },
             "node": {
                 "selected": "Valgt knude",
-                "fee": "Delegationsgebyr",
+                "fee": "Nominationsgebyr",
                 "start": "Validator startdato",
                 "end": "Validator slutdato"
             },
@@ -340,12 +340,12 @@
                 "start_now": "Starttidspunktet skal være efter det aktuelle tidspunkt.",
                 "start_end": "Startdatoen skal være i fremtiden, og slutdatoen skal være efter startdatoen.",
                 "invalid_addr": "Ugyldigt adresseformat. Din adresse skal starte med \"Core-\"",
-                "no_addr": "Du skal give en adresse for at modtage delegationsbelønninger.",
+                "no_addr": "Du skal give en adresse for at modtage nominationsbelønninger.",
                 "min_dur": "Min. indsatsvarighed er 2 uger.",
                 "max_dur": "Maks. indsatsvarighed er 1 år.",
                 "no_node": "Du skal angive en validator.",
-                "val_end": "Delegationens slutdato kan ikke være længere end validatorens slutdato.",
-                "amt": "Delegationsbeløbet skal være mindst {0} AXC."
+                "val_end": "Nominationens slutdato kan ikke være længere end validatorens slutdato.",
+                "amt": "Nominationsbeløbet skal være mindst {0} AXC."
             },
             "summary": {
                 "duration": "Indsatsvarighed",
@@ -357,7 +357,7 @@
             "submit": "Indsend",
             "cancel": "Annuller",
             "success": {
-                "title": "Delegationstransaktion sendt.",
+                "title": "Nominationstransaktion sendt.",
                 "desc": "Hvis transaktionen accepteres, låses dine poletter til indsættelse. Du modtager dine låste poletter plus belønningerne, når din indsatsperiode er forbi.",
                 "status": "Status"
             }

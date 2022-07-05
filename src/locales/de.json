@@ -184,7 +184,7 @@
             "desc": "Du hast einen Axia Knoten, mit dem Du staken möchtest.",
             "submit": "Validator hinzufügen"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegieren",
             "desc": "Du hast keine Axia Node, aber Du möchtest mit einer anderen Node staken.",
             "submit": "Delegierer hinzufügen"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Summe der Prämien",
             "validation": "Validierung",
-            "delegation": "Delegation",
+            "nomination": "Nomination",
             "empty": "Du hast keine ausstehenden Prämien.",
             "row": {
                 "start": "Start",
@@ -245,7 +245,7 @@
                 "desc": "Der AXC Betrag der fürs Staking gesperrt ist."
             },
             "fee": {
-                "label": "Delegationsgebühr",
+                "label": "Nominationsgebühr",
                 "desc": "Auf deinem Node wirst Du diese % der Prämien von den Delegierenden einfordern."
             },
             "reward": {
@@ -255,7 +255,7 @@
                 "chip_2": "Benutzerdefinierte Adresse"
             },
             "summary": {
-                "max_del": "Maximaler Delegationsbetrag",
+                "max_del": "Maximaler Nominationsbetrag",
                 "max_del_tooltip": "Maximaler Betrag, der an diesen Validator delegiert werden kann.",
                 "duration": "Einsatzdauer",
                 "rewards": "Geschätzte Prämien",
@@ -266,7 +266,7 @@
                 "amount": "Staking Betrag",
                 "start": "Startdatum",
                 "end": "Enddatum",
-                "fee": "Delegationsgebühr",
+                "fee": "Nominationsgebühr",
                 "reward": "Prämienadresse",
                 "type_local": "Diese Wallet",
                 "type_custom": "Benutzerdefiniert"
@@ -286,7 +286,7 @@
                 "address": "Ungültige Prämienadresse."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Wähle einen zu delegierenden Node aus",
                 "search": "Node ID suchen",
@@ -306,7 +306,7 @@
             },
             "node": {
                 "selected": "Ausgewählte Node",
-                "fee": "Delegationsgebühr",
+                "fee": "Nominationsgebühr",
                 "start": "Validator Startdatum",
                 "end": "Validator Enddatum"
             },
@@ -320,7 +320,7 @@
                 "amount": {
                     "label": "Einsatzbetrag",
                     "desc": "Der AXC Betrag der fürs Staking gesperrt ist.",
-                    "desc2": "Der verfügbare Delegationsbetrag für diese Node beträgt {0} AXC"
+                    "desc2": "Der verfügbare Nominationsbetrag für diese Node beträgt {0} AXC"
                 },
                 "reward": {
                     "label": "Prämienadresse",
@@ -340,12 +340,12 @@
                 "start_now": "Die Startzeit muss nach der aktuellen Zeit liegen.",
                 "start_end": "Das Startdatum muss in der Zukunft liegen und das Enddatum muss nach dem Startdatum liegen.",
                 "invalid_addr": "Ungültiges Adressformat. Deine Adresse muss mit \"Core-\" beginnen",
-                "no_addr": "Gib eine Adresse an, um Delegationsprämien zu erhalten.",
+                "no_addr": "Gib eine Adresse an, um Nominationsprämien zu erhalten.",
                 "min_dur": "Minimum Stakingzeitraum beträgt 2 Wochen.",
                 "max_dur": "Maximum Stakingzeitraum beträgt 1 Jahr.",
                 "no_node": "Du musst einen Validator angeben.",
-                "val_end": "Das Enddatum der Delegation darf nicht länger als das Enddatum des Validators sein.",
-                "amt": "Der Betrag der Delegation muss mindestens {0} AXC betragen."
+                "val_end": "Das Enddatum der Nomination darf nicht länger als das Enddatum des Validators sein.",
+                "amt": "Der Betrag der Nomination muss mindestens {0} AXC betragen."
             },
             "summary": {
                 "duration": "Stakingzeitraum",
@@ -357,7 +357,7 @@
             "submit": "Senden",
             "cancel": "Abbrechen",
             "success": {
-                "title": "Delegationstransaktion gesendet.",
+                "title": "Nominationstransaktion gesendet.",
                 "desc": "Wenn die Transaktion akzeptiert wird, werden deine Tokens fürs Staking gesperrt. Deine gesperrten Tokens werden am Ende der Staking Periode entsperrt und du erhältst dann auch deine Prämien.",
                 "status": "Status"
             }

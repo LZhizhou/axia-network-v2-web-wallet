@@ -10,13 +10,13 @@
                     v-model="showValidation"
                 ></v-checkbox>
                 <v-checkbox
-                    label="Delegation Rewards"
+                    label="Nomination Rewards"
                     dense
                     hide-details
-                    v-model="showDelegation"
+                    v-model="showNomination"
                 ></v-checkbox>
                 <v-checkbox
-                    label="Delegation Fees Received"
+                    label="Nomination Fees Received"
                     dense
                     hide-details
                     v-model="showFees"
@@ -69,7 +69,7 @@ import {
 })
 export default class ExportCsvModal extends Vue {
     showValidation = true
-    showDelegation = true
+    showNomination = true
     showFees = true
     error: Error | null = null
 
@@ -80,7 +80,7 @@ export default class ExportCsvModal extends Vue {
     }
 
     get canSubmit() {
-        return this.showDelegation || this.showValidation || this.showFees
+        return this.showNomination || this.showValidation || this.showFees
     }
 
     get transactions() {
@@ -119,7 +119,7 @@ export default class ExportCsvModal extends Vue {
             if (!isRewarded) continue
 
             let stakeAmount = getStakeAmount(tx)
-            // Use validator end time for both delegation and validations as reward date
+            // Use validator end time for both nomination and validations as reward date
             let rewardMoment = moment(tx.validatorEnd * 1000)
             let startMoment = moment(tx.validatorStart * 1000)
             let durationMoment = moment.duration(rewardMoment.diff(startMoment))
@@ -144,13 +144,13 @@ export default class ExportCsvModal extends Vue {
             let isInputOwner = myInputs.length > 0
 
             if (type === 'add_nominator') {
-                // Skip if user did not want delegation / fee rewards
-                if (!this.showDelegation && !this.showFees) continue
+                // Skip if user did not want nomination / fee rewards
+                if (!this.showNomination && !this.showFees) continue
 
-                // If user does not want delegation fees received, continue
+                // If user does not want nomination fees received, continue
                 if (!isInputOwner && !this.showFees) continue
-                // If user does not want delegation rewards, continue
-                if (isInputOwner && !this.showDelegation) continue
+                // If user does not want nomination rewards, continue
+                if (isInputOwner && !this.showNomination) continue
 
                 let type: CsvRowStakingTxType = isInputOwner ? 'add_nominator' : 'fee_received'
 

@@ -37,7 +37,7 @@
                                 :min="minFee"
                                 max="100"
                                 step="0.01"
-                                v-model="delegationFee"
+                                v-model="nominationFee"
                                 @change="onFeeChange"
                             />
                         </div>
@@ -51,14 +51,14 @@
                                     @click="rewardSelect('local')"
                                     :selected="this.rewardDestination === 'local'"
                                 >
-                                    {{ $t('earn.delegate.form.reward.chip_1') }}
+                                    {{ $t('earn.nominate.form.reward.chip_1') }}
                                 </button>
                                 <span>or</span>
                                 <button
                                     @click="rewardSelect('custom')"
                                     :selected="this.rewardDestination === 'custom'"
                                 >
-                                    {{ $t('earn.delegate.form.reward.chip_2') }}
+                                    {{ $t('earn.nominate.form.reward.chip_2') }}
                                 </button>
                             </div>
                             <!--                            <v-chip-group mandatory @change="rewardSelect">-->
@@ -101,7 +101,7 @@
                         :node-i-d="nodeId"
                         :end="formEnd"
                         :amount="formAmt"
-                        :delegation-fee="delegationFee"
+                        :nomination-fee="nominationFee"
                         :reward-address="rewardIn"
                         :reward-destination="rewardDestination"
                     ></ConfirmPage>
@@ -119,8 +119,8 @@
                                     <fa icon="question-circle"></fa>
                                 </Tooltip>
                             </label>
-                            <p v-if="currency_type === 'AXC'">{{ maxDelegationText }} AXC</p>
-                            <p v-if="currency_type === 'USD'">${{ maxDelegationUsdText }} USD</p>
+                            <p v-if="currency_type === 'AXC'">{{ maxNominationText }} AXC</p>
+                            <p v-if="currency_type === 'USD'">${{ maxNominationUsdText }} USD</p>
                         </div>
                         <div>
                             <label>{{ $t('earn.validate.summary.duration') }} *</label>
@@ -265,7 +265,7 @@ const MAX_STAKE_DURATION = DAY_MS * 365
 export default class AddValidator extends Vue {
     startDate: string = new Date(Date.now() + MIN_MS * 15).toISOString()
     endDate: string = new Date().toISOString()
-    delegationFee: string = '2.0'
+    nominationFee: string = '2.0'
     nodeId = ''
     rewardIn: string = ''
     rewardDestination = 'local' // local || custom
@@ -296,11 +296,11 @@ export default class AddValidator extends Vue {
     }
 
     onFeeChange() {
-        let num = parseFloat(this.delegationFee)
+        let num = parseFloat(this.nominationFee)
         if (num < this.minFee) {
-            this.delegationFee = this.minFee.toString()
+            this.nominationFee = this.minFee.toString()
         } else if (num > 100) {
-            this.delegationFee = '100'
+            this.nominationFee = '100'
         }
     }
 
@@ -397,7 +397,7 @@ export default class AddValidator extends Vue {
         }
     }
 
-    get maxDelegationAmt(): BN {
+    get maxNominationAmt(): BN {
         let stakeAmt = this.stakeAmt
 
         let maxRelative = stakeAmt.mul(new BN(5))
@@ -416,12 +416,12 @@ export default class AddValidator extends Vue {
         return BN.max(res, new BN(0))
     }
 
-    get maxDelegationText() {
-        return bnToBig(this.maxDelegationAmt, 9).toLocaleString(9)
+    get maxNominationText() {
+        return bnToBig(this.maxNominationAmt, 9).toLocaleString(9)
     }
 
-    get maxDelegationUsdText() {
-        let big = bnToBig(this.maxDelegationAmt, 9)
+    get maxNominationUsdText() {
+        let big = bnToBig(this.maxNominationAmt, 9)
         let res = big.times(this.axcPrice)
         return res.toLocaleString(2)
     }
@@ -451,7 +451,7 @@ export default class AddValidator extends Vue {
         this.formAmt = this.stakeAmt
         this.formEnd = new Date(this.endDate)
         this.formRewardAddr = this.rewardIn
-        this.formFee = parseFloat(this.delegationFee)
+        this.formFee = parseFloat(this.nominationFee)
     }
 
     confirm() {
@@ -511,8 +511,8 @@ export default class AddValidator extends Vue {
             return false
         }
 
-        // Delegation Fee
-        if (parseFloat(this.delegationFee) < this.minFee) {
+        // Nomination Fee
+        if (parseFloat(this.nominationFee) < this.minFee) {
             this.err = this.$t('earn.validate.errs.fee', [this.minFee]) as string
             return false
         }
@@ -531,7 +531,7 @@ export default class AddValidator extends Vue {
         if (!this.formCheck()) return
         let wallet: WalletType = this.$store.state.activeWallet
 
-        // Start delegation in 5 minutes
+        // Start nomination in 5 minutes
         let startDate = new Date(Date.now() + 5 * MIN_MS)
         let endMs = this.formEnd.getTime()
         let startMs = startDate.getTime()

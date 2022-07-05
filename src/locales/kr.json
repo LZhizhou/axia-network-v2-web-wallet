@@ -174,7 +174,7 @@
         "title": "적립",
         "desc": "보유하신 토큰을 스테이킹하여 더 많은 AXC를 적립하실 수 있습니다.",
         "subtitle1": "검증(Validate)",
-        "subtitle2": "위임(Delegate)",
+        "subtitle2": "위임(Nominate)",
         "subtitle3": "크로스 체인 전송",
         "subtitle4": "예상 리워드",
         "warning_1": "검증인이 되시려면 최소 {0} AXC를 Core 체인에 보유하고 있어야 합니다.",
@@ -184,7 +184,7 @@
             "desc": "스테이킹하시려는 아발란체 노드가 있습니다.",
             "submit": "검증인 추가"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "위임",
             "desc": "아발란체 노드가 없지만 다른 노드를 사용하여 스테이킹하기를 원합니다.",
             "submit": "위임자 추가"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "전체 리워드",
             "validation": "검증(Validate)",
-            "delegation": "위임(Delegate)",
+            "nomination": "위임(Nominate)",
             "empty": "받으실 리워드가 없습니다",
             "row": {
                 "start": "시작",
@@ -286,7 +286,7 @@
                 "address": "유효하지 않은 리워드 주소입니다."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "위임하실 노드를 선택하세요",
                 "search": "노드 ID 검색",
