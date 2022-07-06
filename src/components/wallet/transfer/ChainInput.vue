@@ -65,7 +65,7 @@ label {
             border-radius: 20px;
             opacity: 1;
             color: #fff;
-            margin: 5px;
+            margin: 2px;
             padding: 0 20px;
         }
     }
