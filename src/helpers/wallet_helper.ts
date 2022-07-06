@@ -99,7 +99,7 @@ class WalletHelper {
         amt: BN,
         start: Date,
         end: Date,
-        delegationFee: number,
+        nominationFee: number,
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
@@ -139,14 +139,14 @@ class WalletHelper {
             endTime,
             stakeAmount,
             [rewardAddress],
-            delegationFee
+            nominationFee
         )
 
         let tx = await wallet.signCore(unsignedTx)
         return await coreChain.issueTx(tx)
     }
 
-    static async delegate(
+    static async nominate(
         wallet: WalletType,
         nodeID: string,
         amt: BN,

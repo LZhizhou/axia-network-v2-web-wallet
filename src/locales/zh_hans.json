@@ -184,7 +184,7 @@
             "desc": "你有一个想用于质押的Axia节点。",
             "submit": "添加验证者"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "委托",
             "desc": "你没有Axia节点，但你想使用另一个节点进行质押。",
             "submit": "添加委托者"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "总奖励",
             "validation": "验证",
-            "delegation": "委托",
+            "nomination": "委托",
             "empty": "你没有任何待付奖励。",
             "row": {
                 "start": "开始",
@@ -286,7 +286,7 @@
                 "address": "无效的奖励地址。"
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "选择要一个委托的节点",
                 "search": "搜索节点ID",

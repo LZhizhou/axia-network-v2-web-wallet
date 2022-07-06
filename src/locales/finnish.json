@@ -184,7 +184,7 @@
             "desc": "Sinulla on Axia-node, johon haluat panostaa.",
             "submit": "Lisää Vahvistaja"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegoi",
             "desc": "Et omista Axia-noodia, mutta haluat asettaa panoksen toisella noodilla.",
             "submit": "Lisää Delegoija"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Palkkiot Yhteensä",
             "validation": "Vahvistus",
-            "delegation": "Delegointi",
+            "nomination": "Delegointi",
             "empty": "Sinulla ei ole odottavia palkintoja.",
             "row": {
                 "start": "Aloita",
@@ -286,7 +286,7 @@
                 "address": "Väärä palkkio-osoite."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Valitse delegoitava noodi",
                 "search": "Etsi Node ID",

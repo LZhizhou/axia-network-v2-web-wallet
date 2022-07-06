@@ -283,7 +283,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         return bintools.cb58Encode(signed)
     }
 
-    async delegate(
+    async nominate(
         nodeID: string,
         amt: BN,
         start: Date,
@@ -291,7 +291,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
-        return await WalletHelper.delegate(this, nodeID, amt, start, end, rewardAddress, utxos)
+        return await WalletHelper.nominate(this, nodeID, amt, start, end, rewardAddress, utxos)
     }
 
     async validate(
@@ -299,7 +299,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         amt: BN,
         start: Date,
         end: Date,
-        delegationFee: number = 0,
+        nominationFee: number = 0,
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
@@ -309,7 +309,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
             amt,
             start,
             end,
-            delegationFee,
+            nominationFee,
             rewardAddress,
             utxos
         )

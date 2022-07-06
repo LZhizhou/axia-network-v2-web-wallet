@@ -34,23 +34,23 @@
                     </div>
                     <div>
                         <h4 class="title">
-                            {{ $t('earn.delegate_card.title') }}
+                            {{ $t('earn.nominate_card.title') }}
                         </h4>
                         <p style="flex-grow: 1">
-                            {{ $t('earn.delegate_card.desc') }}
+                            {{ $t('earn.nominate_card.desc') }}
                         </p>
-                        <p v-if="!canDelegate" class="no_balance">
-                            {{ $t('earn.warning_2', [minDelegationAmt.toLocaleString()]) }}
+                        <p v-if="!canNominate" class="no_balance">
+                            {{ $t('earn.warning_2', [minNominationAmt.toLocaleString()]) }}
                         </p>
                         <v-btn
                             class="button_secondary"
-                            data-cy="delegate"
+                            data-cy="nominate"
                             @click="addNominator"
                             depressed
                             small
-                            :disabled="!canDelegate"
+                            :disabled="!canNominate"
                         >
-                            {{ $t('earn.delegate_card.submit') }}
+                            {{ $t('earn.nominate_card.submit') }}
                         </v-btn>
                     </div>
                     <div>
@@ -101,7 +101,7 @@ import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
 import AddValidator from '@/components/wallet/earn/Validate/AddValidator.vue'
-import AddNominator from '@/components/wallet/earn/Delegate/AddNominator.vue'
+import AddNominator from '@/components/wallet/earn/Nominate/AddNominator.vue'
 import { BN } from '@axia-systems/axiajs/dist'
 import UserRewards from '@/components/wallet/earn/UserRewards.vue'
 import { bnToBig } from '@/helpers/helper'
@@ -177,8 +177,8 @@ export default class Earn extends Vue {
         return this.platformUnlocked.add(this.platformLockedStakeable).isZero()
     }
 
-    get canDelegate(): boolean {
-        let bn = this.$store.state.Platform.minStakeDelegation
+    get canNominate(): boolean {
+        let bn = this.$store.state.Platform.minStakeNomination
         if (this.totBal.lt(bn)) {
             return false
         }
@@ -198,8 +198,8 @@ export default class Earn extends Vue {
         return bnToBig(bn, 9)
     }
 
-    get minDelegationAmt(): Big {
-        let bn = this.$store.state.Platform.minStakeDelegation
+    get minNominationAmt(): Big {
+        let bn = this.$store.state.Platform.minStakeNomination
         return bnToBig(bn, 9)
     }
 }

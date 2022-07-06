@@ -202,7 +202,7 @@
             "desc": "Stake yapmak istediğiniz bir Axia düğümünüz var.",
             "submit": "Doğrulayıcı Ekle"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Devret",
             "desc": "Bir Axia düğümüne sahip değilsiniz ancak bir başka düğüm kullanarak stake yapmak istiyorsunuz.",
             "submit": "Devredici Ekle"
@@ -240,7 +240,7 @@
         "rewards": {
             "total": "Toplam Ödüller",
             "validation": "Doğrulama",
-            "delegation": "Devretme",
+            "nomination": "Devretme",
             "empty": "Bekleyen ödülünüz bulunmamakta.",
             "row": {
                 "start": "Başla",
@@ -307,7 +307,7 @@
                 "address": "Geçersiz adres. Ödül adresi geçerli bir Core zinciri adresi olmalıdır."
             }
         },
-        "delegate": {
+        "nominate": {
             "filter": {
                 "title": "Filtre",
                 "title2": "Filtre Ayarları",

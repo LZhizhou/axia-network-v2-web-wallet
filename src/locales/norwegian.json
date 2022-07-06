@@ -184,7 +184,7 @@
             "desc": "Du har en Axia-node som du vil satse med.",
             "submit": "Legg til validator"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Deleger",
             "desc": "Du eier ikke en Axia-node, men du vil satse ved å bruke en annen node.",
             "submit": "Legg til nominator"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Totale belønninger",
             "validation": "Validering",
-            "delegation": "Delegering",
+            "nomination": "Delegering",
             "empty": "Du har ingen ventende belønninger.",
             "row": {
                 "start": "Start",
@@ -286,7 +286,7 @@
                 "address": "Ugyldig belønningsadresse."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Velg en node for å delegere",
                 "search": "Søk node-ID",

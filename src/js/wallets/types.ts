@@ -102,11 +102,11 @@ export interface AvaWalletCore extends IAddressManager {
         amt: BN,
         start: Date,
         end: Date,
-        delegationFee: number,
+        nominationFee: number,
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string>
-    delegate(
+    nominate(
         nodeID: string,
         amt: BN,
         start: Date,

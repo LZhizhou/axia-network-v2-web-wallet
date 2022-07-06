@@ -18,7 +18,7 @@
         </div>
         <div>
             <label>{{ $t('earn.validate.confirmation.fee') }}</label>
-            <p>{{ delegationFee }} %</p>
+            <p>{{ nominationFee }} %</p>
         </div>
         <div>
             <label>{{ $t('earn.validate.confirmation.reward') }} ({{ walletType }})</label>
@@ -36,7 +36,7 @@ import Big from 'big.js'
 export default class ConfirmPage extends Vue {
     @Prop() nodeID!: string
     @Prop() end!: Date
-    @Prop() delegationFee!: number
+    @Prop() nominationFee!: number
     @Prop() amount!: BN
     @Prop() rewardAddress!: string
     @Prop() rewardDestination!: string

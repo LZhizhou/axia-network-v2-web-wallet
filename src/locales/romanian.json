@@ -184,7 +184,7 @@
             "desc": "Ai un nod Axia cu care dorești să mizezi.",
             "submit": "Adaugă Validatorul"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Deleagă",
             "desc": "Nu deții un nod Axia, dar vrei să mizezi utilizând alt nod.",
             "submit": "Adaugă Delegatarul"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Recompense Totale",
             "validation": "Validare",
-            "delegation": "Delegare",
+            "nomination": "Delegare",
             "empty": "Nu există recompense în așteptare.",
             "row": {
                 "start": "Început",
@@ -286,7 +286,7 @@
                 "address": "Adresă de recompensă invalidă."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Selectează un nod pentru delegare",
                 "search": "Caută ID Nod",

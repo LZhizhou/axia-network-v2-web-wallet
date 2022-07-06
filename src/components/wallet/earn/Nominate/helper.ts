@@ -1,4 +1,4 @@
-import { ValidatorListFilter } from '@/components/wallet/earn/Delegate/types'
+import { ValidatorListFilter } from '@/components/wallet/earn/Nominate/types'
 import { ValidatorListItem } from '@/store/modules/platform/types'
 import { DAY_MS } from '@/constants'
 import { ONEAXC } from '@axia-systems/axiajs/dist/utils'

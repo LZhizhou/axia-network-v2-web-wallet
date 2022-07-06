@@ -184,7 +184,7 @@
             "desc": "Hai un nodo Axia con cui vuoi fare staking.",
             "submit": "Aggiungi Validatore"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delega",
             "desc": "Non possiedi un nodo Axia, ma vuoi fare staking utilizzando un altro nodo.",
             "submit": "Aggiungi Delegante"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Ricompense totali",
             "validation": "Validazione",
-            "delegation": "Delega",
+            "nomination": "Delega",
             "empty": "Non hai ricompense in sospeso.",
             "row": {
                 "start": "Inizio",
@@ -286,7 +286,7 @@
                 "address": "Indirizzo per le ricompense non valido."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Seleziona un nodo a cui delegare",
                 "search": "Cerca ID del Nodo",

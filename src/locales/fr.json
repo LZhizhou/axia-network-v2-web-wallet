@@ -184,7 +184,7 @@
             "desc": "Vous avez un nœud Axia avec lequel vous souhaitez faire un enjeu.",
             "submit": "Ajouter un validateur"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Déléguer",
             "desc": "Vous ne possédez pas de nœud Axia, mais vous voulez faire un enjeu sur un autre nœud.",
             "submit": "Ajouter un délégué"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Total des récompenses",
             "validation": "Validation",
-            "delegation": "Délégation",
+            "nomination": "Délégation",
             "empty": "Vous n'avez pas de récompenses en attente.",
             "row": {
                 "start": "Commencer",
@@ -286,7 +286,7 @@
                 "address": "Adresse de récompense non valable."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Sélectionnez un nœud à qui déléguer",
                 "search": "Recherchez l'ID d'un nœud",

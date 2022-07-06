@@ -184,7 +184,7 @@
             "desc": "Rendelkezik egy Axia csomópontja amit meg akar játszani.",
             "submit": "Érvényesítő hozzáadása"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegálás",
             "desc": "Nem rendelkezik Axia csomóponttal, de játszani akar egy másik csomópont használatával.",
             "submit": "Delegáló hozzáadása"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Összes jutalom",
             "validation": "Érvényesítés",
-            "delegation": "Delegálás",
+            "nomination": "Delegálás",
             "empty": "Nincs jutalom függőben.",
             "row": {
                 "start": "Kezdés",
@@ -286,7 +286,7 @@
                 "address": "Érvénytelen jutalom cím."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Válasszon csomópontot a delegáláshoz",
                 "search": "Csomópont azonosító keresése",

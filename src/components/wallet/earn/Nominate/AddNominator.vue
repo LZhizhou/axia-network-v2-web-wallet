@@ -12,19 +12,19 @@
             <transition-group name="fade" mode="out-in">
                 <div class="ins_col" key="form" v-show="!isConfirm">
                     <div style="margin-bottom: 30px">
-                        <h4>{{ $t('earn.delegate.form.period.label') }}</h4>
+                        <h4>{{ $t('earn.nominate.form.period.label') }}</h4>
                         <p class="desc">
-                            {{ $t('earn.delegate.form.period.desc') }}
+                            {{ $t('earn.nominate.form.period.desc') }}
                         </p>
                         <DateForm @change_end="setEnd" :max-end-date="endMaxDate"></DateForm>
                     </div>
                     <div style="margin: 30px 0; margin-bottom: 50px">
-                        <h4>{{ $t('earn.delegate.form.amount.label') }}</h4>
+                        <h4>{{ $t('earn.nominate.form.amount.label') }}</h4>
                         <p class="desc">
-                            {{ $t('earn.delegate.form.amount.desc') }}
+                            {{ $t('earn.nominate.form.amount.desc') }}
                         </p>
                         <!--                        <p class="desc">-->
-                        <!--                            {{ $t('earn.delegate.form.amount.desc2', [remainingAmtText]) }}-->
+                        <!--                            {{ $t('earn.nominate.form.amount.desc2', [remainingAmtText]) }}-->
                         <!--                        </p>-->
                         <AxcInput
                             v-model="stakeAmt"
@@ -34,31 +34,31 @@
                         ></AxcInput>
                     </div>
                     <div class="reward_in" style="margin: 30px 0" :type="rewardDestination">
-                        <h4>{{ $t('earn.delegate.form.reward.label') }}</h4>
+                        <h4>{{ $t('earn.nominate.form.reward.label') }}</h4>
                         <p class="desc">
-                            {{ $t('earn.delegate.form.reward.desc') }}
+                            {{ $t('earn.nominate.form.reward.desc') }}
                         </p>
                         <div class="reward_tabs">
                             <button
                                 @click="rewardSelect('local')"
                                 :selected="this.rewardDestination === 'local'"
                             >
-                                {{ $t('earn.delegate.form.reward.chip_1') }}
+                                {{ $t('earn.nominate.form.reward.chip_1') }}
                             </button>
                             <span>or</span>
                             <button
                                 @click="rewardSelect('custom')"
                                 :selected="this.rewardDestination === 'custom'"
                             >
-                                {{ $t('earn.delegate.form.reward.chip_2') }}
+                                {{ $t('earn.nominate.form.reward.chip_2') }}
                             </button>
                         </div>
                         <!--                        <v-chip-group mandatory @change="rewardSelect">-->
                         <!--                            <v-chip small value="local">-->
-                        <!--                                {{ $t('earn.delegate.form.reward.chip_1') }}-->
+                        <!--                                {{ $t('earn.nominate.form.reward.chip_1') }}-->
                         <!--                            </v-chip>-->
                         <!--                            <v-chip small value="custom">-->
-                        <!--                                {{ $t('earn.delegate.form.reward.chip_2') }}-->
+                        <!--                                {{ $t('earn.nominate.form.reward.chip_2') }}-->
                         <!--                            </v-chip>-->
                         <!--                        </v-chip-group>-->
                         <QrInput
@@ -103,11 +103,11 @@
                         currency="currency_sel"
                     ></CurrencySelect>
                     <div>
-                        <label>{{ $t('earn.delegate.summary.duration') }} *</label>
+                        <label>{{ $t('earn.nominate.summary.duration') }} *</label>
                         <p>{{ stakingDurationText }}</p>
                     </div>
                     <!-- <div>
-                        <label>{{ $t('earn.delegate.summary.reward') }}</label>
+                        <label>{{ $t('earn.nominate.summary.reward') }}</label>
                         <p v-if="currency_type === 'AXC'">
                             {{ estimatedReward.toLocaleString(2) }} AXC
                         </p>
@@ -116,7 +116,7 @@
                         </p>
                     </div> -->
                     <div>
-                        <label>{{ $t('earn.delegate.summary.fee') }}</label>
+                        <label>{{ $t('earn.nominate.summary.fee') }}</label>
                         <p v-if="currency_type === 'AXC'">
                             {{ totalFeeBig.toLocaleString(2) }} AXC
                         </p>
@@ -127,7 +127,7 @@
 
                     <div>
                         <label style="margin: 8px 0 !important">
-                            * {{ $t('earn.delegate.summary.warn') }}
+                            * {{ $t('earn.nominate.summary.warn') }}
                         </label>
                         <p class="err">{{ err }}</p>
                         <v-btn
@@ -139,7 +139,7 @@
                             :disabled="!canSubmit"
                             block
                         >
-                            {{ $t('earn.delegate.confirm') }}
+                            {{ $t('earn.nominate.confirm') }}
                         </v-btn>
                         <template v-else>
                             <v-btn
@@ -149,7 +149,7 @@
                                 :loading="isLoading"
                                 block
                             >
-                                {{ $t('earn.delegate.submit') }}
+                                {{ $t('earn.nominate.submit') }}
                             </v-btn>
                             <v-btn
                                 text
@@ -157,18 +157,18 @@
                                 block
                                 style="color: var(--primary-color); margin-top: 20px"
                             >
-                                {{ $t('earn.delegate.cancel') }}
+                                {{ $t('earn.nominate.cancel') }}
                             </v-btn>
                         </template>
                     </div>
                 </div>
                 <div v-else class="success_cont">
-                    <h2>{{ $t('earn.delegate.success.title') }}</h2>
-                    <p>{{ $t('earn.delegate.success.desc') }}</p>
+                    <h2>{{ $t('earn.nominate.success.title') }}</h2>
+                    <p>{{ $t('earn.nominate.success.desc') }}</p>
                     <p class="tx_id">Tx ID: {{ txId }}</p>
                     <div class="tx_status">
                         <div>
-                            <label>{{ $t('earn.delegate.success.status') }}</label>
+                            <label>{{ $t('earn.nominate.success.status') }}</label>
                             <p v-if="!txStatus">Waiting..</p>
                             <p v-else>{{ txStatus }}</p>
                         </div>
@@ -183,7 +183,7 @@
                         </div>
                     </div>
                     <div class="reason_cont" v-if="txReason">
-                        <label>{{ $t('earn.delegate.success.reason') }}</label>
+                        <label>{{ $t('earn.nominate.success.reason') }}</label>
                         <p>{{ txReason }}</p>
                     </div>
                     <v-btn @click="cancel" block class="button_secondary" depressed v-if="txStatus">
@@ -204,7 +204,7 @@ import { QrInput } from '@axia-systems/vue-components'
 import ValidatorsList from '@/components/misc/ValidatorList/ValidatorsList.vue'
 import { ValidatorRaw } from '@/components/misc/ValidatorList/types'
 import StakingCalculator from '@/components/wallet/earn/StakingCalculator.vue'
-import ConfirmPage from '@/components/wallet/earn/Delegate/ConfirmPage.vue'
+import ConfirmPage from '@/components/wallet/earn/Nominate/ConfirmPage.vue'
 import Big from 'big.js'
 import moment from 'moment'
 
@@ -220,7 +220,7 @@ import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { bnToBig, calculateStakingReward } from '@/helpers/helper'
 import { Defaults, ONEAXC } from '@axia-systems/axiajs/dist/utils'
 import { ValidatorListItem } from '@/store/modules/platform/types'
-import NodeSelection from '@/components/wallet/earn/Delegate/NodeSelection.vue'
+import NodeSelection from '@/components/wallet/earn/Nominate/NodeSelection.vue'
 import CurrencySelect from '@/components/misc/CurrencySelect/CurrencySelect.vue'
 import Spinner from '@/components/misc/Spinner.vue'
 import DateForm from '@/components/wallet/earn/DateForm.vue'
@@ -228,7 +228,7 @@ import { WalletType } from '@/js/wallets/types'
 
 import UtxoSelectForm from '@/components/wallet/earn/UtxoSelectForm.vue'
 import Expandable from '@/components/misc/Expandable.vue'
-import NodeCard from '@/components/wallet/earn/Delegate/NodeCard.vue'
+import NodeCard from '@/components/wallet/earn/Nominate/NodeCard.vue'
 
 const MIN_MS = 60000
 const HOUR_MS = MIN_MS * 60
@@ -296,12 +296,12 @@ export default class AddNominator extends Vue {
 
         let wallet: WalletType = this.$store.state.activeWallet
 
-        // Start delegation in 5 minutes
+        // Start nomination in 5 minutes
         let startDate = new Date(Date.now() + 5 * MIN_MS)
 
         try {
             this.isLoading = false
-            let txId = await wallet.delegate(
+            let txId = await wallet.nominate(
                 this.formNodeID,
                 this.formAmt,
                 startDate,
@@ -362,18 +362,18 @@ export default class AddNominator extends Vue {
         let msg: string = e.message
 
         if (msg.includes('startTime')) {
-            this.err = this.$t('earn.delegate.errs.start_end') as string
+            this.err = this.$t('earn.nominate.errs.start_end') as string
             // this.err = "Start date must be in the future and end date must be after start date."
         } else if (msg.includes('address format')) {
-            this.err = this.$t('earn.delegate.errs.invalid_addr') as string
+            this.err = this.$t('earn.nominate.errs.invalid_addr') as string
             // this.err = "Invalid address format. Your address must start with \"Core-\"";
         } else {
             this.err = e.message
         }
         this.$store.dispatch('Notifications/add', {
             type: 'error',
-            title: 'Delegation Failed',
-            message: 'Failed to delegate tokens.',
+            title: 'Nomination Failed',
+            message: 'Failed to nominate tokens.',
         })
     }
 
@@ -415,7 +415,7 @@ export default class AddNominator extends Vue {
         this.err = ''
 
         if (!this.selected) {
-            this.err = this.$t('earn.delegate.errs.no_node') as string
+            this.err = this.$t('earn.nominate.errs.no_node') as string
             // this.err = "You must specify a validator."
             return false
         }
@@ -426,31 +426,31 @@ export default class AddNominator extends Vue {
         let diffTime = endTime - startTime
 
         if (startTime <= now) {
-            this.err = this.$t('earn.delegate.errs.start_now') as string
+            this.err = this.$t('earn.nominate.errs.start_now') as string
             return false
         }
 
         // TODO: UPDATE THIS WITH REAL VALUE
         if (diffTime < DAY_MS * 14) {
-            this.err = this.$t('earn.delegate.errs.min_dur') as string
+            this.err = this.$t('earn.nominate.errs.min_dur') as string
             return false
         }
 
         if (diffTime > DAY_MS * 365) {
-            this.err = this.$t('earn.delegate.errs.max_dur') as string
+            this.err = this.$t('earn.nominate.errs.max_dur') as string
             return false
         }
 
         let validatorEndtime = this.selected.endTime.getTime()
 
         if (endTime > validatorEndtime) {
-            this.err = this.$t('earn.delegate.errs.val_end') as string
+            this.err = this.$t('earn.nominate.errs.val_end') as string
             return false
         }
 
         // Reward address check
         if (this.rewardDestination != 'local' && !this.rewardIn) {
-            this.err = this.$t('earn.delegate.errs.no_addr') as string
+            this.err = this.$t('earn.nominate.errs.no_addr') as string
             return false
         }
 
@@ -458,7 +458,7 @@ export default class AddNominator extends Vue {
         try {
             bintools.stringToAddress(this.rewardIn)
         } catch (e) {
-            this.err = this.$t('earn.delegate.errs.invalid_addr') as string
+            this.err = this.$t('earn.nominate.errs.invalid_addr') as string
             // this.err = "Invalid reward address."
             return false
         }
@@ -466,7 +466,7 @@ export default class AddNominator extends Vue {
         // Stake amount check
         if (this.stakeAmt.lt(this.minStake)) {
             let big = bnToBig(this.minStake, 9)
-            this.err = this.$t('earn.delegate.errs.amt', [big.toLocaleString()]) as string
+            this.err = this.$t('earn.nominate.errs.amt', [big.toLocaleString()]) as string
             return false
         }
 
@@ -520,17 +520,17 @@ export default class AddNominator extends Vue {
     }
 
     get minStake(): BN {
-        return this.$store.state.Platform.minStakeDelegation
+        return this.$store.state.Platform.minStakeNomination
     }
 
-    get delegationFee(): number {
+    get nominationFee(): number {
         if (!this.selected) return 0
         return this.selected.fee
     }
 
     get totalFee(): BN {
-        let delegationFee = Big(this.delegationFee).div(Big(100))
-        let cut = this.estimatedReward.times(delegationFee)
+        let nominationFee = Big(this.nominationFee).div(Big(100))
+        let cut = this.estimatedReward.times(nominationFee)
 
         let txFee: BN = coreChain.getTxFee()
         let cutBN = new BN(cut.times(Math.pow(10, 9)).toFixed(0))
@@ -565,10 +565,10 @@ export default class AddNominator extends Vue {
 
     get remainingAmt(): BN {
         if (!this.selected) return new BN(0)
-        // let totDel: BN = this.$store.getters["Platform/validatorTotalDelegated"](this.selected.nodeID);
+        // let totDel: BN = this.$store.getters["Platform/validatorTotalNominated"](this.selected.nodeID);
         let nodeMaxStake: BN = this.$store.getters['Platform/validatorMaxStake'](this.selected)
 
-        let totDel = this.selected.delegatedStake
+        let totDel = this.selected.nominatedStake
         let valAmt = this.selected.validatorStake
         return nodeMaxStake.sub(totDel).sub(valAmt)
     }

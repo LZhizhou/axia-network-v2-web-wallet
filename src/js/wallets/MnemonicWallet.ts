@@ -182,7 +182,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         amt: BN,
         start: Date,
         end: Date,
-        delegationFee: number = 0,
+        nominationFee: number = 0,
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
@@ -192,14 +192,14 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
             amt,
             start,
             end,
-            delegationFee,
+            nominationFee,
             rewardAddress,
             utxos
         )
     }
 
-    // Delegates AXC to the given node ID
-    async delegate(
+    // Nominates AXC to the given node ID
+    async nominate(
         nodeID: string,
         amt: BN,
         start: Date,
@@ -207,7 +207,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
-        return await WalletHelper.delegate(this, nodeID, amt, start, end, rewardAddress, utxos)
+        return await WalletHelper.nominate(this, nodeID, amt, start, end, rewardAddress, utxos)
     }
 
     async getStake(): Promise<BN> {

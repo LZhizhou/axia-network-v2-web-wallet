@@ -5,7 +5,7 @@ export interface ValidatorRaw {
     stakeAmount: string
     startTime: string
     uptime: string
-    delegationFee: string
+    nominationFee: string
     nominators: NominatorRaw[] | null
     potentialReward: string
     rewardOwner: ValidatorRewardOwner
@@ -34,7 +34,7 @@ export interface ValidatorPendingRaw {
     endTime: string
     stakeAmount: string
     nodeID: string
-    delegationFee: string
+    nominationFee: string
     connected: boolean
 }
 

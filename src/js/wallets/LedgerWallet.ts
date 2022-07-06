@@ -531,7 +531,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         return messages
     }
 
-    getValidateDelegateMsgs<UnsignedTx extends AVMUnsignedTx | PlatformUnsignedTx>(
+    getValidateNominateMsgs<UnsignedTx extends AVMUnsignedTx | PlatformUnsignedTx>(
         unsignedTx: UnsignedTx,
         chainId: ChainIdType
     ): ILedgerBlockMessage[] {
@@ -581,9 +581,9 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
                 value: `${rewardAddrs.join('\n')}`,
             })
             // @ts-ignore
-            if (tx.delegationFee) {
+            if (tx.nominationFee) {
                 // @ts-ignore
-                messages.push({ title: 'Delegation Fee', value: `${tx.delegationFee}%` })
+                messages.push({ title: 'Nomination Fee', value: `${tx.nominationFee}%` })
             }
             messages.push({ title: 'Fee', value: '0' })
         }
@@ -625,11 +625,11 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         const outputMessages = this.getOutputMsgs(unsignedTx, chainId, changePath)
         messages.push(...outputMessages)
 
-        const validateDelegateMessages = this.getValidateDelegateMsgs(
+        const validateNominateMessages = this.getValidateNominateMsgs(
             unsignedTx as AVMUnsignedTx | PlatformUnsignedTx,
             chainId
         )
-        messages.push(...validateDelegateMessages)
+        messages.push(...validateNominateMessages)
 
         const feeMessages = this.getFeeMsgs(unsignedTx, chainId)
         messages.push(...feeMessages)
@@ -937,7 +937,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         return await WalletHelper.issueBatchTx(this, orders, addr, memo)
     }
 
-    async delegate(
+    async nominate(
         nodeID: string,
         amt: BN,
         start: Date,
@@ -945,7 +945,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
-        return await WalletHelper.delegate(this, nodeID, amt, start, end, rewardAddress, utxos)
+        return await WalletHelper.nominate(this, nodeID, amt, start, end, rewardAddress, utxos)
     }
 
     async validate(
@@ -953,7 +953,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
         amt: BN,
         start: Date,
         end: Date,
-        delegationFee: number,
+        nominationFee: number,
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
@@ -963,7 +963,7 @@ class LedgerWallet extends HdWalletCore implements AvaWalletCore {
             amt,
             start,
             end,
-            delegationFee,
+            nominationFee,
             rewardAddress,
             utxos
         )

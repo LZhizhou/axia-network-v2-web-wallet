@@ -78,10 +78,10 @@ export default class ValidatorsList extends Vue {
     }
 
     // TODO :HEAVY
-    get totalDelegated(): BN {
-        return this.validator.delegatedStake
+    get totalNominated(): BN {
+        return this.validator.nominatedStake
         // return new BN(0)
-        // return this.$store.getters["Platform/validatorTotalDelegated"](this.validator.nodeID);
+        // return this.$store.getters["Platform/validatorTotalNominated"](this.validator.nodeID);
     }
 
     // TODO :HEAVY
@@ -94,7 +94,7 @@ export default class ValidatorsList extends Vue {
     get remainingStake(): BN {
         // return new BN(1000000000000)
         return this.validator.remainingStake
-        // return this.maxStake.sub(this.totalDelegated.add(this.stakeAmt));
+        // return this.maxStake.sub(this.totalNominated.add(this.stakeAmt));
     }
 
     get remainingAmtText(): string {
@@ -105,8 +105,8 @@ export default class ValidatorsList extends Vue {
     // TODO: Move this to
     // get isVisible(){
     //
-    //     If remaining amount is less than the minimum delegation amount
-    // let minDelAmt = this.$store.state.Platform.minStakeDelegation;
+    //     If remaining amount is less than the minimum nomination amount
+    // let minDelAmt = this.$store.state.Platform.minStakeNomination;
     // if(this.remainingStake.lt(minDelAmt)) return false;
     // return true;
     // }

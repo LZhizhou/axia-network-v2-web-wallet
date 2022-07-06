@@ -120,7 +120,7 @@ export default class StakingTx extends Vue {
     get isNominatorReward() {
         if (this.isValidator) return false
 
-        // If its a delegation, and the wallet does not own any of the inputs
+        // If its a nomination, and the wallet does not own any of the inputs
         let ins = this.transaction.inputs || []
         let inUtxos = ins.map((input) => input.output)
 

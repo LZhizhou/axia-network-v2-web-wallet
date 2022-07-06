@@ -184,7 +184,7 @@
             "desc": "U hebt een Axia-nodus die u wilt inzetten.",
             "submit": "Validator toevoegen"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegeren",
             "desc": "U hebt geen Axia-nodus, maar u wilt inzetten met een andere nodus.",
             "submit": "Delegatielid toevoegen"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Totaal beloningen",
             "validation": "Validatie",
-            "delegation": "Delegatie",
+            "nomination": "Delegatie",
             "empty": "U hebt geen beloningen in de wacht.",
             "row": {
                 "start": "Start",
@@ -286,7 +286,7 @@
                 "address": "Ongeldig adres beloning."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Kies een nodus om te delegeren",
                 "search": "Nodus ID zoeken",

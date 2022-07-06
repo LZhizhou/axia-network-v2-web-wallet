@@ -184,7 +184,7 @@
             "desc": "Disposeu d'un node Axia amb el qual voleu partipar.",
             "submit": "Afegir validador"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegat",
             "desc": "No disposeu d'un node Axia, però voleu partipar fent ús d'un altre node.",
             "submit": "Afegir Delegant"
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Total Recompenses",
             "validation": "Validació",
-            "delegation": "Delegació",
+            "nomination": "Delegació",
             "empty": "No disposeu de cap recompensa pendent.",
             "row": {
                 "start": "Inici",
@@ -286,7 +286,7 @@
                 "address": "Adreça de recompensa invàlida."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Seleccioneu un node per delegar",
                 "search": "Cerca l'ID del node",
