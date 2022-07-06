@@ -1,19 +1,19 @@
 import Sockette from 'sockette'
 import { WalletType } from '@/js/wallets/types'
 import store from '@/store'
-import { AvaNetwork } from '@/js/AvaNetwork'
-import { PubSub } from 'avalanche'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
+import { PubSub } from '@axia-systems/axiajs'
 
 const FILTER_ADDRESS_SIZE = 1000
 
 export let socketX: Sockette
 
-export function connectSocketX(network: AvaNetwork) {
+export function connectSocketX(network: AxiaNetwork) {
     if (socketX) {
         socketX.close()
     }
 
-    // Setup the X chain socket connection
+    // Setup the SwapChain socket connection
     let wsURL = network.getWsUrlX()
     socketX = new Sockette(wsURL, {
         onopen: xOnOpen,
@@ -50,7 +50,7 @@ export function updateFilterAddresses(): void {
     }
 }
 
-// Clears the filter listening to X chain transactions
+// Clears the filter listening to SwapChain transactions
 function clearFilter() {
     let pubsub = new PubSub()
     let bloom = pubsub.newBloom(FILTER_ADDRESS_SIZE)

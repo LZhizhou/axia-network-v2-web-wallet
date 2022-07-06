@@ -6,7 +6,7 @@
         </div>
         <div>
             <label>{{ $t('earn.validate.confirmation.amount') }}</label>
-            <p>{{ amtText }} AVAX</p>
+            <p>{{ amtText }} AXC</p>
         </div>
         <div>
             <label>{{ $t('earn.validate.confirmation.start') }}</label>
@@ -18,7 +18,7 @@
         </div>
         <div>
             <label>{{ $t('earn.validate.confirmation.fee') }}</label>
-            <p>{{ delegationFee }} %</p>
+            <p>{{ nominationFee }} %</p>
         </div>
         <div>
             <label>{{ $t('earn.validate.confirmation.reward') }} ({{ walletType }})</label>
@@ -29,14 +29,14 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
-import { BN } from 'avalanche'
+import { BN } from '@axia-systems/axiajs'
 import Big from 'big.js'
 
 @Component
 export default class ConfirmPage extends Vue {
     @Prop() nodeID!: string
     @Prop() end!: Date
-    @Prop() delegationFee!: number
+    @Prop() nominationFee!: number
     @Prop() amount!: BN
     @Prop() rewardAddress!: string
     @Prop() rewardDestination!: string

@@ -1,10 +1,10 @@
 <template>
     <div class="filter_settings">
         <div class="modal_body">
-            <h3>{{ $t('earn.delegate.filter.title2') }}</h3>
+            <h3>{{ $t('earn.nominate.filter.title2') }}</h3>
             <div class="inputs">
                 <div class="uptime">
-                    <label>{{ $t('earn.delegate.filter.label1') }}</label>
+                    <label>{{ $t('earn.nominate.filter.label1') }}</label>
                     <div class="input_row hover_border">
                         <input
                             type="number"
@@ -14,11 +14,11 @@
                             @input="onInputChange"
                             v-model="availableSpace"
                         />
-                        <p>AVAX</p>
+                        <p>AXC</p>
                     </div>
                 </div>
                 <div class="duration">
-                    <label>{{ $t('earn.delegate.filter.label2') }}</label>
+                    <label>{{ $t('earn.nominate.filter.label2') }}</label>
                     <div class="input_row slider_row">
                         <input
                             type="range"
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="fee">
-                    <label>{{ $t('earn.delegate.filter.label3') }}</label>
+                    <label>{{ $t('earn.nominate.filter.label3') }}</label>
                     <div class="input_row hover_border">
                         <input
                             type="number"
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="uptime">
-                    <label>{{ $t('earn.delegate.filter.label4') }}</label>
+                    <label>{{ $t('earn.nominate.filter.label4') }}</label>
                     <div class="input_row hover_border">
                         <input
                             type="number"
@@ -64,7 +64,7 @@
             </div>
 
             <div class="preview">
-                <p>{{ $t('earn.delegate.filter.preview', [count]) }}</p>
+                <p>{{ $t('earn.nominate.filter.preview', [count]) }}</p>
             </div>
 
             <div class="checkout">
@@ -75,7 +75,7 @@
                     @click="apply"
                     small
                 >
-                    {{ $t('earn.delegate.filter.apply') }}
+                    {{ $t('earn.nominate.filter.apply') }}
                 </v-btn>
                 <v-btn
                     text
@@ -86,10 +86,10 @@
                     small
                     block
                 >
-                    {{ $t('earn.delegate.filter.clear') }}
+                    {{ $t('earn.nominate.filter.clear') }}
                 </v-btn>
                 <button @click="close" class="button_form_cancel">
-                    {{ $t('earn.delegate.filter.cancel') }}
+                    {{ $t('earn.nominate.filter.cancel') }}
                 </button>
             </div>
         </div>
@@ -99,9 +99,9 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 import moment from 'moment'
-import { ValidatorListFilter } from '@/components/wallet/earn/Delegate/types'
+import { ValidatorListFilter } from '@/components/wallet/earn/Nominate/types'
 import { ValidatorListItem } from '@/store/modules/platform/types'
-import { filterValidatorList } from '@/components/wallet/earn/Delegate/helper'
+import { filterValidatorList } from '@/components/wallet/earn/Nominate/helper'
 
 const MINUTE_MS = 60000
 const HOUR_MS = MINUTE_MS * 60

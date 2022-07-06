@@ -14,9 +14,10 @@
                         class="bigIn"
                         :disabled="disabled"
                     ></BigNumInput>
-                    <p class="usd_val" :active="token === 'native'">
+                    <!-- <p class="usd_val" :active="token === 'native'">
                         ${{ usd_val.toLocaleString(2) }}
-                    </p>
+                    </p> -->
+                    <p class="usd_val" :active="token === 'native'">${{ '--' }}</p>
                 </div>
             </template>
             <template v-else>
@@ -42,8 +43,8 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 //@ts-ignore
-import { BigNumInput } from '@avalabs/vue_components'
-import { BN } from 'avalanche'
+import { BigNumInput } from '@axia-systems/vue-components'
+import { BN } from '@axia-systems/axiajs'
 import EVMAssetDropdown from '@/components/misc/EVMInputDropdown/EVMAssetDropdown.vue'
 import Erc20Token from '@/js/Erc20Token'
 import Big from 'big.js'
@@ -143,19 +144,19 @@ export default class EVMInputDropdown extends Vue {
         this.$refs.bigIn.maxout()
     }
 
-    get avaxBalanceBN(): BN {
+    get axcBalanceBN(): BN {
         let w: WalletType | null = this.$store.state.activeWallet
         if (!w) return new BN(0)
         return w.ethBalance
     }
 
-    get avaxBalance(): Big {
-        return bnToBig(this.avaxBalanceBN, 18)
+    get axcBalance(): Big {
+        return bnToBig(this.axcBalanceBN, 18)
     }
 
     get balance(): Big {
         if (this.token === 'native') {
-            return this.avaxBalance
+            return this.axcBalance
         }
         return this.token.balanceBig
     }
@@ -163,7 +164,7 @@ export default class EVMInputDropdown extends Vue {
     // The available balance of the selected asset
     get balanceBN(): BN {
         if (this.token === 'native') {
-            return this.avaxBalanceBN
+            return this.axcBalanceBN
         }
         return this.token.balanceBN
     }

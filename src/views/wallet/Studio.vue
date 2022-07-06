@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="studio-clr">
         <div class="header">
             <h1>{{ $t('studio.title') }}</h1>
             <h1 class="subtitle" v-if="pageNow">
@@ -10,7 +10,10 @@
         <template v-if="!pageNow">
             <p>{{ $t('studio.desc') }}</p>
             <div class="menu">
-                <h2>{{ $t('studio.collectibles') }}</h2>
+                <div class="header">
+                    <div class="collectible_icon"><img src="@/assets/balance_sync.png" /></div>
+                    <h2>{{ $t('studio.collectibles') }}</h2>
+                </div>
                 <div class="options">
                     <div>
                         <h4 class="title">{{ $t('studio.menu1.title') }}</h4>
@@ -50,8 +53,8 @@ import MintNft from '@/components/wallet/studio/mint/MintNft.vue'
 import { IWalletNftMintDict } from '@/store/types'
 import Big from 'big.js'
 import { bnToBig } from '@/helpers/helper'
-import { avm } from '@/AVA'
-import { BN } from 'avalanche'
+import { avm } from '@/AXIA'
+import { BN } from '@axia-systems/axiajs'
 @Component({
     name: 'studio',
     components: {
@@ -145,6 +148,10 @@ export default class Studio extends Vue {
 }
 
 .menu {
+    box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 10px 25px;
     h2 {
         margin: 20px 0;
         color: var(--primary-color-light);
@@ -153,14 +160,17 @@ export default class Studio extends Vue {
     }
 }
 
+.studio-clr {
+    background-color: #f8f9fa !important;
+    box-shadow: none !important;
+}
 .options {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 14px;
     > div {
-        border-radius: 4px;
-        border: 1px solid var(--bg-light);
-        background-color: var(--bg-light);
+        border-radius: 12px;
+        border: 2px solid #e9f6ff;
         padding: 30px;
         display: flex;
         flex-direction: column;
@@ -182,7 +192,33 @@ export default class Studio extends Vue {
     }
 
     .v-btn {
-        width: max-content;
+        width: 100%;
+        background: #178fe1 !important;
+        border-radius: 12px;
+        padding: 10px 10px;
+    }
+    .theme--light.v-btn.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+        background: #178fe1 !important;
+        opacity: 0.5;
+        color: white !important;
+    }
+}
+.header {
+    display: flex;
+
+    h2 {
+        margin-left: 12px;
+        flex-grow: 1;
+    }
+}
+.collectible_icon {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-color);
+
+    img {
+        object-fit: contain;
+        width: 100%;
     }
 }
 </style>

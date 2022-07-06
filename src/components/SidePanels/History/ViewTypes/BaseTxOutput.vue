@@ -1,7 +1,9 @@
 <template>
     <div class="tx_out">
         <div class="addresses">
-            <p v-for="addr in summary.addresses" :key="addr">{{ direction }} {{ 'X-' + addr }}</p>
+            <p v-for="addr in summary.addresses" :key="addr">
+                {{ direction }} {{ 'Swap-' + addr }}
+            </p>
         </div>
         <p class="amount" :profit="isProfit">
             {{ amtText }}
@@ -14,16 +16,16 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { BaseTxAssetSummary } from '@/helpers/history_helper'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import { bnToBig } from '@/helpers/helper'
-import { BN } from 'avalanche'
+import { BN } from '@axia-systems/axiajs'
 
 @Component
 export default class BaseTxOutput extends Vue {
     @Prop() assetID!: string
     @Prop() summary!: BaseTxAssetSummary
 
-    get assetDetail(): AvaAsset {
+    get assetDetail(): AxiaAsset {
         return (
             this.$store.state.Assets.assetsDict[this.assetID] ||
             this.$store.state.Assets.nftFamsDict[this.assetID]

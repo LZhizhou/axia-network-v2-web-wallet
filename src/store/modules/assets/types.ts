@@ -1,19 +1,19 @@
-import { UTXO, UTXOSet } from 'avalanche/dist/apis/avm'
+import { UTXO, UTXOSet } from '@axia-systems/axiajs/dist/apis/avm'
 
-import AvaAsset from '@/js/AvaAsset'
-import { BN } from 'avalanche'
-import { AvaNftFamily } from '@/js/AvaNftFamily'
+import AxiaAsset from '@/js/AxiaAsset'
+import { BN } from '@axia-systems/axiajs'
+import { AxiaNftFamily } from '@/js/AxiaNftFamily'
 import { IWalletBalanceDict } from '@/store/types'
-import { UTXO as AVMUTXO } from 'avalanche/dist/apis/avm/utxos'
+import { UTXO as AVMUTXO } from '@axia-systems/axiajs/dist/apis/avm/utxos'
 import Erc20Token from '@/js/Erc20Token'
 import ERC721Token from '@/js/ERC721Token'
 
 export interface AssetsState {
     // isUpdateBalance: boolean
-    assets: AvaAsset[]
+    assets: AxiaAsset[]
     assetsDict: AssetsDict
-    AVA_ASSET_ID: string | null
-    nftFams: AvaNftFamily[]
+    AXIA_ASSET_ID: string | null
+    nftFams: AxiaNftFamily[]
     nftFamsDict: NftFamilyDict
     balanceDict: IWalletBalanceDict
     nftUTXOs: AVMUTXO[]
@@ -38,11 +38,11 @@ export interface AssetDescription {
 }
 
 export interface NftFamilyDict {
-    [id: string]: AvaNftFamily
+    [id: string]: AxiaNftFamily
 }
 
 export interface AssetsDict {
-    [key: string]: AvaAsset
+    [key: string]: AxiaAsset
 }
 
 export interface AddressUtxoDict {

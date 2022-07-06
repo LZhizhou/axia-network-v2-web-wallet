@@ -5,15 +5,15 @@
     "address": "Adresse",
     "add_pk": "Tilføj privat nøgle",
     "home": {
-        "desc": "Avalanche Wallet er en enkel, sikker, ikke-frihedsberøvende tegnebog til opbevaring af Avalanche aktiver.",
+        "desc": "AXIA wallet er en enkel, sikker, ikke-frihedsberøvende tegnebog til opbevaring af Axia aktiver.",
         "access": {
             "title": "Velkommen tilbage!",
-            "desc": "Få adgang til din eksisterende Avalanche-tegnebog her.",
+            "desc": "Få adgang til din eksisterende Axia-tegnebog her.",
             "submit": "Adgang til tegnebogen"
         },
         "create": {
-            "title": "Ny på Avalanche Wallet?",
-            "desc": "'Opret' en ny tegnebog til at sende, modtage og bytte Avalanche aktiver.",
+            "title": "Ny på AXIA wallet?",
+            "desc": "'Opret' en ny tegnebog til at sende, modtage og bytte Axia aktiver.",
             "submit": "Opret ny tegnebog"
         }
     },
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Generer en ny nøglesætning for at opsætte din Avalanche Wallet.",
+        "generate": "Generer en ny nøglesætning for at opsætte din AXIA wallet.",
         "but_have": "Har du allerede en tegnebog?",
         "submit": "Genere nøglesætning",
         "cancel": "Annuller",
         "mnemonic_title": "Dette er din nøglesætning.",
-        "mnemonic_desc": "Brug disse 24 ord i rækkefølge for at gendanne din Avalanche Wallet",
+        "mnemonic_desc": "Brug disse 24 ord i rækkefølge for at gendanne din AXIA wallet",
         "attention": "Obs!",
-        "warning": "Gem denne nøglesætning et sikkert sted. Alle med denne nøglesætning kan have adgang til din Avalanche Wallet. Du kan ikke gendanne mistede nøglesætninger.",
+        "warning": "Gem denne nøglesætning et sikkert sted. Alle med denne nøglesætning kan have adgang til din AXIA wallet. Du kan ikke gendanne mistede nøglesætninger.",
         "confirm": "Jeg skrev min nøglesætning ned et sikkert sted.",
         "regenerate": "Regenere",
         "success_title": "Tillykke!",
-        "success_desc": "Det er tid til at få adgang til din Avalanche Wallet.",
+        "success_desc": "Det er tid til at få adgang til din AXIA wallet.",
         "success_submit": "Adgang til tegnebogen",
         "verify": "Bekræft",
         "verifytitle": "Bekræft Mnemonic",
@@ -78,15 +78,15 @@
         "error_word": "Den mnemonic-sætning, du indtastede med ord, stemmer ikke overens med den aktuelle sætning."
     },
     "top": {
-        "title1": "Afledt Avalanche tegnebog-adresse",
+        "title1": "Afledt Axia tegnebog-adresse",
         "title2": "Saldo",
-        "title3": "Subnet",
+        "title3": "Allychain",
         "title4": "Netværk",
         "nftcol": "NFTs",
         "nftempty": "Du har ikke samlet nogen ikke-ombyttelige poletter.",
         "locked": "Låst",
-        "info2": "Jeg købte mønter i Token Salg. Hvor er min AVAX?",
-        "info2_desc": "Denne tegnebog er tilsluttet Avalanche Everest testnetværket. Dit køb vises i tegnebogen efter Avalanche Mainnet-lanceringen.",
+        "info2": "Jeg købte mønter i Token Salg. Hvor er min AXC?",
+        "info2_desc": "Denne tegnebog er tilsluttet Axia Everest testnetværket. Dit køb vises i tegnebogen efter Axia Mainnet-lanceringen.",
         "hover1": "Se adresse for QR-kode",
         "hover2": "Print",
         "hover3": "Kopi",
@@ -101,7 +101,7 @@
             "collectibles": "Samlerobjekter"
         },
         "address": {
-            "derived": "Afledt Avalanche tegnebog-adresse",
+            "derived": "Afledt Axia tegnebog-adresse",
             "desc": "Dette er din adresse til at modtage penge. Din adresse ændres efter hver indbetaling."
         }
     },
@@ -172,26 +172,26 @@
     },
     "earn": {
         "title": "Tjen",
-        "desc": "Du kan tjene mere AVAX ved at indsætte dine eksisterende poletter.",
+        "desc": "Du kan tjene mere AXC ved at indsætte dine eksisterende poletter.",
         "subtitle1": "Bekræft",
         "subtitle2": "Deleger",
         "subtitle3": "Cross Chain overførsel",
         "subtitle4": "Anslåede belønninger",
-        "warning_1": "Du skal have mindst {0} AVAX i P-kæden for at blive bekræftet.",
-        "warning_2": "Du skal have mindst {0} AVAX i P-kæden for at blive delegeret.",
+        "warning_1": "Du skal have mindst {0} AXC i Core-kæden for at blive bekræftet.",
+        "warning_2": "Du skal have mindst {0} AXC i Core-kæden for at blive delegeret.",
         "validate_card": {
             "title": "Bekræft",
-            "desc": "Du har en Avalanche-knude, som du vil satse på.",
+            "desc": "Du har en Axia-knude, som du vil satse på.",
             "submit": "Tilføj Validator"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Deleger",
-            "desc": "Du ejer ikke en Avalanche-knude, men du vil satse ved hjælp af en anden knude.",
-            "submit": "Tilføj Delegator"
+            "desc": "Du ejer ikke en Axia-knude, men du vil satse ved hjælp af en anden knude.",
+            "submit": "Tilføj Nominator"
         },
         "transfer_card": {
             "title": "Cross Chain overførsel",
-            "desc": "Indsatser kræver AVAX på P-kæden. Overfør poletter mellem X og P.",
+            "desc": "Indsatser kræver AXC på Core-kæden. Overfør poletter mellem Swap og Core.",
             "submit": "Overfør"
         },
         "rewards_card": {
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Samlede belønninger",
             "validation": "Validering",
-            "delegation": "Delegation",
+            "nomination": "Nomination",
             "empty": "Du har ingen ventende belønninger.",
             "row": {
                 "start": "Start",
@@ -242,11 +242,11 @@
             },
             "amount": {
                 "label": "Indsatsbeløb",
-                "desc": "Mængden af AVAX, der skal låses til indsats."
+                "desc": "Mængden af AXC, der skal låses til indsats."
             },
             "fee": {
-                "label": "Delegationsgebyr",
-                "desc": "Du vil kræve denne % af belønningerne fra delegatorerne på din knude."
+                "label": "Nominationsgebyr",
+                "desc": "Du vil kræve denne % af belønningerne fra nominatorerne på din knude."
             },
             "reward": {
                 "label": "Belønningsadresse",
@@ -255,7 +255,7 @@
                 "chip_2": "Brugers adresse"
             },
             "summary": {
-                "max_del": "Maks. Delegationsbeløb",
+                "max_del": "Maks. Nominationsbeløb",
                 "max_del_tooltip": "Maksimumbeløb, der kan delegeres til denne validator.",
                 "duration": "Indsatsvarighed",
                 "rewards": "Anslåede belønninger",
@@ -266,7 +266,7 @@
                 "amount": "Indsatsbeløb",
                 "start": "Startdato",
                 "end": "Slutdato",
-                "fee": "Delegationsgebyr",
+                "fee": "Nominationsgebyr",
                 "reward": "Belønningsadresse",
                 "type_local": "Denne tegnebog",
                 "type_custom": "Kunde"
@@ -281,12 +281,12 @@
             },
             "errs": {
                 "date": "Startdatoen skal være i fremtiden, og slutdatoen skal være efter startdatoen.",
-                "amount": "Indsatsbeløbet skal være mindst {0} AVAX",
+                "amount": "Indsatsbeløbet skal være mindst {0} AXC",
                 "id": "Ugyldigt knude-id. Skal starte med \"KnudeID-\"",
                 "address": "Ugyldig belønningsadresse."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Vælg en knude, der skal delegeres",
                 "search": "Søg efter knude-id",
@@ -306,7 +306,7 @@
             },
             "node": {
                 "selected": "Valgt knude",
-                "fee": "Delegationsgebyr",
+                "fee": "Nominationsgebyr",
                 "start": "Validator startdato",
                 "end": "Validator slutdato"
             },
@@ -319,8 +319,8 @@
                 },
                 "amount": {
                     "label": "Indsatsbeløb",
-                    "desc": "Mængden af AVAX, der skal låses til indsats.",
-                    "desc2": "Det tilgængelige delegeringsbeløb for denne knude er {0} AVAX"
+                    "desc": "Mængden af AXC, der skal låses til indsats.",
+                    "desc2": "Det tilgængelige delegeringsbeløb for denne knude er {0} AXC"
                 },
                 "reward": {
                     "label": "Belønningsadresse",
@@ -339,13 +339,13 @@
             "errs": {
                 "start_now": "Starttidspunktet skal være efter det aktuelle tidspunkt.",
                 "start_end": "Startdatoen skal være i fremtiden, og slutdatoen skal være efter startdatoen.",
-                "invalid_addr": "Ugyldigt adresseformat. Din adresse skal starte med \"P-\"",
-                "no_addr": "Du skal give en adresse for at modtage delegationsbelønninger.",
+                "invalid_addr": "Ugyldigt adresseformat. Din adresse skal starte med \"Core-\"",
+                "no_addr": "Du skal give en adresse for at modtage nominationsbelønninger.",
                 "min_dur": "Min. indsatsvarighed er 2 uger.",
                 "max_dur": "Maks. indsatsvarighed er 1 år.",
                 "no_node": "Du skal angive en validator.",
-                "val_end": "Delegationens slutdato kan ikke være længere end validatorens slutdato.",
-                "amt": "Delegationsbeløbet skal være mindst {0} AVAX."
+                "val_end": "Nominationens slutdato kan ikke være længere end validatorens slutdato.",
+                "amt": "Nominationsbeløbet skal være mindst {0} AXC."
             },
             "summary": {
                 "duration": "Indsatsvarighed",
@@ -357,7 +357,7 @@
             "submit": "Indsend",
             "cancel": "Annuller",
             "success": {
-                "title": "Delegationstransaktion sendt.",
+                "title": "Nominationstransaktion sendt.",
                 "desc": "Hvis transaktionen accepteres, låses dine poletter til indsættelse. Du modtager dine låste poletter plus belønningerne, når din indsatsperiode er forbi.",
                 "status": "Status"
             }
@@ -368,8 +368,8 @@
         "import": {
             "title": "Import af kæde",
             "desc": "Hvis du har penge, som sidder fast i en mislykket kædeoverførsel, kan du afslutte importen her.",
-            "submit_x": "Importer X",
-            "submit_p": "Importer P"
+            "submit_x": "Importer Swap",
+            "submit_p": "Importer Core"
         }
     },
     "logout": {
@@ -388,7 +388,7 @@
         "loading": "Indlæser transaktionshistorik..",
         "warn_loading": "Denne liste kan være ufuldstændig og ude af drift.",
         "error_api": "Explorer API ikke fundet",
-        "error_api_desc": "Du skal give en AVA Explorer API til dette netværk for at se transaktionshistorik."
+        "error_api_desc": "Du skal give en AXIA Explorer API til dette netværk for at se transaktionshistorik."
     },
     "modal": {
         "qr": {

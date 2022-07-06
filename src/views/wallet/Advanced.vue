@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="advance">
         <div>
             <h1>{{ $t('advanced.title') }}</h1>
         </div>
@@ -44,6 +44,10 @@ export default class Advanced extends Vue {
 <style scoped lang="scss">
 @use '../../main';
 
+.advance {
+    background-color: #f8f9fa !important;
+    box-shadow: none !important;
+}
 h1 {
     font-weight: normal;
 }
@@ -55,10 +59,11 @@ h1 {
 }
 
 .grid_box {
-    background-color: var(--bg-light);
+    background: white;
     padding: 30px;
-    border-radius: 4px;
+    border-radius: 12px;
     overflow: auto;
+    box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
 }
 
 @include main.mobile-device {

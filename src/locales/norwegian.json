@@ -5,15 +5,15 @@
     "address": "Adresse",
     "add_pk": "Legg til privat nøkkel",
     "home": {
-        "desc": "Avalanche Wallet er en enkel, sikker, forvaringsfri lommebok for lagring av Avalanche-aktiva.",
+        "desc": "AXIA wallet er en enkel, sikker, forvaringsfri lommebok for lagring av Axia-aktiva.",
         "access": {
             "title": "Velkommen tilbake!",
-            "desc": "‘Få tilgang’ til din eksisterende Avalanche-lommebok her.",
+            "desc": "‘Få tilgang’ til din eksisterende Axia-lommebok her.",
             "submit": "Få tilgang til lommebok"
         },
         "create": {
-            "title": "Ny hos Avalanche Wallet?",
-            "desc": "‘Lag’ en ny lommebok for å sende, motta og bytte Avalanche-aktiva.",
+            "title": "Ny hos AXIA wallet?",
+            "desc": "‘Lag’ en ny lommebok for å sende, motta og bytte Axia-aktiva.",
             "submit": "Lag ny lommebok"
         }
     },
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Generer en ny nøkkelfrase for å sette opp din Avalanche Wallet.",
+        "generate": "Generer en ny nøkkelfrase for å sette opp din AXIA wallet.",
         "but_have": "Har du allerede en lommebok?",
         "submit": "Generer nøkkelfrase",
         "cancel": "Avbryt",
         "mnemonic_title": "Dette er nøkkelfrasen din.",
-        "mnemonic_desc": "Bruk disse 24 ordene i rekkefølge for å tilbakestille din Avalanche Wallet",
+        "mnemonic_desc": "Bruk disse 24 ordene i rekkefølge for å tilbakestille din AXIA wallet",
         "attention": "Se her!",
-        "warning": "Lagre denne nøkkelfrasen på et trygt sted. Alle som har denne nøkkelfrasen, har tilgang til din Avalanche Wallet. Det finnes ingen metode for å tilbakestille tapte nøkkelfraser.",
+        "warning": "Lagre denne nøkkelfrasen på et trygt sted. Alle som har denne nøkkelfrasen, har tilgang til din AXIA wallet. Det finnes ingen metode for å tilbakestille tapte nøkkelfraser.",
         "confirm": "Jeg skrev ned nøkkelfrasen min på et sikkert sted.",
         "regenerate": "Regenerer",
         "success_title": "Gratulerer!",
-        "success_desc": "Tiden er inne for å gå inn på din Avalanche Wallet.",
+        "success_desc": "Tiden er inne for å gå inn på din AXIA wallet.",
         "success_submit": "Få tilgang til lommebok",
         "verify": "Bekreft",
         "verifytitle": "Verifiser Mnemonic",
@@ -78,15 +78,15 @@
         "error_word": "Mnemonic-frasen du oppga for ord samsvarer ikke med den faktiske frasen."
     },
     "top": {
-        "title1": "Avledet Avalanche Wallet-adresse",
+        "title1": "Avledet AXIA wallet-adresse",
         "title2": "Saldo",
         "title3": "Undernett",
         "title4": "Nettverk",
         "nftcol": "NFT",
         "nftempty": "Du har ikke samlet noen omsettelige polletter.",
         "locked": "Låst",
-        "info2": "Jeg kjøpte mynter på polettsalg. Hvor er min AVAX?",
-        "info2_desc": "Denne lommeboken er koblet til Avalanche Everest-testnettverket. Kjøpet ditt vises i lommeboken etter lansering av Avalanche Mainnet.",
+        "info2": "Jeg kjøpte mynter på polettsalg. Hvor er min AXC?",
+        "info2_desc": "Denne lommeboken er koblet til Axia Everest-testnettverket. Kjøpet ditt vises i lommeboken etter lansering av Axia Mainnet.",
         "hover1": "Vis QR-adressekode",
         "hover2": "Skriv ut",
         "hover3": "Kopier",
@@ -101,7 +101,7 @@
             "collectibles": "Samleobjekter"
         },
         "address": {
-            "derived": "Avledet Avalanche Wallet-adresse",
+            "derived": "Avledet AXIA wallet-adresse",
             "desc": "Dette er din adresse for mottak av penger. Adressen din endres etter hvert innskudd."
         }
     },
@@ -172,26 +172,26 @@
     },
     "earn": {
         "title": "Tjen",
-        "desc": "Du kan tjene mer AVAX ved å satse dine eksisterende polletter.",
+        "desc": "Du kan tjene mer AXC ved å satse dine eksisterende polletter.",
         "subtitle1": "Valider",
         "subtitle2": "Deleger",
         "subtitle3": "Krysskjedeoverføring",
         "subtitle4": "Estimerte belønninger",
-        "warning_1": "Du må ha minst {0} AVAX på P-kjedet for å bli en validator.",
-        "warning_2": "Du må ha minst {0} AVAX på P-kjedet for å bli en delegator.",
+        "warning_1": "Du må ha minst {0} AXC på Core-kjedet for å bli en validator.",
+        "warning_2": "Du må ha minst {0} AXC på Core-kjedet for å bli en nominator.",
         "validate_card": {
             "title": "Valider",
-            "desc": "Du har en Avalanche-node som du vil satse med.",
+            "desc": "Du har en Axia-node som du vil satse med.",
             "submit": "Legg til validator"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Deleger",
-            "desc": "Du eier ikke en Avalanche-node, men du vil satse ved å bruke en annen node.",
-            "submit": "Legg til delegator"
+            "desc": "Du eier ikke en Axia-node, men du vil satse ved å bruke en annen node.",
+            "submit": "Legg til nominator"
         },
         "transfer_card": {
             "title": "Krysskjedeoverføring",
-            "desc": "Satsing krever AVAX på P-kjedet. Overfør polletter mellom X og P.",
+            "desc": "Satsing krever AXC på Core-kjedet. Overfør polletter mellom Swap og Core.",
             "submit": "Overfør"
         },
         "rewards_card": {
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Totale belønninger",
             "validation": "Validering",
-            "delegation": "Delegering",
+            "nomination": "Delegering",
             "empty": "Du har ingen ventende belønninger.",
             "row": {
                 "start": "Start",
@@ -242,11 +242,11 @@
             },
             "amount": {
                 "label": "Sats beløp",
-                "desc": "Mengden AVAX som låses for satsing."
+                "desc": "Mengden AXC som låses for satsing."
             },
             "fee": {
                 "label": "Delegeringsavgift",
-                "desc": "Du vil hente denne % av belønningene fra delegatorene på noden din."
+                "desc": "Du vil hente denne % av belønningene fra nominatorene på noden din."
             },
             "reward": {
                 "label": "Belønningsadresse",
@@ -281,12 +281,12 @@
             },
             "errs": {
                 "date": "Startdatoen må være i fremtiden og sluttdatoen må være etter startdatoen.",
-                "amount": "Innsatsbeløpet må være minst {0} AVAX",
+                "amount": "Innsatsbeløpet må være minst {0} AXC",
                 "id": "Ugyldig nodenr. Må starte med \"NodeID-”",
                 "address": "Ugyldig belønningsadresse."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Velg en node for å delegere",
                 "search": "Søk node-ID",
@@ -294,7 +294,7 @@
                 "val_stake": "Validatorinnsats",
                 "aval_stake": "Tilgjengelig",
                 "aval_stake_tip": "Hvor mye mer kan delegeres til denne validatoren.",
-                "users_tip": "Antall delegatorer",
+                "users_tip": "Antall nominatorer",
                 "end": "Sluttid",
                 "up": "Oppetid",
                 "up_tip": "Relativ til noden denne lommeboken er koblet til.",
@@ -319,8 +319,8 @@
                 },
                 "amount": {
                     "label": "Sats beløp",
-                    "desc": "Mengden AVAX som låses for satsing.",
-                    "desc2": "Det tilgjengelige delegeringsbeløpet for denne noden er is {0} AVAX"
+                    "desc": "Mengden AXC som låses for satsing.",
+                    "desc2": "Det tilgjengelige delegeringsbeløpet for denne noden er is {0} AXC"
                 },
                 "reward": {
                     "label": "Belønningsadresse",
@@ -339,13 +339,13 @@
             "errs": {
                 "start_now": "Starttidspunktet må være etter nåværende tid.",
                 "start_end": "Startdatoen må være i fremtiden og sluttdatoen må være etter startdatoen.",
-                "invalid_addr": "Ugyldig adresseformat. Adressen din må starte med \"P-”",
+                "invalid_addr": "Ugyldig adresseformat. Adressen din må starte med \"Core-”",
                 "no_addr": "Du må oppgi en adresse for å motta delegeringsbelønninger.",
                 "min_dur": "Minste innsatsperiode er 2 uker.",
                 "max_dur": "Maksimal innsatsperiode er 1 år.",
                 "no_node": "Du må spesifisere en validator.",
                 "val_end": "Delegeringens sluttdato kan ikke være lenger enn validatorens sluttdato.",
-                "amt": "Delegeringsbeløpet må være minst {0} AVAX."
+                "amt": "Delegeringsbeløpet må være minst {0} AXC."
             },
             "summary": {
                 "duration": "Innsatsvarighet",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Kjedeimport",
             "desc": "Dersom du har penger som sitter fast i en feilet kjedeoverføring, kan du fullføre importen her.",
-            "submit_x": "Importer X",
-            "submit_p": "Importer P"
+            "submit_x": "Importer Swap",
+            "submit_p": "Importer Core"
         }
     },
     "logout": {
@@ -388,7 +388,7 @@
         "loading": "Laster inn transaksjonshistorikk ...",
         "warn_loading": "Denne listen kan være ufullstendige og ute av bruk.",
         "error_api": "Explorer API ikke funnet",
-        "error_api_desc": "Du må oppgi en AVA Explorer API for dette nettverket for å vise transaksjonshistorikken."
+        "error_api_desc": "Du må oppgi en AXIA Explorer API for dette nettverket for å vise transaksjonshistorikken."
     },
     "modal": {
         "qr": {

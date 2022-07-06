@@ -12,7 +12,7 @@
                 <div class="nft_cols">
                     <div class="nft_addr">
                         <p v-for="addr in summary.collectibles.sent.addresses" :key="addr">
-                            to {{ 'X-' + addr }}
+                            to {{ 'Swap-' + addr }}
                         </p>
                     </div>
                     <div class="nft_fams">
@@ -37,7 +37,7 @@
                 <div class="nft_cols">
                     <div class="nft_addr">
                         <p v-for="addr in summary.collectibles.received.addresses" :key="addr">
-                            from {{ 'X-' + addr }}
+                            from {{ 'Swap-' + addr }}
                         </p>
                     </div>
                     <div class="nft_fams">
@@ -80,11 +80,11 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { ITransactionData, UTXO } from '@/store/modules/history/types'
 import { TransactionValueDict } from '@/components/SidePanels/types'
-import { PayloadBase, PayloadTypes } from 'avalanche/dist/utils'
-import { BN, Buffer } from 'avalanche'
+import { PayloadBase, PayloadTypes } from '@axia-systems/axiajs/dist/utils'
+import { BN, Buffer } from '@axia-systems/axiajs'
 import { WalletType } from '@/js/wallets/types'
 
-import { avm, pChain } from '@/AVA'
+import { avm, coreChain } from '@/AXIA'
 
 import TxHistoryValue from '@/components/SidePanels/TxHistoryValue.vue'
 import TxHistoryValueFunctional from '@/components/SidePanels/History/TxHistoryValueFunctional.vue'
@@ -178,16 +178,16 @@ export default class BaseTx extends Vue {
             case 'export':
                 return utxo.chainID === avm.getBlockchainID()
             case 'pvm_export':
-                return utxo.chainID === pChain.getBlockchainID()
+                return utxo.chainID === coreChain.getBlockchainID()
             case 'pvm_import':
             case 'import':
                 if (isInput) return false
                 return isIncludes
             case 'add_validator':
-            case 'add_delegator':
+            case 'add_nominator':
                 return !isInput && utxo.stake
             case 'operation':
-                // if no payload it is avax
+                // if no payload it is axc
                 // check if it is from wallet
                 if (!utxo.payload && !isIncludes) return false
                 return true

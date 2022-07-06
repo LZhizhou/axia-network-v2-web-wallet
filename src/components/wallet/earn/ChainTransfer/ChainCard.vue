@@ -19,21 +19,21 @@
 </template>
 <script lang="ts">
 import { Component, Model, Prop, Vue, Watch } from 'vue-property-decorator'
-import { UTXO } from 'avalanche/dist/apis/platformvm'
+import { UTXO } from '@axia-systems/axiajs/dist/apis/platformvm'
 import { ChainIdType } from '@/constants'
-import { BN } from 'avalanche'
-import AvaAsset from '@/js/AvaAsset'
+import { BN } from '@axia-systems/axiajs'
+import AxiaAsset from '@/js/AxiaAsset'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import { WalletType } from '@/js/wallets/types'
 
 import { bnToBig } from '@/helpers/helper'
 import NumberCounter from '@/components/misc/NumberCounter.vue'
 
-const chainTypes: ChainIdType[] = ['X', 'P', 'C']
+const chainTypes: ChainIdType[] = ['Swap', 'Core', 'AX']
 const chainNames = {
-    X: 'Exchange Chain',
-    C: 'Contract Chain',
-    P: 'Platform Chain',
+    Swap: 'Swap Chain',
+    AX: 'AX Chain',
+    Core: 'Core Chain',
 }
 
 @Component({
@@ -56,9 +56,9 @@ export default class ChainCard extends Vue {
         return chainNames
     }
 
-    get ava_asset(): AvaAsset | null {
-        let ava = this.$store.getters['Assets/AssetAVA']
-        return ava
+    get axia_asset(): AxiaAsset | null {
+        let axia = this.$store.getters['Assets/AssetAXIA']
+        return axia
     }
 
     get wallet(): WalletType {
@@ -71,8 +71,8 @@ export default class ChainCard extends Vue {
     }
 
     get avmUnlocked(): BN {
-        if (!this.ava_asset) return new BN(0)
-        return this.ava_asset.amount
+        if (!this.axia_asset) return new BN(0)
+        return this.axia_asset.amount
     }
 
     get evmUnlocked(): BN {
@@ -81,9 +81,9 @@ export default class ChainCard extends Vue {
     }
 
     get balance() {
-        if (this.chain === 'X') {
+        if (this.chain === 'Swap') {
             return this.avmUnlocked
-        } else if (this.chain === 'P') {
+        } else if (this.chain === 'Core') {
             return this.platformUnlocked
         } else {
             return this.evmUnlocked
@@ -114,6 +114,7 @@ label {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 14px;
+    flex-basis: 50%;
 }
 
 .input_group {

@@ -1,79 +1,81 @@
 <template>
     <div class="swap_form">
-        <div>
-            <label>{{ $t('cross_chain.form.source') }}</label>
-            <select @input="onChangeSource" class="hover_border" v-model="sourceChain">
-                <option
-                    v-for="option in sourceOptions"
-                    :value="option"
-                    :key="option"
-                    :disabled="isConfirm"
-                >
-                    {{ chainNames[option] }}
-                </option>
-            </select>
-        </div>
-        <div>
-            <label>{{ $t('cross_chain.form.destination') }}</label>
-            <p class="ledger_warn" v-if="!isEVMSupported">
-                C Chain is currently not supported on Ledger devices.
-            </p>
-            <select @input="onChangeDestination" class="hover_border" v-model="targetChain">
-                <option
-                    v-for="option in destinationOptions"
-                    :value="option"
-                    :key="option"
-                    :disabled="isConfirm"
-                >
-                    {{ chainNames[option] }}
-                </option>
-            </select>
+        <div :style="{ display: 'flex', flexDirection: 'row', columnGap: '20px' }">
+            <div>
+                <label>{{ $t('cross_chain.form.source') }}</label>
+                <select @input="onChangeSource" class="hover_border" v-model="sourceChain">
+                    <option
+                        v-for="option in sourceOptions"
+                        :value="option"
+                        :key="option"
+                        :disabled="isConfirm"
+                    >
+                        {{ chainNames[option] }}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label>{{ $t('cross_chain.form.destination') }}</label>
+                <p class="ledger_warn" v-if="!isEVMSupported">
+                    AXChain is currently not supported on Ledger devices.
+                </p>
+                <select @input="onChangeDestination" class="hover_border" v-model="targetChain">
+                    <option
+                        v-for="option in destinationOptions"
+                        :value="option"
+                        :key="option"
+                        :disabled="isConfirm"
+                    >
+                        {{ chainNames[option] }}
+                    </option>
+                </select>
+            </div>
         </div>
 
         <div v-if="!isConfirm">
             <label>{{ $t('earn.transfer.amount') }}</label>
 
-            <AvaxInput
+            <AxcInput
                 :max="maxAmt"
                 v-model="amt"
                 @change="onAmtChange"
                 :balance="balance"
-            ></AvaxInput>
+            ></AxcInput>
         </div>
         <div class="confirmation_val" v-else>
             <label>{{ $t('earn.transfer.amount') }}</label>
-            <p>{{ formAmtText }} AVAX</p>
+            <p>{{ formAmtText }} AXC</p>
         </div>
     </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
-import AvaxInput from '@/components/misc/AvaxInput.vue'
-import { BN } from 'avalanche'
+import AxcInput from '@/components/misc/AxcInput.vue'
+import { BN } from '@axia-systems/axiajs'
 import Big from 'big.js'
 import { bnToBig } from '@/helpers/helper'
 import { ChainIdType } from '@/constants'
-import { avm } from '@/AVA'
+import { avm } from '@/AXIA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import { ChainSwapFormData } from '@/components/wallet/earn/ChainTransfer/types'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 
-const chainTypes: ChainIdType[] = ['X', 'P', 'C']
+const chainTypes: ChainIdType[] = ['Swap', 'Core', 'AX']
 const chainNames = {
-    X: 'X Chain',
-    C: 'C Chain',
-    P: 'P Chain',
+    Swap: 'SwapChain',
+    AX: 'AXChain',
+    Core: 'CoreChain',
 }
 
 @Component({
     components: {
-        AvaxInput,
+        AxcInput,
     },
 })
 export default class Form extends Vue {
-    sourceChain: ChainIdType = 'X'
-    targetChain: ChainIdType = 'P'
+    sourceChain: ChainIdType = 'Swap'
+    targetChain: ChainIdType = 'Core'
     amt: BN = new BN(0)
 
     @Prop() balance!: Big
@@ -95,7 +97,7 @@ export default class Form extends Vue {
 
     get sourceOptions(): ChainIdType[] {
         if (!this.isEVMSupported) {
-            return ['X', 'P']
+            return ['Swap', 'Core']
         }
 
         let all = [...chainTypes]
@@ -104,9 +106,9 @@ export default class Form extends Vue {
 
     get destinationOptions(): ChainIdType[] {
         return {
-            X: ['P', 'C'],
-            P: ['X', 'C'],
-            C: ['X', 'P'],
+            Swap: ['Core', 'AX'],
+            Core: ['Swap', 'AX'],
+            AX: ['Swap', 'Core'],
         }[this.sourceChain] as ChainIdType[]
     }
 
@@ -172,13 +174,12 @@ label {
     font-family: Roboto, sans-serif;
     margin-bottom: 4px !important;
 }
-
 select {
+    border: 2px solid #e6e8ec;
+    border-radius: 12px;
     width: 100%;
     color: var(--primary-color);
-    background-color: var(--bg-light);
-    border: 1px solid transparent;
-    border-radius: 4px;
+    background-color: #fff;
     padding: 16px 12px;
     font-size: 14px;
     outline: none;

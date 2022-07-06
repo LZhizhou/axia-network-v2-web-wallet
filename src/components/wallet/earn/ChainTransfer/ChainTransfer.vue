@@ -16,16 +16,16 @@
 
                         <p>
                             Export Fee
-                            <span>{{ exportFee.toLocaleString() }} AVAX</span>
+                            <span>{{ exportFee.toLocaleString() }} AXC</span>
                         </p>
                         <p>
                             Import Fee
-                            <span>{{ importFee.toLocaleString() }} AVAX</span>
+                            <span>{{ importFee.toLocaleString() }} AXC</span>
                         </p>
                         <p>
                             <b>
                                 Total
-                                <span>{{ fee.toLocaleString() }} AVAX</span>
+                                <span>{{ fee.toLocaleString() }} AXC</span>
                             </b>
                         </p>
                     </div>
@@ -96,21 +96,27 @@
                 </div>
             </div>
             <div class="right_col">
-                <ChainCard :chain="sourceChain"></ChainCard>
-                <ChainCard :chain="targetChain" :is-source="false"></ChainCard>
-                <TxStateCard
-                    :state="exportState"
-                    :status="exportStatus"
-                    :reason="exportReason"
-                    :tx-id="exportId"
-                ></TxStateCard>
-                <TxStateCard
-                    :state="importState"
-                    :status="importStatus"
-                    :reason="importReason"
-                    :tx-id="importId"
-                    :is-export="false"
-                ></TxStateCard>
+                <div class="details">
+                    <ChainCard :chain="sourceChain"></ChainCard>
+                    <TxStateCard
+                        :state="exportState"
+                        :status="exportStatus"
+                        :reason="exportReason"
+                        :tx-id="exportId"
+                        class="right-item"
+                    ></TxStateCard>
+                </div>
+                <div class="details" :style="{ background: '#F0FAF7' }">
+                    <ChainCard :chain="targetChain" :is-source="false"></ChainCard>
+                    <TxStateCard
+                        :state="importState"
+                        :status="importStatus"
+                        :reason="importReason"
+                        :tx-id="importId"
+                        :is-export="false"
+                        class="right-item"
+                    ></TxStateCard>
+                </div>
             </div>
         </div>
     </div>
@@ -119,10 +125,10 @@
 import 'reflect-metadata'
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import Dropdown from '@/components/misc/Dropdown.vue'
-import AvaxInput from '@/components/misc/AvaxInput.vue'
-import AvaAsset from '@/js/AvaAsset'
-import { BN } from 'avalanche'
-import { avm, cChain, pChain } from '@/AVA'
+import AxcInput from '@/components/misc/AxcInput.vue'
+import AxiaAsset from '@/js/AxiaAsset'
+import { BN } from '@axia-systems/axiajs'
+import { avm, axChain, coreChain } from '@/AXIA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import Spinner from '@/components/misc/Spinner.vue'
 import ChainCard from '@/components/wallet/earn/ChainTransfer/ChainCard.vue'
@@ -134,13 +140,13 @@ import ChainSwapForm from '@/components/wallet/earn/ChainTransfer/Form.vue'
 
 import { WalletType } from '@/js/wallets/types'
 import {
-    ExportChainsC,
-    ExportChainsP,
-    ExportChainsX,
+    ExportChainsAX,
+    ExportChainsCore,
+    ExportChainsSwap,
     GasHelper,
     Utils,
     Big,
-} from '@avalabs/avalanche-wallet-sdk'
+} from '@axia-systems/wallet-sdk'
 
 const IMPORT_DELAY = 5000 // in ms
 const BALANCE_DELAY = 2000 // in ms
@@ -150,7 +156,7 @@ const BALANCE_DELAY = 2000 // in ms
     components: {
         Spinner,
         Dropdown,
-        AvaxInput,
+        AxcInput,
         ChainCard,
         ChainSwapForm,
         TxStateCard,
@@ -160,8 +166,8 @@ export default class ChainTransfer extends Vue {
     $refs!: {
         form: ChainSwapForm
     }
-    sourceChain: ChainIdType = 'X'
-    targetChain: ChainIdType = 'P'
+    sourceChain: ChainIdType = 'Swap'
+    targetChain: ChainIdType = 'Core'
     isLoading = false
     amt: BN = new BN(0)
     err: string = ''
@@ -188,7 +194,7 @@ export default class ChainTransfer extends Vue {
     @Watch('sourceChain')
     @Watch('targetChain')
     onChainChange() {
-        if (this.sourceChain === 'C' || this.targetChain === 'C') {
+        if (this.sourceChain === 'AX' || this.targetChain === 'AX') {
             this.updateBaseFee()
         }
     }
@@ -197,9 +203,9 @@ export default class ChainTransfer extends Vue {
         this.updateBaseFee()
     }
 
-    get ava_asset(): AvaAsset | null {
-        let ava = this.$store.getters['Assets/AssetAVA']
-        return ava
+    get axia_asset(): AxiaAsset | null {
+        let axia = this.$store.getters['Assets/AssetAXIA']
+        return axia
     }
 
     get platformBalance() {
@@ -211,19 +217,19 @@ export default class ChainTransfer extends Vue {
     }
 
     get avmUnlocked(): BN {
-        if (!this.ava_asset) return new BN(0)
-        return this.ava_asset.amount
+        if (!this.axia_asset) return new BN(0)
+        return this.axia_asset.amount
     }
 
     get evmUnlocked(): BN {
         let balRaw = this.wallet.ethBalance
-        return Utils.avaxCtoX(balRaw)
+        return Utils.axcAXtoSwap(balRaw)
     }
 
     get balanceBN(): BN {
-        if (this.sourceChain === 'P') {
+        if (this.sourceChain === 'Core') {
             return this.platformUnlocked
-        } else if (this.sourceChain === 'C') {
+        } else if (this.sourceChain === 'AX') {
             return this.evmUnlocked
         } else {
             return this.avmUnlocked
@@ -235,7 +241,7 @@ export default class ChainTransfer extends Vue {
     }
 
     get formAmtText() {
-        return Utils.bnToAvaxX(this.formAmt)
+        return Utils.bnToAxcSwap(this.formAmt)
     }
 
     get fee(): Big {
@@ -247,14 +253,14 @@ export default class ChainTransfer extends Vue {
     }
 
     getFee(chain: ChainIdType, isExport: boolean): Big {
-        if (chain === 'X') {
-            return Utils.bnToBigAvaxX(avm.getTxFee())
-        } else if (chain === 'P') {
-            return Utils.bnToBigAvaxX(pChain.getTxFee())
+        if (chain === 'Swap') {
+            return Utils.bnToBigAxcSwap(avm.getTxFee())
+        } else if (chain === 'Core') {
+            return Utils.bnToBigAxcSwap(coreChain.getTxFee())
         } else {
             const fee = isExport
                 ? GasHelper.estimateExportGasFeeFromMockTx(
-                      this.targetChain as ExportChainsC,
+                      this.targetChain as ExportChainsAX,
                       this.amt,
                       this.wallet.getEvmAddress(),
                       this.wallet.getCurrentAddressPlatform()
@@ -262,7 +268,7 @@ export default class ChainTransfer extends Vue {
                 : GasHelper.estimateImportGasFeeFromMockTx(1, 1)
 
             const totFeeWei = this.baseFee.mul(new BN(fee))
-            return Utils.bnToBigAvaxC(totFeeWei)
+            return Utils.bnToBigAxcAX(totFeeWei)
         }
     }
 
@@ -271,7 +277,7 @@ export default class ChainTransfer extends Vue {
     }
 
     /**
-     * Returns the import fee in nAVAX
+     * Returns the import fee in nAXC
      */
     get importFeeBN(): BN {
         return Utils.bigToBN(this.importFee, 9)
@@ -286,7 +292,7 @@ export default class ChainTransfer extends Vue {
     }
 
     /**
-     * The maximum amount that can be transferred in nAVAX
+     * The maximum amount that can be transferred in nAXC
      */
     get maxAmt(): BN {
         let max = this.balanceBN.sub(this.feeBN)
@@ -343,27 +349,26 @@ export default class ChainTransfer extends Vue {
         let wallet: WalletType = this.$store.state.activeWallet
         let exportTxId
         this.exportState = TxState.started
-
         try {
             switch (sourceChain) {
-                case 'X':
-                    exportTxId = await wallet.exportFromXChain(
+                case 'Swap':
+                    exportTxId = await wallet.exportFromSwapChain(
                         amt,
-                        destinationChain as ExportChainsX,
+                        destinationChain as ExportChainsSwap,
                         this.importFeeBN
                     )
                     break
-                case 'P':
-                    exportTxId = await wallet.exportFromPChain(
+                case 'Core':
+                    exportTxId = await wallet.exportFromCoreChain(
                         amt,
-                        destinationChain as ExportChainsP,
+                        destinationChain as ExportChainsCore,
                         this.importFeeBN
                     )
                     break
-                case 'C':
-                    exportTxId = await wallet.exportFromCChain(
+                case 'AX':
+                    exportTxId = await wallet.exportFromAXChain(
                         amt,
-                        destinationChain as ExportChainsC,
+                        destinationChain as ExportChainsAX,
                         this.exportFeeBN
                     )
                     break
@@ -379,10 +384,10 @@ export default class ChainTransfer extends Vue {
     // STEP 2
     async waitExportStatus(txId: string, remainingTries = 15) {
         let status
-        if (this.sourceChain === 'X') {
+        if (this.sourceChain === 'Swap') {
             status = await avm.getTxStatus(txId)
-        } else if (this.sourceChain === 'P') {
-            let resp = await pChain.getTxStatus(txId)
+        } else if (this.sourceChain === 'Core') {
+            let resp = await coreChain.getTxStatus(txId)
             if (typeof resp === 'string') {
                 status = resp
             } else {
@@ -390,7 +395,7 @@ export default class ChainTransfer extends Vue {
                 this.exportReason = resp.reason
             }
         } else {
-            let resp = await cChain.getAtomicTxStatus(txId)
+            let resp = await axChain.getAtomicTxStatus(txId)
             status = resp
         }
         this.exportStatus = status
@@ -432,15 +437,17 @@ export default class ChainTransfer extends Vue {
         let wallet: MnemonicWallet = this.$store.state.activeWallet
         let importTxId
         try {
-            if (this.targetChain === 'P') {
-                importTxId = await wallet.importToPlatformChain(this.sourceChain as ExportChainsP)
-            } else if (this.targetChain === 'X') {
-                importTxId = await wallet.importToXChain(this.sourceChain as ExportChainsX)
+            if (this.targetChain === 'Core') {
+                importTxId = await wallet.importToPlatformChain(
+                    this.sourceChain as ExportChainsCore
+                )
+            } else if (this.targetChain === 'Swap') {
+                importTxId = await wallet.importToSwapChain(this.sourceChain as ExportChainsSwap)
             } else {
                 //TODO: Import only the exported UTXO
 
-                importTxId = await wallet.importToCChain(
-                    this.sourceChain as ExportChainsC,
+                importTxId = await wallet.importToAXChain(
+                    this.sourceChain as ExportChainsAX,
                     this.importFeeBN
                 )
             }
@@ -467,17 +474,17 @@ export default class ChainTransfer extends Vue {
     async waitImportStatus(txId: string) {
         let status
 
-        if (this.targetChain === 'X') {
+        if (this.targetChain === 'Swap') {
             status = await avm.getTxStatus(txId)
-        } else if (this.targetChain === 'P') {
-            let resp = await pChain.getTxStatus(txId)
+        } else if (this.targetChain === 'Core') {
+            let resp = await coreChain.getTxStatus(txId)
             if (typeof resp === 'string') {
                 status = resp
             } else {
                 status = resp.status
             }
         } else {
-            let resp = await cChain.getAtomicTxStatus(txId)
+            let resp = await axChain.getAtomicTxStatus(txId)
             status = resp
         }
 
@@ -573,13 +580,17 @@ export default class ChainTransfer extends Vue {
     display: grid;
     grid-template-columns: max-content 1fr;
     column-gap: 5vw;
+    background-color: #fff !important;
+    box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+    padding: 10px 25px;
+    border-radius: 20px;
 }
 
 .right_col {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: repeat(2, 1fr);
     column-gap: 14px;
-    row-gap: 2px;
+    row-gap: 10px;
     padding-top: 14px;
     height: max-content;
     //height: 100%;
@@ -592,6 +603,18 @@ export default class ChainTransfer extends Vue {
     }
 }
 
+.details {
+    background: #f4f5f6;
+    border-radius: 12px;
+    display: flex;
+    color: black !important;
+}
+
+.right-item {
+    margin-left: 20%;
+    border-left: 1px solid;
+    padding-left: 10%;
+}
 .form {
     max-width: 100%;
     width: 360px;

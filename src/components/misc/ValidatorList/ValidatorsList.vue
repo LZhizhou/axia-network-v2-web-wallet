@@ -11,33 +11,33 @@
             <table>
                 <thead>
                     <tr class="header_tr">
-                        <th>{{ $t('earn.delegate.list.id') }}</th>
+                        <th>{{ $t('earn.nominate.list.id') }}</th>
                         <th style="text-align: right">
-                            {{ $t('earn.delegate.list.val_stake') }}
+                            {{ $t('earn.nominate.list.val_stake') }}
                         </th>
                         <th style="text-align: right">
-                            {{ $t('earn.delegate.list.aval_stake') }}
+                            {{ $t('earn.nominate.list.aval_stake') }}
                             <Tooltip
                                 style="display: inline-block"
-                                :text="$t('earn.delegate.list.aval_stake_tip')"
+                                :text="$t('earn.nominate.list.aval_stake_tip')"
                             >
                                 <fa icon="question-circle"></fa>
                             </Tooltip>
                         </th>
                         <th>
-                            <Tooltip text="Number of Delegators"><fa icon="users"></fa></Tooltip>
+                            <Tooltip text="Number of Nominators"><fa icon="users"></fa></Tooltip>
                         </th>
-                        <th>{{ $t('earn.delegate.list.end') }}</th>
+                        <th>{{ $t('earn.nominate.list.end') }}</th>
                         <!--                        <th>-->
-                        <!--                            {{ $t('earn.delegate.list.up') }}-->
+                        <!--                            {{ $t('earn.nominate.list.up') }}-->
                         <!--                            <Tooltip-->
                         <!--                                style="display: inline-block"-->
-                        <!--                                :text="$t('earn.delegate.list.up_tip')"-->
+                        <!--                                :text="$t('earn.nominate.list.up_tip')"-->
                         <!--                            >-->
                         <!--                                <fa icon="question-circle"></fa>-->
                         <!--                            </Tooltip>-->
                         <!--                        </th>-->
-                        <th>{{ $t('earn.delegate.list.fee') }}</th>
+                        <th>{{ $t('earn.nominate.list.fee') }}</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -52,24 +52,24 @@
             </table>
         </div>
         <div v-if="validators.length === 0" class="empty_list">
-            <h4>{{ $t('earn.delegate.list.empty.title') }}</h4>
-            <p>{{ $t('earn.delegate.list.empty.desc') }}</p>
+            <h4>{{ $t('earn.nominate.list.empty.title') }}</h4>
+            <p>{{ $t('earn.nominate.list.empty.desc') }}</p>
         </div>
     </div>
 </template>
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { ava, pChain } from '@/AVA'
-import { BN } from 'avalanche'
+import { axia, coreChain } from '@/AXIA'
+import { BN } from '@axia-systems/axiajs'
 
 import ValidatorRow from '@/components/misc/ValidatorList/ValidatorRow.vue'
 import FilterSettings from '@/components/misc/ValidatorList/FilterSettings.vue'
 import { ValidatorRaw, ValidatorDict } from '@/components/misc/ValidatorList/types'
 import Tooltip from '@/components/misc/Tooltip.vue'
 import { ValidatorListItem } from '@/store/modules/platform/types'
-import { ValidatorListFilter } from '@/components/wallet/earn/Delegate/types'
-import { filterValidatorList } from '@/components/wallet/earn/Delegate/helper'
+import { ValidatorListFilter } from '@/components/wallet/earn/Nominate/types'
+import { filterValidatorList } from '@/components/wallet/earn/Nominate/helper'
 
 @Component({
     components: { Tooltip, ValidatorRow, FilterSettings },

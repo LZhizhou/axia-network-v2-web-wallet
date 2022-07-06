@@ -1,17 +1,17 @@
 import {
-    DelegatorPendingRaw,
-    DelegatorRaw,
+    NominatorPendingRaw,
+    NominatorRaw,
     ValidatorPendingRaw,
     ValidatorRaw,
 } from '@/components/misc/ValidatorList/types'
-import { BN } from 'avalanche'
+import { BN } from '@axia-systems/axiajs'
 
 export interface PlatformState {
     validators: ValidatorRaw[]
     validatorsPending: ValidatorPendingRaw[]
-    delegatorsPending: DelegatorPendingRaw[]
+    nominatorsPending: NominatorPendingRaw[]
     minStake: BN
-    minStakeDelegation: BN
+    minStakeNomination: BN
     currentSupply: BN
 }
 
@@ -21,20 +21,20 @@ export interface GetValidatorsResponse {
 
 export interface GetPendingValidatorsResponse {
     validators: ValidatorPendingRaw[]
-    delegators: DelegatorPendingRaw[]
+    nominators: NominatorPendingRaw[]
 }
 
 export interface ValidatorGroup {
     data: ValidatorRaw
-    // delegators: DelegatorRaw[]
+    // nominators: NominatorRaw[]
 }
 
-export interface ValidatorDelegatorDict {
-    [key: string]: DelegatorRaw[]
+export interface ValidatorNominatorDict {
+    [key: string]: NominatorRaw[]
 }
 
-export interface ValidatorDelegatorPendingDict {
-    [key: string]: DelegatorPendingRaw[]
+export interface ValidatorNominatorPendingDict {
+    [key: string]: NominatorPendingRaw[]
 }
 
 export interface ValidatorDict {
@@ -44,9 +44,9 @@ export interface ValidatorDict {
 export interface ValidatorListItem {
     nodeID: string
     validatorStake: BN
-    delegatedStake: BN
+    nominatedStake: BN
     remainingStake: BN
-    numDelegators: number
+    numNominators: number
     startTime: Date
     endTime: Date
     uptime: number

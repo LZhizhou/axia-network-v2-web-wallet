@@ -2,7 +2,7 @@
     <div class="home_view">
         <div class="header">
             <h1>{{ $t('portfolio.assets') }}</h1>
-            <div>
+            <div class="opt-btn">
                 <button
                     @click="tab = 'fungibles'"
                     :active="tab === `fungibles`"
@@ -21,7 +21,7 @@
             <div style="flex-grow: 1"></div>
             <div class="search hover_border">
                 <img v-if="$root.theme === 'day'" src="@/assets/search.png" />
-                <img v-else src="@/assets/search_night.svg" />
+                <img v-else src="@/assets/search.png" />
                 <input :placeholder="$t('portfolio.search')" v-model="search" />
             </div>
         </div>
@@ -70,8 +70,16 @@ export default {
     display: grid;
     grid-template-rows: max-content 1fr;
 }
+.opt-btn {
+    border: 1px solid #9ccded;
+    border-radius: 40px;
+    display: grid;
+    padding: 2px 0px;
+    grid-template-columns: 1fr 1fr;
+}
 .header {
     display: flex;
+    flex-grow: 111;
     align-items: center;
     border-bottom: 2px solid transparent;
     flex-wrap: nowrap;
@@ -92,15 +100,17 @@ export default {
         color: var(--primary-color-light);
 
         &[active] {
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--secondary-color);
+            color: white;
+            background: #178fe1;
+            border-radius: 20px;
         }
     }
 }
 
 .search {
-    background-color: var(--bg-light);
-    border-radius: 4px;
+    background: #f4f5f6;
+    box-shadow: 0px 8.1px 149.091px rgba(0, 0, 0, 0.04725);
+    border-radius: 12px;
     /*flex-grow: 1;*/
     height: 46px;
     padding: 5px;
@@ -116,7 +126,6 @@ export default {
     img {
         border-radius: 4px;
         padding: 10px 0px;
-        background-color: var(--bg-wallet-light);
         /*height: 100%;*/
         height: $icon_w;
         width: $icon_w;

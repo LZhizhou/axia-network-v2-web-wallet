@@ -1,4 +1,4 @@
-// A simple wrapper thar combines avalanche.js, bip39 and HDWallet
+// A simple wrapper thar combines axia.js, bip39 and HDWallet
 
 import {
     KeyPair as AVMKeyPair,
@@ -12,7 +12,7 @@ import {
     UTXO as AVMUTXO,
     AssetAmountDestination,
     UTXOSet,
-} from 'avalanche/dist/apis/avm'
+} from '@axia-systems/axiajs/dist/apis/avm'
 
 import { privateToAddress } from 'ethereumjs-util'
 
@@ -21,38 +21,38 @@ import {
     UnsignedTx as PlatformUnsignedTx,
     UTXO as PlatformUTXO,
     Tx as PlatformTx,
-} from 'avalanche/dist/apis/platformvm'
+} from '@axia-systems/axiajs/dist/apis/platformvm'
 
 import {
     KeyChain as EVMKeyChain,
     UnsignedTx as EVMUnsignedTx,
     Tx as EvmTx,
-} from 'avalanche/dist/apis/evm'
-import { getPreferredHRP, PayloadBase } from 'avalanche/dist/utils'
+} from '@axia-systems/axiajs/dist/apis/evm'
+import { getPreferredHRP, PayloadBase } from '@axia-systems/axiajs/dist/utils'
 
 import * as bip39 from 'bip39'
-import { BN, Buffer as BufferAvalanche } from 'avalanche'
-import { ava, avm, bintools, cChain, pChain } from '@/AVA'
+import { BN, Buffer as BufferAxia } from '@axia-systems/axiajs'
+import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import { AvmExportChainType, AvmImportChainType, IAvaHdWallet } from '@/js/wallets/types'
 import HDKey from 'hdkey'
 import { ITransaction } from '@/components/wallet/transfer/types'
-import { KeyPair as PlatformVMKeyPair } from 'avalanche/dist/apis/platformvm'
+import { KeyPair as PlatformVMKeyPair } from '@axia-systems/axiajs/dist/apis/platformvm'
 import { HdWalletCore } from '@/js/wallets/HdWalletCore'
 import { WalletNameType } from '@/js/wallets/types'
 import { digestMessage } from '@/helpers/helper'
-import { KeyChain } from 'avalanche/dist/apis/evm'
+import { KeyChain } from '@axia-systems/axiajs/dist/apis/evm'
 import Erc20Token from '@/js/Erc20Token'
 import { WalletHelper } from '@/helpers/wallet_helper'
 import { Transaction } from '@ethereumjs/tx'
 import MnemonicPhrase from '@/js/wallets/MnemonicPhrase'
-import { ExportChainsC, ExportChainsP } from '@avalabs/avalanche-wallet-sdk'
+import { ExportChainsAX, ExportChainsCore } from '@axia-systems/wallet-sdk'
 
 // HD WALLET
 // Accounts are not used and the account index is fixed to 0
 // m / purpose' / coin_type' / account' / change / address_index
 
 const AVA_TOKEN_INDEX: string = '9000'
-export const AVA_ACCOUNT_PATH: string = `m/44'/${AVA_TOKEN_INDEX}'/0'` // Change and index left out
+export const AXIA_ACCOUNT_PATH: string = `m/44'/${AVA_TOKEN_INDEX}'/0'` // Change and index left out
 export const ETH_ACCOUNT_PATH: string = `m/44'/60'/0'`
 export const LEDGER_ETH_ACCOUNT_PATH = ETH_ACCOUNT_PATH + '/0/0'
 
@@ -80,16 +80,16 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         super.onnetworkchange()
 
         // Update EVM values
-        this.ethKeyChain = new EVMKeyChain(ava.getHRP(), 'C')
+        this.ethKeyChain = new EVMKeyChain(axia.getHRP(), 'AX')
         let cKeypair = this.ethKeyChain.importKey(this.ethKeyBech)
         this.ethBalance = new BN(0)
     }
 
-    // The master key from avalanche.js
+    // The master key from axia.js
     constructor(mnemonic: string) {
         let seed: globalThis.Buffer = bip39.mnemonicToSeedSync(mnemonic)
         let masterHdKey: HDKey = HDKey.fromMasterSeed(seed)
-        let accountHdKey = masterHdKey.derive(AVA_ACCOUNT_PATH)
+        let accountHdKey = masterHdKey.derive(AXIA_ACCOUNT_PATH)
         let ethAccountKey = masterHdKey.derive(ETH_ACCOUNT_PATH + '/0/0')
 
         super(accountHdKey, ethAccountKey, false)
@@ -100,10 +100,10 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         this.ethAddress = privateToAddress(ethPrivateKey).toString('hex')
         this.ethBalance = new BN(0)
 
-        let cPrivKey = `PrivateKey-` + bintools.cb58Encode(BufferAvalanche.from(ethPrivateKey))
+        let cPrivKey = `PrivateKey-` + bintools.cb58Encode(BufferAxia.from(ethPrivateKey))
         this.ethKeyBech = cPrivKey
 
-        let cKeyChain = new KeyChain(ava.getHRP(), 'C')
+        let cKeyChain = new KeyChain(axia.getHRP(), 'AX')
         this.ethKeyChain = cKeyChain
 
         let cKeypair = cKeyChain.importKey(cPrivKey)
@@ -182,7 +182,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         amt: BN,
         start: Date,
         end: Date,
-        delegationFee: number = 0,
+        nominationFee: number = 0,
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
@@ -192,14 +192,14 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
             amt,
             start,
             end,
-            delegationFee,
+            nominationFee,
             rewardAddress,
             utxos
         )
     }
 
-    // Delegates AVAX to the given node ID
-    async delegate(
+    // Nominates AXC to the given node ID
+    async nominate(
         nodeID: string,
         amt: BN,
         start: Date,
@@ -207,7 +207,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
-        return await WalletHelper.delegate(this, nodeID, amt, start, end, rewardAddress, utxos)
+        return await WalletHelper.nominate(this, nodeID, amt, start, end, rewardAddress, utxos)
     }
 
     async getStake(): Promise<BN> {
@@ -218,19 +218,19 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
     async issueBatchTx(
         orders: (ITransaction | AVMUTXO)[],
         addr: string,
-        memo: BufferAvalanche | undefined
+        memo: BufferAxia | undefined
     ): Promise<string> {
         return await WalletHelper.issueBatchTx(this, orders, addr, memo)
     }
 
-    // returns a keychain that has all the derived private/public keys for X chain
+    // returns a keychain that has all the derived private/public keys for SwapChain
     getKeyChain(): AVMKeyChain {
         let internal = this.internalHelper.getAllDerivedKeys() as AVMKeyPair[]
         let external = this.externalHelper.getAllDerivedKeys() as AVMKeyPair[]
 
         let allKeys = internal.concat(external)
         let keychain: AVMKeyChain = new AVMKeyChain(
-            getPreferredHRP(ava.getNetworkID()),
+            getPreferredHRP(axia.getNetworkID()),
             this.chainId
         )
 
@@ -240,20 +240,20 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         return keychain
     }
 
-    async signX(unsignedTx: AVMUnsignedTx): Promise<AVMTx> {
+    async signSwap(unsignedTx: AVMUnsignedTx): Promise<AVMTx> {
         let keychain = this.getKeyChain()
 
         const tx = unsignedTx.sign(keychain)
         return tx
     }
 
-    async signP(unsignedTx: PlatformUnsignedTx): Promise<PlatformTx> {
+    async signCore(unsignedTx: PlatformUnsignedTx): Promise<PlatformTx> {
         let keychain = this.platformHelper.getKeychain() as PlatformVMKeyChain
         const tx = unsignedTx.sign(keychain)
         return tx
     }
 
-    async signC(unsignedTx: EVMUnsignedTx): Promise<EvmTx> {
+    async signAX(unsignedTx: EVMUnsignedTx): Promise<EvmTx> {
         let keyChain = this.ethKeyChain
         return unsignedTx.sign(keyChain)
     }
@@ -263,7 +263,7 @@ export default class MnemonicWallet extends HdWalletCore implements IAvaHdWallet
         return tx.sign(keyBuff)
     }
 
-    async signHashByExternalIndex(index: number, hash: BufferAvalanche) {
+    async signHashByExternalIndex(index: number, hash: BufferAxia) {
         let key = this.externalHelper.getKeyForIndex(index) as AVMKeyPair
         let signed = key.sign(hash)
         return bintools.cb58Encode(signed)

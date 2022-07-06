@@ -6,11 +6,11 @@
         </p>
         <div>
             <label>{{ $t('advanced.verify.label1') }}</label>
-            <textarea v-model="message"></textarea>
+            <textarea placeholder="Message" v-model="message"></textarea>
         </div>
         <div>
             <label>{{ $t('advanced.verify.label2') }}</label>
-            <textarea v-model="signature"></textarea>
+            <textarea placeholder="Signature" v-model="signature"></textarea>
         </div>
         <p class="err">{{ error }}</p>
         <v-btn
@@ -32,12 +32,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { KeyPair } from 'avalanche/dist/apis/avm'
-import { ava, bintools } from '@/AVA'
+import { KeyPair } from '@axia-systems/axiajs/dist/apis/avm'
+import { axia, bintools } from '@/AXIA'
 import createHash from 'create-hash'
-import { getPreferredHRP } from 'avalanche/dist/utils'
-import { avm } from '@/AVA'
-import { Buffer } from 'avalanche'
+import { getPreferredHRP } from '@axia-systems/axiajs/dist/utils'
+import { avm } from '@/AXIA'
+import { Buffer } from '@axia-systems/axiajs'
 import { digestMessage } from '@/helpers/helper'
 
 @Component
@@ -55,6 +55,7 @@ export default class VerifyMessage extends Vue {
         try {
             this.verify()
         } catch (e) {
+            //@ts-ignore
             this.error = e
         }
     }
@@ -62,17 +63,17 @@ export default class VerifyMessage extends Vue {
         let digest = digestMessage(this.message)
         let digestBuff = Buffer.from(digest.toString('hex'), 'hex')
 
-        let networkId = ava.getNetworkID()
+        let networkId = axia.getNetworkID()
 
         let hrp = getPreferredHRP(networkId)
-        let keypair = new KeyPair(hrp, 'X')
+        let keypair = new KeyPair(hrp, 'Swap')
 
         let signedBuff = bintools.cb58Decode(this.signature)
 
         let pubKey = keypair.recover(digestBuff, signedBuff)
-        let addressBuff = keypair.addressFromPublicKey(pubKey)
-        this.addressX = bintools.addressToString(hrp, 'X', addressBuff)
-        this.addressP = bintools.addressToString(hrp, 'P', addressBuff)
+        let addressBuff = KeyPair.addressFromPublicKey(pubKey)
+        this.addressX = bintools.addressToString(hrp, 'Swap', addressBuff)
+        this.addressP = bintools.addressToString(hrp, 'Core', addressBuff)
     }
 
     clear() {
@@ -100,10 +101,27 @@ input,
 .address {
     padding: 6px 12px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: none;
     font-size: 13px;
 }
 
+textarea {
+    background-color: white !important;
+    padding: 10px;
+    border: 2px solid #edeef5;
+    border-radius: 12px;
+}
+
+.theme--light.v-btn.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+    background-color: #178fe1 !important;
+    opacity: 0.5;
+    color: white !important;
+}
+
+.v-btn {
+    background-color: #178fe1 !important;
+    color: white !important;
+}
 label {
     display: block;
     text-align: left;
@@ -117,7 +135,7 @@ textarea {
     width: 100%;
     resize: none;
     padding: 6px 12px;
-    height: 80px;
+    height: 40px;
 }
 
 .result {

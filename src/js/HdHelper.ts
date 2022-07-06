@@ -2,21 +2,21 @@ import {
     KeyChain as AVMKeyChain,
     KeyPair as AVMKeyPair,
     UTXOSet as AVMUTXOSet,
-} from 'avalanche/dist/apis/avm'
+} from '@axia-systems/axiajs/dist/apis/avm'
 
-import { UTXOSet as PlatformUTXOSet } from 'avalanche/dist/apis/platformvm'
-import { getPreferredHRP } from 'avalanche/dist/utils'
-import { ava, avm, bintools, cChain, pChain } from '@/AVA'
+import { UTXOSet as PlatformUTXOSet } from '@axia-systems/axiajs/dist/apis/platformvm'
+import { getPreferredHRP } from '@axia-systems/axiajs/dist/utils'
+import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import HDKey from 'hdkey'
-import { Buffer } from 'avalanche'
+import { Buffer } from '@axia-systems/axiajs'
 import {
     KeyChain as PlatformVMKeyChain,
     KeyPair as PlatformVMKeyPair,
-} from 'avalanche/dist/apis/platformvm'
+} from '@axia-systems/axiajs/dist/apis/platformvm'
 import store from '@/store'
 
 import { getAddressChains } from '@/explorer_api'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 import { ChainAlias } from './wallets/types'
 import { avmGetAllUTXOs, platformGetAllUTXOs } from '@/helpers/utxo_helper'
 import { updateFilterAddresses } from '../providers'
@@ -48,7 +48,7 @@ class HdHelper {
     constructor(
         changePath: string,
         masterKey: HDKey,
-        chainId: ChainAlias = 'X',
+        chainId: ChainAlias = 'Swap',
         isPublic: boolean = false
     ) {
         this.changePath = changePath
@@ -56,8 +56,8 @@ class HdHelper {
         this.isInit = false
 
         this.chainId = chainId
-        let hrp = getPreferredHRP(ava.getNetworkID())
-        if (chainId === 'X') {
+        let hrp = getPreferredHRP(axia.getNetworkID())
+        if (chainId === 'Swap') {
             this.keyChain = new AVMKeyChain(hrp, chainId)
             this.utxoSet = new AVMUTXOSet()
         } else {
@@ -83,8 +83,8 @@ class HdHelper {
     async onNetworkChange() {
         this.clearCache()
         this.isInit = false
-        let hrp = getPreferredHRP(ava.getNetworkID())
-        if (this.chainId === 'X') {
+        let hrp = getPreferredHRP(axia.getNetworkID())
+        if (this.chainId === 'Swap') {
             this.keyChain = new AVMKeyChain(hrp, this.chainId)
             this.utxoSet = new AVMUTXOSet()
         } else {
@@ -101,7 +101,7 @@ class HdHelper {
         let newIndex: number = this.hdIndex + 1
 
         if (!this.isPublic) {
-            if (this.chainId === 'X') {
+            if (this.chainId === 'Swap') {
                 let keychain = this.keyChain as AVMKeyChain
                 let newKey = this.getKeyForIndex(newIndex) as AVMKeyPair
                 keychain.addKey(newKey)
@@ -124,7 +124,7 @@ class HdHelper {
         // Check if explorer is available
 
         // @ts-ignore
-        let network: AvaNetwork = store.state.Network.selectedNetwork
+        let network: AxiaNetwork = store.state.Network.selectedNetwork
         let explorerUrl = network.explorerUrl
 
         if (explorerUrl) {
@@ -151,7 +151,7 @@ class HdHelper {
         let addrs: string[] = this.getAllDerivedAddresses()
         let result: AVMUTXOSet | PlatformUTXOSet
 
-        if (this.chainId === 'X') {
+        if (this.chainId === 'Swap') {
             result = await avmGetAllUTXOs(addrs)
         } else {
             result = await platformGetAllUTXOs(addrs)
@@ -183,10 +183,10 @@ class HdHelper {
 
     // Updates the helper keychain to contain keys upto the HD Index
     updateKeychain(): AVMKeyChain | PlatformVMKeyChain {
-        let hrp = getPreferredHRP(ava.getNetworkID())
+        let hrp = getPreferredHRP(axia.getNetworkID())
         let keychain: AVMKeyChain | PlatformVMKeyChain
 
-        if (this.chainId === 'X') {
+        if (this.chainId === 'Swap') {
             keychain = new AVMKeyChain(hrp, this.chainId)
         } else {
             keychain = new PlatformVMKeyChain(hrp, this.chainId)
@@ -194,7 +194,7 @@ class HdHelper {
 
         for (let i: number = 0; i <= this.hdIndex; i++) {
             let key: AVMKeyPair | PlatformVMKeyPair
-            if (this.chainId === 'X') {
+            if (this.chainId === 'Swap') {
                 key = this.getKeyForIndex(i) as AVMKeyPair
                 ;(keychain as AVMKeyChain).addKey(key)
             } else {
@@ -214,7 +214,7 @@ class HdHelper {
     getAllDerivedKeys(upTo = this.hdIndex): AVMKeyPair[] | PlatformVMKeyPair[] {
         let set: AVMKeyPair[] | PlatformVMKeyPair[] = []
         for (var i = 0; i <= upTo; i++) {
-            if (this.chainId === 'X') {
+            if (this.chainId === 'Swap') {
                 let key = this.getKeyForIndex(i) as AVMKeyPair
                 ;(set as AVMKeyPair[]).push(key)
             } else {
@@ -248,10 +248,10 @@ class HdHelper {
         let addrChains = await getAddressChains(addrs)
 
         let chainID
-        if (this.chainId === 'X') {
+        if (this.chainId === 'Swap') {
             chainID = avm.getBlockchainID()
         } else {
-            chainID = pChain.getBlockchainID()
+            chainID = coreChain.getBlockchainID()
         }
 
         for (var i = 0; i < addrs.length - INDEX_RANGE; i++) {
@@ -297,10 +297,10 @@ class HdHelper {
 
         let utxoSet
 
-        if (this.chainId === 'X') {
+        if (this.chainId === 'Swap') {
             utxoSet = (await avm.getUTXOs(addrs)).utxos
         } else {
-            utxoSet = (await pChain.getUTXOs(addrs)).utxos
+            utxoSet = (await coreChain.getUTXOs(addrs)).utxos
         }
 
         // Scan UTXOs of these indexes and try to find a gap of INDEX_RANGE
@@ -364,7 +364,7 @@ class HdHelper {
         // If key is cached return that
         let cacheExternal: AVMKeyPair | PlatformVMKeyPair
 
-        if (this.chainId === 'X') {
+        if (this.chainId === 'Swap') {
             cacheExternal = this.keyCache[index] as AVMKeyPair
         } else {
             cacheExternal = this.keyCache[index] as PlatformVMKeyPair
@@ -417,13 +417,13 @@ class HdHelper {
 
         let pkHex = key.publicKey.toString('hex')
         let pkBuff = Buffer.from(pkHex, 'hex')
-        let hrp = getPreferredHRP(ava.getNetworkID())
+        let hrp = getPreferredHRP(axia.getNetworkID())
 
         let chainId = this.chainId
 
         // No need for PlatformKeypair because addressToString uses chainID to decode
         let keypair = new AVMKeyPair(hrp, chainId)
-        let addrBuf = keypair.addressFromPublicKey(pkBuff)
+        let addrBuf = AVMKeyPair.addressFromPublicKey(pkBuff)
         let addr = bintools.addressToString(hrp, chainId, addrBuf)
 
         this.addressCache[index] = addr

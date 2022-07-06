@@ -5,15 +5,15 @@
     "address": "Adres",
     "add_pk": "Voeg Privaat Sleutel by",
     "home": {
-        "desc": "Avalanche Wallet is 'n eenvoudige, veilige, nie-toesighouende beursie vir die berging van Avalanche-bates.",
+        "desc": "AXIA wallet is 'n eenvoudige, veilige, nie-toesighouende beursie vir die berging van Axia-bates.",
         "access": {
             "title": "Welkom terug!",
-            "desc": "Kry 'toegang' tot jou bestaande Avalanche beursie hier.",
+            "desc": "Kry 'toegang' tot jou bestaande Axia beursie hier.",
             "submit": "Kry toegang tot beursie"
         },
         "create": {
-            "title": "Nuut aan Avalanche Wallet?",
-            "desc": "'Skep' 'n nuwe beursie om Avalanche-bates te stuur, ontvang en omruil.",
+            "title": "Nuut aan AXIA wallet?",
+            "desc": "'Skep' 'n nuwe beursie om Axia-bates te stuur, ontvang en omruil.",
             "submit": "Skep Nuwe Beursie"
         }
     },
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Genereer 'n nuwe frase om u Avalanche Wallet op te stel.",
+        "generate": "Genereer 'n nuwe frase om u AXIA wallet op te stel.",
         "but_have": "Het u alreeds a beursie?",
         "submit": "Genereer Sleutelfrase",
         "cancel": "Kanselleer",
         "mnemonic_title": "Hierdie is u sleutelfrase.",
-        "mnemonic_desc": "Gebruik hierdie 24 woorde in volgorde om u Avalanche Wallet te herstel",
+        "mnemonic_desc": "Gebruik hierdie 24 woorde in volgorde om u AXIA wallet te herstel",
         "attention": "Aandag!",
-        "warning": "Stoor hierdie sleutelfrase op 'n veilige plek. Enigiemand met hierdie sleutelfrase kan toegang tot u Avalanche Wallet verkry. Daar is geen manier om verlore sleutelfrases te herstel nie.",
+        "warning": "Stoor hierdie sleutelfrase op 'n veilige plek. Enigiemand met hierdie sleutelfrase kan toegang tot u AXIA wallet verkry. Daar is geen manier om verlore sleutelfrases te herstel nie.",
         "confirm": "Ek het my sleutelwoord op 'n veilige plek neergeskryf.",
         "regenerate": "Genereer Weereens",
         "success_title": "Baie geluk!",
-        "success_desc": "Dit is tyd om toegang tot u Avalanche Wallet te kry.",
+        "success_desc": "Dit is tyd om toegang tot u AXIA wallet te kry.",
         "success_submit": "Kry Toegang tot Beursie",
         "verify": "Verifieer",
         "verifytitle": "Verifieer Mnemoniek",
@@ -78,15 +78,15 @@
         "error_word": "Die mnemoniese frase wat u vir woord ingevoer het, stem nie ooreen met die werklike frase nie."
     },
     "top": {
-        "title1": "Afgeleide Avalanche-beursie-adres",
+        "title1": "Afgeleide Axia-beursie-adres",
         "title2": "Saldo",
-        "title3": "Subnet",
+        "title3": "Allychain",
         "title4": "Netwerk",
         "nftcol": "NFTs",
         "nftempty": "U het geen tekens wat nie aanpasbaar is nie versamel.",
         "locked": "Gesluit",
-        "info2": "Ek het muntstukke in die Teken Uitverkoping gekoop. Waar is my AVAX?",
-        "info2_desc": "Hierdie beursie is aan die Avalanche Everest-toetsnetwerk gekoppel. U aankoop sal in die beursie verskyn na die bekendstelling van Avalanche Mainnet.",
+        "info2": "Ek het muntstukke in die Teken Uitverkoping gekoop. Waar is my AXC?",
+        "info2_desc": "Hierdie beursie is aan die Axia Everest-toetsnetwerk gekoppel. U aankoop sal in die beursie verskyn na die bekendstelling van Axia Mainnet.",
         "hover1": "Bekyk Adres-QR-kode",
         "hover2": "Druk",
         "hover3": "Kopieer",
@@ -101,7 +101,7 @@
             "collectibles": "Versamelstukke"
         },
         "address": {
-            "derived": "Afgeleide Avalanche-beursie-adres",
+            "derived": "Afgeleide Axia-beursie-adres",
             "desc": "Dit is u adres om fondse te ontvang. U adres sal na elke deposito verander."
         }
     },
@@ -172,26 +172,26 @@
     },
     "earn": {
         "title": "Verdien",
-        "desc": "U kan meer AVAX verdien deur u bestaande tekens in te sit.",
+        "desc": "U kan meer AXC verdien deur u bestaande tekens in te sit.",
         "subtitle1": "Valideer",
         "subtitle2": "Delegeer",
         "subtitle3": "Kruiskettingoordrag",
         "subtitle4": "Geskatte belonings",
-        "warning_1": "U moet ten minste {0} AVAX aan die P-ketting hê om 'n valideerder te word.",
-        "warning_2": "U moet ten minste {0} AVAX aan die P-ketting hê om 'n afgevaardigde te word.",
+        "warning_1": "U moet ten minste {0} AXC aan die Core-ketting hê om 'n valideerder te word.",
+        "warning_2": "U moet ten minste {0} AXC aan die Core-ketting hê om 'n afgevaardigde te word.",
         "validate_card": {
             "title": "Valideer",
-            "desc": "U het 'n Avalanche-nodus waarmee u wil 'n insetting maak.",
+            "desc": "U het 'n Axia-nodus waarmee u wil 'n insetting maak.",
             "submit": "Voeg Valideerder by"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegeer",
             "desc": "U besit nie 'n Avalanch-nodus nie, maar u 'm ander nodus gebruik om 'n insetting te maak.",
             "submit": "Voeg Afgevaardigde by"
         },
         "transfer_card": {
             "title": "Kruiskettingoordrag",
-            "desc": "Om ' insetting te maak moet AVAX in die P-ketting wees. Dra tekens oor tussen X en P.",
+            "desc": "Om ' insetting te maak moet AXC in die Core-ketting wees. Dra tekens oor tussen Swap en Core.",
             "submit": "Oordrag"
         },
         "rewards_card": {
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Totale belonings",
             "validation": "Validasie",
-            "delegation": "Delegasie",
+            "nomination": "Delegasie",
             "empty": "U het geen belonings wat hangende is nie.",
             "row": {
                 "start": "Begin",
@@ -242,7 +242,7 @@
             },
             "amount": {
                 "label": "Beleggingsbedrag",
-                "desc": "Die hoeveelheid AVAX wat gesluit moet word om in te sit."
+                "desc": "Die hoeveelheid AXC wat gesluit moet word om in te sit."
             },
             "fee": {
                 "label": "Delegasie fooi",
@@ -281,12 +281,12 @@
             },
             "errs": {
                 "date": "Begindatum moet in die toekoms wees en einddatum moet na begindatum wees.",
-                "amount": "Insettingsbedrag moet tenminste {0} AVAX wees",
+                "amount": "Insettingsbedrag moet tenminste {0} AXC wees",
                 "id": "Ongeldige Nodus-ID. Moet begin met \"NodeID-\"",
                 "address": "Ongeldige beloningsadresadres."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Kies 'n nodus om te delegeer",
                 "search": "Soek Nodus-ID",
@@ -319,8 +319,8 @@
                 },
                 "amount": {
                     "label": "Insettingsbedrag",
-                    "desc": "Die hoeveelheid AVAX wat gesluit moet word om in te sit.",
-                    "desc2": "Die beskikbare delegasiebedrag vir hierdie nodus is {0} AVAX"
+                    "desc": "Die hoeveelheid AXC wat gesluit moet word om in te sit.",
+                    "desc2": "Die beskikbare delegasiebedrag vir hierdie nodus is {0} AXC"
                 },
                 "reward": {
                     "label": "Beloningsadres",
@@ -339,13 +339,13 @@
             "errs": {
                 "start_now": "Begintyd moet na huidige tyd wees.",
                 "start_end": "Begindatum moet in die toekoms wees en einddatum moet na begindatum wees.",
-                "invalid_addr": "Ongeldige adresformaat. U adres moet met \"P-\" begin",
+                "invalid_addr": "Ongeldige adresformaat. U adres moet met \"Core-\" begin",
                 "no_addr": "U moet 'n adres verskaaf om afvaardigingsbelonings te ontvang.",
                 "min_dur": "Die minimum beleggingsduur is 2 weke.",
                 "max_dur": "Maksimum insettingsduur is 2 weke.",
                 "no_node": "U moet 'n valideerder spesifiseer.",
                 "val_end": "Die einddatum van die delegasie kan nie langer as die valideerder se einddatum wees nie.",
-                "amt": "Delegasiebedrag moet tenminste {0} AVAX wees."
+                "amt": "Delegasiebedrag moet tenminste {0} AXC wees."
             },
             "summary": {
                 "duration": "Insettingstydperk",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Trek van Ketting in",
             "desc": "As u fondse het wat in 'n mislukte kettingoorbrenging vassit, kan u die intrek daarvan hier voltooi.",
-            "submit_x": "Trek X In",
-            "submit_p": "Trek P In"
+            "submit_x": "Trek Swap In",
+            "submit_p": "Trek Core In"
         }
     },
     "logout": {
@@ -388,7 +388,7 @@
         "loading": "Laai tans transaksiegeskiedenis..",
         "warn_loading": "Hierdie lys is miskien onvolledig en nie in orde nie.",
         "error_api": "Explorer API nie gevind nie",
-        "error_api_desc": "U moet 'n AVA Explorer API vir hierdie netwerk verskaf om die transaksiegeskiedenis te sien."
+        "error_api_desc": "U moet 'n AXIA Explorer API vir hierdie netwerk verskaf om die transaksiegeskiedenis te sien."
     },
     "modal": {
         "qr": {

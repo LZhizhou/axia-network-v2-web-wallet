@@ -32,7 +32,12 @@
                     <div class="asset add_token_row">
                         <button @click="addToken">Add Token</button>
                         <span>or</span>
-                        <button @click="addTokenList">Add Token List</button>
+                        <button
+                            :style="{ background: '#178FE1', color: '#fff' }"
+                            @click="addTokenList"
+                        >
+                            Add Token List
+                        </button>
                     </div>
                 </div>
             </div>
@@ -45,7 +50,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 
 import FaucetLink from '@/components/misc/FaucetLink.vue'
 import FungibleRow from '@/components/wallet/portfolio/FungibleRow.vue'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import Erc20Token from '@/js/Erc20Token'
 import ERC20Row from '@/components/wallet/portfolio/ERC20Row.vue'
 import AddERC20TokenModal from '@/components/modals/AddERC20TokenModal.vue'
@@ -82,9 +87,9 @@ export default class Fungibles extends Vue {
         this.$refs.tokenlist_modal.open()
     }
 
-    get walletBalancesSorted(): AvaAsset[] {
-        // let balance: AvaAsset[] = this.$store.getters['walletAssetsArray']
-        let balance: AvaAsset[] = this.$store.getters['Assets/walletAssetsArray']
+    get walletBalancesSorted(): AxiaAsset[] {
+        // let balance: AxiaAsset[] = this.$store.getters['walletAssetsArray']
+        let balance: AxiaAsset[] = this.$store.getters['Assets/walletAssetsArray']
 
         // Sort by balance, then name
         balance.sort((a, b) => {
@@ -95,10 +100,10 @@ export default class Fungibles extends Vue {
             let idA = a.id
             let idB = b.id
 
-            // AVA always on top
-            if (idA === this.avaxToken.id) {
+            // AXIA always on top
+            if (idA === this.axcToken.id) {
                 return -1
-            } else if (idB === this.avaxToken.id) {
+            } else if (idB === this.axcToken.id) {
                 return 1
             }
 
@@ -119,8 +124,8 @@ export default class Fungibles extends Vue {
         return balance
     }
 
-    get avaxToken(): AvaAsset {
-        return this.$store.getters['Assets/AssetAVA']
+    get axcToken(): AxiaAsset {
+        return this.$store.getters['Assets/AssetAXIA']
     }
 
     get erc20Balances(): Erc20Token[] {
@@ -132,7 +137,7 @@ export default class Fungibles extends Vue {
         return filt
     }
 
-    get walletBalances(): AvaAsset[] {
+    get walletBalances(): AxiaAsset[] {
         let balance = this.walletBalancesSorted
 
         if (this.search) {

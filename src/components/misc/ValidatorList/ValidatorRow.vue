@@ -3,7 +3,7 @@
         <td class="id">{{ validator.nodeID }}</td>
         <td class="amount">{{ amtText }}</td>
         <td class="amount">{{ remainingAmtText }}</td>
-        <td style="text-align: center">{{ numDelegators }}</td>
+        <td style="text-align: center">{{ numNominators }}</td>
         <td>{{ remainingTimeText }}</td>
         <!--        <td>{{ uptimeText }}</td>-->
         <td>{{ feeText }}%</td>
@@ -15,11 +15,11 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { ava, pChain } from '@/AVA'
-import { DelegatorRaw, ValidatorRaw } from '@/components/misc/ValidatorList/types'
+import { axia, coreChain } from '@/AXIA'
+import { NominatorRaw, ValidatorRaw } from '@/components/misc/ValidatorList/types'
 import moment from 'moment'
 import Big from 'big.js'
-import { BN } from 'avalanche'
+import { BN } from '@axia-systems/axiajs'
 import { bnToBig } from '@/helpers/helper'
 import { ValidatorListItem } from '@/store/modules/platform/types'
 
@@ -64,24 +64,24 @@ export default class ValidatorsList extends Vue {
     }
 
     // TODO :HEAVY
-    // get delegators(): DelegatorRaw[]{
+    // get nominators(): NominatorRaw[]{
     //     return [];
-    // let map = this.$store.getters["Platform/nodeDelegatorMap"];
+    // let map = this.$store.getters["Platform/nodeNominatorMap"];
     // return map[this.validator.nodeID];
     // }
 
     // TODO :HEAVY
-    get numDelegators() {
-        return this.validator.numDelegators
-        // if(!this.delegators) return 0;
-        // return this.delegators.length;
+    get numNominators() {
+        return this.validator.numNominators
+        // if(!this.nominators) return 0;
+        // return this.nominators.length;
     }
 
     // TODO :HEAVY
-    get totalDelegated(): BN {
-        return this.validator.delegatedStake
+    get totalNominated(): BN {
+        return this.validator.nominatedStake
         // return new BN(0)
-        // return this.$store.getters["Platform/validatorTotalDelegated"](this.validator.nodeID);
+        // return this.$store.getters["Platform/validatorTotalNominated"](this.validator.nodeID);
     }
 
     // TODO :HEAVY
@@ -94,7 +94,7 @@ export default class ValidatorsList extends Vue {
     get remainingStake(): BN {
         // return new BN(1000000000000)
         return this.validator.remainingStake
-        // return this.maxStake.sub(this.totalDelegated.add(this.stakeAmt));
+        // return this.maxStake.sub(this.totalNominated.add(this.stakeAmt));
     }
 
     get remainingAmtText(): string {
@@ -105,8 +105,8 @@ export default class ValidatorsList extends Vue {
     // TODO: Move this to
     // get isVisible(){
     //
-    //     If remaining amount is less than the minimum delegation amount
-    // let minDelAmt = this.$store.state.Platform.minStakeDelegation;
+    //     If remaining amount is less than the minimum nomination amount
+    // let minDelAmt = this.$store.state.Platform.minStakeNomination;
     // if(this.remainingStake.lt(minDelAmt)) return false;
     // return true;
     // }

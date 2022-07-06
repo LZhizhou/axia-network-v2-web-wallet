@@ -6,11 +6,11 @@
                 <div class="refresh">
                     <Spinner v-if="isUpdateBalance" class="spinner"></Spinner>
                     <button v-else @click="updateBalance">
-                        <fa icon="sync"></fa>
+                        <img src="@/assets/balance_sync.png" />
                     </button>
                 </div>
                 <h4>{{ $t('top.title2') }}</h4>
-                <template v-if="!isBreakdown">
+                <!-- <template v-if="!isBreakdown">
                     <button class="breakdown_toggle" @click="toggleBreakdown">
                         <fa icon="eye"></fa>
                         {{ $t('top.balance.show') }}
@@ -21,27 +21,30 @@
                         <fa icon="eye-slash"></fa>
                         {{ $t('top.balance.hide') }}
                     </button>
-                </template>
+                </template> -->
                 <button @click="showUTXOsModal" class="breakdown_toggle">Show UTXOs</button>
             </div>
             <div class="balance_row">
                 <p class="balance" data-cy="wallet_balance" v-if="!balanceTextRight">
-                    {{ balanceTextLeft }} AVAX
+                    {{ balanceTextLeft }} AXC
                 </p>
                 <p class="balance" data-cy="wallet_balance" v-else>
                     {{ balanceTextLeft }}
                     <span>.{{ balanceTextRight }}</span>
-                    AVAX
+                    AXC
                 </p>
                 <div style="display: flex; flex-direction: row">
                     <p class="balance_usd">
-                        <b>$ {{ totalBalanceUSDText }}</b>
+                        <!-- <b>$ {{ totalBalanceUSDText }}</b> -->
+                        <b>$ {{ '--' }}</b>
+
                         USD
                     </p>
-                    <p class="balance_usd" style="background-color: transparent">
-                        <b>1 AVAX</b>
+                    <p class="balance_usd" style="background-color: #e6e8ec">
+                        <b>1 AXC</b>
                         =
-                        <b>${{ avaxPriceText }}</b>
+                        <!-- <b>${{ axcPriceText }}</b> -->
+                        <b>${{ '--' }}</b>
                         USD
                     </p>
                 </div>
@@ -50,48 +53,54 @@
             <div class="alt_info">
                 <div class="alt_non_breakdown" v-if="!isBreakdown">
                     <div>
+                        <p>{{ unlockedText }} AXC</p>
                         <label>{{ $t('top.balance.available') }}</label>
-                        <p>{{ unlockedText }} AVAX</p>
                     </div>
                     <div v-if="hasLocked">
+                        <p>{{ balanceTextLocked }} AXC</p>
                         <label>{{ $t('top.locked') }}</label>
-                        <p>{{ balanceTextLocked }} AVAX</p>
                     </div>
                     <div v-if="hasMultisig">
+                        <p>{{ balanceTextMultisig }} AXC</p>
                         <label>Multisig</label>
-                        <p>{{ balanceTextMultisig }} AVAX</p>
                     </div>
                     <div>
+                        <p>{{ stakingText }} AXC</p>
                         <label>{{ $t('top.balance.stake') }}</label>
-                        <p>{{ stakingText }} AVAX</p>
                     </div>
                 </div>
                 <div class="alt_breakdown" v-else>
                     <div>
-                        <label>{{ $t('top.balance.available') }} (X)</label>
-                        <p>{{ avmUnlocked | cleanAvaxBN }} AVAX</p>
-                        <label>{{ $t('top.balance.available') }} (P)</label>
-                        <p>{{ platformUnlocked | cleanAvaxBN }} AVAX</p>
-                        <label>{{ $t('top.balance.available') }} (C)</label>
-                        <p>{{ evmUnlocked | cleanAvaxBN }} AVAX</p>
-                    </div>
-                    <div v-if="hasLocked">
-                        <label>{{ $t('top.balance.locked') }} (X)</label>
-                        <p>{{ avmLocked | cleanAvaxBN }} AVAX</p>
-                        <label>{{ $t('top.balance.locked') }} (P)</label>
-                        <p>{{ platformLocked | cleanAvaxBN }} AVAX</p>
-                        <label>{{ $t('top.balance.locked_stake') }} (P)</label>
-                        <p>{{ platformLockedStakeable | cleanAvaxBN }} AVAX</p>
-                    </div>
-                    <div v-if="hasMultisig">
-                        <label>Multisig (X)</label>
-                        <p>{{ avmMultisig | cleanAvaxBN }} AVAX</p>
-                        <label>Multisig (P)</label>
-                        <p>{{ platformMultisig | cleanAvaxBN }} AVAX</p>
+                        <p>{{ avmUnlocked | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.available') }} (Swap)</label>
                     </div>
                     <div>
+                        <p>{{ platformUnlocked | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.available') }} (Core)</label>
+                    </div>
+                    <div>
+                        <p>{{ evmUnlocked | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.available') }} (AX)</label>
+                    </div>
+                    <div v-if="hasLocked">
+                        <p>{{ avmLocked | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.locked') }} (Swap)</label>
+
+                        <p>{{ platformLocked | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.locked') }} (Core)</label>
+
+                        <p>{{ platformLockedStakeable | cleanAxcBN }} AXC</p>
+                        <label>{{ $t('top.balance.locked_stake') }} (Core)</label>
+                    </div>
+                    <div v-if="hasMultisig">
+                        <p>{{ avmMultisig | cleanAxcBN }} AXC</p>
+                        <label>Multisig (Swap)</label>
+                        <p>{{ platformMultisig | cleanAxcBN }} AXC</p>
+                        <label>Multisig (Core)</label>
+                    </div>
+                    <div>
+                        <p>{{ stakingText }} AXC</p>
                         <label>{{ $t('top.balance.stake') }}</label>
-                        <p>{{ stakingText }} AVAX</p>
                     </div>
                 </div>
             </div>
@@ -102,15 +111,15 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop, Ref, Watch } from 'vue-property-decorator'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import Spinner from '@/components/misc/Spinner.vue'
 import NftCol from './NftCol.vue'
 import Tooltip from '@/components/misc/Tooltip.vue'
 
 import Big from 'big.js'
-import { BN } from 'avalanche/dist'
-import { ONEAVAX } from 'avalanche/dist/utils'
+import { BN } from '@axia-systems/axiajs/dist'
+import { ONEAXC } from '@axia-systems/axiajs/dist/utils'
 import { bnToBig } from '@/helpers/helper'
 import { priceDict } from '@/store/types'
 import { WalletType } from '@/js/wallets/types'
@@ -124,9 +133,9 @@ import UtxosBreakdownModal from '@/components/modals/UtxosBreakdown/UtxosBreakdo
         Tooltip,
     },
     filters: {
-        cleanAvaxBN(val: BN) {
-            let big = Big(val.toString()).div(Big(ONEAVAX.toString()))
-            return big.toLocaleString()
+        cleanAxcBN(val: BN) {
+            let big = Big(val.toString()).div(Big(ONEAXC.toString()))
+            return big.toLocaleString(2)
         },
     },
 })
@@ -145,23 +154,22 @@ export default class BalanceCard extends Vue {
     showUTXOsModal() {
         this.$refs.utxos_modal.open()
     }
-    get ava_asset(): AvaAsset | null {
-        let ava = this.$store.getters['Assets/AssetAVA']
-        return ava
+    get axia_asset(): AxiaAsset | null {
+        let axia = this.$store.getters['Assets/AssetAXIA']
+        return axia
     }
 
     toggleBreakdown() {
         this.isBreakdown = !this.isBreakdown
     }
-
     get avmUnlocked(): BN {
-        if (!this.ava_asset) return new BN(0)
-        return this.ava_asset.amount
+        if (!this.axia_asset) return new BN(0)
+        return this.axia_asset.amount
     }
 
     get avmLocked(): BN {
-        if (!this.ava_asset) return new BN(0)
-        return this.ava_asset.amountLocked
+        if (!this.axia_asset) return new BN(0)
+        return this.axia_asset.amountLocked
     }
 
     get evmUnlocked(): BN {
@@ -172,24 +180,24 @@ export default class BalanceCard extends Vue {
     }
 
     get totalBalance(): BN {
-        if (!this.ava_asset) return new BN(0)
+        if (!this.axia_asset) return new BN(0)
 
-        let tot = this.ava_asset.getTotalAmount()
+        let tot = this.axia_asset.getTotalAmount()
         // add EVM balance
         tot = tot.add(this.evmUnlocked)
         return tot
     }
 
     get totalBalanceBig(): Big {
-        if (this.ava_asset) {
-            let denom = this.ava_asset.denomination
+        if (this.axia_asset) {
+            let denom = this.axia_asset.denomination
             let bigTot = bnToBig(this.totalBalance, denom)
             return bigTot
         }
         return Big(0)
     }
 
-    get avaxPriceText() {
+    get axcPriceText() {
         return this.priceDict.usd
     }
 
@@ -203,10 +211,10 @@ export default class BalanceCard extends Vue {
         if (this.isUpdateBalance) return '--'
         return this.totalBalanceUSD.toLocaleString(2)
     }
-    // should be unlocked (X+P), locked (X+P) and staked and lockedStakeable
+    // should be unlocked (Swap+Core), locked (Swap+Core) and staked and lockedStakeable
     get balanceText(): string {
-        if (this.ava_asset !== null) {
-            let denom = this.ava_asset.denomination
+        if (this.axia_asset !== null) {
+            let denom = this.axia_asset.denomination
             return this.totalBalanceBig.toLocaleString(denom)
         } else {
             return '?'
@@ -233,16 +241,16 @@ export default class BalanceCard extends Vue {
         return ''
     }
 
-    // Locked balance is the sum of locked AVAX tokens on X and P chain
+    // Locked balance is the sum of locked AXC tokens on Swap and CoreChain
     get balanceTextLocked(): string {
         if (this.isUpdateBalance) return '--'
 
-        if (this.ava_asset !== null) {
-            let denom = this.ava_asset.denomination
+        if (this.axia_asset !== null) {
+            let denom = this.axia_asset.denomination
             let tot = this.platformLocked.add(this.platformLockedStakeable)
             // let otherLockedAmt = this.platformLocked.add(this.platformLockedStakeable)
             let pLocked = Big(tot.toString()).div(Math.pow(10, denom))
-            let amt = this.ava_asset.getAmount(true)
+            let amt = this.axia_asset.getAmount(true)
             amt = amt.add(pLocked)
 
             return amt.toLocaleString(denom)
@@ -254,8 +262,8 @@ export default class BalanceCard extends Vue {
     get balanceTextMultisig() {
         if (this.isUpdateBalance) return '--'
 
-        if (this.ava_asset !== null) {
-            let denom = this.ava_asset.denomination
+        if (this.axia_asset !== null) {
+            let denom = this.axia_asset.denomination
             return bnToBig(this.avmMultisig.add(this.platformMultisig), denom).toLocaleString()
         } else {
             return '--'
@@ -263,8 +271,8 @@ export default class BalanceCard extends Vue {
     }
 
     get avmMultisig(): BN {
-        if (this.ava_asset !== null) {
-            return this.ava_asset.amountMultisig
+        if (this.axia_asset !== null) {
+            return this.axia_asset.amountMultisig
         } else {
             return new BN(0)
         }
@@ -293,11 +301,11 @@ export default class BalanceCard extends Vue {
     get unlockedText() {
         if (this.isUpdateBalance) return '--'
 
-        if (this.ava_asset) {
-            let xUnlocked = this.ava_asset.amount
+        if (this.axia_asset) {
+            let xUnlocked = this.axia_asset.amount
             let pUnlocked = this.platformUnlocked
 
-            let denom = this.ava_asset.denomination
+            let denom = this.axia_asset.denomination
 
             let tot = xUnlocked.add(pUnlocked).add(this.evmUnlocked)
 
@@ -310,10 +318,10 @@ export default class BalanceCard extends Vue {
     }
 
     get pBalanceText() {
-        if (!this.ava_asset) return '--'
+        if (!this.axia_asset) return '--'
         if (this.isUpdateBalance) return '--'
 
-        let denom = this.ava_asset.denomination
+        let denom = this.axia_asset.denomination
         let bal = this.platformUnlocked
         let bigBal = Big(bal.toString())
         bigBal = bigBal.div(Math.pow(10, denom))
@@ -374,18 +382,26 @@ export default class BalanceCard extends Vue {
 @use '../../../../main';
 .balance_card {
     display: grid;
-    grid-template-columns: 1fr 230px;
+    grid-template-columns: 1fr 1fr;
     column-gap: 20px;
+    background-color: #f5f6fa;
 }
 
 .nft_card {
     border-left: 2px solid var(--bg-light);
+    background-color: #fff;
+    box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+    border-radius: 12px;
 }
 .fungible_card {
     height: 100%;
+    padding: 15px;
     display: grid !important;
     grid-template-rows: max-content 1fr max-content;
     flex-direction: column;
+    box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+    background-color: #fff;
+    border-radius: 12px;
 }
 
 .where_info {
@@ -427,12 +443,13 @@ h4 {
 
 .balance_usd {
     width: max-content;
-    background: var(--bg-light);
     color: var(--primary-color-light);
     font-size: 13px;
     padding: 1px 6px;
     border-radius: 3px;
     margin-right: 6px !important;
+    background: #e9f6ff;
+    border-radius: 41px;
 }
 
 .refresh {
@@ -487,14 +504,12 @@ h4 {
 }
 
 .alt_info > div {
-    display: grid;
-    grid-template-columns: repeat(4, max-content);
-    column-gap: 0px;
+    display: flex;
     margin-top: 12px;
     > div {
         position: relative;
         padding: 0 24px;
-        border-right: 2px solid var(--bg-light);
+        //border-right: 2px solid var(--bg-light);
         &:first-of-type {
             padding-left: 0;
         }

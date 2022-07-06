@@ -9,7 +9,7 @@ const coingeckoApi = axios.create({
     timeout: 10000,
 })
 
-export async function getAvaxPriceUSD(): Promise<number> {
+export async function getAxcPriceUSD(): Promise<number> {
     let res = await axios.get(COINGECKO_URL)
     return res.data['avalanche-2']['usd']
 }

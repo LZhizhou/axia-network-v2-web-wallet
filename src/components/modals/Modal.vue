@@ -46,13 +46,15 @@ export default class Modal extends Vue {
 @use '../../main';
 
 .modal_topbar {
-    background-color: var(--bg);
     border-bottom: var(--bg);
     color: var(--primary-color);
     border-bottom: 2px solid var(--bg-wallet);
     position: relative;
     padding: 10px 22px;
     display: flex;
+    background: #ffffff;
+    box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+    border-radius: 12px;
 }
 
 .modal_title {

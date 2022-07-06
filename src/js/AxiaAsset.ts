@@ -1,8 +1,8 @@
 // Manages BigNumber and Ava conversion and arithmetic
-import { BN } from 'avalanche'
+import { BN } from '@axia-systems/axiajs'
 import Big from 'big.js'
 
-class AvaAsset {
+class AxiaAsset {
     id: string
     name: string
     symbol: string
@@ -10,7 +10,7 @@ class AvaAsset {
     amount: BN
     amountLocked: BN
     amountMultisig: BN
-    // AVAX P chain, Wallet Staking
+    // AXC CoreChain, Wallet Staking
     amountExtra: BN
     private readonly pow: Big
     constructor(id: string, name: string, symbol: string, denomination: number) {
@@ -78,4 +78,4 @@ class AvaAsset {
     }
 }
 
-export default AvaAsset
+export default AxiaAsset

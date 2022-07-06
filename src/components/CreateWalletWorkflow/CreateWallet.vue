@@ -7,11 +7,7 @@
                         <!-- PHASE 1 -->
                         <div v-if="!keyPhrase" class="stage_1">
                             <div class="img_container">
-                                <img
-                                    v-if="$root.theme === 'day'"
-                                    src="@/assets/diamond-secondary.png"
-                                    alt
-                                />
+                                <img v-if="$root.theme === 'day'" src="@/assets/DESIGN.png" alt />
                                 <img v-else src="@/assets/diamond-secondary-night.svg" alt />
                             </div>
                             <h1>{{ $t('create.generate') }}</h1>
@@ -215,9 +211,11 @@ export default class CreateWallet extends Vue {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--bg-light);
+    background-color: white;
     padding: main.$container-padding;
     text-align: center;
+    box-shadow: 0px 8px 32px rgba(20, 92, 143, 0.08);
+    border-radius: 12px;
     /*min-width: 1000px;*/
 
     img {
@@ -262,7 +260,7 @@ export default class CreateWallet extends Vue {
 .but_generate {
     display: block;
     height: max-content;
-    background-color: main.$secondary-color;
+    background-color: #35b994 !important;
 }
 
 .key_disp {

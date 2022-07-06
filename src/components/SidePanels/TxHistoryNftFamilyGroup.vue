@@ -8,13 +8,13 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { NFTTransferOutput } from 'avalanche/dist/apis/avm'
+import { NFTTransferOutput } from '@axia-systems/axiajs/dist/apis/avm'
 import NftPayloadView from '@/components/misc/NftPayloadView/NftPayloadView.vue'
-import { PayloadBase } from 'avalanche/dist/utils'
-import { Buffer } from 'avalanche'
-import { PayloadTypes } from 'avalanche/dist/utils'
+import { PayloadBase } from '@axia-systems/axiajs/dist/utils'
+import { Buffer } from '@axia-systems/axiajs'
+import { PayloadTypes } from '@axia-systems/axiajs/dist/utils'
 import { NftGroupDict } from '../wallet/portfolio/types'
-import { AvaNftFamily } from '../../js/AvaNftFamily'
+import { AxiaNftFamily } from '../../js/AxiaNftFamily'
 import { UTXO } from '@/store/modules/history/types'
 
 let payloadtypes = PayloadTypes.getInstance()

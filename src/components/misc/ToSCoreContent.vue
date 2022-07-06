@@ -12,13 +12,13 @@
         </h2>
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
             These Terms of Use (these “Terms”) constitute a legally binding agreement made between
-            you, whether personally or on behalf of an entity (“you”) and Ava Labs, Inc. (together
-            with its subsidiaries and affiliates, “Company”, “we”, “us”, or “our”) governing your
-            download, access to and/or use of the Core Browser Extension, the Core Mobile
-            Application and the Core Website and related websites, applications and features
+            you, whether personally or on behalf of an entity (“you”) and AXIA Systems, Inc.
+            (together with its subsidiaries and affiliates, “Company”, “we”, “us”, or “our”)
+            governing your download, access to and/or use of the Core Browser Extension, the Core
+            Mobile Application and the Core Website and related websites, applications and features
             (collectively, the “App”). The App enables users to self-custody digital assets,
             directly access and interact with blockchains, decentralized applications (“dapps”) and
-            the Avalanche Bridge on a peer-to-peer basis, directly interact with other third party
+            the Axia Bridge on a peer-to-peer basis, directly interact with other third party
             services and access other functionality that may be developed from time to time
             (collectively, the “Services”). The Services include, without limitation, services
             provided by third parties and dapps (collectively, “Third Party Services”).
@@ -581,7 +581,7 @@
             You and the Company agree that any arbitration shall be limited to the Dispute between
             the parties individually. TO THE FULL EXTENT PERMITTED BY LAW, (A) NO ARBITRATION SHALL
             BE JOINED WITH ANY OTHER PROCEEDING; (B) THERE IS NO RIGHT OR AUTHORITY FOR ANY DISPUTE
-            TO BE ARBITRATED ON A CLASS-ACTION BASIS OR TO UTILIZE CLASS ACTION PROCEDURES; AND (C)
+            TO BE ARBITRATED ON A CLASS-ACTION BASIS OR TO UTILIZE CLASS ACTION PROCEDURES; AND (AX)
             THERE IS NO RIGHT OR AUTHORITY FOR ANY DISPUTE TO BE BROUGHT IN A PURPORTED
             REPRESENTATIVE CAPACITY ON BEHALF OF THE GENERAL PUBLIC OR ANY OTHER PERSONS. Unless
             consented to in writing by all parties to the arbitration, an award in arbitration shall
@@ -725,9 +725,9 @@
             <strong>INDEMNIFICATION</strong>
         </h2>
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
-            You agree to defend, release, indemnify, and hold us and Avalanche Foundation Limited,
-            its subsidiaries and affiliates (collectively, the “Foundation”), including all of our
-            and the Foundation’s respective officers, directors, agents, partners, employees,
+            You agree to defend, release, indemnify, and hold us and Axia Foundation Limited, its
+            subsidiaries and affiliates (collectively, the “Foundation”), including all of our and
+            the Foundation’s respective officers, directors, agents, partners, employees,
             contractors, successors and assigns harmless from and against any loss, damage,
             liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by
             any third party due to or arising out of: (1) your access to or use of the App, the
@@ -821,7 +821,7 @@
             regarding use of the App, please contact us at:
         </p>
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
-            Ava Labs, Inc.
+            AXIA Systems, Inc.
         </p>
         <p style="padding-top: 12pt; padding-left: 5pt; text-indent: 0pt; text-align: justify">
             1177 Avenue of the Americas

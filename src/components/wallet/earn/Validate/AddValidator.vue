@@ -25,7 +25,7 @@
                             <p class="desc">
                                 {{ $t('earn.validate.amount.desc') }}
                             </p>
-                            <AvaxInput v-model="stakeAmt" :max="maxAmt" class="amt_in"></AvaxInput>
+                            <AxcInput v-model="stakeAmt" :max="maxAmt" class="amt_in"></AxcInput>
                         </div>
                         <div style="margin: 30px 0">
                             <h4>{{ $t('earn.validate.fee.label') }}</h4>
@@ -37,7 +37,7 @@
                                 :min="minFee"
                                 max="100"
                                 step="0.01"
-                                v-model="delegationFee"
+                                v-model="nominationFee"
                                 @change="onFeeChange"
                             />
                         </div>
@@ -51,14 +51,14 @@
                                     @click="rewardSelect('local')"
                                     :selected="this.rewardDestination === 'local'"
                                 >
-                                    {{ $t('earn.delegate.form.reward.chip_1') }}
+                                    {{ $t('earn.nominate.form.reward.chip_1') }}
                                 </button>
                                 <span>or</span>
                                 <button
                                     @click="rewardSelect('custom')"
                                     :selected="this.rewardDestination === 'custom'"
                                 >
-                                    {{ $t('earn.delegate.form.reward.chip_2') }}
+                                    {{ $t('earn.nominate.form.reward.chip_2') }}
                                 </button>
                             </div>
                             <!--                            <v-chip-group mandatory @change="rewardSelect">-->
@@ -101,7 +101,7 @@
                         :node-i-d="nodeId"
                         :end="formEnd"
                         :amount="formAmt"
-                        :delegation-fee="delegationFee"
+                        :nomination-fee="nominationFee"
                         :reward-address="rewardIn"
                         :reward-destination="rewardDestination"
                     ></ConfirmPage>
@@ -119,8 +119,8 @@
                                     <fa icon="question-circle"></fa>
                                 </Tooltip>
                             </label>
-                            <p v-if="currency_type === 'AVAX'">{{ maxDelegationText }} AVAX</p>
-                            <p v-if="currency_type === 'USD'">${{ maxDelegationUsdText }} USD</p>
+                            <p v-if="currency_type === 'AXC'">{{ maxNominationText }} AXC</p>
+                            <p v-if="currency_type === 'USD'">${{ maxNominationUsdText }} USD</p>
                         </div>
                         <div>
                             <label>{{ $t('earn.validate.summary.duration') }} *</label>
@@ -128,8 +128,8 @@
                         </div>
                         <div>
                             <label>{{ $t('earn.validate.summary.rewards') }}</label>
-                            <p v-if="currency_type === 'AVAX'">
-                                {{ estimatedReward.toLocaleString(2) }} AVAX
+                            <p v-if="currency_type === 'AXC'">
+                                {{ estimatedReward.toLocaleString(2) }} AXC
                             </p>
                             <p v-if="currency_type === 'USD'">
                                 ${{ estimatedRewardUSD.toLocaleString(2) }} USD
@@ -221,24 +221,24 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 //@ts-ignore
-import AvaxInput from '@/components/misc/AvaxInput.vue'
-import { BN } from 'avalanche'
+import AxcInput from '@/components/misc/AxcInput.vue'
+import { BN } from '@axia-systems/axiajs'
 import Big from 'big.js'
 //@ts-ignore
-import { QrInput } from '@avalabs/vue_components'
-import { bintools, pChain } from '@/AVA'
+import { QrInput } from '@axia-systems/vue-components'
+import { bintools, coreChain } from '@/AXIA'
 import MnemonicWallet from '@/js/wallets/MnemonicWallet'
 import ConfirmPage from '@/components/wallet/earn/Validate/ConfirmPage.vue'
 import moment from 'moment'
 import { bnToBig, calculateStakingReward } from '@/helpers/helper'
-import { ONEAVAX } from 'avalanche/dist/utils'
+import { ONEAXC } from '@axia-systems/axiajs/dist/utils'
 import Tooltip from '@/components/misc/Tooltip.vue'
 import CurrencySelect from '@/components/misc/CurrencySelect/CurrencySelect.vue'
 import Spinner from '@/components/misc/Spinner.vue'
 import DateForm from '@/components/wallet/earn/DateForm.vue'
 import UtxoSelectForm from '@/components/wallet/earn/UtxoSelectForm.vue'
 import Expandable from '@/components/misc/Expandable.vue'
-import { AmountOutput, UTXO } from 'avalanche/dist/apis/platformvm'
+import { AmountOutput, UTXO } from '@axia-systems/axiajs/dist/apis/platformvm'
 import { WalletType } from '@/js/wallets/types'
 
 const MIN_MS = 60000
@@ -252,7 +252,7 @@ const MAX_STAKE_DURATION = DAY_MS * 365
     name: 'add_validator',
     components: {
         Tooltip,
-        AvaxInput,
+        AxcInput,
         QrInput,
         ConfirmPage,
         CurrencySelect,
@@ -265,7 +265,7 @@ const MAX_STAKE_DURATION = DAY_MS * 365
 export default class AddValidator extends Vue {
     startDate: string = new Date(Date.now() + MIN_MS * 15).toISOString()
     endDate: string = new Date().toISOString()
-    delegationFee: string = '2.0'
+    nominationFee: string = '2.0'
     nodeId = ''
     rewardIn: string = ''
     rewardDestination = 'local' // local || custom
@@ -289,18 +289,18 @@ export default class AddValidator extends Vue {
 
     isSuccess = false
 
-    currency_type = 'AVAX'
+    currency_type = 'AXC'
 
     mounted() {
         this.rewardSelect('local')
     }
 
     onFeeChange() {
-        let num = parseFloat(this.delegationFee)
+        let num = parseFloat(this.nominationFee)
         if (num < this.minFee) {
-            this.delegationFee = this.minFee.toString()
+            this.nominationFee = this.minFee.toString()
         } else if (num > 100) {
-            this.delegationFee = '100'
+            this.nominationFee = '100'
         }
     }
 
@@ -322,7 +322,7 @@ export default class AddValidator extends Vue {
         this.rewardDestination = val
     }
 
-    // Returns true to show a warning about short validation periods that can not take any delegators
+    // Returns true to show a warning about short validation periods that can not take any nominators
     get warnShortDuration(): boolean {
         let dur = this.stakeDuration
 
@@ -364,7 +364,7 @@ export default class AddValidator extends Vue {
     }
 
     get feeAmt(): BN {
-        return pChain.getTxFee()
+        return coreChain.getTxFee()
     }
 
     get utxosBalance(): BN {
@@ -397,7 +397,7 @@ export default class AddValidator extends Vue {
         }
     }
 
-    get maxDelegationAmt(): BN {
+    get maxNominationAmt(): BN {
         let stakeAmt = this.stakeAmt
 
         let maxRelative = stakeAmt.mul(new BN(5))
@@ -416,17 +416,17 @@ export default class AddValidator extends Vue {
         return BN.max(res, new BN(0))
     }
 
-    get maxDelegationText() {
-        return bnToBig(this.maxDelegationAmt, 9).toLocaleString(9)
+    get maxNominationText() {
+        return bnToBig(this.maxNominationAmt, 9).toLocaleString(9)
     }
 
-    get maxDelegationUsdText() {
-        let big = bnToBig(this.maxDelegationAmt, 9)
-        let res = big.times(this.avaxPrice)
+    get maxNominationUsdText() {
+        let big = bnToBig(this.maxNominationAmt, 9)
+        let res = big.times(this.axcPrice)
         return res.toLocaleString(2)
     }
 
-    get avaxPrice(): Big {
+    get axcPrice(): Big {
         return Big(this.$store.state.prices.usd)
     }
 
@@ -443,7 +443,7 @@ export default class AddValidator extends Vue {
     }
 
     get estimatedRewardUSD() {
-        return this.estimatedReward.times(this.avaxPrice)
+        return this.estimatedReward.times(this.axcPrice)
     }
 
     updateFormData() {
@@ -451,7 +451,7 @@ export default class AddValidator extends Vue {
         this.formAmt = this.stakeAmt
         this.formEnd = new Date(this.endDate)
         this.formRewardAddr = this.rewardIn
-        this.formFee = parseFloat(this.delegationFee)
+        this.formFee = parseFloat(this.nominationFee)
     }
 
     confirm() {
@@ -490,8 +490,8 @@ export default class AddValidator extends Vue {
         if (this.rewardDestination !== 'local') {
             let rewardAddr = this.rewardIn
 
-            // If it doesnt start with P
-            if (rewardAddr[0] !== 'P') {
+            // If it doesnt start with Core
+            if (rewardAddr[0] !== 'Core') {
                 this.err = this.$t('earn.validate.errs.address') as string
                 return false
             }
@@ -511,8 +511,8 @@ export default class AddValidator extends Vue {
             return false
         }
 
-        // Delegation Fee
-        if (parseFloat(this.delegationFee) < this.minFee) {
+        // Nomination Fee
+        if (parseFloat(this.nominationFee) < this.minFee) {
             this.err = this.$t('earn.validate.errs.fee', [this.minFee]) as string
             return false
         }
@@ -531,7 +531,7 @@ export default class AddValidator extends Vue {
         if (!this.formCheck()) return
         let wallet: WalletType = this.$store.state.activeWallet
 
-        // Start delegation in 5 minutes
+        // Start nomination in 5 minutes
         let startDate = new Date(Date.now() + 5 * MIN_MS)
         let endMs = this.formEnd.getTime()
         let startMs = startDate.getTime()
@@ -582,7 +582,7 @@ export default class AddValidator extends Vue {
     }
 
     async updateTxStatus(txId: string) {
-        let res = await pChain.getTxStatus(txId)
+        let res = await coreChain.getTxStatus(txId)
 
         let status
         let reason = null

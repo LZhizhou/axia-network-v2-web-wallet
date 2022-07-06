@@ -9,7 +9,7 @@
                 <label>URL</label>
                 <input
                     type="text"
-                    placeholder="http://localhost:9650"
+                    placeholder="http://localhost:80"
                     v-model="url"
                     @input="checkUrl"
                 />
@@ -49,7 +49,7 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 import punycode from 'punycode'
 
 @Component
@@ -59,11 +59,11 @@ export default class EditPage extends Vue {
     networkId = 12345
     explorer_api: string | undefined = ''
     explorer_site: string | undefined = ''
-    chainId = 'X'
+    chainId = 'Swap'
     err = null
     err_url = ''
 
-    @Prop() net!: AvaNetwork
+    @Prop() net!: AxiaNetwork
 
     mounted() {
         let net = this.net
@@ -178,14 +178,14 @@ export default class EditPage extends Vue {
 //             url: '',
 //             networkId: 12345,
 //             explorer_api: '',
-//             chainId: 'X',
+//             chainId: 'Swap',
 //             err: null,
 //             err_url: '',
 //         }
 //     },
 //     props: {
 //         net: {
-//             type: AvaNetwork,
+//             type: AxiaNetwork,
 //             required: true
 //         }
 //     },

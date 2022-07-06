@@ -7,7 +7,7 @@
                 <div class="main_cols" :wallet_view="!isNavbar">
                     <UpgradeToAccountModal></UpgradeToAccountModal>
                     <transition name="fade" mode="out-in">
-                        <router-view id="router_view" />
+                        <router-view id="router_view" :class="[isNavbar ? 'bg-style' : null]" />
                     </transition>
                 </div>
             </template>
@@ -56,7 +56,7 @@ export default {
         this.$store.commit('Accounts/loadAccounts')
         this.$store.dispatch('Assets/initErc20List')
         this.$store.dispatch('Assets/ERC721/init')
-        this.$store.dispatch('updateAvaxPrice')
+        this.$store.dispatch('updateAxcPrice')
 
         if (this.$store.state.Accounts.accounts.length > 0) {
             this.$router.push('/access')
@@ -76,22 +76,22 @@ export default {
                 vmid: 'description',
                 name: 'description',
                 content:
-                    'Avalanche wallet is a simple, highly secure, non-custodial crypto wallet for storing AVAX.',
+                    'AXIA wallet is a simple, highly secure, non-custodial crypto wallet for storing AXC.',
             },
             {
                 vmid: 'og:description',
                 name: 'description',
                 content:
-                    'Avalanche wallet is a simple, highly secure, non-custodial crypto wallet for storing AVAX.',
+                    'AXIA wallet is a simple, highly secure, non-custodial crypto wallet for storing AXC.',
             },
             {
                 vmid: 'og:title',
                 name: 'og:title',
-                content: 'Fastest Performing and Secure DeFi Wallet | Avalanche Wallet',
+                content: 'Fastest Performing and Secure DeFi Wallet | AXIA wallet',
             },
         ],
         title: 'Fastest Performing and Secure DeFi Wallet',
-        titleTemplate: '%s | Avalanche Wallet',
+        titleTemplate: '%s | AXIA wallet',
     },
 }
 </script>
@@ -117,6 +117,14 @@ export default {
     }
 }
 
+.bg-style {
+    background: linear-gradient(
+        359.99deg,
+        #fcfeff 16.91%,
+        #e7f3fe 48.95%,
+        #ffffff 99.99%
+    ) !important;
+}
 #router_view {
     min-height: calc(100vh - 80px);
     position: relative;

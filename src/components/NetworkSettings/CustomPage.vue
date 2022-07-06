@@ -15,7 +15,7 @@
                 <input
                     data-cy="custom-network-url"
                     type="text"
-                    placeholder="http://localhost:9650"
+                    placeholder="http://localhost:80"
                     v-model="url"
                     @input="checkUrl"
                 />
@@ -57,7 +57,7 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 import axios from 'axios'
 import punycode from 'punycode'
 
@@ -182,11 +182,11 @@ export default class CustomPage extends Vue {
         let validNetId = credNum || noCredNum
 
         if (!validNetId) {
-            this.err = 'Avalanche Network Not Found'
+            this.err = 'Axia Network Not Found'
             return
         }
 
-        let net = new AvaNetwork(
+        let net = new AxiaNetwork(
             this.name,
             this.url,
             validNetId,

@@ -58,10 +58,11 @@
             <div class="fees" v-if="isConfirm">
                 <p>
                     {{ $t('transfer.fee_tx') }}
-                    <span>{{ maxFeeText }} AVAX</span>
+                    <span>{{ maxFeeText }} AXC</span>
                 </p>
                 <p>
-                    <span>${{ maxFeeUSD.toLocaleString(2) }} USD</span>
+                    <!-- <span>${{ maxFeeUSD.toLocaleString(2) }} USD</span> -->
+                    <span>${{ '--' }} USD</span>
                 </p>
             </div>
             <template v-if="!isSuccess">
@@ -125,15 +126,15 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import AvaxInput from '@/components/misc/AvaxInput.vue'
+import AxcInput from '@/components/misc/AxcInput.vue'
 import { priceDict } from '@/store/types'
 import { WalletType } from '@/js/wallets/types'
-import { GasHelper, TxHelper, Utils } from '@avalabs/avalanche-wallet-sdk'
+import { GasHelper, TxHelper, Utils } from '@axia-systems/wallet-sdk'
 
 // @ts-ignore
-import { QrInput } from '@avalabs/vue_components'
+import { QrInput } from '@axia-systems/vue-components'
 import Big from 'big.js'
-import { BN } from 'avalanche'
+import { BN } from '@axia-systems/axiajs'
 import { bnToBig } from '@/helpers/helper'
 import { web3 } from '@/evm'
 import EVMInputDropdown from '@/components/misc/EVMInputDropdown/EVMInputDropdown.vue'
@@ -144,7 +145,7 @@ import { WalletHelper } from '@/helpers/wallet_helper'
 @Component({
     components: {
         EVMInputDropdown,
-        AvaxInput,
+        AxcInput,
         QrInput,
     },
 })
@@ -190,7 +191,7 @@ export default class FormC extends Vue {
     }
 
     get gasPriceNumber() {
-        return Utils.bnToBigAvaxX(this.gasPrice).toFixed(0)
+        return Utils.bnToBigAxcSwap(this.gasPrice).toFixed(0)
     }
 
     async updateGasPrice() {
@@ -228,7 +229,7 @@ export default class FormC extends Vue {
     }
 
     get symbol(): string {
-        if (this.formToken === 'native') return 'AVAX'
+        if (this.formToken === 'native') return 'AXC'
         return this.formToken.data.symbol
     }
 
@@ -245,7 +246,7 @@ export default class FormC extends Vue {
     }
 
     validateAddress(addr: string) {
-        if (addr.substring(0, 4) !== 'C-0x' && addr.substring(0, 2) !== '0x') {
+        if (addr.substring(0, 4) !== 'AX-0x' && addr.substring(0, 2) !== '0x') {
             return false
         }
 
@@ -258,19 +259,19 @@ export default class FormC extends Vue {
         let addr = this.addressIn
 
         if (!this.validateAddress(addr)) {
-            this.err = 'Invalid C Chain address. Make sure your address begins with "0x" or "C-0x"'
+            this.err = 'Invalid AXChain address. Make sure your address begins with "0x" or "AX-0x"'
             return false
         }
 
-        if (addr.substring(0, 2) === 'C-') {
+        if (addr.substring(0, 2) === 'AX-') {
             let hexStr = addr.substring(2)
             if (!web3.utils.isAddress(hexStr)) {
-                this.err = 'Not a valid C chain address.'
+                this.err = 'Not a valid AXChain address.'
                 return false
             }
         } else {
             if (!web3.utils.isAddress(addr)) {
-                this.err = 'Not a valid C chain address.'
+                this.err = 'Not a valid AXChain address.'
                 return false
             }
         }
@@ -284,11 +285,11 @@ export default class FormC extends Vue {
     }
 
     get maxFeeUSD() {
-        return Utils.bnToBigAvaxC(this.maxFee).times(this.priceDict.usd)
+        return Utils.bnToBigAxcAX(this.maxFee).times(this.priceDict.usd)
     }
 
     get maxFeeText(): string {
-        return Utils.bnToAvaxC(this.maxFee)
+        return Utils.bnToAxcAX(this.maxFee)
     }
 
     // balance - (gas * price)
@@ -304,8 +305,8 @@ export default class FormC extends Vue {
 
         if (!this.isCollectible) {
             if (this.formToken === 'native') {
-                // For AVAX Transfers
-                let gasLimit = await TxHelper.estimateAvaxGas(
+                // For AXC Transfers
+                let gasLimit = await TxHelper.estimateAxcGas(
                     this.wallet.getEvmAddress(),
                     this.formAddress,
                     this.formAmount,
@@ -409,7 +410,7 @@ export default class FormC extends Vue {
         let gasPriceWei = this.gasPrice
         let toAddress = this.formAddress
 
-        if (toAddress.substring(0, 2) === 'C-') {
+        if (toAddress.substring(0, 2) === 'AX-') {
             toAddress = toAddress.substring(2)
         }
 

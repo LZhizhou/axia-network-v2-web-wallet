@@ -1,12 +1,12 @@
-import { ava, avm, bintools, cChain, pChain } from '@/AVA'
+import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import {
     UTXOSet as PlatformUTXOSet,
     UTXO as PlatformUTXO,
-} from 'avalanche/dist/apis/platformvm/utxos'
-import { UTXO as AVMUTXO } from 'avalanche/dist/apis/avm/utxos'
+} from '@axia-systems/axiajs/dist/apis/platformvm/utxos'
+import { UTXO as AVMUTXO } from '@axia-systems/axiajs/dist/apis/avm/utxos'
 import { WalletType } from '@/js/wallets/types'
 
-import { BN, Buffer } from 'avalanche'
+import { BN, Buffer } from '@axia-systems/axiajs'
 import {
     buildCreateNftFamilyTx,
     buildEvmTransferErc20Tx,
@@ -14,7 +14,7 @@ import {
     buildEvmTransferNativeTx,
     buildMintNftTx,
 } from '@/js/TxHelper'
-import { PayloadBase } from 'avalanche/dist/utils'
+import { PayloadBase } from '@axia-systems/axiajs/dist/utils'
 import { ITransaction } from '@/components/wallet/transfer/types'
 
 import { web3 } from '@/evm'
@@ -51,7 +51,7 @@ class WalletHelper {
             utxoSet
         )
 
-        let signed = await wallet.signX(unsignedTx)
+        let signed = await wallet.signSwap(unsignedTx)
         return await avm.issueTx(signed)
     }
 
@@ -76,7 +76,7 @@ class WalletHelper {
             sourceAddresses,
             utxoSet
         )
-        let signed = await wallet.signX(tx)
+        let signed = await wallet.signSwap(tx)
         return await avm.issueTx(signed)
     }
 
@@ -87,7 +87,7 @@ class WalletHelper {
         memo: Buffer | undefined
     ): Promise<string> {
         let unsignedTx = await wallet.buildUnsignedTransaction(orders, addr, memo)
-        const tx = await wallet.signX(unsignedTx)
+        const tx = await wallet.signSwap(unsignedTx)
         const txId: string = await avm.issueTx(tx)
 
         return txId
@@ -99,7 +99,7 @@ class WalletHelper {
         amt: BN,
         start: Date,
         end: Date,
-        delegationFee: number,
+        nominationFee: number,
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
@@ -129,7 +129,7 @@ class WalletHelper {
         let startTime = new BN(Math.round(start.getTime() / 1000))
         let endTime = new BN(Math.round(end.getTime() / 1000))
 
-        const unsignedTx = await pChain.buildAddValidatorTx(
+        const unsignedTx = await coreChain.buildAddValidatorTx(
             utxoSet,
             [stakeReturnAddr],
             pAddressStrings, // from
@@ -139,14 +139,14 @@ class WalletHelper {
             endTime,
             stakeAmount,
             [rewardAddress],
-            delegationFee
+            nominationFee
         )
 
-        let tx = await wallet.signP(unsignedTx)
-        return await pChain.issueTx(tx)
+        let tx = await wallet.signCore(unsignedTx)
+        return await coreChain.issueTx(tx)
     }
 
-    static async delegate(
+    static async nominate(
         wallet: WalletType,
         nodeID: string,
         amt: BN,
@@ -180,7 +180,7 @@ class WalletHelper {
         let startTime = new BN(Math.round(start.getTime() / 1000))
         let endTime = new BN(Math.round(end.getTime() / 1000))
 
-        const unsignedTx = await pChain.buildAddDelegatorTx(
+        const unsignedTx = await coreChain.buildAddNominatorTx(
             utxoSet,
             [stakeReturnAddr],
             pAddressStrings,
@@ -192,8 +192,8 @@ class WalletHelper {
             [rewardAddress] // reward address
         )
 
-        const tx = await wallet.signP(unsignedTx)
-        return await pChain.issueTx(tx)
+        const tx = await wallet.signCore(unsignedTx)
+        return await coreChain.issueTx(tx)
     }
 
     static async getEthBalance(wallet: WalletType) {

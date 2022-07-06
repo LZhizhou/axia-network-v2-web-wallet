@@ -33,10 +33,10 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import AvaAsset from '@/js/AvaAsset'
+import AxiaAsset from '@/js/AxiaAsset'
 import BalanceRow from './BalanceRow.vue'
 import CollectibleTab from './CollectibleTab.vue'
-import { UTXO } from 'avalanche/dist/apis/avm'
+import { UTXO } from '@axia-systems/axiajs/dist/apis/avm'
 
 @Component({
     components: {
@@ -45,13 +45,13 @@ import { UTXO } from 'avalanche/dist/apis/avm'
     },
 })
 export default class BalancePopup extends Vue {
-    @Prop() assets!: AvaAsset[]
+    @Prop() assets!: AxiaAsset[]
     @Prop({ default: false }) isNft?: boolean
     @Prop({ default: () => [] }) disabledIds!: string[] // asset id | if nft the utxo id
 
     isActive: boolean = false
 
-    select(asset: AvaAsset) {
+    select(asset: AxiaAsset) {
         if (asset.amount.isZero()) return
         if (this.isDisabled(asset)) return
 
@@ -63,7 +63,7 @@ export default class BalancePopup extends Vue {
         this.closePopup()
     }
 
-    isDisabled(asset: AvaAsset): boolean {
+    isDisabled(asset: AxiaAsset): boolean {
         if (this.disabledIds.includes(asset.id)) return true
         return false
     }

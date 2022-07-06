@@ -68,17 +68,17 @@ export type TransactionType =
     | 'import'
     | 'export'
     | 'add_validator'
-    | 'add_subnet_validator'
-    | 'add_delegator'
+    | 'add_allychain_validator'
+    | 'add_nominator'
     | 'create_chain'
-    | 'create_subnet'
+    | 'create_allychain'
     | 'pvm_import'
     | 'pvm_export'
     | 'advance_time'
     | 'reward_validator'
 
 // CSV Staking Row
-export type CsvRowStakingTxType = 'add_validator' | 'add_delegator' | 'fee_received'
+export type CsvRowStakingTxType = 'add_validator' | 'add_nominator' | 'fee_received'
 export interface CsvRowStakingData {
     txId: string
     txType: CsvRowStakingTxType
@@ -88,14 +88,14 @@ export interface CsvRowStakingData {
     rewardDate: moment.Moment
     isInputOwner: boolean
     isRewardOwner: boolean
-    rewardAmtAvax: Big
+    rewardAmtAxc: Big
     rewardAmtUsd?: Big
-    avaxPrice?: number
+    axcPrice?: number
     nodeID: string
 }
 
-// CSV AVAX Transaction Row
-export interface CsvRowAvaxTransferData {
+// CSV AXC Transaction Row
+export interface CsvRowAxcTransferData {
     txId: string
     date: Date
     from?: string[]

@@ -10,13 +10,13 @@
                     v-model="showValidation"
                 ></v-checkbox>
                 <v-checkbox
-                    label="Delegation Rewards"
+                    label="Nomination Rewards"
                     dense
                     hide-details
-                    v-model="showDelegation"
+                    v-model="showNomination"
                 ></v-checkbox>
                 <v-checkbox
-                    label="Delegation Fees Received"
+                    label="Nomination Fees Received"
                     dense
                     hide-details
                     v-model="showFees"
@@ -69,7 +69,7 @@ import {
 })
 export default class ExportCsvModal extends Vue {
     showValidation = true
-    showDelegation = true
+    showNomination = true
     showFees = true
     error: Error | null = null
 
@@ -80,7 +80,7 @@ export default class ExportCsvModal extends Vue {
     }
 
     get canSubmit() {
-        return this.showDelegation || this.showValidation || this.showFees
+        return this.showNomination || this.showValidation || this.showFees
     }
 
     get transactions() {
@@ -119,20 +119,20 @@ export default class ExportCsvModal extends Vue {
             if (!isRewarded) continue
 
             let stakeAmount = getStakeAmount(tx)
-            // Use validator end time for both delegation and validations as reward date
+            // Use validator end time for both nomination and validations as reward date
             let rewardMoment = moment(tx.validatorEnd * 1000)
             let startMoment = moment(tx.validatorStart * 1000)
             let durationMoment = moment.duration(rewardMoment.diff(startMoment))
 
             let nodeID = tx.validatorNodeID
 
-            let avaxPrice = getPriceAtUnixTime(rewardMoment.unix() * 1000)
+            let axcPrice = getPriceAtUnixTime(rewardMoment.unix() * 1000)
 
             let myOuts = getOwnedOutputs(tx.outputs, myAddresses)
             let rewardOuts = getRewardOuts(myOuts)
             let rewardAmt = getOutputTotals(rewardOuts)
             let rewardAmtBig = bnToBig(rewardAmt, 9)
-            let rewardAmtUsd = avaxPrice ? rewardAmtBig.mul(avaxPrice) : undefined
+            let rewardAmtUsd = axcPrice ? rewardAmtBig.mul(axcPrice) : undefined
 
             // Did this wallet receive any rewards?
             let isRewardOwner = rewardOuts.length > 0
@@ -143,16 +143,16 @@ export default class ExportCsvModal extends Vue {
             let myInputs = getOwnedOutputs(inputOuts, myAddresses)
             let isInputOwner = myInputs.length > 0
 
-            if (type === 'add_delegator') {
-                // Skip if user did not want delegation / fee rewards
-                if (!this.showDelegation && !this.showFees) continue
+            if (type === 'add_nominator') {
+                // Skip if user did not want nomination / fee rewards
+                if (!this.showNomination && !this.showFees) continue
 
-                // If user does not want delegation fees received, continue
+                // If user does not want nomination fees received, continue
                 if (!isInputOwner && !this.showFees) continue
-                // If user does not want delegation rewards, continue
-                if (isInputOwner && !this.showDelegation) continue
+                // If user does not want nomination rewards, continue
+                if (isInputOwner && !this.showNomination) continue
 
-                let type: CsvRowStakingTxType = isInputOwner ? 'add_delegator' : 'fee_received'
+                let type: CsvRowStakingTxType = isInputOwner ? 'add_nominator' : 'fee_received'
 
                 //TODO: What if reward went to another wallet?
                 // if (rewardOuts.length === 0) {
@@ -165,9 +165,9 @@ export default class ExportCsvModal extends Vue {
                     stakeDuration: durationMoment,
                     stakeAmount: bnToBig(stakeAmount, 9),
                     rewardDate: rewardMoment,
-                    rewardAmtAvax: rewardAmtBig,
+                    rewardAmtAxc: rewardAmtBig,
                     rewardAmtUsd: rewardAmtUsd,
-                    avaxPrice: avaxPrice,
+                    axcPrice: axcPrice,
                     nodeID: nodeID,
                     isRewardOwner: isRewardOwner,
                     isInputOwner: isInputOwner,
@@ -183,9 +183,9 @@ export default class ExportCsvModal extends Vue {
                     stakeDuration: durationMoment,
                     stakeAmount: bnToBig(stakeAmount, 9),
                     rewardDate: rewardMoment,
-                    rewardAmtAvax: rewardAmtBig,
+                    rewardAmtAxc: rewardAmtBig,
                     rewardAmtUsd: rewardAmtUsd,
-                    avaxPrice: avaxPrice,
+                    axcPrice: axcPrice,
                     nodeID: nodeID,
                     isRewardOwner: isRewardOwner,
                     isInputOwner: isInputOwner,
@@ -201,8 +201,8 @@ export default class ExportCsvModal extends Vue {
             'Stake Start Date',
             'Stake Duration',
             'Reward Date',
-            'AVAX Price at Reward Date',
-            'Reward Received (AVAX)',
+            'AXC Price at Reward Date',
+            'Reward Received (AXC)',
             'Reward Received (USD)',
         ]
 

@@ -29,7 +29,7 @@
             </div>
             <div class="tot">
                 <label>{{ $t('modal.utxo_select.available') }}</label>
-                <p>{{ selectedBalanceText }} AVAX</p>
+                <p>{{ selectedBalanceText }} AXC</p>
             </div>
             <v-btn class="button_secondary" block depressed small @click="close">
                 {{ $t('modal.utxo_select.submit') }}
@@ -49,11 +49,11 @@ import {
     StakeableLockOut,
     UTXO,
     UTXOSet,
-} from 'avalanche/dist/apis/platformvm'
+} from '@axia-systems/axiajs/dist/apis/platformvm'
 
 import UtxoRow from '@/components/modals/UtxoSelect/UtxoRow.vue'
-import { BN } from 'avalanche'
-import { UnixNow } from 'avalanche/dist/utils'
+import { BN } from '@axia-systems/axiajs'
+import { UnixNow } from '@axia-systems/axiajs/dist/utils'
 import { bnToBig } from '@/helpers/helper'
 
 @Component({

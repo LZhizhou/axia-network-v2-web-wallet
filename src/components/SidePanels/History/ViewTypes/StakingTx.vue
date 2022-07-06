@@ -1,7 +1,7 @@
 <template>
     <div class="staking_tx">
         <template v-if="isRewarded">
-            <div class="data_row" v-if="!isDelegatorReward">
+            <div class="data_row" v-if="!isNominatorReward">
                 <p class="rewarded">
                     <span><fa icon="check-square"></fa></span>
                     {{ $t('transactions.rewarded') }}
@@ -16,8 +16,8 @@
                 </p>
             </div>
             <div class="data_row reward_row">
-                <p>AVAX Price at reward date</p>
-                <p v-if="rewardDateAvaxPrice">{{ rewardDateAvaxPrice.toFixed(2) }} USD</p>
+                <p>AXC Price at reward date</p>
+                <p v-if="rewardDateAxcPrice">{{ rewardDateAxcPrice.toFixed(2) }} USD</p>
                 <p v-else>Unknown</p>
             </div>
             <div class="data_row reward_row">
@@ -26,9 +26,9 @@
                 <p v-else>-</p>
             </div>
             <div class="data_row">
-                <p v-if="!isDelegatorReward">{{ $t('transactions.reward_amount') }}</p>
+                <p v-if="!isNominatorReward">{{ $t('transactions.reward_amount') }}</p>
                 <p v-else>{{ $t('transactions.fee_amount') }}</p>
-                <p class="amt">{{ rewardAmtText.toLocaleString() }} AVAX</p>
+                <p class="amt">{{ rewardAmtText.toLocaleString() }} AXC</p>
             </div>
         </template>
         <template v-else-if="!isRewarded && !!rewardTime">
@@ -72,23 +72,23 @@
                 </div>
                 <div class="data_row reward_row">
                     <p>{{ $t('transactions.reward_pending') }}</p>
-                    <p class="amt">{{ rewardText }} AVAX</p>
+                    <p class="amt">{{ rewardText }} AXC</p>
                 </div>
             </template>
         </div>
 
-        <div class="data_row" v-if="!isDelegatorReward">
+        <div class="data_row" v-if="!isNominatorReward">
             <p>{{ actionText }}</p>
-            <p class="amt">{{ amtText }} AVAX</p>
+            <p class="amt">{{ amtText }} AXC</p>
         </div>
     </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { ITransactionData } from '@/store/modules/history/types'
-import { BN } from 'avalanche'
+import { BN } from '@axia-systems/axiajs'
 import { bnToBig } from '@/helpers/helper'
-import { UnixNow } from 'avalanche/dist/utils'
+import { UnixNow } from '@axia-systems/axiajs/dist/utils'
 import { ValidatorRaw } from '@/components/misc/ValidatorList/types'
 import { WalletType } from '@/js/wallets/types'
 import { getPriceAtUnixTime } from '@/helpers/price_helper'
@@ -117,10 +117,10 @@ export default class StakingTx extends Vue {
         return this.transaction.type === 'add_validator'
     }
 
-    get isDelegatorReward() {
+    get isNominatorReward() {
         if (this.isValidator) return false
 
-        // If its a delegation, and the wallet does not own any of the inputs
+        // If its a nomination, and the wallet does not own any of the inputs
         let ins = this.transaction.inputs || []
         let inUtxos = ins.map((input) => input.output)
 
@@ -141,7 +141,7 @@ export default class StakingTx extends Vue {
         if (this.isValidator) {
             return 'Add Validator'
         } else {
-            return 'Add Delegator'
+            return 'Add Nominator'
         }
     }
 
@@ -186,7 +186,7 @@ export default class StakingTx extends Vue {
         return bnToBig(this.rewardAmt, 9)
     }
 
-    get rewardDateAvaxPrice(): number | undefined {
+    get rewardDateAxcPrice(): number | undefined {
         if (!this.endDate) return undefined
         let unixTime = this.endDate.getTime()
         let price = getPriceAtUnixTime(unixTime)
@@ -194,8 +194,8 @@ export default class StakingTx extends Vue {
     }
 
     get totalRewardUSD(): Big | undefined {
-        if (!this.rewardDateAvaxPrice) return undefined
-        return this.rewardAmtBig.times(this.rewardDateAvaxPrice)
+        if (!this.rewardDateAxcPrice) return undefined
+        return this.rewardAmtBig.times(this.rewardDateAxcPrice)
     }
 
     get rewardAmtText() {
@@ -250,10 +250,10 @@ export default class StakingTx extends Vue {
             if (this.isValidator) {
                 return v.potentialReward
             } else {
-                let delegators = v.delegators
-                if (!delegators) return null
-                for (var i = 0; i < delegators.length; i++) {
-                    let d = delegators[i]
+                let nominators = v.nominators
+                if (!nominators) return null
+                for (var i = 0; i < nominators.length; i++) {
+                    let d = nominators[i]
                     if (d.txID === this.transaction.id) {
                         return d.potentialReward
                     }

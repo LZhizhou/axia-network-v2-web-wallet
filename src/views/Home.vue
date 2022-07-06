@@ -4,14 +4,18 @@
             <b-row>
                 <b-col>
                     <div class="home_wrapper">
-                        <h1>{{ $t('home.desc') }}</h1>
+                        <h1>
+                            AXIA wallet a secure crypto wallet for the
+                            <br />
+                            AXIA Network.
+                        </h1>
                         <div class="login_wrapper">
                             <div class="login_option">
                                 <header>
                                     <div class="img_container">
                                         <img
                                             v-if="$root.theme === 'day'"
-                                            src="@/assets/diamond-primary.svg"
+                                            src="@/assets/DESIGN.png"
                                             alt
                                         />
                                         <img v-else src="@/assets/diamond-primary-night.svg" alt />
@@ -19,11 +23,12 @@
                                     <h2>{{ $t('home.access.title') }}</h2>
                                     <p>{{ $t('home.access.desc') }}</p>
                                 </header>
-                                <div>
+                                <div class="login_button">
                                     <router-link
                                         data-cy="access"
                                         to="/access"
                                         class="ava_button button_primary submit_but"
+                                        :style="{ backgroundColor: '#178fe1 !important' }"
                                     >
                                         {{ $t('home.access.submit') }}
                                     </router-link>
@@ -34,7 +39,7 @@
                                     <div class="img_container">
                                         <img
                                             v-if="$root.theme === 'day'"
-                                            src="@/assets/diamond-secondary.png"
+                                            src="@/assets/DESIGN.png"
                                             alt
                                         />
                                         <img
@@ -46,11 +51,15 @@
                                     <h2>{{ $t('home.create.title') }}</h2>
                                     <p>{{ $t('home.create.desc') }}</p>
                                 </header>
-                                <div>
+                                <div class="login_button">
                                     <router-link
                                         data-cy="create"
                                         to="/create"
                                         class="ava_button button_secondary submit_but"
+                                        :style="{
+                                            backgroundColor: ' #35B994 !important',
+                                            textAlign: 'center',
+                                        }"
                                     >
                                         {{ $t('home.create.submit') }}
                                     </router-link>
@@ -87,7 +96,7 @@ export default class Home extends Vue {}
     justify-content: center;
     align-items: flex-start;
     position: relative;
-
+    background: linear-gradient(359.99deg, #fcfeff 16.91%, #e7f3fe 48.95%, #ffffff 99.99%);
     a {
         margin: 10px;
         text-align: center;
@@ -102,24 +111,32 @@ export default class Home extends Vue {}
 
         h1 {
             text-align: center;
-            font-size: 22px;
-            font-weight: 400;
+            font-size: 40px;
+            font-weight: 500;
+            color: #004373;
         }
 
         .login_wrapper {
             margin-top: 60px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            column-gap: main.$container-padding;
-
+            column-gap: 0;
+            text-align: center;
+            background-color: #ffffff;
+            margin: auto;
+            box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+            width: 90%;
             .login_option {
                 display: flex;
                 flex-direction: column;
                 border-radius: 2px;
                 align-items: flex-start;
                 justify-content: space-between;
-                background-color: var(--bg-light);
                 padding: 60px 90px main.$container-padding main.$container-padding;
+                border-radius: 10px;
+                .login_button {
+                    margin: auto;
+                }
 
                 header {
                     margin-bottom: 60px;

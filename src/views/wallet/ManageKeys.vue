@@ -21,7 +21,10 @@
                             <fa icon="exclamation-triangle"></fa>
                             {{ $t('keys.button1') }}
                         </button>
-                        <button class="but_primary ava_button_secondary" @click="exportKeys">
+                        <button
+                            class="but_primary ava_button_secondary custom-dsn"
+                            @click="exportKeys"
+                        >
                             <fa icon="upload"></fa>
                             {{ $t('keys.button3') }}
                         </button>
@@ -129,6 +132,10 @@ h1 {
     color: var(--warning);
 }
 
+.custom-dsn {
+    background-color: #178fe1 !important;
+    color: white;
+}
 @include main.mobile-device {
     header {
         display: block;

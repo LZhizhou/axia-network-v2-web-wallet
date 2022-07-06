@@ -39,16 +39,17 @@
                         <h4>{{ $t('network.title') }}</h4>
                         <button
                             @click="viewCustom"
-                            class="button_secondary"
+                            class="secondary_button"
                             data-cy="create-custom-option"
                         >
-                            {{ $t('network.custom') }}
+                            <b>{{ $t('network.custom') }}</b>
+                            <img src="../../assets/plus.png" :style="{ marginBottom: '-7px' }" />
                         </button>
                     </template>
                     <template v-if="page === 'custom'">
                         <h4>{{ $t('network.title2') }}</h4>
                         <button @click="viewList" class="tab_cancel">
-                            {{ $t('network.cancel') }}
+                            {{ $t('network.cancel') }}.
                         </button>
                     </template>
                     <template v-if="page === 'edit'">
@@ -80,7 +81,7 @@ import NetworkRow from './NetworkRow.vue'
 import CustomPage from './CustomPage.vue'
 import ListPage from './ListPage.vue'
 import EditPage from '@/components/NetworkSettings/EditPage.vue'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 import { NetworkStatus } from '@/store/modules/network/types'
 
 @Component({
@@ -94,7 +95,7 @@ import { NetworkStatus } from '@/store/modules/network/types'
 export default class NetworkMenu extends Vue {
     page: string = 'list'
     isActive: boolean = false
-    editNetwork: AvaNetwork | null = null
+    editNetwork: AxiaNetwork | null = null
 
     viewCustom(): void {
         this.page = 'custom'
@@ -109,7 +110,7 @@ export default class NetworkMenu extends Vue {
     toggleMenu(): void {
         this.isActive = !this.isActive
     }
-    addCustomNetwork(data: AvaNetwork): void {
+    addCustomNetwork(data: AxiaNetwork): void {
         this.$store.dispatch('Network/addCustomNetwork', data)
         this.page = 'list'
     }
@@ -130,7 +131,7 @@ export default class NetworkMenu extends Vue {
         this.$store.dispatch('Network/save')
     }
 
-    onedit(network: AvaNetwork): void {
+    onedit(network: AxiaNetwork): void {
         this.editNetwork = network
         this.page = 'edit'
     }
@@ -138,10 +139,10 @@ export default class NetworkMenu extends Vue {
     get status(): NetworkStatus {
         return this.$store.state.Network.status
     }
-    get activeNetwork(): null | AvaNetwork {
+    get activeNetwork(): null | AxiaNetwork {
         return this.$store.state.Network.selectedNetwork
     }
-    get networks(): AvaNetwork[] {
+    get networks(): AxiaNetwork[] {
         return this.$store.getters('Network/allNetworks')
         // return this.$store.state.Network.networks;
     }
@@ -214,6 +215,11 @@ export default class NetworkMenu extends Vue {
 
 .tab_cancel {
     color: var(--primary-color);
+}
+
+.secondary_button {
+    color: #178fe1;
+    background-color: none;
 }
 
 .network_dispose_bg {

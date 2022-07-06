@@ -6,9 +6,9 @@
             <label>Fee</label>
             <p>{{ node.fee.toFixed(2) }}%</p>
         </div>
-        <div>
+        <!-- todo -->
+        <!-- <div>
             <label>Uptime</label>
-            <!--            <p>{{ uptimeText }}</p>-->
             <p style="font-size: 0.8rem">
                 Please refer to
                 <a :href="vscoutURL" target="_blank">VScout</a>
@@ -16,21 +16,21 @@
                 <a :href="avascanURL" target="_blank">Avascan</a>
                 to get more information about a node's uptime.
             </p>
-        </div>
+        </div> -->
         <div>
-            <label>Delegators</label>
-            <p>{{ node.numDelegators }}</p>
+            <label>Nominators</label>
+            <p>{{ node.numNominators }}</p>
         </div>
         <!--        <div class="stake_row">-->
         <!--            -->
         <!--        </div>-->
         <div>
             <label>Active Stake</label>
-            <p>{{ totalStakeBig.toLocaleString(0) }} AVAX</p>
+            <p>{{ totalStakeBig.toLocaleString(0) }} AXC</p>
         </div>
         <div>
             <label>Available Stake</label>
-            <p>{{ remainingStakeBig.toLocaleString(0) }} AVAX</p>
+            <p>{{ remainingStakeBig.toLocaleString(0) }} AXC</p>
         </div>
         <!--        <div class="dates"></div>-->
         <div class="date_row">
@@ -51,7 +51,7 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { ValidatorListItem } from '@/store/modules/platform/types'
 import { bnToBig } from '@/helpers/helper'
-import { AvaNetwork } from '@/js/AvaNetwork'
+import { AxiaNetwork } from '@/js/AxiaNetwork'
 
 @Component
 export default class NodeCard extends Vue {
@@ -65,8 +65,8 @@ export default class NodeCard extends Vue {
         return bnToBig(this.node.validatorStake, 9)
     }
 
-    get delegatedStakeBig() {
-        return bnToBig(this.node.delegatedStake, 9)
+    get nominatedStakeBig() {
+        return bnToBig(this.node.nominatedStake, 9)
     }
 
     get remainingStakeBig() {
@@ -74,11 +74,11 @@ export default class NodeCard extends Vue {
     }
 
     get totalStakeBig() {
-        return bnToBig(this.node.validatorStake.add(this.node.delegatedStake), 9)
+        return bnToBig(this.node.validatorStake.add(this.node.nominatedStake), 9)
     }
 
     get avascanURL() {
-        let activeNet: AvaNetwork = this.$store.state.Network.selectedNetwork
+        let activeNet: AxiaNetwork = this.$store.state.Network.selectedNetwork
 
         if (activeNet.networkId === 1) {
             return `https://avascan.info/staking/validator/${this.node.nodeID}`

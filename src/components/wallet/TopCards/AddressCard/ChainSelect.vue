@@ -1,8 +1,8 @@
 <template>
     <div class="chain_select">
-        <button @click="setChain('X')" :active="chain === 'X'">X</button>
-        <button @click="setChain('P')" :active="chain === 'P'">P</button>
-        <button @click="setChain('C')" :active="chain === 'C'" v-if="isEVMSupported">C</button>
+        <button @click="setChain('Swap')" :active="chain === 'Swap'">Swap</button>
+        <button @click="setChain('Core')" :active="chain === 'Core'">Core</button>
+        <button @click="setChain('AX')" :active="chain === 'AX'" v-if="isEVMSupported">AX</button>
     </div>
 </template>
 <script lang="ts">
@@ -27,6 +27,10 @@ export default class ChainSelect extends Vue {
 </script>
 <style scoped lang="scss">
 .chain_select {
+    margin: 10px;
+    margin-bottom: 0 !important;
+    border: 1px solid #9ccded;
+    border-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     font-size: 13px;
@@ -41,12 +45,15 @@ button {
     background-color: rgba(var(--bg-1), 0.5);
     &:hover {
         opacity: 1;
-        color: var(--secondary-color);
+        color: #178fe1;
     }
     &[active] {
         opacity: 1;
-        background-color: var(--bg);
-        color: var(--primary-color);
+        background: #178fe1;
+        margin: 2px;
+        border-radius: 20px;
+        padding: 5px;
+        color: #fff;
     }
 }
 </style>

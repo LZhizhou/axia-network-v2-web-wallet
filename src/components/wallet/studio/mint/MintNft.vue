@@ -9,13 +9,13 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { pChain } from '@/AVA'
+import { coreChain } from '@/AXIA'
 import { bnToBig } from '@/helpers/helper'
 import Big from 'big.js'
 
 import SelectMintUTXO from '@/components/wallet/studio/mint/SelectMintUtxo/SelectMintUTXO.vue'
 import MintForm from '@/components/wallet/studio/mint/MintForm.vue'
-import { UTXO } from 'avalanche/dist/apis/avm'
+import { UTXO } from '@axia-systems/axiajs/dist/apis/avm'
 @Component({
     components: {
         SelectMintUTXO,
@@ -27,7 +27,7 @@ export default class MintNft extends Vue {
     mintUtxo: null | UTXO = null
 
     get txFee(): Big {
-        return bnToBig(pChain.getTxFee(), 9)
+        return bnToBig(coreChain.getTxFee(), 9)
     }
 
     async submit() {

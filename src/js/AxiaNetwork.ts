@@ -2,7 +2,7 @@ import axios from 'axios'
 
 let network_id: number = 0
 
-class AvaNetwork {
+class AxiaNetwork {
     name: string
     id: number
     protocol: string
@@ -30,7 +30,7 @@ class AvaNetwork {
         this.explorerUrl = explorerUrl
         this.explorerSiteUrl = explorerSiteUrl
         this.protocol = 'http'
-        this.port = 9650
+        this.port = 80
         this.ip = 'localhost'
         this.url = url
         this.updateURL(url)
@@ -108,13 +108,13 @@ class AvaNetwork {
 
     getWsUrlX(): string {
         let protocol = this.protocol === 'https' ? 'wss' : 'ws'
-        return `${protocol}://${this.ip}:${this.port}/ext/bc/X/events`
+        return `${protocol}://${this.ip}:${this.port}/ext/bc/Swap/events`
     }
 
     getWsUrlC(): string {
         let protocol = this.protocol === 'https' ? 'wss' : 'ws'
-        return `${protocol}://${this.ip}:${this.port}/ext/bc/C/ws`
+        return `${protocol}://${this.ip}:${this.port}/ext/bc/AX/ws`
     }
 }
 
-export { AvaNetwork }
+export { AxiaNetwork }

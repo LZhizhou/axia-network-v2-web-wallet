@@ -1,6 +1,9 @@
 <template>
     <div class="nft_col">
-        <h4>{{ $t('top.balance.collectibles') }}</h4>
+        <div class="header">
+            <div class="collectible_icon"><img src="@/assets/collectibles.png" /></div>
+            <h4>{{ $t('top.balance.collectibles') }}</h4>
+        </div>
         <p v-if="isEmpty">{{ $t('top.nftempty') }}</p>
         <div v-else class="rows">
             <p>{{ statusText }}</p>
@@ -19,13 +22,13 @@
 <script lang="ts">
 import { Vue, Component, Prop, Ref, Watch } from 'vue-property-decorator'
 import { IWalletNftDict } from '@/store/types'
-import { NFTTransferOutput, UTXO } from 'avalanche/dist/apis/avm'
+import { NFTTransferOutput, UTXO } from '@axia-systems/axiajs/dist/apis/avm'
 import NftCard from '@/components/wallet/portfolio/NftCard.vue'
 import NftPayloadView from '@/components/misc/NftPayloadView/NftPayloadView.vue'
-import { PayloadBase } from 'avalanche/dist/utils'
-import { Buffer } from 'avalanche'
-import { PayloadTypes } from 'avalanche/dist/utils'
-import { bintools } from '@/AVA'
+import { PayloadBase } from '@axia-systems/axiajs/dist/utils'
+import { Buffer } from '@axia-systems/axiajs'
+import { PayloadTypes } from '@axia-systems/axiajs/dist/utils'
+import { bintools } from '@/AXIA'
 import NftFamilyCardsPreview from '@/components/misc/NftFamilyCardsPreview.vue'
 import { ERC721WalletBalance } from '@/store/modules/assets/modules/types'
 import ERC721View from '@/components/misc/ERC721View.vue'
@@ -135,6 +138,7 @@ export default class NftCol extends Vue {
 @use '../../../../main';
 
 .nft_col {
+    padding: 15px;
     p {
         font-size: 12px;
         color: var(--primary-color-light);
@@ -172,5 +176,23 @@ $nft_w: 35px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.header {
+    display: flex;
+
+    h4 {
+        margin-left: 12px;
+        flex-grow: 1;
+    }
+}
+.collectible_icon {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-color);
+
+    img {
+        object-fit: contain;
+        width: 100%;
+    }
 }
 </style>

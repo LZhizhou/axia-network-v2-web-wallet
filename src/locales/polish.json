@@ -5,15 +5,15 @@
     "address": "Adres",
     "add_pk": "Dodać prywatny klucz",
     "home": {
-        "desc": "Portfel Avalanche to prosty, bezpieczny portfel bez zabezpieczenia do przechowywania aktywów Avalanche.",
+        "desc": "Portfel Axia to prosty, bezpieczny portfel bez zabezpieczenia do przechowywania aktywów Axia.",
         "access": {
             "title": "Witamy z powrotem!",
-            "desc": "„Uzyskaj dostęp” do swojego istniejącego portfela Avalanche tutaj.",
+            "desc": "„Uzyskaj dostęp” do swojego istniejącego portfela Axia tutaj.",
             "submit": "Uzyskaj dostęp do Portfela"
         },
         "create": {
-            "title": "Nowy w portfelu Avalanche?",
-            "desc": "„Utwórz” nowy portfel, aby wysyłać, odbierać i wymieniać aktywa Avalanche.",
+            "title": "Nowy w portfelu Axia?",
+            "desc": "„Utwórz” nowy portfel, aby wysyłać, odbierać i wymieniać aktywa Axia.",
             "submit": "Stworzyćz nowy portfel"
         }
     },
@@ -58,18 +58,18 @@
         }
     },
     "create": {
-        "generate": "Wygeneruj nową frazę kluczową, aby skonfigurować portfel Avalanche.",
+        "generate": "Wygeneruj nową frazę kluczową, aby skonfigurować portfel Axia.",
         "but_have": "Czy masz już portfel?",
         "submit": "Wygenerować Kluczowa Fraza",
         "cancel": "Anulować",
         "mnemonic_title": "To jest twoja kluczowa fraza.",
         "mnemonic_desc": "Użyj tych 24 słów w kolejności, aby odzyskać swój portfel lawinowy",
         "attention": "Uwaga!",
-        "warning": "Przechowuj tę frazę kluczową w bezpiecznym miejscu. Każdy, kto ma tę kluczową frazę, może uzyskać dostęp do Twojego portfela Avalanche. Nie ma sposobu na odzyskanie utraconych fraz kluczowych.",
+        "warning": "Przechowuj tę frazę kluczową w bezpiecznym miejscu. Każdy, kto ma tę kluczową frazę, może uzyskać dostęp do Twojego portfela Axia. Nie ma sposobu na odzyskanie utraconych fraz kluczowych.",
         "confirm": "Zapisałem swoją kluczową frazę w bezpiecznym miejscu.",
         "regenerate": "Regenerować",
         "success_title": "Gratulujemy!",
-        "success_desc": "Nadszedł czas, aby uzyskać dostęp do portfela Avalanche.",
+        "success_desc": "Nadszedł czas, aby uzyskać dostęp do portfela Axia.",
         "success_submit": "Dostęp do portfela",
         "verify": "Potwierdzać",
         "verifytitle": "Potwierdzać Mnemoniczną Frazę",
@@ -78,15 +78,15 @@
         "error_word": "Podana mnemoniczna fraza nie pasuje do rzeczywistej."
     },
     "top": {
-        "title1": "Otrzymany adres portfela Avalanche",
+        "title1": "Otrzymany adres portfela Axia",
         "title2": "Saldo",
         "title3": "Podsieć",
         "title4": "Sieć",
         "nftcol": "NFTs",
         "nftempty": "Nie masz żadnych zamienne tokenów.",
         "locked": "Zablokowane",
-        "info2": "Kupiłem monety podczas wyprzedaży. Gdzie są moje tokeny AVAX?",
-        "info2_desc": "Ten portfel jest połączony z testową Avalanche Everest siecią. Twój zakup pojawi się w portfelu po uruchomieniu Avalanche Mainnet.",
+        "info2": "Kupiłem monety podczas wyprzedaży. Gdzie są moje tokeny AXC?",
+        "info2_desc": "Ten portfel jest połączony z testową Axia Everest siecią. Twój zakup pojawi się w portfelu po uruchomieniu Axia Mainnet.",
         "hover1": "Wyświetl QR kod adresu",
         "hover2": "Wydrukować",
         "hover3": "Kopiować",
@@ -101,7 +101,7 @@
             "collectibles": "Artykuły kolekcjonerskie"
         },
         "address": {
-            "derived": "Pochodny adres portfela Avalanche",
+            "derived": "Pochodny adres portfela Axia",
             "desc": "To jest Twój adres, na który należy przekazywać środki. Twój adres zmieni się po każdej wpłacie."
         }
     },
@@ -172,26 +172,26 @@
     },
     "earn": {
         "title": "Zarabiaj",
-        "desc": "Możesz zarobić więcej AVAX, stawiając swoje istniejące tokeny.",
+        "desc": "Możesz zarobić więcej AXC, stawiając swoje istniejące tokeny.",
         "subtitle1": "Ratyfikuj",
         "subtitle2": "Delegat",
         "subtitle3": "Transfer krzyżowy",
         "subtitle4": "Szacowane nagrody",
-        "warning_1": "Aby zostać walidatorem, musisz mieć co najmniej {0} AVAX w łańcuchu P.",
-        "warning_2": "Aby zostać delegatem, musisz mieć co najmniej {0} AVAX w łańcuchu P.",
+        "warning_1": "Aby zostać walidatorem, musisz mieć co najmniej {0} AXC w łańcuchu Core.",
+        "warning_2": "Aby zostać nominatem, musisz mieć co najmniej {0} AXC w łańcuchu Core.",
         "validate_card": {
             "title": "Waliduj",
-            "desc": "Masz węzeł Avalanche, z którym chcesz postawić.",
+            "desc": "Masz węzeł Axia, z którym chcesz postawić.",
             "submit": "Dodaj walidatora"
         },
-        "delegate_card": {
+        "nominate_card": {
             "title": "Delegat",
             "desc": "Nie jesteś właścicielem węzła lawinowego, ale chcesz postawić na inny węzeł.",
-            "submit": "Dodaj delegatora"
+            "submit": "Dodaj nominatora"
         },
         "transfer_card": {
             "title": "Transfer krzyżowy",
-            "desc": "Staking wymaga AVAX w łańcuchu P. Przenieś tokeny między X i P.",
+            "desc": "Staking wymaga AXC w łańcuchu Core. Przenieś tokeny między Swap i Core.",
             "submit": "Transfer"
         },
         "rewards_card": {
@@ -222,7 +222,7 @@
         "rewards": {
             "total": "Całkowite nagrody",
             "validation": "Walidacja",
-            "delegation": "Delegacja",
+            "nomination": "Delegacja",
             "empty": "Nie masz żadnych oczekujących nagród.",
             "row": {
                 "start": "Start",
@@ -242,7 +242,7 @@
             },
             "amount": {
                 "label": "Kwota stake",
-                "desc": "Kwota AVAX do zablokowania do obstawienia."
+                "desc": "Kwota AXC do zablokowania do obstawienia."
             },
             "fee": {
                 "label": "Opłata delegacyjna",
@@ -281,12 +281,12 @@
             },
             "errs": {
                 "date": "Data rozpoczęcia musi przypadać w przyszłości, a data zakończenia musi być późniejsza niż data rozpoczęcia.",
-                "amount": "Kwota stawki musi wynosić co najmniej {0} AVAX",
+                "amount": "Kwota stawki musi wynosić co najmniej {0} AXC",
                 "id": "Nieprawidłowy identyfikator węzła. Musi zaczynać się od „NodeID-”",
                 "address": "Nieprawidłowy adres nagrody."
             }
         },
-        "delegate": {
+        "nominate": {
             "list": {
                 "prompt": "Wybierz węzeł do delegowania",
                 "search": "Wyszukaj identyfikator węzła",
@@ -319,8 +319,8 @@
                 },
                 "amount": {
                     "label": "Kwota stake",
-                    "desc": "Kwota AVAX do zablokowania do obstawienia.",
-                    "desc2": "Dostępna kwota delegowania dla tego węzła to {0} AVAX"
+                    "desc": "Kwota AXC do zablokowania do obstawienia.",
+                    "desc2": "Dostępna kwota delegowania dla tego węzła to {0} AXC"
                 },
                 "reward": {
                     "label": "Adres nagrody",
@@ -339,13 +339,13 @@
             "errs": {
                 "start_now": "Czas rozpoczęcia musi być późniejszy niż aktualny czas.",
                 "start_end": "Data rozpoczęcia musi przypadać w przyszłości, a data zakończenia musi być późniejsza niż data rozpoczęcia.",
-                "invalid_addr": "Nieprawidłowy format adresu. Twój adres musi zaczynać się od „P-”",
+                "invalid_addr": "Nieprawidłowy format adresu. Twój adres musi zaczynać się od „Core-”",
                 "no_addr": "Musisz podać adres, aby otrzymać nagrody delegacji.",
                 "min_dur": "Minimalny okres obstawiania to 2 tygodnie.",
                 "max_dur": "Maksymalny okres obstawiania to 1 rok.",
                 "no_node": "Musisz określić walidator.",
                 "val_end": "Data zakończenia delegacji nie może być dłuższa niż data zakończenia walidatora.",
-                "amt": "Kwota delegacji musi wynosić co najmniej {0} AVAX."
+                "amt": "Kwota delegacji musi wynosić co najmniej {0} AXC."
             },
             "summary": {
                 "duration": "Czas trwania obstawiania",
@@ -368,8 +368,8 @@
         "import": {
             "title": "Import łańcuchowy",
             "desc": "Jeśli środki utknęły w nieudanym przelewie łańcuchowym, możesz dokończyć ich importowanie tutaj.",
-            "submit_x": "Import X",
-            "submit_p": "Import P"
+            "submit_x": "Import Swap",
+            "submit_p": "Import Core"
         }
     },
     "logout": {
@@ -388,7 +388,7 @@
         "loading": "Wczytuję historię transakcji..",
         "warn_loading": "Ta lista może być niekompletna i nieaktualna.",
         "error_api": "Nie znaleziono interfejsu Explorer API",
-        "error_api_desc": "Aby wyświetlić historię transakcji, musisz udostępnić interfejs API AVA Explorer dla tej sieci."
+        "error_api_desc": "Aby wyświetlić historię transakcji, musisz udostępnić interfejs API AXIA Explorer dla tej sieci."
     },
     "modal": {
         "qr": {

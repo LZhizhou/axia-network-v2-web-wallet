@@ -8,30 +8,30 @@
         </div>
         <p class="err" v-else-if="err">{{ err }}</p>
         <template v-if="!isLoading">
-            <v-btn block class="button_secondary" depressed @click="atomicImportX('P')" small>
-                Import X (From P)
+            <v-btn block class="button_secondary" depressed @click="atomicImportSwap('Core')" small>
+                Import Swap (From Core)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportX('C')" small>
-                Import X (From C)
+            <v-btn block class="button_secondary" depressed @click="atomicImportSwap('AX')" small>
+                Import Swap (From AX)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportP('X')" small>
-                Import P (From X)
+            <v-btn block class="button_secondary" depressed @click="atomicImportCore('Swap')" small>
+                Import Core (From Swap)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportP('C')" small>
-                Import P (From C)
+            <v-btn block class="button_secondary" depressed @click="atomicImportCore('AX')" small>
+                Import Core (From AX)
             </v-btn>
             <v-btn
                 v-if="isEVMSupported"
                 block
                 class="button_secondary"
                 depressed
-                @click="atomicImportC('X')"
+                @click="atomicImportAX('Swap')"
                 small
             >
-                Import C (from X)
+                Import AX (from Swap)
             </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportC('P')" small>
-                Import C (from P)
+            <v-btn block class="button_secondary" depressed @click="atomicImportAX('Core')" small>
+                Import AX (from Core)
             </v-btn>
         </template>
         <Spinner class="spinner" v-else></Spinner>
@@ -43,16 +43,16 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 
 import Spinner from '@/components/misc/Spinner.vue'
 import { WalletType } from '@/js/wallets/types'
-import { BN } from 'avalanche'
+import { BN } from '@axia-systems/axiajs'
 import {
-    ExportChainsC,
-    ExportChainsP,
-    ExportChainsX,
+    ExportChainsAX,
+    ExportChainsCore,
+    ExportChainsSwap,
     GasHelper,
     Network,
     NetworkHelper,
     Utils,
-} from '@avalabs/avalanche-wallet-sdk'
+} from '@axia-systems/wallet-sdk'
 
 @Component({
     components: { Spinner },
@@ -73,13 +73,13 @@ export default class ChainImport extends Vue {
         return this.wallet.ethAddress
     }
 
-    async atomicImportX(sourceChain: ExportChainsX) {
+    async atomicImportSwap(sourceChain: ExportChainsSwap) {
         this.beforeSubmit()
         if (!this.wallet) return
 
-        // // Import from C
+        // // Import from AX
         try {
-            let txId = await this.wallet.importToXChain(sourceChain)
+            let txId = await this.wallet.importToSwapChain(sourceChain)
             this.onSuccess(txId)
         } catch (e) {
             if (this.isSuccess) return
@@ -87,7 +87,7 @@ export default class ChainImport extends Vue {
         }
     }
 
-    async atomicImportP(source: ExportChainsP) {
+    async atomicImportCore(source: ExportChainsCore) {
         this.beforeSubmit()
         if (!this.wallet) return
         try {
@@ -98,7 +98,7 @@ export default class ChainImport extends Vue {
         }
     }
 
-    async atomicImportC(source: ExportChainsC) {
+    async atomicImportAX(source: ExportChainsAX) {
         this.beforeSubmit()
         if (!this.wallet) return
         try {
@@ -120,7 +120,7 @@ export default class ChainImport extends Vue {
             const gas = GasHelper.estimateImportGasFeeFromMockTx(numIns, numSigs)
 
             const totFee = baseFee.mul(new BN(gas))
-            let txId = await this.wallet.importToCChain(source, Utils.avaxCtoX(totFee))
+            let txId = await this.wallet.importToAXChain(source, Utils.axcAXtoSwap(totFee))
             this.onSuccess(txId)
         } catch (e) {
             this.onError(e)
@@ -173,8 +173,12 @@ export default class ChainImport extends Vue {
 <style scoped lang="scss">
 .v-btn {
     margin: 8px 0;
+    background: #178fe1 !important;
+    color: white !important;
 }
-
+.chain_import {
+    background-color: #fff;
+}
 .is_success {
     label {
         color: var(--primary-color-light);

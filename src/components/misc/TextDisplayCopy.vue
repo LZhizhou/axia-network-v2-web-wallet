@@ -7,7 +7,7 @@
     </div>
 </template>
 <script>
-import { CopyText } from '@avalabs/vue_components'
+import { CopyText } from '@axia-systems/vue-components'
 export default {
     components: {
         CopyText,

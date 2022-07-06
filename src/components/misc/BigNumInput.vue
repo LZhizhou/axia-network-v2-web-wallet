@@ -13,7 +13,7 @@
 </template>
 <script>
 import Big from 'big.js'
-import { BN } from 'avalanche'
+import { BN } from '@axia-systems/axiajs'
 
 export default {
     data() {

@@ -5,10 +5,10 @@
             <p>{{ $t('transfer.disconnected') }}</p>
         </div>
         <div class="card_body" v-else>
-            <FormC v-show="formType === 'C'">
+            <FormC v-show="formType === 'AX'">
                 <ChainInput v-model="formType" :disabled="isConfirm"></ChainInput>
             </FormC>
-            <div class="new_order_Form" v-show="formType === 'X'">
+            <div class="new_order_Form" v-show="formType === 'Swap'">
                 <div class="lists">
                     <ChainInput v-model="formType" :disabled="isConfirm"></ChainInput>
                     <div>
@@ -56,11 +56,12 @@
                     <div class="fees">
                         <p>
                             {{ $t('transfer.fee_tx') }}
-                            <span>{{ txFee.toLocaleString(9) }} AVAX</span>
+                            <span>{{ txFee.toLocaleString(9) }} AXC</span>
                         </p>
                         <p>
-                            {{ $t('transfer.total_avax') }}
-                            <span>{{ totalUSD.toLocaleString(2) }} USD</span>
+                            {{ $t('transfer.total_axc') }}
+                            <!-- <span>{{ totalUSD.toLocaleString(2) }} USD</span> -->
+                            <span>{{ '--' }} USD</span>
                         </p>
                     </div>
                     <div class="checkout">
@@ -141,12 +142,12 @@ import Big from 'big.js'
 import NftList from '@/components/wallet/transfer/NftList.vue'
 
 //@ts-ignore
-import { QrInput } from '@avalabs/vue_components'
-import { ava, avm, isValidAddress } from '../../AVA'
+import { QrInput } from '@axia-systems/vue-components'
+import { axia, avm, isValidAddress } from '../../AXIA'
 import FaucetLink from '@/components/misc/FaucetLink.vue'
 import { ITransaction } from '@/components/wallet/transfer/types'
-import { UTXO } from 'avalanche/dist/apis/avm'
-import { Buffer, BN } from 'avalanche'
+import { UTXO } from '@axia-systems/axiajs/dist/apis/avm'
+import { Buffer, BN } from '@axia-systems/axiajs'
 import TxSummary from '@/components/wallet/transfer/TxSummary.vue'
 import { priceDict, IssueBatchTxInput } from '@/store/types'
 import { WalletType } from '@/js/wallets/types'
@@ -156,7 +157,7 @@ import FormC from '@/components/wallet/transfer/FormC.vue'
 import { ChainIdType } from '@/constants'
 
 import ChainInput from '@/components/wallet/transfer/ChainInput.vue'
-import AvaAsset from '../../js/AvaAsset'
+import AxiaAsset from '../../js/AxiaAsset'
 import { TxState } from '@/components/wallet/earn/ChainTransfer/types'
 @Component({
     components: {
@@ -170,7 +171,7 @@ import { TxState } from '@/components/wallet/earn/ChainTransfer/types'
     },
 })
 export default class Transfer extends Vue {
-    formType: ChainIdType = 'X'
+    formType: ChainIdType = 'Swap'
     showAdvanced: boolean = false
     isAjax: boolean = false
     addressIn: string = ''
@@ -234,8 +235,8 @@ export default class Transfer extends Vue {
 
         let chain = addr.split('-')
 
-        if (chain[0] !== 'X') {
-            err.push('Invalid address. You can only send to other X addresses.')
+        if (chain[0] !== 'Swap') {
+            err.push('Invalid address. You can only send to other Swap addresses.')
         }
 
         if (!isValidAddress(addr)) {
@@ -258,7 +259,7 @@ export default class Transfer extends Vue {
         }
 
         // Make sure to address matches the bech32 network hrp
-        let hrp = ava.getHRP()
+        let hrp = axia.getHRP()
         if (!addr.includes(hrp)) {
             err.push('Not a valid address for this network.')
         }
@@ -419,20 +420,20 @@ export default class Transfer extends Vue {
 
         return res
     }
-    get avaxTxSize() {
+    get axcTxSize() {
         let res = new BN(0)
         for (var i = 0; i < this.orders.length; i++) {
             let order = this.orders[i]
             if (!order.asset) continue
-            if (order.amount && order.asset.id === this.avaxAsset.id) {
+            if (order.amount && order.asset.id === this.axcAsset.id) {
                 res = res.add(this.orders[i].amount)
             }
         }
 
         return res
     }
-    get avaxAsset(): AvaAsset {
-        return this.$store.getters['Assets/AssetAVA']
+    get axcAsset(): AxiaAsset {
+        return this.$store.getters['Assets/AssetAXIA']
     }
 
     get wallet(): WalletType {
@@ -445,7 +446,7 @@ export default class Transfer extends Vue {
     }
 
     get totalUSD(): Big {
-        let totalAsset = this.avaxTxSize.add(avm.getTxFee())
+        let totalAsset = this.axcTxSize.add(avm.getTxFee())
         let bigAmt = bnToBig(totalAsset, 9)
         let usdPrice = this.priceDict.usd
         let usdBig = bigAmt.times(usdPrice)
@@ -473,10 +474,10 @@ export default class Transfer extends Vue {
 
         if (this.$route.query.chain) {
             let chain = this.$route.query.chain as string
-            if (chain === 'X') {
-                this.formType = 'X'
+            if (chain === 'Swap') {
+                this.formType = 'Swap'
             } else {
-                this.formType = 'C'
+                this.formType = 'AX'
             }
         }
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="avax_input">
+    <div class="axc_input">
         <div class="col1 hover_border">
             <button class="max_but" @click="maxOut" v-if="max">MAX</button>
             <BigNumInput
@@ -12,16 +12,20 @@
                 @change="amount_in"
             ></BigNumInput>
         </div>
-        <p class="ticker">AVAX</p>
+        <p class="ticker">AXC</p>
         <div v-if="balance" class="balance">
             <div>
                 <p>
                     <b>{{ $t('misc.balance') }}:</b>
                     {{ balance.toLocaleString() }}
                 </p>
-                <p>
+                <!-- <p>
                     <b>$</b>
                     {{ amountUSD.toLocaleString(2) }}
+                </p> -->
+                <p>
+                    <b>$</b>
+                    {{ '--' }}
                 </p>
             </div>
             <div></div>
@@ -31,10 +35,10 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop, Model } from 'vue-property-decorator'
-import { Utils, Big } from '@avalabs/avalanche-wallet-sdk'
+import { Utils, Big } from '@axia-systems/wallet-sdk'
 //@ts-ignore
-import { BigNumInput } from '@avalabs/vue_components'
-import { BN } from 'avalanche'
+import { BigNumInput } from '@axia-systems/vue-components'
+import { BN } from '@axia-systems/axiajs'
 import { priceDict } from '../../store/types'
 
 @Component({
@@ -42,7 +46,7 @@ import { priceDict } from '../../store/types'
         BigNumInput,
     },
 })
-export default class AvaxInput extends Vue {
+export default class AxcInput extends Vue {
     @Model('change', { type: Object }) readonly amount!: BN
 
     @Prop({
@@ -78,7 +82,7 @@ export default class AvaxInput extends Vue {
 <style scoped lang="scss">
 @use '../../main';
 
-.avax_input {
+.axc_input {
     display: grid;
     grid-template-columns: 1fr max-content;
     grid-gap: 0px 10px;
@@ -102,7 +106,6 @@ export default class AvaxInput extends Vue {
     .ticker,
     .amt_in,
     .max_but {
-        background-color: var(--bg-light);
         //border-radius: 3px;
     }
 }
@@ -135,9 +138,8 @@ export default class AvaxInput extends Vue {
 }
 
 .col1 {
-    border-radius: 3px;
-    background-color: var(--bg-light);
-    border: 1px solid transparent;
+    border: 2px solid #e6e8ec;
+    border-radius: 12px;
     //display: flex;
     display: grid;
     grid-template-columns: max-content 1fr;

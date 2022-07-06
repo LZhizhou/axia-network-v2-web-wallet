@@ -5,6 +5,14 @@
             <sidebar class="panel sidenav"></sidebar>
         </transition>
         <div class="wallet_main">
+            <div class="top_bar">
+                <div class="search" :style="{ width: '80%' }">
+                    <img src="@/assets/search.png" />
+                    <input type="text" v-model="search" placeholder="Search" class="search-box" />
+                </div>
+                <transaction-history-side-panel class="net_menu"></transaction-history-side-panel>
+                <network-menu class="net_menu"></network-menu>
+            </div>
             <top-info class="wallet_top"></top-info>
             <transition name="page_fade" mode="out-in">
                 <keep-alive
@@ -14,9 +22,6 @@
                 </keep-alive>
             </transition>
         </div>
-        <transition name="fade" mode="out-in">
-            <main-panel class="panel"></main-panel>
-        </transition>
     </div>
 </template>
 
@@ -26,6 +31,8 @@ import TopInfo from '@/components/wallet/TopInfo.vue'
 import Sidebar from '@/components/wallet/Sidebar.vue'
 import MainPanel from '@/components/SidePanels/MainPanel.vue'
 import UpdateKeystoreModal from '@/components/modals/UpdateKeystore/UpdateKeystoreModal.vue'
+import NetworkMenu from '@/components/NetworkSettings/NetworkMenu.vue'
+import TransactionHistorySidePanel from '@/components/SidePanels/TransactionHistorySidePanel.vue'
 
 const TIMEOUT_DURATION = 60 * 7 // in seconds
 const TIMEOUT_DUR_MS = TIMEOUT_DURATION * 1000
@@ -36,6 +43,8 @@ const TIMEOUT_DUR_MS = TIMEOUT_DURATION * 1000
         MainPanel,
         TopInfo,
         UpdateKeystoreModal,
+        NetworkMenu,
+        TransactionHistorySidePanel,
     },
 })
 export default class Wallet extends Vue {
@@ -116,33 +125,73 @@ export default class Wallet extends Vue {
 .wallet_view {
     padding-bottom: 0;
     display: grid;
-    grid-template-columns: 200px 1fr 300px;
+    grid-template-columns: 200px 1fr;
     column-gap: 15px;
     height: 100%;
-    background-color: var(--bg-wallet);
+    background: #f8f9fa;
+}
+
+.top_bar {
+    display: flex;
+    padding: 20px 0px;
 }
 
 .sidenav {
     background-color: var(--bg-wallet-light);
 }
 
+.search {
+    height: 46px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    flex-basis: 68%;
+    flex-shrink: 1;
+    border: 1.6px solid #e6e8ec;
+    filter: drop-shadow(0px 8.1px 149.091px rgba(0, 0, 0, 0.04725));
+    border-radius: 12px;
+    margin-right: 20px;
+
+    $icon_w: 36px;
+    img {
+        border-radius: 4px;
+        padding: 10px 0px;
+        /*height: 100%;*/
+        height: $icon_w;
+        width: $icon_w;
+        object-fit: contain;
+    }
+    .search-box {
+        //     padding: 5px;
+        //     padding-left: 20px;
+        width: 85%;
+    }
+    .search-box:hover {
+        border: none !important;
+    }
+}
 .panel {
     overflow: auto;
     height: 100%;
+    border-right: 1px solid #e6e8ec;
+    background: #f8f9fa;
 }
 
 .wallet_main {
     height: 100%;
+    padding: 5px 20px;
     display: grid;
-    grid-template-rows: max-content 1fr;
+    grid-template-rows: 45px max-content 1fr;
     grid-gap: 15px;
     padding-top: 8px;
 }
 
 #wallet_router {
     padding: 22px 20px;
-    background-color: var(--bg-wallet-light);
-    border-radius: 4px;
+    background: #ffffff;
+    box-shadow: 0px 4px 16px rgba(20, 92, 143, 0.08);
+    border-radius: 12px;
 }
 
 .page_fade-enter-active,

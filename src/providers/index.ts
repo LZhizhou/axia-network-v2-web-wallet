@@ -1,9 +1,9 @@
-import { AvaNetwork } from '../js/AvaNetwork'
+import { AxiaNetwork } from '../js/AxiaNetwork'
 import { connectSocketX } from '@/providers/socket_x'
 import { connectSocketC } from '@/providers/socket_c'
 
-export function setSocketNetwork(network: AvaNetwork) {
-    // Setup X chain connection
+export function setSocketNetwork(network: AxiaNetwork) {
+    // Setup SwapChain connection
     connectSocketX(network)
     // Setup EVM socket connection
     connectSocketC(network)

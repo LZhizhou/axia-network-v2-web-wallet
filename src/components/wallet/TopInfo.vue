@@ -28,10 +28,10 @@ export default {
     color: var(--primary-color);
     flex-shrink: 0;
     //display: flex;
-    background-color: var(--bg-wallet-light);
-    padding: 12px 20px;
+    // background-color: var(--bg-wallet-light);
+    padding: 12px 0;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 12px;
     animation-name: fade;
     animation-duration: 0.6s;
     animation-timing-function: ease-out;

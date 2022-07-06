@@ -84,6 +84,12 @@ $addrSize: 14px;
 
 .search_address {
     position: relative;
+    .hover_border {
+        background-color: white !important;
+        padding: 10px;
+        border: 2px solid #edeef5;
+        border-radius: 12px;
+    }
 }
 
 .no_overflow_addr {

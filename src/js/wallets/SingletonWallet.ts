@@ -1,41 +1,45 @@
-import { ava, avm, bintools, cChain, pChain } from '@/AVA'
+import { axia, avm, bintools, axChain, coreChain } from '@/AXIA'
 import { ITransaction } from '@/components/wallet/transfer/types'
 import { digestMessage } from '@/helpers/helper'
 import { WalletNameType } from '@/js/wallets/types'
 
-import { Buffer as BufferAvalanche, BN } from 'avalanche'
+import { Buffer as BufferAxia, BN } from '@axia-systems/axiajs'
 import {
     KeyPair as AVMKeyPair,
     KeyChain as AVMKeyChain,
     UTXOSet as AVMUTXOSet,
     UTXO,
     UnsignedTx,
-} from 'avalanche/dist/apis/avm'
+} from '@axia-systems/axiajs/dist/apis/avm'
 import {
     KeyPair as PlatformKeyPair,
     KeyChain as PlatformKeyChain,
     UTXOSet as PlatformUTXOSet,
     UTXOSet,
-} from 'avalanche/dist/apis/platformvm'
-import { KeyChain, KeyChain as EVMKeyChain, UTXOSet as EVMUTXOSet } from 'avalanche/dist/apis/evm'
-import { PayloadBase } from 'avalanche/dist/utils'
+} from '@axia-systems/axiajs/dist/apis/platformvm'
+import {
+    KeyChain,
+    KeyChain as EVMKeyChain,
+    UTXOSet as EVMUTXOSet,
+} from '@axia-systems/axiajs/dist/apis/evm'
+import { PayloadBase } from '@axia-systems/axiajs/dist/utils'
 import { buildUnsignedTransaction } from '../TxHelper'
 import { AvaWalletCore, UnsafeWallet } from './types'
-import { UTXO as PlatformUTXO } from 'avalanche/dist/apis/platformvm/utxos'
+import { UTXO as PlatformUTXO } from '@axia-systems/axiajs/dist/apis/platformvm/utxos'
 import { privateToAddress } from 'ethereumjs-util'
-import { Tx as AVMTx, UnsignedTx as AVMUnsignedTx } from 'avalanche/dist/apis/avm/tx'
+import { Tx as AVMTx, UnsignedTx as AVMUnsignedTx } from '@axia-systems/axiajs/dist/apis/avm/tx'
 import {
     Tx as PlatformTx,
     UnsignedTx as PlatformUnsignedTx,
-} from 'avalanche/dist/apis/platformvm/tx'
-import { Tx as EvmTx, UnsignedTx as EVMUnsignedTx } from 'avalanche/dist/apis/evm/tx'
+} from '@axia-systems/axiajs/dist/apis/platformvm/tx'
+import { Tx as EvmTx, UnsignedTx as EVMUnsignedTx } from '@axia-systems/axiajs/dist/apis/evm/tx'
 import Erc20Token from '@/js/Erc20Token'
 import { WalletCore } from '@/js/wallets/WalletCore'
 import { WalletHelper } from '@/helpers/wallet_helper'
 import { avmGetAllUTXOs, platformGetAllUTXOs } from '@/helpers/utxo_helper'
-import { UTXO as AVMUTXO } from 'avalanche/dist/apis/avm/utxos'
+import { UTXO as AVMUTXO } from '@axia-systems/axiajs/dist/apis/avm/utxos'
 import { Transaction } from '@ethereumjs/tx'
-import { ExportChainsC, ExportChainsP, ExportChainsX } from '@avalabs/avalanche-wallet-sdk'
+import { ExportChainsAX, ExportChainsCore, ExportChainsSwap } from '@axia-systems/wallet-sdk'
 
 class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet {
     keyChain: AVMKeyChain
@@ -66,9 +70,9 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         this.key = pk
 
         this.chainId = avm.getBlockchainAlias() || avm.getBlockchainID()
-        this.chainIdP = pChain.getBlockchainAlias() || pChain.getBlockchainID()
+        this.chainIdP = coreChain.getBlockchainAlias() || coreChain.getBlockchainID()
 
-        let hrp = ava.getHRP()
+        let hrp = axia.getHRP()
 
         this.keyChain = new AVMKeyChain(hrp, this.chainId)
         this.keyPair = this.keyChain.importKey(pk)
@@ -87,9 +91,9 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         this.ethAddress = privateToAddress(pkBuffNative).toString('hex')
         this.ethBalance = new BN(0)
 
-        let cPrivKey = `PrivateKey-` + bintools.cb58Encode(BufferAvalanche.from(pkBuf))
+        let cPrivKey = `PrivateKey-` + bintools.cb58Encode(BufferAxia.from(pkBuf))
         this.ethKeyBech = cPrivKey
-        let cKeyChain = new KeyChain(ava.getHRP(), 'C')
+        let cKeyChain = new KeyChain(axia.getHRP(), 'AX')
         this.ethKeyChain = cKeyChain
 
         let cKeypair = cKeyChain.importKey(cPrivKey)
@@ -198,7 +202,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
     async buildUnsignedTransaction(
         orders: (ITransaction | UTXO)[],
         addr: string,
-        memo?: BufferAvalanche
+        memo?: BufferAxia
     ) {
         const changeAddress = this.getChangeAddressAvm()
         const derivedAddresses = this.getDerivedAddresses()
@@ -217,7 +221,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
     async issueBatchTx(
         orders: (ITransaction | AVMUTXO)[],
         addr: string,
-        memo: BufferAvalanche | undefined
+        memo: BufferAxia | undefined
     ): Promise<string> {
         return await WalletHelper.issueBatchTx(this, orders, addr, memo)
     }
@@ -227,7 +231,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
     }
 
     onnetworkchange(): void {
-        let hrp = ava.getHRP()
+        let hrp = axia.getHRP()
 
         this.keyChain = new AVMKeyChain(hrp, this.chainId)
         this.utxoset = new AVMUTXOSet()
@@ -238,7 +242,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         this.platformKeyPair = this.platformKeyChain.importKey(this.key)
 
         // Update EVM values
-        this.ethKeyChain = new EVMKeyChain(ava.getHRP(), 'C')
+        this.ethKeyChain = new EVMKeyChain(axia.getHRP(), 'AX')
         let cKeypair = this.ethKeyChain.importKey(this.ethKeyBech)
         this.ethAddressBech = cKeypair.getAddressString()
         this.ethBalance = new BN(0)
@@ -246,20 +250,20 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         this.getUTXOs()
     }
 
-    async signX(unsignedTx: AVMUnsignedTx): Promise<AVMTx> {
+    async signSwap(unsignedTx: AVMUnsignedTx): Promise<AVMTx> {
         let keychain = this.keyChain
 
         const tx = unsignedTx.sign(keychain)
         return tx
     }
 
-    async signP(unsignedTx: PlatformUnsignedTx): Promise<PlatformTx> {
+    async signCore(unsignedTx: PlatformUnsignedTx): Promise<PlatformTx> {
         let keychain = this.platformKeyChain
         const tx = unsignedTx.sign(keychain)
         return tx
     }
 
-    async signC(unsignedTx: EVMUnsignedTx): Promise<EvmTx> {
+    async signAX(unsignedTx: EVMUnsignedTx): Promise<EvmTx> {
         let keyChain = this.ethKeyChain
         return unsignedTx.sign(keyChain)
     }
@@ -273,13 +277,13 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         let digest = digestMessage(msgStr)
 
         let digestHex = digest.toString('hex')
-        let digestBuff = BufferAvalanche.from(digestHex, 'hex')
+        let digestBuff = BufferAxia.from(digestHex, 'hex')
         let signed = this.keyPair.sign(digestBuff)
 
         return bintools.cb58Encode(signed)
     }
 
-    async delegate(
+    async nominate(
         nodeID: string,
         amt: BN,
         start: Date,
@@ -287,7 +291,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
-        return await WalletHelper.delegate(this, nodeID, amt, start, end, rewardAddress, utxos)
+        return await WalletHelper.nominate(this, nodeID, amt, start, end, rewardAddress, utxos)
     }
 
     async validate(
@@ -295,7 +299,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
         amt: BN,
         start: Date,
         end: Date,
-        delegationFee: number = 0,
+        nominationFee: number = 0,
         rewardAddress?: string,
         utxos?: PlatformUTXO[]
     ): Promise<string> {
@@ -305,7 +309,7 @@ class SingletonWallet extends WalletCore implements AvaWalletCore, UnsafeWallet 
             amt,
             start,
             end,
-            delegationFee,
+            nominationFee,
             rewardAddress,
             utxos
         )
