@@ -18,7 +18,7 @@
         "test": "jest --verbose ./tests"
     },
     "dependencies": {
-        "@axia-systems/axiajs": "^3.0.0",
+        "@axia-systems/axiajs": "^3.0.1",
         "@axia-systems/hd-wallet": "^1.0.0",
         "@axia-systems/vue-components": "^3.0.0",
         "@axia-systems/wallet-sdk": "^3.0.0",
