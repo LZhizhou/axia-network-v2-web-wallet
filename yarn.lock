@@ -2,32 +2,10 @@
 # yarn lockfile v1
 
 
-"@axia-systems/axiajs@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-3.0.0.tgz#1c54eee982414dca823f21f789caa580c71a9a01"
-  integrity sha512-eFE2IlhmWPWzgmRYR8ma/UsNXBr+lOin3kkOheHErv0Jfean23s8Wy8KcNCXBrowgMqansVZTrCYxLQQ6rw9qw==
-  dependencies:
-    assert "2.0.0"
-    axios "0.27.2"
-    bech32 "2.0.0"
-    bip39 "3.0.4"
-    bn.js "5.2.1"
-    buffer "6.0.3"
-    create-hash "1.2.0"
-    crypto-browserify "3.12.0"
-    elliptic "6.5.4"
-    ethers "5.6.4"
-    hdkey "2.0.1"
-    isomorphic-ws "4.0.1"
-    store2 "2.13.2"
-    stream-browserify "3.0.0"
-    ws "8.5.0"
-    xss "1.0.11"
-
-"@axia-systems/axiajs@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-3.0.1.tgz#1fd0fceb864c31be9b27afdd5c54546db44d2a7c"
-  integrity sha512-TJHRWC4TrMJ3ji7WKZcNJIqPwnzljqOMitHACycxpMOCl0on4gzrIEG89ZrEdh6yywTw82Xg2pWC93iGfi1aPg==
+"@axia-systems/axiajs@^3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-3.0.4.tgz#e5e9b5677dcbc5fcf0c0af6bb80585a7c5919316"
+  integrity sha512-fOjcC86k3ddLZewh5vX3FU40Wre0lL30PxVxqLdgnC5iX73dgdtUQWN9UoZLHanfFbIa2GABUJpzO4SRoEUe4Q==
   dependencies:
     assert "2.0.0"
     axios "0.27.2"
@@ -56,12 +34,12 @@
     create-hash "1.2.0"
     jest "^26.4.1"
 
-"@axia-systems/vue-components@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@axia-systems/vue-components/-/vue-components-3.0.0.tgz#c0e8b1c4d24cd03fb7d4187c2dfe2846587c6b1e"
-  integrity sha512-JlQKMkJ/02LgDvBFn37J2PFv60tcT7UUHp5ucI08Q94PNNQsDq1/X5N9rVjOCTA+You1xJv1bXofuIJ7bQWorQ==
+"@axia-systems/vue-components@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@axia-systems/vue-components/-/vue-components-3.0.3.tgz#9ba07aeaec83b156819697a2b3f57fb8c7c75002"
+  integrity sha512-HLY74D7paiFV/pj5QCqUyjitHsav/ErPF3uRfPMmYtZUUDFXtXIzu7iqeW3MnsSKaCPW1NQ1dvAhs/GtT7cMLw==
   dependencies:
-    "@axia-systems/axiajs" "^3.0.0"
+    "@axia-systems/axiajs" "^3.0.4"
     "@fortawesome/fontawesome-svg-core" "^1.2.27"
     "@fortawesome/free-solid-svg-icons" "^5.12.1"
     "@fortawesome/vue-fontawesome" "^0.1.9"
@@ -69,10 +47,10 @@
     core-js "^3.6.4"
     vue "^2.6.11"
 
-"@axia-systems/wallet-sdk@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@axia-systems/wallet-sdk/-/wallet-sdk-3.0.0.tgz#bb747bdae49b5e66e2b51f8c86bbdc35074c6308"
-  integrity sha512-RzCyjwjzGdn14SAN/95YOU5G4uDUUrxBQ7ceOFzdsriCRjOgH9dbxqnttNSxxer+OFhwprmhAcCwolSBdFjn2w==
+"@axia-systems/wallet-sdk@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@axia-systems/wallet-sdk/-/wallet-sdk-3.0.2.tgz#303652ea834e77839032f30ded8fabee4d427c68"
+  integrity sha512-5pMaisvTjG3Dg7CnIyrl7I4Di6nwpZg9AEw0LMRRvG1XRbH1GL9w2bRZv0k8FZRnL91EV9EicpDH2OtN5ScMZA==
   dependencies:
     "@axia-systems/hd-wallet" "^1.0.0"
     "@ethereumjs/common" "2.6.0"
@@ -5884,9 +5862,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001219:
-  version "1.0.30001283"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001283.tgz"
-  integrity sha512-9RoKo841j1GQFSJz/nCXOj0sD7tHBtlowjYlrqIUS812x9/emfBLBt6IyMz1zIaYc/eRL8Cs6HPUVi2Hzq4sIg==
+  version "1.0.30001363"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001363.tgz"
+  integrity sha512-HpQhpzTGGPVMnCjIomjt+jvyUu8vNFo3TaDiZ/RcoTrlOq/5+tC8zHdsbgFB6MxmaY+jCpsH09aD80Bb4Ow3Sg==
 
 canvas-renderer@~2.1.1:
   version "2.1.1"

@@ -182,16 +182,16 @@ const network_module: Module<NetworkState, RootState> = {
                 'https://1.p2p-v2.mainnet.axiacoin.network:443',
                 1,
                 'https://magellan-v2.mainnet.axiacoin.network',
-                'https://axscan-v2.mainnet.axiacoin.network',
+                'https://appchain-v2.mainnet.axiacoin.network',
                 true
             )
 
             let testnet = new AxiaNetwork(
                 'Testnet',
                 'https://1.p2p-v2.testnet.axiacoin.network:443',
-                5678,
+                5,
                 'https://magellan-v2.testnet.axiacoin.network',
-                'https://axscan-v2.testnet.axiacoin.network',
+                'https://appchain-v2.mainnet.axiacoin.network',
                 true
             )
 
