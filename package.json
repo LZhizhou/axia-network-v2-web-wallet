@@ -18,10 +18,10 @@
         "test": "jest --verbose ./tests"
     },
     "dependencies": {
-        "@axia-systems/axiajs": "^3.0.7",
+        "@axia-systems/axiajs": "^3.0.8",
         "@axia-systems/hd-wallet": "^1.0.0",
-        "@axia-systems/vue-components": "^3.0.3",
-        "@axia-systems/wallet-sdk": "^3.0.2",
+        "@axia-systems/vue-components": "^3.0.4",
+        "@axia-systems/wallet-sdk": "^3.0.4",
         "@ethereumjs/common": "2.0.0",
         "@ethereumjs/tx": "3.0.0",
         "@fortawesome/fontawesome-svg-core": "1.2.26",
