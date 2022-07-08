@@ -24,10 +24,10 @@
     ws "8.5.0"
     xss "1.0.11"
 
-"@axia-systems/axiajs@^3.0.6":
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-3.0.6.tgz#5f57bcf4fd3c8af79c192f2b45e511c920233490"
-  integrity sha512-c4hpBlogrv6EtQVi8tbV45dtL0lm5aTRJ/fZqHbOpMlk5WOaJoEXA18jphOyquQ8l4EBjI8fVQ2jyt9pwK60Cw==
+"@axia-systems/axiajs@^3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-3.0.7.tgz#d58407d4a1cecfdcf046cb085d7f4885f59f3429"
+  integrity sha512-KeF5on7sMOYTJNp/aaN2NQpBZ6rtKxkyJUhFXn9vD+pBRmdIoP0W6E3nQ9yd43croTO17uPKT46WGY4mvyWH4Q==
   dependencies:
     assert "2.0.0"
     axios "0.27.2"
