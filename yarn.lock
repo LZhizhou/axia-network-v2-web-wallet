@@ -2,32 +2,10 @@
 # yarn lockfile v1
 
 
-"@axia-systems/axiajs@^3.0.10":
-  version "3.0.10"
-  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-3.0.10.tgz#3610677b98bdf21fe720efca8a69cb4ef4bbb41b"
-  integrity sha512-BvevyYFc0UtXUiGgtemkpkaeSWbFZyuGSQ6bznnuPzwHdiZFfi0AfvcY+pUaloQ97FWek5+BGX4KxtcChbW8sw==
-  dependencies:
-    assert "2.0.0"
-    axios "0.27.2"
-    bech32 "2.0.0"
-    bip39 "3.0.4"
-    bn.js "5.2.1"
-    buffer "6.0.3"
-    create-hash "1.2.0"
-    crypto-browserify "3.12.0"
-    elliptic "6.5.4"
-    ethers "5.6.4"
-    hdkey "2.0.1"
-    isomorphic-ws "4.0.1"
-    store2 "2.13.2"
-    stream-browserify "3.0.0"
-    ws "8.5.0"
-    xss "1.0.11"
-
-"@axia-systems/axiajs@^3.0.9":
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-3.0.9.tgz#840993279623c292a9009318612aa49a2b86e9dc"
-  integrity sha512-zbcoRY68SHTgtnIDo4gGlC/afsMMWktvN9V1PQolL70yZ/jhLWg8Wu00QUQe5OzHsEwo2/w6GgqtwsKfBr8bWw==
+"@axia-systems/axiajs@^2.0.10":
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-2.0.10.tgz#2aa8f71d12ea36a5589c872183260ce78b65e94a"
+  integrity sha512-esMP/jx2bIVVCg53RjbPbM54tI9noXQNjYf1DBnKSv/UlXUZ/Fdj66+zvwtBNjyH19yfcRKbOU/jPBs56sPbCw==
   dependencies:
     assert "2.0.0"
     axios "0.27.2"
@@ -56,12 +34,22 @@
     create-hash "1.2.0"
     jest "^26.4.1"
 
-"@axia-systems/vue-components@^3.0.5":
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@axia-systems/vue-components/-/vue-components-3.0.5.tgz#9bf341c3596216d2b38c51d18ae32a4a83bbde1c"
-  integrity sha512-ZniIRzAZNACLSBgUaUatZUtMEtYa/jCTuzORNk7QSsW33zotCneEeShAQp+jDelASsadGBxPJ1w7ojKcGFXYdA==
+"@axia-systems/hd-wallet@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@axia-systems/hd-wallet/-/hd-wallet-2.0.0.tgz#4f25b5231ac1b3e9c0ac561b2b5470f96530c0bb"
+  integrity sha512-xODBpFcv7YJMQbfSwgGNJMc4N93/hoD2xu4qDzhtFHPBP2DDt+QRkj9mJC2opfbbNBuV+pq8v5U5BsevNkinog==
   dependencies:
-    "@axia-systems/axiajs" "^3.0.9"
+    "@ledgerhq/hw-transport" "^6.3.0"
+    bip32-path "0.4.2"
+    create-hash "1.2.0"
+    jest "^26.4.1"
+
+"@axia-systems/vue-components@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@axia-systems/vue-components/-/vue-components-2.0.5.tgz#b6b4d664eda809ba5b68dc64ef7796492a6c924e"
+  integrity sha512-2HKKo9k9fmGchmf04PntT+7OWjiImtAc+kUjgwXYol13eMXtFnUq2Y/qix8PCyUlHNPsvQvRhkotmctgKuWXvw==
+  dependencies:
+    "@axia-systems/axiajs" "^2.0.10"
     "@fortawesome/fontawesome-svg-core" "^1.2.27"
     "@fortawesome/free-solid-svg-icons" "^5.12.1"
     "@fortawesome/vue-fontawesome" "^0.1.9"
@@ -69,10 +57,10 @@
     core-js "^3.6.4"
     vue "^2.6.11"
 
-"@axia-systems/wallet-sdk@^3.0.5":
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@axia-systems/wallet-sdk/-/wallet-sdk-3.0.5.tgz#a46f177a8562e5b064c967f923148f94e290bd20"
-  integrity sha512-j6UxdK4h9u77tMxJl/pYwhTiE/j1zEntSANT71Hv2wy7b2sfur7xr8QfcKXu6eUnTLUllDVVioPvwBC8QJa/LA==
+"@axia-systems/wallet-sdk@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@axia-systems/wallet-sdk/-/wallet-sdk-2.0.6.tgz#8f5d7c5e39eb486d362169aa9e58eedebc3e39f5"
+  integrity sha512-zz1077B/2sUlygJY5i29HuYJGD4K2KbGI9VimczneGs/4jj1xlbHEOkk39luDD4DGpEshGzirIjXKf7u2LPNzg==
   dependencies:
     "@axia-systems/hd-wallet" "^1.0.0"
     "@ethereumjs/common" "2.6.0"

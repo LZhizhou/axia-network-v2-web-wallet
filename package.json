@@ -1,7 +1,7 @@
 {
     "name": "wallet",
     "private": true,
-    "version": "3.0.0",
+    "version": "2.0.0",
     "engines": {
         "node": "15.x"
     },
@@ -18,10 +18,10 @@
         "test": "jest --verbose ./tests"
     },
     "dependencies": {
-        "@axia-systems/axiajs": "^3.0.10",
-        "@axia-systems/hd-wallet": "^1.0.0",
-        "@axia-systems/vue-components": "^3.0.5",
-        "@axia-systems/wallet-sdk": "^3.0.5",
+        "@axia-systems/axiajs": "^2.0.10",
+        "@axia-systems/hd-wallet": "^2.0.0",
+        "@axia-systems/vue-components": "^2.0.5",
+        "@axia-systems/wallet-sdk": "^2.0.6",
         "@ethereumjs/common": "2.0.0",
         "@ethereumjs/tx": "3.0.0",
         "@fortawesome/fontawesome-svg-core": "1.2.26",

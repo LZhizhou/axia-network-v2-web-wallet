@@ -38,7 +38,7 @@ import { SingletonWallet } from '@/js/wallets/SingletonWallet'
 import { Buffer } from '@axia-systems/axiajs'
 import { privateToAddress } from 'ethereumjs-util'
 import { updateFilterAddresses } from '../providers'
-import { getAxcPriceUSD } from '@/helpers/price_helper'
+// import { getAxcPriceUSD } from '@/helpers/price_helper'
 
 export default new Vuex.Store({
     modules: {
@@ -353,11 +353,11 @@ export default new Vuex.Store({
             }
         },
 
-        async updateAxcPrice(store) {
-            let usd = await getAxcPriceUSD()
-            store.state.prices = {
-                usd,
-            }
-        },
+        // async updateAxcPrice(store) {
+        //     let usd = await getAxcPriceUSD()
+        //     store.state.prices = {
+        //         usd,
+        //     }
+        // },
     },
 })
