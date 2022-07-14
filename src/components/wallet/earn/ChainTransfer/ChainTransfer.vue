@@ -55,6 +55,11 @@
                                 block
                                 depressed
                                 :loading="isLoading"
+                                :style="{
+                                    borderRadius: '12px',
+                                    background: 'rgb(23, 143, 225) !important',
+                                    color: 'white',
+                                }"
                             >
                                 {{ $t('earn.transfer.confirm') }}
                             </v-btn>

@@ -1,5 +1,13 @@
 <template>
-    <v-banner sticky class="url_banner" color="#f00" ref="banner">
+    <v-banner
+        sticky
+        class="url_banner"
+        color="#f00"
+        ref="banner"
+        :style="{
+            textAlign: 'center',
+        }"
+    >
         <template v-slot:default>
             <fa icon="exclamation-triangle"></fa>
             Make sure the URL is
@@ -23,9 +31,10 @@ export default class UrlBanner extends Vue {
 </script>
 <style scoped lang="scss">
 .url_banner {
-    background-color: #1d82bb;
+    background-color: #ee2354 !important;
     color: #fff;
     z-index: 3 !important;
+    font-size: 14px;
 
     .dismiss_but {
         margin-right: 8px;

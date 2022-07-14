@@ -52,7 +52,6 @@
                 </router-link>
             </div>
             <div class="bottom">
-                <AccountMenu class="wallet_link"></AccountMenu>
                 <LanguageSelect></LanguageSelect>
                 <div @click="logout" class="logout">
                     <img src="@/assets/sidebar/logout.svg" />

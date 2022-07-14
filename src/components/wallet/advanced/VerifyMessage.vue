@@ -16,10 +16,11 @@
         <v-btn
             class="button_secondary"
             block
-            small
+            large
             depressed
             @click="verify"
             :disabled="!canSubmit"
+            :style="{ top: '5%' }"
         >
             {{ $t('advanced.verify.submit') }}
         </v-btn>

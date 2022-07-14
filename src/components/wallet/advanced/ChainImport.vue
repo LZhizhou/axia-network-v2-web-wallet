@@ -8,30 +8,16 @@
         </div>
         <p class="err" v-else-if="err">{{ err }}</p>
         <template v-if="!isLoading">
-            <v-btn block class="button_secondary" depressed @click="atomicImportSwap('Core')" small>
-                Import Swap (From Core)
-            </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportSwap('AX')" small>
-                Import Swap (From AX)
-            </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportCore('Swap')" small>
-                Import Core (From Swap)
-            </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportCore('AX')" small>
-                Import Core (From AX)
-            </v-btn>
-            <v-btn
-                v-if="isEVMSupported"
-                block
-                class="button_secondary"
-                depressed
-                @click="atomicImportAX('Swap')"
-                small
-            >
-                Import AX (from Swap)
-            </v-btn>
-            <v-btn block class="button_secondary" depressed @click="atomicImportAX('Core')" small>
-                Import AX (from Core)
+            <select @input="onChangeSource" class="select-core">
+                <option value="SwapCore">Import Swap (From Core)</option>
+                <option value="SwapAx">Import Swap (From AX)</option>
+                <option value="CoreSwap">Import Core (From Swap)</option>
+                <option value="CoreAx">Import Core (From AX)</option>
+                <option value="AxSwap">Import AX (from Swap)</option>
+                <option value="AxCore">Import AX (from Core)</option>
+            </select>
+            <v-btn block class="button_secondary" @click="importKey" large :style="{ top: '30%' }">
+                Import
             </v-btn>
         </template>
         <Spinner class="spinner" v-else></Spinner>
@@ -62,6 +48,7 @@ export default class ChainImport extends Vue {
     isSuccess = false
     isLoading = false
     txId = ''
+    selected: string = ''
 
     get wallet(): null | WalletType {
         let wallet: null | WalletType = this.$store.state.activeWallet
@@ -168,6 +155,31 @@ export default class ChainImport extends Vue {
             this.err = err.message
         }
     }
+    onChangeSource(ev: any) {
+        let val = ev.target.value
+        this.selected = val
+    }
+    importKey() {
+        let key = this.selected
+        if (key === 'SwapCore') {
+            this.atomicImportSwap('Core')
+        }
+        if (key === 'SwapAx') {
+            this.atomicImportSwap('AX')
+        }
+        if (key === 'CoreSwap') {
+            this.atomicImportCore('Swap')
+        }
+        if (key === 'CoreAx') {
+            this.atomicImportCore('AX')
+        }
+        if (key === 'AxSwap') {
+            this.atomicImportAX('Swap')
+        }
+        if (key === 'AxCore') {
+            this.atomicImportAX('Core')
+        }
+    }
 }
 </script>
 <style scoped lang="scss">
@@ -193,5 +205,11 @@ export default class ChainImport extends Vue {
 .tx_id {
     font-size: 13px;
     word-break: break-all;
+}
+.select-core {
+    background: url('../../../assets/dropdownicon.svg') no-repeat right;
+    padding: 10px 30px;
+    border: 2px solid #edeef5;
+    border-radius: 12px;
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
     <div class="axc_input">
         <div class="col1 hover_border">
-            <button class="max_but" @click="maxOut" v-if="max">MAX</button>
             <BigNumInput
                 ref="amt_in"
                 class="amt_in"
@@ -11,21 +10,24 @@
                 placeholder="0.00"
                 @change="amount_in"
             ></BigNumInput>
+            <p :style="{ justifySelf: 'end' }">
+                <b>$</b>
+                {{ '--' }}
+            </p>
         </div>
         <p class="ticker">AXC</p>
         <div v-if="balance" class="balance">
             <div>
                 <p>
-                    <b>{{ $t('misc.balance') }}:</b>
-                    {{ balance.toLocaleString() }}
+                    <button class="max_but" @click="maxOut" v-if="max">MAX</button>
                 </p>
                 <!-- <p>
                     <b>$</b>
                     {{ amountUSD.toLocaleString(2) }}
                 </p> -->
                 <p>
-                    <b>$</b>
-                    {{ '--' }}
+                    <b>{{ $t('misc.balance') }}:</b>
+                    {{ balance.toLocaleString() }}
                 </p>
             </div>
             <div></div>
@@ -110,6 +112,9 @@ export default class AxcInput extends Vue {
     }
 }
 
+.max_but {
+    color: #178fe1;
+}
 .balance {
     display: grid;
     column-gap: 10px;

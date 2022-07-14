@@ -272,13 +272,15 @@ export default class Earn extends Vue {
     }
 
     .no_balance {
-        color: var(--secondary-color);
+        color: #ee2354;
     }
 
     .v-btn {
         margin-top: 14px;
         background: #178fe1 !important;
         border-radius: 12px !important;
+        width: 100%;
+        padding: 20px 0;
     }
     .v-btn.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
         background: #007cbd !important;

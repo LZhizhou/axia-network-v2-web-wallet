@@ -16,7 +16,15 @@
             <textarea placeholder="Message" v-model="message"></textarea>
         </div>
         <p class="err">{{ error }}</p>
-        <v-btn class="button_secondary" block small depressed @click="sign" :disabled="!canSubmit">
+        <v-btn
+            class="button_secondary"
+            block
+            large
+            depressed
+            @click="sign"
+            :disabled="!canSubmit"
+            :style="{ top: '30%' }"
+        >
             {{ $t('advanced.sign.submit') }}
         </v-btn>
 

@@ -1,5 +1,6 @@
 <template>
     <div class="activity_page">
+        <h3 :style="{ marginBottom: '10px' }">Activity</h3>
         <ExportCsvModal ref="csv_modal"></ExportCsvModal>
         <ExportAxcCsvModal ref="axc_csv_modal"></ExportAxcCsvModal>
         <div class="explorer_warning" v-if="!hasExplorer">
@@ -11,50 +12,49 @@
         <div class="settings">
             <div class="filter_col">
                 <div class="filter_cont">
-                    <label>Export CSV File (BETA)</label>
-                    <div class="csv_buttons">
-                        <v-btn
-                            x-small
-                            @click="openCsvModal"
-                            class="button_secondary"
-                            depressed
-                            :disabled="!showList"
-                        >
-                            Export Rewards
-                        </v-btn>
-                        <v-btn
-                            x-small
-                            @click="openAxcCsvModal"
-                            class="button_secondary"
-                            depressed
-                            :disabled="!showList"
-                        >
-                            Export AXC Transfers
-                        </v-btn>
-                    </div>
-                </div>
-                <div class="filter_cont">
-                    <label>{{ $t('activity.label1') }}</label>
                     <RadioButtons :labels="modes" :keys="modeKey" v-model="mode"></RadioButtons>
                 </div>
-            </div>
-            <div>
                 <div class="pagination">
-                    <p class="date_display">{{ monthNowName }} {{ yearNow }}</p>
-                    <div>
+                    <div class="flex-box">
                         <button @click="prevPage" :disabled="!isPrevPage">
                             <fa icon="angle-left"></fa>
                         </button>
+                        <p class="date_display">{{ monthNowName }} {{ yearNow }}</p>
                         <button @click="nextPage" :disabled="!isNextPage">
                             <fa icon="angle-right"></fa>
                         </button>
                     </div>
                 </div>
                 <div class="pagination_info">
-                    <p>{{ $t('activity.found', [txs.length]) }}</p>
                     <button @click="updateHistory">
                         <fa icon="sync"></fa>
                     </button>
+                </div>
+            </div>
+            <div>
+                <div class="filter_cont">
+                    <div class="csv_buttons">
+                        <v-btn
+                            x-small
+                            @click="openCsvModal"
+                            class="export export-reward button_secondary"
+                            depressed
+                            :disabled="!showList"
+                        >
+                            <img src="../../assets/export-reward.png" />
+                            Export Rewards
+                        </v-btn>
+                        <v-btn
+                            x-small
+                            @click="openAxcCsvModal"
+                            class="export export-axc button_secondary"
+                            depressed
+                            :disabled="!showList"
+                        >
+                            <img src="../../assets/export-axc.png" />
+                            Export AXC Transfers
+                        </v-btn>
+                    </div>
                 </div>
             </div>
         </div>
@@ -362,10 +362,15 @@ export default class Activity extends Vue {
 .activity_page {
     position: relative;
     display: grid;
-    grid-template-rows: max-content 1fr;
+    grid-template-rows: max-content max-content 1fr;
     padding-bottom: 14px;
 }
 
+.flex-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 .explorer_warning {
     position: absolute;
     background-color: var(--bg);
@@ -396,8 +401,23 @@ export default class Activity extends Vue {
 }
 
 .radio_buts {
-    border: 1px solid #9ccded;
     border-radius: 20px;
+}
+
+.export {
+    border: 2px solid #178fe1;
+    padding: 20px 10px !important;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 12px;
+    &-reward {
+        color: #178fe1 !important;
+        background-color: white !important;
+    }
+    &-axc {
+        background-color: #178fe1 !important;
+        color: white !important;
+    }
 }
 
 .header {
@@ -414,10 +434,8 @@ export default class Activity extends Vue {
 
 .settings {
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 12px;
 }
 
 .tx_table {
@@ -490,9 +508,7 @@ export default class Activity extends Vue {
     display: flex;
     flex-direction: row;
     align-items: center;
-    p {
-        margin-right: 12px !important;
-    }
+    margin-left: 20px;
     button {
         width: 24px;
         height: 24px;
@@ -520,7 +536,7 @@ export default class Activity extends Vue {
 }
 
 .filter_col {
-    //display: flex;
+    display: flex;
     //flex-direction: row;
     //align-items: center;
 }
