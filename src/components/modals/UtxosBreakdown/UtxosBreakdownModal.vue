@@ -1,9 +1,11 @@
 <template>
     <Modal title="Wallet UTXO Breakdown" ref="modal">
         <div class="utxos_breakdown_body">
-            <div class="tabs">
-                <button @click="setChain('Swap')" :active="chain === 'Swap'">SwapChain</button>
-                <button @click="setChain('Core')" :active="chain === 'Core'">CoreChain</button>
+            <div class="tabs" :style="{ margin: '10px 0' }">
+                <select @input="onChangeSource" class="select-core">
+                    <option value="Swap">SwapChain</option>
+                    <option value="Core">CoreChain</option>
+                </select>
             </div>
             <div class="scrollable">
                 <div style="height: 90px">
@@ -51,7 +53,6 @@
 import { Vue, Component } from 'vue-property-decorator'
 import Modal from '@/components/modals/Modal.vue'
 import { WalletType } from '@/js/wallets/types'
-
 import {
     UTXOSet as AVMUTXOSet,
     UTXO as AVMUTXO,
@@ -161,6 +162,10 @@ export default class UtxosBreakdownModal extends Vue {
 
         return 0
     }
+    onChangeSource(ev: any) {
+        let val = ev.target.value
+        this.chain = val
+    }
 }
 </script>
 <style scoped lang="scss">
@@ -176,6 +181,16 @@ export default class UtxosBreakdownModal extends Vue {
     height: 100%;
     overflow: scroll;
     position: relative;
+}
+.select-core {
+    background: url('../../../assets/dropdownicon.svg') no-repeat right;
+    padding: 10px 25px;
+    border: 2px solid #edeef5;
+    border-radius: 12px;
+    margin-left: 15px;
+}
+select:active {
+    border: none;
 }
 table {
     width: 100%;

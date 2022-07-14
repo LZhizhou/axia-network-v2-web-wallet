@@ -195,7 +195,7 @@ export default class Studio extends Vue {
         width: 100%;
         background: #178fe1 !important;
         border-radius: 12px;
-        padding: 10px 10px;
+        padding: 20px 10px;
     }
     .theme--light.v-btn.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
         background: #178fe1 !important;
