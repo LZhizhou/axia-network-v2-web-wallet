@@ -185,7 +185,8 @@ select {
     outline: none;
     transition-duration: 0.1s;
     cursor: pointer;
-
+    background: url('../../../../assets/dropdownicon.svg') no-repeat right;
+    padding: 10px 25px;
     //&:hover {
     //    border-color: var(--primary-color-light);
     //}

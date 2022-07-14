@@ -150,6 +150,7 @@ export default class VerifyMnemoni2 extends Vue {
     width: 80%;
     margin: 0px auto;
     padding: 8px 30px;
+    background-color: rgb(23, 143, 225) !important;
 }
 
 .err {

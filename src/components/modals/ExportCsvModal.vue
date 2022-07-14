@@ -49,7 +49,7 @@ import {
     UTXO,
 } from '@/store/modules/history/types'
 import { bnToBig } from '@/helpers/helper'
-import { getPriceAtUnixTime } from '@/helpers/price_helper'
+// import { getPriceAtUnixTime } from '@/helpers/price_helper'
 const generate = require('csv-generate')
 import moment from 'moment'
 import {
@@ -126,13 +126,13 @@ export default class ExportCsvModal extends Vue {
 
             let nodeID = tx.validatorNodeID
 
-            let axcPrice = getPriceAtUnixTime(rewardMoment.unix() * 1000)
+            // let axcPrice = getPriceAtUnixTime(rewardMoment.unix() * 1000)
 
             let myOuts = getOwnedOutputs(tx.outputs, myAddresses)
             let rewardOuts = getRewardOuts(myOuts)
             let rewardAmt = getOutputTotals(rewardOuts)
             let rewardAmtBig = bnToBig(rewardAmt, 9)
-            let rewardAmtUsd = axcPrice ? rewardAmtBig.mul(axcPrice) : undefined
+            // let rewardAmtUsd = axcPrice ? rewardAmtBig.mul(axcPrice) : undefined
 
             // Did this wallet receive any rewards?
             let isRewardOwner = rewardOuts.length > 0
@@ -166,8 +166,8 @@ export default class ExportCsvModal extends Vue {
                     stakeAmount: bnToBig(stakeAmount, 9),
                     rewardDate: rewardMoment,
                     rewardAmtAxc: rewardAmtBig,
-                    rewardAmtUsd: rewardAmtUsd,
-                    axcPrice: axcPrice,
+                    // rewardAmtUsd: rewardAmtUsd,
+                    // axcPrice: axcPrice,
                     nodeID: nodeID,
                     isRewardOwner: isRewardOwner,
                     isInputOwner: isInputOwner,
@@ -184,8 +184,8 @@ export default class ExportCsvModal extends Vue {
                     stakeAmount: bnToBig(stakeAmount, 9),
                     rewardDate: rewardMoment,
                     rewardAmtAxc: rewardAmtBig,
-                    rewardAmtUsd: rewardAmtUsd,
-                    axcPrice: axcPrice,
+                    // rewardAmtUsd: rewardAmtUsd,
+                    // axcPrice: axcPrice,
                     nodeID: nodeID,
                     isRewardOwner: isRewardOwner,
                     isInputOwner: isInputOwner,

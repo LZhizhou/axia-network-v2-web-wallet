@@ -74,7 +74,6 @@ export default {
     border: 1px solid #9ccded;
     border-radius: 40px;
     display: grid;
-    padding: 2px 0px;
     grid-template-columns: 1fr 1fr;
 }
 .header {
@@ -94,7 +93,6 @@ export default {
         padding: 8px 24px;
         font-size: 14px;
         font-weight: bold;
-        margin: 0px 5px;
         text-transform: uppercase;
         outline: none !important;
         color: var(--primary-color-light);
@@ -103,6 +101,7 @@ export default {
             color: white;
             background: #178fe1;
             border-radius: 20px;
+            margin: 2px;
         }
     }
 }

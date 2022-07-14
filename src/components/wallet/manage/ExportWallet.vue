@@ -31,8 +31,14 @@
                 :loading="isLoading"
                 depressed
                 block
+                :style="{
+                    background: 'rgb(23, 143, 225) !important',
+                    borderRadius: '12px',
+                    color: 'white !important',
+                }"
                 class="button_primary"
             >
+                <fa icon="upload"></fa>
                 Export Wallet
             </v-btn>
         </form>

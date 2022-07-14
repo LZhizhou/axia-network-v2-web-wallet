@@ -98,6 +98,10 @@
                                                         class="button_primary ava_button access generate"
                                                         @click="access"
                                                         :disabled="!canSubmit"
+                                                        :style="{
+                                                            backgroundColor:
+                                                                'rgb(23, 143, 225) !important',
+                                                        }"
                                                     >
                                                         {{ $t('create.success_submit') }}
                                                     </button>

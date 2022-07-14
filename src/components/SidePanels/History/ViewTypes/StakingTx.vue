@@ -17,13 +17,13 @@
             </div>
             <div class="data_row reward_row">
                 <p>AXC Price at reward date</p>
-                <p v-if="rewardDateAxcPrice">{{ rewardDateAxcPrice.toFixed(2) }} USD</p>
-                <p v-else>Unknown</p>
+                <!-- <p v-if="rewardDateAxcPrice">{{ rewardDateAxcPrice.toFixed(2) }} USD</p> -->
+                <!-- <p v-else>Unknown</p> -->
             </div>
             <div class="data_row reward_row">
                 <p>Total reward in USD</p>
-                <p v-if="totalRewardUSD">{{ totalRewardUSD.toLocaleString(2) }} USD</p>
-                <p v-else>-</p>
+                <!-- <p v-if="totalRewardUSD">{{ totalRewardUSD.toLocaleString(2) }} USD</p> -->
+                <!-- <p v-else>-</p> -->
             </div>
             <div class="data_row">
                 <p v-if="!isNominatorReward">{{ $t('transactions.reward_amount') }}</p>
@@ -91,7 +91,7 @@ import { bnToBig } from '@/helpers/helper'
 import { UnixNow } from '@axia-systems/axiajs/dist/utils'
 import { ValidatorRaw } from '@/components/misc/ValidatorList/types'
 import { WalletType } from '@/js/wallets/types'
-import { getPriceAtUnixTime } from '@/helpers/price_helper'
+// import { getPriceAtUnixTime } from '@/helpers/price_helper'
 import Big from 'big.js'
 
 @Component
@@ -186,17 +186,17 @@ export default class StakingTx extends Vue {
         return bnToBig(this.rewardAmt, 9)
     }
 
-    get rewardDateAxcPrice(): number | undefined {
-        if (!this.endDate) return undefined
-        let unixTime = this.endDate.getTime()
-        let price = getPriceAtUnixTime(unixTime)
-        return price
-    }
+    // get rewardDateAxcPrice(): number | undefined {
+    //     if (!this.endDate) return undefined
+    //     let unixTime = this.endDate.getTime()
+    //     let price = getPriceAtUnixTime(unixTime)
+    //     return price
+    // }
 
-    get totalRewardUSD(): Big | undefined {
-        if (!this.rewardDateAxcPrice) return undefined
-        return this.rewardAmtBig.times(this.rewardDateAxcPrice)
-    }
+    // get totalRewardUSD(): Big | undefined {
+    //     if (!this.rewardDateAxcPrice) return undefined
+    //     return this.rewardAmtBig.times(this.rewardDateAxcPrice)
+    // }
 
     get rewardAmtText() {
         return bnToBig(this.rewardAmt, 9)
