@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@axia-systems/axiajs@^2.0.10":
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-2.0.10.tgz#2aa8f71d12ea36a5589c872183260ce78b65e94a"
-  integrity sha512-esMP/jx2bIVVCg53RjbPbM54tI9noXQNjYf1DBnKSv/UlXUZ/Fdj66+zvwtBNjyH19yfcRKbOU/jPBs56sPbCw==
+"@axia-systems/axiajs@^2.0.11":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@axia-systems/axiajs/-/axiajs-2.0.11.tgz#3f6c6fafc06339c0d729a82e41e54e6f019d3afc"
+  integrity sha512-OXP99js7YuY2Og45zEbUtBVIQVhQ8hsFO29h/D/FMxoI/G8Vyg7nItCO3+WAGn2oQUg5Qz24eXw5wsyCTnfVTw==
   dependencies:
     assert "2.0.0"
     axios "0.27.2"
@@ -44,12 +44,12 @@
     create-hash "1.2.0"
     jest "^26.4.1"
 
-"@axia-systems/vue-components@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@axia-systems/vue-components/-/vue-components-2.0.5.tgz#b6b4d664eda809ba5b68dc64ef7796492a6c924e"
-  integrity sha512-2HKKo9k9fmGchmf04PntT+7OWjiImtAc+kUjgwXYol13eMXtFnUq2Y/qix8PCyUlHNPsvQvRhkotmctgKuWXvw==
+"@axia-systems/vue-components@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@axia-systems/vue-components/-/vue-components-2.0.6.tgz#766146059e4e4724a04d5bdaa85b9db13c6d92db"
+  integrity sha512-AN3+8PBcmFT4a0OeI+gn1Lj2J2eXjiwySEvFP7sq/+YUwVrNyv2F2BpPj4+lUcjDvtIBcZlNYleRwpb78V8XEA==
   dependencies:
-    "@axia-systems/axiajs" "^2.0.10"
+    "@axia-systems/axiajs" "^2.0.11"
     "@fortawesome/fontawesome-svg-core" "^1.2.27"
     "@fortawesome/free-solid-svg-icons" "^5.12.1"
     "@fortawesome/vue-fontawesome" "^0.1.9"
@@ -57,10 +57,10 @@
     core-js "^3.6.4"
     vue "^2.6.11"
 
-"@axia-systems/wallet-sdk@^2.0.6":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@axia-systems/wallet-sdk/-/wallet-sdk-2.0.6.tgz#8f5d7c5e39eb486d362169aa9e58eedebc3e39f5"
-  integrity sha512-zz1077B/2sUlygJY5i29HuYJGD4K2KbGI9VimczneGs/4jj1xlbHEOkk39luDD4DGpEshGzirIjXKf7u2LPNzg==
+"@axia-systems/wallet-sdk@^2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@axia-systems/wallet-sdk/-/wallet-sdk-2.0.7.tgz#28a44e1e0421dab51c4c042f467ffdbe51a61c6b"
+  integrity sha512-Q0VMcMvwdPzc47SuuFubfgNRh8W8KsLU67ZZX1V8gNHCicrbBZ0gOQWsPkALO297ggjc/YCs8cDmtbTxUXfrSQ==
   dependencies:
     "@axia-systems/hd-wallet" "^1.0.0"
     "@ethereumjs/common" "2.6.0"
