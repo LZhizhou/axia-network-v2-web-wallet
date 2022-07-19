@@ -133,7 +133,7 @@ export default class Wallet extends Vue {
 
 .top_bar {
     display: flex;
-    padding: 20px 0px;
+    padding: 10px 0px;
 }
 
 .sidenav {
@@ -141,6 +141,7 @@ export default class Wallet extends Vue {
 }
 
 .search {
+    visibility: hidden !important;
     height: 46px;
     padding: 5px;
     display: flex;
