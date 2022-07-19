@@ -120,9 +120,9 @@
                         <p v-if="currency_type === 'AXC'">
                             {{ totalFeeBig.toLocaleString(2) }} AXC
                         </p>
-                        <p v-if="currency_type === 'USD'">
+                        <!-- <p v-if="currency_type === 'USD'">
                             ${{ totalFeeUsdBig.toLocaleString(2) }} USD
-                        </p>
+                        </p> -->
                     </div>
 
                     <div>
@@ -389,13 +389,13 @@ export default class AddNominator extends Vue {
         return res
     }
 
-    get estimatedRewardUSD() {
-        return this.estimatedReward.times(this.axcPrice)
-    }
+    // get estimatedRewardUSD() {
+    //     return this.estimatedReward.times(this.axcPrice)
+    // }
 
-    get axcPrice(): Big {
-        return Big(this.$store.state.prices.usd)
-    }
+    // get axcPrice(): Big {
+    //     return Big(this.$store.state.prices.usd)
+    // }
 
     rewardSelect(val: 'local' | 'custom') {
         if (val === 'local') {
@@ -542,9 +542,9 @@ export default class AddNominator extends Vue {
         return bnToBig(this.totalFee, 9)
     }
 
-    get totalFeeUsdBig() {
-        return this.totalFeeBig.times(this.axcPrice)
-    }
+    // get totalFeeUsdBig() {
+    //     return this.totalFeeBig.times(this.axcPrice)
+    // }
 
     get txFee(): BN {
         return coreChain.getTxFee()
