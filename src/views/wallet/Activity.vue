@@ -12,7 +12,12 @@
         <div class="settings">
             <div class="filter_col">
                 <div class="filter_cont">
-                    <RadioButtons :labels="modes" :keys="modeKey" v-model="mode"></RadioButtons>
+                    <select @input="onChangeSource" class="select-core">
+                        <option value="all">All</option>
+                        <option value="transfer">Transfer</option>
+                        <option value="swap">Export & Import</option>
+                        <option value="stake">Validation & Nomination</option>
+                    </select>
                 </div>
                 <div class="pagination">
                     <div class="flex-box">
@@ -354,6 +359,10 @@ export default class Activity extends Vue {
         let h = this.$refs.list.clientHeight
         this.listH = h
     }
+    onChangeSource(ev: any) {
+        let val = ev.target.value
+        this.$emit('change', val)
+    }
 }
 </script>
 <style scoped lang="scss">
@@ -366,6 +375,12 @@ export default class Activity extends Vue {
     padding-bottom: 14px;
 }
 
+.select-core {
+    background: url('../../assets/dropdownicon.svg') no-repeat right;
+    padding: 10px;
+    border: 2px solid #edeef5;
+    border-radius: 12px;
+}
 .flex-box {
     display: flex;
     align-items: center;

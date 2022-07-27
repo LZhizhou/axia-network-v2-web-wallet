@@ -1,11 +1,20 @@
 <template>
     <div class="radio_buts">
-        <select @input="onChangeSource" class="select-core">
+        <button
+            v-for="(key, i) in keys"
+            :key="key"
+            @click="select(key)"
+            :active="selection === key"
+            class="hover_border"
+        >
+            {{ labels[i] }}
+        </button>
+        <!-- <select @input="onChangeSource" class="select-core">
             <option value="all">All</option>
             <option value="transfer">Transfer</option>
             <option value="swap">Export & Import</option>
             <option value="stake">Validation & Nomination</option>
-        </select>
+        </select> -->
     </div>
 </template>
 <script lang="ts">
