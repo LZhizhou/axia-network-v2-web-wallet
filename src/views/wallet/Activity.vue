@@ -91,7 +91,7 @@ import {
 import moment from 'moment'
 
 import TxRow from '@/components/wallet/activity/TxRow.vue'
-import RadioButtons from '@/components/misc/RadioButtons.vue'
+import ActivitySelector from '@/components/misc/ActivitySelector.vue'
 import Spinner from '@/components/misc/Spinner.vue'
 
 type FilterModeType = 'all' | 'transfer' | 'export_import' | 'stake'
@@ -115,7 +115,7 @@ const MONTH_MIN = 8
         ExportCsvModal,
         Spinner,
         TxRow,
-        RadioButtons,
+        ActivitySelector: ActivitySelector,
         VirtualList,
     },
 })

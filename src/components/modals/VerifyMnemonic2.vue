@@ -36,7 +36,7 @@ interface Question {
 }
 @Component({
     components: {
-        RadioButtons,
+        RadioButtons: RadioButtons,
         Modal,
     },
 })
